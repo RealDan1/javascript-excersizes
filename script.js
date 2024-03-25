@@ -1,0 +1,5 @@
+
+
+let b = 123456789012345678901234567890123456789123451340n;
+console.log(b);
+console.log(typeof b);
