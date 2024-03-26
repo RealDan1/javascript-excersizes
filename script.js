@@ -10,3 +10,17 @@ console.log(`Your name is ${name1}`);
 // escape character '\'
 const bigmouth = 'I\'ve got no right to take my place…';
 console.log(bigmouth);
+
+//String method - charAt(position)
+let text = "HELLO WORLD";
+let char = text.charAt(0);
+console.log(char);
+
+//String method - at()
+const name2 = "W3Schools";
+let letter1 = name2.at(2);
+console.log(letter1);
+
+//String method - [] - same as at
+const name3 = "W3Schools";
+console.log(name3[3]);
