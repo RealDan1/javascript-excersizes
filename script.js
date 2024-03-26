@@ -24,3 +24,12 @@ console.log(letter1);
 //String method - Property Access [ ] - same technique as at
 const name3 = "W3Schools";
 console.log(name3[3]);
+
+// There are 3 methods for extracting a part of a string:
+
+// slice(start, end) - note the end char is cut off(not included)
+// substring(start, end)
+// substr(start, length)
+text = "Apple, Banana, Kiwi";
+let part = text.slice(7, 13);
+console.log(part);
