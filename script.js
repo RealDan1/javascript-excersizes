@@ -21,6 +21,6 @@ const name2 = "W3Schools";
 let letter1 = name2.at(2);
 console.log(letter1);
 
-//String method - [] - same technique as at
+//String method - Property Access [ ] - same technique as at
 const name3 = "W3Schools";
 console.log(name3[3]);
