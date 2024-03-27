@@ -36,5 +36,5 @@ console.log(part);
 
 //negative counts from end of string
 text = "Apple, Banana, Kiwi";
-part = text.slice(-12);
+part = text.slice(-12,-6);
 console.log(part);
