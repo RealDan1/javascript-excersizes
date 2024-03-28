@@ -39,8 +39,25 @@ text = "Apple, Banana, Kiwi";
 part = text.slice(-12,-6);
 console.log(part); 
 
+//trimStart() and trimEnd();
 text = "      Apple, Banana";
 let trimmedText = text.trimStart();
 console.log(trimmedText);
 let pad = trimmedText.padStart(20, 0); // count is total char count, not just adding a number of times
 console.log(pad);
+text = text.trimStart();
+
+//replace() 
+let replaced = text.replace("Banana", "Strawberry");
+console.log(replaced);
+
+//replace all matches in string (\g global) 
+//and case insensitive (\i insensitive) 
+//gi combines both
+text = "Banana Banana banana banana"
+replaced = text.replace(/Banana/gi, "Strawberry");
+console.log(replaced);
+// replaced = text.replace(/Banana/i, "Strawberry");
+// console.log(replaced);  
+//no need for this code anymore^
+
