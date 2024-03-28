@@ -42,5 +42,5 @@ console.log(part);
 text = "      Apple, Banana";
 let trimmedText = text.trimStart();
 console.log(trimmedText);
-let pad = trimmedText.padStart(6, 5);
+let pad = trimmedText.padStart(20, 0); // count is total char count, not just adding a number of times
 console.log(pad);
