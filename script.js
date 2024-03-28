@@ -39,6 +39,8 @@ text = "Apple, Banana, Kiwi";
 part = text.slice(-12,-6);
 console.log(part); 
 
-text = "       Apple, Banana";
+text = "      Apple, Banana";
 let trimmedText = text.trimStart();
 console.log(trimmedText);
+let pad = trimmedText.padStart(6, 5);
+console.log(pad);
