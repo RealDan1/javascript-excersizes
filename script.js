@@ -37,4 +37,8 @@ console.log(part);
 //negative counts from end of string
 text = "Apple, Banana, Kiwi";
 part = text.slice(-12,-6);
-console.log(part);
+console.log(part); 
+
+text = "       Apple, Banana";
+let trimmedText = text.trimStart();
+console.log(trimmedText);
