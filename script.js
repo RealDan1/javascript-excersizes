@@ -65,3 +65,18 @@ console.log(replaced);
 text = "Hello world";
 let myArray = text.split("");
 console.log(typeof(myArray));
+
+//first if statement:
+let time = new Date().getHours();
+let greeting = "Good evening";
+if (time < 18 && time > 11) {
+    greeting = "Good Day"
+    console.log(greeting);
+
+} else if (time < 11 && time > 0) {
+    greeting = "Good morning"
+    console.log(greeting);
+}
+else {
+    console.log(greeting);
+}
