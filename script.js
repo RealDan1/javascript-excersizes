@@ -61,3 +61,7 @@ console.log(replaced);
 // console.log(replaced);  
 //no need for this code anymore^
 
+//first array:
+text = "Hello world";
+let myArray = text.split("");
+console.log(typeof(myArray));
