@@ -85,3 +85,5 @@ else {
 console.log (!null);
 //inverts truthy/falsy value to boolean
 //!! double invert = essentially converts it to a normal boolean
+
+//Login Algorithm:
