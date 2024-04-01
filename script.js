@@ -80,3 +80,8 @@ if (time < 18 && time > 11) {
 else {
     console.log(greeting);
 }
+
+//test not
+console.log (!null);
+//inverts truthy/falsy value to boolean
+//!! double invert = essentially converts it to a normal boolean
