@@ -1,7 +1,9 @@
-let userName = prompt("Please enter username");
+let userName = prompt("Please enter username", '');
 
 if (userName === "Admin") {
-    let passwInput = prompt("Enter Password");
+
+    let passwInput = prompt("Enter Password", '');
+
     if (passwInput === "Master") {
         alert("Welcome Big boss");
     } else if ((passwInput === "null") || (passwInput==="")) {
