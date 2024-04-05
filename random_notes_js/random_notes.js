@@ -111,7 +111,7 @@ let b = 2;
 let result = (a + b < 4)? 'below' : 'over' ;
 console.log(result);
 
-// test switch:
+// test switch/case:
 let x = 20;
 switch(x) {
     case 3:
