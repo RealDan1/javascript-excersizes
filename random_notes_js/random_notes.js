@@ -105,7 +105,11 @@ console.log (!null);
 //   result = 'Over';
 // }
 
+//small ternary test
+a = 1;
+let b = 2;
 let result = (a + b < 4)? 'below' : 'over' ;
+console.log(result);
 
 // test switch:
 let x = 20;
