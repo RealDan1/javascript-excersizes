@@ -106,3 +106,15 @@ console.log (!null);
 // }
 
 let result = (a + b < 4)? 'below' : 'over' ;
+
+// test switch:
+let x = 20;
+switch(x) {
+    case 3:
+        console.log("its one");
+    break;
+    case 20:
+    case 22:
+        console.log("its 20 or 22");
+    break;
+}
