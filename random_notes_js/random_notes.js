@@ -122,3 +122,18 @@ switch(x) {
         console.log("its 20 or 22");
     break;
 }
+
+// first function: format test
+function nameAndAge(name, age){
+    return "hello my name is " + name + ", and my age is " + age + ".";
+
+}
+console.log (nameAndAge("alex", 24));
+//try something quick - make a console log function:
+function logThis1(text1) {
+return console.log(text1);
+}
+
+logThis1(nameAndAge("daneel",24));
+//wow it worked...
+
