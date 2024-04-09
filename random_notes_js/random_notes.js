@@ -137,3 +137,5 @@ return console.log(text1);
 logThis1(nameAndAge("daneel",24));
 //wow it worked...
 
+
+
