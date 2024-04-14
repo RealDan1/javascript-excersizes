@@ -5,3 +5,7 @@ console.log(button);
 console.log(link);
 button.innerText = "Click me!";
 link.classList.add(".d-none");
+
+button.addEventListener("click", () {
+    button.innerText("Clicked!")
+})
