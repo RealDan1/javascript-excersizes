@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="modify_element.css">
+    <!-- <script src="modify_element.js"></script> -->
+</head>
+<body>
+    <button class="btn btn-primary" id="my-button">Change my text</button>
+  <a id="hide-link">Hide me</a>
+  <script>
+    const button = document.querySelector("#my-button");
+    const link = document.querySelector("#hide-link");
+    link.classList.remove(".d-none");
+    console.log(button);
+    console.log(link);
+    link.classList.add(".d-none");
+    button.innerText = "Click me!";
+  </script>
+</body>
+</html>
