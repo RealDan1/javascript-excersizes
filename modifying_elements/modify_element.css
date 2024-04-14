@@ -1,0 +1,20 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  #my-button {
+    margin-right: 10px;
+  }
+  
+  #hide-link {
+    margin-top: 22px;
+  }
+  
+  .d-none {
+    display: none;
+  }
+  
