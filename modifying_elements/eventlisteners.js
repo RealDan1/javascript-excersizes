@@ -1,7 +1,6 @@
 const button = document.querySelector("#my-button")
 const link = document.querySelector("#reset-link")
 
-// write your code below:
 button.addEventListener("click", () => {
     button.innerText = "Clicked!";
     button.disabled = true;
