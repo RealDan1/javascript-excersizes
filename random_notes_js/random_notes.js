@@ -137,5 +137,17 @@ return console.log(text1);
 logThis1(nameAndAge("daneel",24));
 //wow it worked...
 
+//function to perform action
+function testFunction(name) {
+    message = "hello, " + name;
+    console.log(message);
+}
+testFunction("hamsworth");
 
+//function to return a value
+function returnMe() {
+    let value = "its a lonely world";
+    return value
+}
+console.log(returnMe());
 
