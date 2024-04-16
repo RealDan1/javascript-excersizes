@@ -151,3 +151,9 @@ function returnMe() {
 }
 console.log(returnMe());
 
+//test arrow func tion:
+name1 => `Hello, ${name1}!`;
+const greet = name1("Dan");
+console.log(greet);
+
+
