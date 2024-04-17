@@ -152,9 +152,9 @@ function returnMe() {
 console.log(returnMe());
 
 //test arrow func tion:
-// name1 => `Hello, ${name1}!`;
-// const greet = name1("Dan");
-// console.log(greet);
+const namevar = name1 => `Hello, ${name1}!`;
+const greet = namevar("Dan1");
+console.log(greet);
 
 
 //fucntion w empty return that stops the function halfway
@@ -165,6 +165,5 @@ function age_test(age) {
     }
     console.log("Proceed");
 };
-
 age_test(18);
 
