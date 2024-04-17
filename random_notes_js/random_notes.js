@@ -152,8 +152,19 @@ function returnMe() {
 console.log(returnMe());
 
 //test arrow func tion:
-name1 => `Hello, ${name1}!`;
-const greet = name1("Dan");
-console.log(greet);
+// name1 => `Hello, ${name1}!`;
+// const greet = name1("Dan");
+// console.log(greet);
 
+
+//fucntion w empty return that stops the function halfway
+function age_test(age) {
+    if(age <= 18){
+        console.log("are you sure you are old enough?");
+        return
+    }
+    console.log("Proceed");
+};
+
+age_test(18);
 
