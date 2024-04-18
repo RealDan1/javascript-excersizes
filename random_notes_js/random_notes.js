@@ -167,3 +167,6 @@ function age_test(age) {
 };
 age_test(18);
 
+//test a prompt function
+//let age = prompt("what is your age?");
+//this creates popup dialogue
