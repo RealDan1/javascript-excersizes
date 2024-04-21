@@ -137,5 +137,70 @@ return console.log(text1);
 logThis1(nameAndAge("daneel",24));
 //wow it worked...
 
+//function to perform action
+function testFunction(name) {
+    message = "hello, " + name;
+    console.log(message);
+}
+testFunction("hamsworth");
+
+//function to return a value
+function returnMe() {
+    let value = "its a lonely world";
+    return value
+}
+console.log(returnMe());
+
+//test arrow func tion:
+const namevar = name1 => `Hello, ${name1}!`;
+const greet = namevar("Dan1");
+console.log(greet);
 
 
+//fucntion w empty return that stops the function halfway
+function age_test(age) {
+    if(age <= 18){
+        console.log("are you sure you are old enough?");
+        return
+    }
+    console.log("Proceed");
+};
+age_test(18);
+
+//test a prompt function
+//let age = prompt("what is your age?");
+//this creates popup dialogue
+
+
+//Odinproject Javascript script excersize:
+// For now, just write each function and test the output with console.log.
+
+// Write a function called add7 that takes one number and returns that number + 7.
+// Write a function called multiply that takes 2 numbers and returns their product.
+// Write a function called capitalize that takes a string and returns that string with only the first letter capitalized. Make sure that it can take strings that are lowercase, UPPERCASE or BoTh.
+// Write a function called lastLetter that takes a string and returns the very last letter of that string:
+// lastLetter("abcd") should return "d"
+
+//1
+function add7(n) {
+    return n+7;
+}
+console.log(add7(3));
+
+//2
+let multiply = (n,y) => n * y;
+console.log(multiply(2,4));
+
+//3
+function capitalize(word) {
+    word = word.toLowerCase();
+   return word.charAt(0).toUpperCase()+ word.slice(1);
+}
+console.log(capitalize("signAl"));
+
+//4
+function lastLetter(word) {
+    let stringCount = word.length;
+    return word.charAt(stringCount-1);
+}
+console.log(lastLetter("abcd"));
