@@ -204,3 +204,16 @@ function lastLetter(word) {
     return word.charAt(stringCount-1);
 }
 console.log(lastLetter("abcd"));
+
+//testing map() in arrays:
+
+// function toUpper(string) {
+//     return string.toUpperCase();
+//   }
+  
+  const cats = ["Leopard", "Serval", "Jaguar", "Tiger", "Caracal", "Lion"];
+  
+  const upperCats = cats.map(string => string.toUpperCase());
+  // I refined the code here by =>
+  console.log(upperCats);
+  // [ "LEOPARD", "SERVAL", "JAGUAR", "TIGER", "CARACAL", "LION" ]
