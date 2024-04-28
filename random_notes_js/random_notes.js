@@ -226,3 +226,20 @@ while (i < 3) {
     //alert(`number ${i}!`);
     i++;
 }
+
+//my computer did not like this code.. at all
+// let k = 0;
+// let userInput;
+// while (k <= 100) {
+//     userInput = prompt("please enter a number more than");
+//     if (userInput <= 100) {
+//         userInput = prompt("please enter a number more than1111111");
+//     } else if (!userInput) {
+//         k = 1001;
+//         break;
+//     } else {
+//         alert("code done");
+//         k = 1001;
+//         break;
+//     }
+// }
