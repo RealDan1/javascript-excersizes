@@ -217,3 +217,14 @@ console.log(lastLetter("abcd"));
   // I refined the code here by =>
   console.log(upperCats);
   // [ "LEOPARD", "SERVAL", "JAGUAR", "TIGER", "CARACAL", "LION" ]
+
+  //test for loop even outputter
+  for (let i = 2; i <=10; i++) {
+    if (i % 2 == 0) {
+        alert(i);
+    } else {
+        continue;
+    }
+}
+
+
