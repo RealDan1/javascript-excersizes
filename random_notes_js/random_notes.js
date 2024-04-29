@@ -221,11 +221,11 @@ for (let i = 2; i <= 10; i++) {
 }
 
 // Replace for with while
-let i = 0;
-while (i < 3) {
-    //alert(`number ${i}!`);
-    i++;
-}
+// let i = 0;
+// while (i < 3) {
+//     //alert(`number ${i}!`);
+//     i++;
+// }
 
 // My computer did not like this code.. at all
 // let k = 0;
