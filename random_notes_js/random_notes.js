@@ -259,3 +259,29 @@ for (let i = 2; i <= 10; i++) {
 //     }
 // }
 // console.log(printString);
+
+//countdowntimer
+let output = document.querySelector(".output");
+output.innerHTML = "";
+
+let i = 10;
+
+// const para = document.createElement('p');
+// para.textContent = ;
+// output.appendChild(para);
+
+for (let j = i; j >= 0; j--) {
+    if (j == 10) {
+        const para = document.createElement("p");
+        para.textContent = "Countdown" + j;
+        output.appendChild(para);
+    } else if (j == 0) {
+        const para = document.createElement("p");
+        para.textContent = j + "Blastoff";
+        output.appendChild(para);
+    } else if (j >= 0 && j < 10) {
+        const para = document.createElement("p");
+        para.textContent = j;
+        output.appendChild(para);
+    }
+}
