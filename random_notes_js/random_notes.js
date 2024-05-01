@@ -244,7 +244,7 @@ for (let i = 2; i <= 10; i++) {
 //     }
 // }
 
-// This was the correct code
+// This was the correct code_________________________
 // let num;
 
 // do {
@@ -260,26 +260,27 @@ for (let i = 2; i <= 10; i++) {
 // }
 // console.log(printString);
 
-//countdowntimer
+//countdowntimer_________________________
 let output = document.querySelector(".output");
 output.innerHTML = "";
 
-let i = 10;
+//set countdown here
+let i = 15;
 
 // const para = document.createElement('p');
 // para.textContent = ;
 // output.appendChild(para);
 
 for (let j = i; j >= 0; j--) {
-    if (j == 10) {
+    if (j == i) {
         const para = document.createElement("p");
-        para.textContent = "Countdown" + j;
+        para.textContent = "Countdown: " + j;
         output.appendChild(para);
     } else if (j == 0) {
         const para = document.createElement("p");
-        para.textContent = j + "Blastoff";
+        para.textContent = j + " Blastoff!!";
         output.appendChild(para);
-    } else if (j >= 0 && j < 10) {
+    } else if (j >= 0 && j < i) {
         const para = document.createElement("p");
         para.textContent = j;
         output.appendChild(para);
