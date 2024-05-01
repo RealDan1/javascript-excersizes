@@ -1,15 +1,29 @@
-let n = 10;
-//parseInt(prompt("please input n larger than one please"));
+let n;
+n = parseInt(prompt("please input n larger than one please"));
 let printString = "";
-for (let i = 2; i < n; i++) {
-    if (n % 1 === 0 && i % 1 === 0 && n % i > 0) {
-        printString = printString + "," + i;
-        console.log("test1");
+let prime = false;
+let potentialPrime;
+outerloop: for (let i = 2; i <= n; i++) {
+    prime = false;
+    for (let j = 2; j < i; j++) {
+        if (i % j == 0) {
+            continue outerloop;
+        }
     }
+    potentialPrime = i;
+    printString += "," + potentialPrime;
+    prime = false;
 }
 
 const bodyElement = document.getElementById("myBody");
 // Change the text content
 bodyElement.textContent = printString;
-console.log(printString + "this text should work - test 2");
-console.log("aftertest");
+console.log(printString);
+console.log(
+    "aftertest string to make sure the browser hasnt frozen during the code"
+);
+
+// else {
+//     prime = false;
+//     continue;
+// }
