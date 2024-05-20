@@ -7,4 +7,8 @@ function alertFunction() {
   console.log('you clicked a button!');
 }
 
-btn1.addEventListener('click', alertFunction);
+// btn1.addEventListener('click', alertFunction);
+
+btn1.addEventListener('click', function (e) {
+  console.log(e.target);
+});
