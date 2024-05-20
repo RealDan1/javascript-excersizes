@@ -9,6 +9,10 @@ function alertFunction() {
 
 // btn1.addEventListener('click', alertFunction);
 
+// btn1.addEventListener('click', function (e) {
+//   console.log(e.target);
+// });
+
 btn1.addEventListener('click', function (e) {
-  console.log(e.target);
+  e.target.style.background = 'blue';
 });
