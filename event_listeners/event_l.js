@@ -1,0 +1,10 @@
+const btn1 = document.querySelector('#btn1');
+const btn2 = document.querySelector('#btn2');
+
+btn2.onclick = () => console.log('you shortcutted clicking');
+
+function alertFunction() {
+  console.log('you clicked a button!');
+}
+
+btn1.addEventListener('click', alertFunction);
