@@ -46,6 +46,11 @@
         newButton.textContent = 'Delete';
         newSpan.textContent = inputtedValue;
         listA.appendChild(newListItem);
+
+        newButton.addEventListener('click', () => {
+          listA.removeChild(newListItem);
+        });
+        inputBox.focus();
       }
 
       buttonA.addEventListener('click', runThis);
