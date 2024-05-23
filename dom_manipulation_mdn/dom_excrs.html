@@ -31,6 +31,17 @@
       );
       const linkPara = document.querySelector('p');
       linkPara.appendChild(text);
+      // sect.appendChild(linkPara);
+      // sect.removeChild(linkPara);
+      // para.remove();
+
+      //older browsers dont support Element.remove() use method below instead:
+      //para.parentNode.removeChild(para);
+      para.style.fontWeight = 'bold';
+      para.style.padding = '10px';
+      para.style.border = 'solid 1px';
+      para.style.textAlign = 'center';
+      
     </script>
   </body>
 </html>
