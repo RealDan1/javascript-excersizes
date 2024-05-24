@@ -33,6 +33,7 @@
       const inputBox = document.querySelector('input');
 
       function runThis() {
+        event.preventDefault();
         let inputtedValue = inputBox.value;
         inputBox.value = '';
 
@@ -49,6 +50,7 @@
 
         newButton.addEventListener('click', () => {
           listA.removeChild(newListItem);
+          inputBox.focus();
         });
         inputBox.focus();
       }
