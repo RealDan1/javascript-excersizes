@@ -26,22 +26,22 @@
     <input type="text" id="messageText" />
   </body>
   <script>
-    document.addEventListener("DOMContentLoaded", (event) => {
-      console.log("The DOM is fully loaded.");
+    document.addEventListener('DOMContentLoaded', (event) => {
+      console.log('The DOM is fully loaded.');
     });
-    const link = document.querySelector("a");
-    link.textContent = "Mozilla Developer Network";
-    link.href = "https://developer.mozilla.org";
+    const link = document.querySelector('a');
+    link.textContent = 'Mozilla Developer Network';
+    link.href = 'https://developer.mozilla.org';
 
-    const sect = document.querySelector("section");
-    const para = document.createElement("p");
-    para.textContent = "We hope you enjoyed the ride.";
+    const sect = document.querySelector('section');
+    const para = document.createElement('p');
+    para.textContent = 'We hope you enjoyed the ride.';
     sect.appendChild(para);
 
     const text = document.createTextNode(
-      " — the premier source for web development knowledge."
+      ' — the premier source for web development knowledge.'
     );
-    const linkPara = document.querySelector("p");
+    const linkPara = document.querySelector('p');
     linkPara.appendChild(text);
     // sect.appendChild(linkPara);
     // sect.removeChild(linkPara);
@@ -49,45 +49,45 @@
 
     //older browsers dont support Element.remove() use method below instead:
     //para.parentNode.removeChild(para);
-    para.style.fontWeight = "bold";
-    para.style.padding = "10px";
-    para.style.border = "solid 1px";
-    para.style.textAlign = "center";
+    para.style.fontWeight = 'bold';
+    para.style.padding = '10px';
+    para.style.border = 'solid 1px';
+    para.style.textAlign = 'center';
 
-    para.setAttribute("class", "highlight");
+    para.setAttribute('class', 'highlight');
 
-    link.setAttribute("href", "https://www.google.com");
+    link.setAttribute('href', 'https://www.google.com');
 
     //Script to add button but switch/case for each click type
-    let btn = document.querySelector("#btn");
+    let btn = document.querySelector('#btn');
 
     // disable context menu when right-mouse clicked
-    btn.addEventListener("contextmenu", (e) => {
+    btn.addEventListener('contextmenu', (e) => {
       e.preventDefault();
     });
 
     // show the mouse event message
-    btn.addEventListener("mouseup", (e) => {
-      let msg = document.querySelector("#message");
+    btn.addEventListener('mouseup', (e) => {
+      let msg = document.querySelector('#message');
       switch (e.button) {
         case 0:
-          msg.textContent = "Left mouse button clicked.";
+          msg.textContent = 'Left mouse button clicked.';
           break;
         case 1:
-          msg.textContent = "Middle mouse button clicked.";
+          msg.textContent = 'Middle mouse button clicked.';
           break;
         case 2:
-          msg.textContent = "Right mouse button clicked.";
+          msg.textContent = 'Right mouse button clicked.';
           break;
         default:
-          msg.textContent = `Unknown mouse button code: ${event.button}`;
+          msg.textContent = `Unknown mouse button code: ${e.button}`;
       }
     });
 
     //KEBYOARD EVENTS:
-    let textBox = document.getElementById("messageText");
-    textBox.addEventListener("keydown", (event) => {
-      let msg2 = document.querySelector("#message2");
+    let textBox = document.getElementById('messageText');
+    textBox.addEventListener('keydown', (event) => {
+      let msg2 = document.querySelector('#message2');
       console.log(`key=${event.key},code=${event.code}`);
       msg2.textContent = `key = ${event.key}, code = ${event.code}`;
     });
