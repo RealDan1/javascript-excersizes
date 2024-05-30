@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Click any item below</h1>
+    <ul id="menu">
+      <li><a id="home">Home</a></li>
+      <li><a id="dashboard">Dashboard</a></li>
+      <li><a id="report">Report</a></li>
+    </ul>
+    <p></p>
+  </body>
+  <script>
+    let p = document.querySelector('p');
+    let menu = document.querySelector('#menu');
+    menu.addEventListener('click', (e) => {
+      let target = e.target;
+      switch (target.id) {
+        case 'home':
+          p.textContent = 'Home menu item was clicked';
+          break;
+        case 'dashboard':
+          p.textContent = 'Dashboard menu item was clicked';
+          break;
+        case 'report':
+          p.textContent = 'Report menu item was clicked';
+          break;
+      }
+    });
+  </script>
+</html>
