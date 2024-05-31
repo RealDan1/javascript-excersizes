@@ -14,6 +14,7 @@
     </ul>
     <button id="button">artificialClick</button>
     <p></p>
+    <p class="p2"></p>
   </body>
   <script>
     let p = document.querySelector('p');
@@ -33,8 +34,9 @@
       }
     });
     let button = document.querySelector('#button');
+    let p2 = document.querySelector('.p2');
     button.addEventListener('click', (e) => {
-      p.textContent = 'Ai button was clicked';
+      p2.textContent = 'Ai button was clicked';
     });
 
     let clickFake = new Event('click');
