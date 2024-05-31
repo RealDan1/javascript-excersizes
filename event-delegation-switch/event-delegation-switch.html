@@ -12,6 +12,7 @@
       <li><a id="dashboard">Dashboard</a></li>
       <li><a id="report">Report</a></li>
     </ul>
+    <button id="button">artificialClick</button>
     <p></p>
   </body>
   <script>
@@ -31,5 +32,12 @@
           break;
       }
     });
+    let button = document.querySelector('#button');
+    button.addEventListener('click', (e) => {
+      p.textContent = 'Ai button was clicked';
+    });
+
+    let clickFake = new Event('click');
+    button.dispatchEvent(clickFake);
   </script>
 </html>
