@@ -25,3 +25,28 @@ let bag = {
 };
 
 console.log(bag[fruit]); // 5 if fruit="apple"
+
+// most critical function for making objects - THE SHORTHAND
+
+// name: name, is the same as "name,"
+function makeUser(name, age, height) {
+  return {
+    name: name,
+    age: age,
+    height, // is the same as hieght:height,
+    // ...other properties
+  };
+}
+
+let user = makeUser('John', 30);
+console.log(user.name); // John
+
+// THE ACTUAL SHORTHAND IN PRACTICE:
+
+function makeUser(name, age, height) {
+  return {
+    name,
+    age,
+    height,
+  };
+}
