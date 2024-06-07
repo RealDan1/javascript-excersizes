@@ -16,3 +16,12 @@ firstObj = {
   'likes flowers': 'Yes I like flowers',
 };
 console.log(firstObj['likes flowers']);
+
+// [Computed properties]
+//        let fruit = prompt('Which fruit to buy?', 'apple');
+let fruit = 'apple';
+let bag = {
+  [fruit]: 5, // the name of the property is taken from the variable fruit
+};
+
+console.log(bag[fruit]); // 5 if fruit="apple"
