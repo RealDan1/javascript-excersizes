@@ -64,3 +64,5 @@ let user = { name: 'John', age: 30 };
 
 console.log('age' in user); // true, user.age exists
 console.log('blabla' in user); // false, user.blabla doesn't exist
+// use this instead of undefined to test propert because undefined can be stored as a value
+// (and if tested will return undefined but the property actually exists)
