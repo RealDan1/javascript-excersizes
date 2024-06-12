@@ -64,7 +64,7 @@ console.log(obj23[0]); // test (same property)
 
 //Test if property exists:
 //========================
-let user = { name: 'John', age: 30 };
+user = { name: 'John', age: 30 };
 
 console.log('age' in user); // true, user.age exists
 console.log('blabla' in user); // false, user.blabla doesn't exist
@@ -73,7 +73,7 @@ console.log('blabla' in user); // false, user.blabla doesn't exist
 
 //FOR.. IN LOOP
 //=============
-let user = {
+user = {
   name: 'John',
   age: 30,
   isAdmin: true,
@@ -86,7 +86,7 @@ for (let key in user) {
   console.log(user[key]); // John, 30, true
 }
 
-//for..in loop with numbers:
+//for..in loop with numbers - nb cheat by addding "+"":
 let codes = {
   '+49': 'Germany',
   '+41': 'Switzerland',
