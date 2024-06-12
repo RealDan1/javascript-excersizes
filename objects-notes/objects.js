@@ -81,7 +81,20 @@ let user = {
 
 for (let key in user) {
   // keys
-  alert(key); // name, age, isAdmin
+  console.log(key); // name, age, isAdmin
   // values for the keys
-  alert(user[key]); // John, 30, true
+  console.log(user[key]); // John, 30, true
+}
+
+//for..in loop with numbers:
+let codes = {
+  '+49': 'Germany',
+  '+41': 'Switzerland',
+  '+44': 'Great Britain',
+  // ..,
+  '+1': 'USA',
+};
+
+for (let code in codes) {
+  console.log(+code); // 49, 41, 44, 1
 }
