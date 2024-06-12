@@ -29,7 +29,7 @@ let bag = {
 console.log(bag[fruit]); // 5 if fruit="apple"
 
 // most critical function for making objects - THE SHORTHAND
-//===============================================================
+// ===============================================================
 
 // name: name, is the same as "name,"
 function makeUser(name, age, height) {
@@ -41,7 +41,7 @@ function makeUser(name, age, height) {
   };
 }
 
-let user = makeUser('John', 30);
+let user1 = makeUser('John', 30);
 console.log(user.name); // John
 
 // THE ACTUAL SHORTHAND IN PRACTICE:
@@ -62,31 +62,31 @@ let obj23 = {
 console.log(obj23['0']); // test
 console.log(obj23[0]); // test (same property)
 
-//Test if property exists:
-//========================
-user = { name: 'John', age: 30 };
+// Test if property exists:
+// ========================
+user1 = { name: 'John', age: 30 };
 
-console.log('age' in user); // true, user.age exists
-console.log('blabla' in user); // false, user.blabla doesn't exist
+console.log('age' in user1); // true, user1.age exists
+console.log('blabla' in user1); // false, user1.blabla doesn't exist
 // use this instead of undefined to test propert because undefined can be stored as a value
 // (and if tested will return undefined but the property actually exists)
 
-//FOR.. IN LOOP
-//=============
-user = {
+// FOR.. IN LOOP
+// =============
+user1 = {
   name: 'John',
   age: 30,
   isAdmin: true,
 };
 
-for (let key in user) {
+for (let key in user1) {
   // keys
   console.log(key); // name, age, isAdmin
   // values for the keys
-  console.log(user[key]); // John, 30, true
+  console.log(user1[key]); // John, 30, true
 }
 
-//for..in loop with numbers - nb cheat by addding "+"":
+// for..in loop with numbers - nb cheat by addding "+"":
 let codes = {
   '+49': 'Germany',
   '+41': 'Switzerland',
@@ -98,3 +98,38 @@ let codes = {
 for (let code in codes) {
   console.log(+code); // 49, 41, 44, 1
 }
+
+// Summary
+// ========
+// Objects are associative arrays with several special features.
+// They store properties (key-value pairs), where:
+// - Property keys must be strings or symbols (usually strings).
+// - Values can be of any type.
+
+// To access a property, we can use:
+// - The dot notation: obj.property.
+// - Square brackets notation obj["property"]. Square brackets allow taking the key from a variable, like obj[varWithKey].
+
+// Additional operators:
+// - To delete a property: delete obj.prop.
+// - To check if a property with the given key exists: "key" in obj.
+// - To iterate over an object: for (let key in obj) loop.
+
+// What we’ve studied in this chapter is called a “plain object”, or just Object.
+// There are many other kinds of objects in JavaScript:
+// - Array to store ordered data collections,
+// - Date to store the information about the date and time,
+// - Error to store the information about an error.
+// …And so on.
+
+// They have their special features that we’ll study later. Sometimes people say something like “Array type” or “Date type”, but formally they are not types of their own, but belong to a single “object” data type. And they extend it in various ways.
+
+// Objects in JavaScript are very powerful. Here we’ve just scratched the surface of a topic that is really huge. We’ll be closely working with objects and learning more about them in further parts of the tutorial.
+
+// Objects Excersizes:
+// ==================
+let user = {};
+user = {
+  name: 'John',
+  surname: 'smith',
+};
