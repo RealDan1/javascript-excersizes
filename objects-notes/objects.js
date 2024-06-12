@@ -6,6 +6,7 @@ let firstObj = {
 console.log(firstObj.name);
 
 //using dot key on new object does add property
+//=================================================
 firstObj.isAdmin = 'Yes he is an admin';
 
 console.log(firstObj.isAdmin);
@@ -17,7 +18,8 @@ firstObj = {
 };
 console.log(firstObj['likes flowers']);
 
-// [Computed properties]
+// Computed properties
+//====================
 //        let fruit = prompt('Which fruit to buy?', 'apple');
 let fruit = 'apple';
 let bag = {
@@ -27,6 +29,7 @@ let bag = {
 console.log(bag[fruit]); // 5 if fruit="apple"
 
 // most critical function for making objects - THE SHORTHAND
+//===============================================================
 
 // name: name, is the same as "name,"
 function makeUser(name, age, height) {
@@ -59,10 +62,26 @@ let obj23 = {
 console.log(obj23['0']); // test
 console.log(obj23[0]); // test (same property)
 
-//test if property exists:
+//Test if property exists:
+//========================
 let user = { name: 'John', age: 30 };
 
 console.log('age' in user); // true, user.age exists
 console.log('blabla' in user); // false, user.blabla doesn't exist
 // use this instead of undefined to test propert because undefined can be stored as a value
 // (and if tested will return undefined but the property actually exists)
+
+//FOR.. IN LOOP
+//=============
+let user = {
+  name: 'John',
+  age: 30,
+  isAdmin: true,
+};
+
+for (let key in user) {
+  // keys
+  alert(key); // name, age, isAdmin
+  // values for the keys
+  alert(user[key]); // John, 30, true
+}
