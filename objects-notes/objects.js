@@ -58,3 +58,9 @@ let obj23 = {
 // both alerts access the same property (the number 0 is converted to string "0")
 console.log(obj23['0']); // test
 console.log(obj23[0]); // test (same property)
+
+//test if property exists:
+let user = { name: 'John', age: 30 };
+
+console.log('age' in user); // true, user.age exists
+console.log('blabla' in user); // false, user.blabla doesn't exist
