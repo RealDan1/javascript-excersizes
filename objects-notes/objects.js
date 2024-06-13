@@ -42,7 +42,7 @@ function makeUser(name, age, height) {
 }
 
 let user1 = makeUser('John', 30);
-console.log(user.name); // John
+console.log(user1.name); // John
 
 // THE ACTUAL SHORTHAND IN PRACTICE:
 
@@ -151,3 +151,25 @@ console.log(isEmpty(schedule)); // true
 schedule['8:30'] = 'get up';
 
 console.log(isEmpty(schedule)); // false
+
+//multiply numeric properties
+
+// before the call
+let menu = {
+  width: 200,
+  height: 300,
+  title: 'My menu',
+};
+
+function multiplyNumeric(obj) {
+  for (let key in obj) {
+    if (typeof obj[key] === 'number') {
+      obj[key] *= 2;
+      console.log(obj[key]);
+    } else {
+      console.log(obj[key]);
+    }
+  }
+}
+
+multiplyNumeric(menu);
