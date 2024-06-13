@@ -152,7 +152,8 @@ schedule['8:30'] = 'get up';
 
 console.log(isEmpty(schedule)); // false
 
-//multiply numeric properties
+//Loop thru obj and multiply numeric properties
+//=========================================
 
 // before the call
 let menu = {
