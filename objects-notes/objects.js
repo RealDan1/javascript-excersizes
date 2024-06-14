@@ -210,3 +210,20 @@ const euroObject = {
   },
 };
 euroObject.alphaMethod();
+
+function createCoin(name, coinSize, value) {
+  const coin = {};
+  coin.name = name;
+  coin.coinSize = coinSize;
+  coin.value = value;
+  coin.introduceSelf = function () {
+    console.log(
+      `Hi! My Coin name is ${this.name}. My value is ${this.value}, my coinsize is ${this.coinSize}.`
+    );
+  };
+  return coin;
+}
+
+const zimDollar = createCoin('zimDollar', 15, 0.1);
+zimDollar.introduceSelf();
+console.log(zimDollar.value);
