@@ -182,9 +182,16 @@ const randObject = {
   value: 1,
   printValue: function () {
     console.log(
-      `This coin is a R${this.value} coin sized at ${this.coinSize}mm`
+      `This coin is a ${this.value} coin sized at ${this.coinSize}mm`
     );
   },
 };
 
 randObject.printValue();
+
+const dollarObject = {
+  coinSize: 50,
+  value: 2,
+  printValue: randObject.printValue,
+};
+dollarObject.printValue();
