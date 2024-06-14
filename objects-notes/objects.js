@@ -174,3 +174,17 @@ function multiplyNumeric(obj) {
 }
 
 multiplyNumeric(menu);
+
+//Using my first 'this' inside an object:
+//=====================================
+const randObject = {
+  coinSize: 20,
+  value: 1,
+  printValue: function () {
+    console.log(
+      `This coin is a R${this.value} coin sized at ${this.coinSize}mm`
+    );
+  },
+};
+
+randObject.printValue();
