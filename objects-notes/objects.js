@@ -189,9 +189,24 @@ const randObject = {
 
 randObject.printValue();
 
+//reuse method inside another object(with this)
 const dollarObject = {
   coinSize: 50,
   value: 2,
   printValue: randObject.printValue,
 };
+
 dollarObject.printValue();
+
+//shorthand for writing method inside object:
+const euroObject = {
+  coinSize: 40,
+  value: 4,
+  printValue: randObject.printValue,
+  alphaMethod() {
+    console.log(
+      `I'm the bestcoin because my value is ${this.value}. I am Euro.`
+    );
+  },
+};
+euroObject.alphaMethod();
