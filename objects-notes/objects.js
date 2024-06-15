@@ -152,6 +152,14 @@ schedule['8:30'] = 'get up';
 
 console.log(isEmpty(schedule)); // false
 
+//object as object property
+//=========================
+
+let salaries = {
+  John: { monthly: 100, yearly: 1200 },
+};
+console.log(salaries.John.yearly);
+
 //Loop thru obj and multiply numeric properties
 //=========================================
 
