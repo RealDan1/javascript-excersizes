@@ -235,3 +235,16 @@ function createCoin(name, coinSize, value) {
 const zimDollar = createCoin('zimDollar', 15, 0.1);
 zimDollar.introduceSelf();
 console.log(zimDollar.value);
+
+//Using constructors to create multiple objects:
+function Coin(name, size, value) {
+  this.name = name;
+  this.size = size;
+  this.value = value;
+  this.introduce = function () {
+    console.log(`Hi I am a ${this.name} coin`);
+  };
+}
+
+const auDollar = new Coin('auDollar', 30, 10);
+auDollar.introduce();
