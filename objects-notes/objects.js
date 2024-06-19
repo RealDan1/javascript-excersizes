@@ -248,3 +248,14 @@ function Coin(name, size, value) {
 
 const auDollar = new Coin('auDollar', 30, 10);
 auDollar.introduce();
+
+//Map array function(iterates thru an array and applies addOne function to each one):
+function addOne(num) {
+  num += 1;
+  return num;
+}
+
+let array1 = [1, 2, 3, 4];
+console.log(array1);
+let newArray = array1.map(addOne);
+console.log(newArray);
