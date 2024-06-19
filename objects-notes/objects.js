@@ -259,3 +259,8 @@ let array1 = [1, 2, 3, 4];
 console.log(array1);
 let newArray = array1.map(addOne);
 console.log(newArray);
+
+//or inline function inside map():
+const arr = [1, 2, 3, 4, 5];
+const mappedArr = arr.map((num) => num + 1);
+console.log(mappedArr); // Outputs [2, 3, 4, 5, 6]
