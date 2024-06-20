@@ -264,3 +264,12 @@ console.log(newArray);
 const arr = [1, 2, 3, 4, 5];
 const mappedArr = arr.map((num) => num + 1);
 console.log(mappedArr); // Outputs [2, 3, 4, 5, 6]
+
+//Filter method expects boolean returned by input function
+function isOdd(num) {
+  return num % 2 !== 0;
+}
+const arr2 = [1, 2, 3, 4, 5];
+const oddNums = arr.filter(isOdd);
+console.log(oddNums); // Outputs [1, 3, 5];
+console.log(arr); // Outputs [1, 2, 3, 4, 5], original array is not affected
