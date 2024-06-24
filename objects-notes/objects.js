@@ -274,7 +274,7 @@ const oddNums = arr.filter(isOdd);
 console.log(oddNums); // Outputs [1, 3, 5];
 console.log(arr); // Outputs [1, 2, 3, 4, 5], original array is not affected
 
-//reduce method(not fully understood)
+//reduce method
 arr = [1, 2, 3, 4, 5];
 const productOfAllNums = arr.reduce((total, currentItem) => {
   return total * currentItem;
