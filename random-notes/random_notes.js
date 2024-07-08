@@ -261,30 +261,34 @@ for (let i = 2; i <= 10; i++) {
 // console.log(printString);
 
 //countdowntimer_________________________
-let output = document.querySelector('.output');
-output.innerHTML = '';
+// let output = document.querySelector('.output');
+// output.innerHTML = '';
 
-//set countdown here
-let i = 15;
+// //set countdown here
+// let i = 15;
 
-// const para = document.createElement('p');
-// para.textContent = ;
-// output.appendChild(para);
+// // const para = document.createElement('p');
+// // para.textContent = ;
+// // output.appendChild(para);
 
-for (let j = i; j >= 0; j--) {
-  if (j == i) {
-    const para = document.createElement('p');
-    para.textContent = 'Countdown: ' + j;
-    output.appendChild(para);
-  } else if (j == 0) {
-    const para = document.createElement('p');
-    para.textContent = j + ' Blastoff!!';
-    output.appendChild(para);
-  } else if (j >= 0 && j < i) {
-    const para = document.createElement('p');
-    para.textContent = j;
-    output.appendChild(para);
-  }
-}
+// for (let j = i; j >= 0; j--) {
+//   if (j == i) {
+//     let para = document.createElement('p');
+//     para.textContent = 'Countdown: ' + j;
+//     output.appendChild(para);
+//   } else if (j == 0) {
+//     let para = document.createElement('p');
+//     para.textContent = j + ' Blastoff!!';
+//     output.appendChild(para);
+//   } else if (j >= 0 && j < i) {
+//     let para = document.createElement('p');
+//     para.textContent = j;
+//     output.appendChild(para);
+//   }
+// }
 
 // Template literals, testing new line??
+name1 = 'Sandy';
+let name4 = 'hensburg';
+console.log(`my name is ${name1}.
+my surname is ${name4} (that was printed on a new line)`);
