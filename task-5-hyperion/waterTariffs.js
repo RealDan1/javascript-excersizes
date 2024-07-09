@@ -23,6 +23,17 @@ if (litres > 0 && litres <= 6000 && indigent) {
 } else if (litres > 6000 && litres <= 10500 && !indigent) {
   payment = 15.73 * 6 + 22.38 * ((litres - 6000) / 1000);
   console.log(`You pay R${payment.toFixed(2)}`);
-} else if (litres > 10500 && litres <= 35000 && indigent) {
-  //code copypasted from here need to update these calculations
+} else if (litres > 10500 && litres <= 35000) {
+  payment =
+    15.73 * 6 +
+    22.38 * ((10500 - 6000) / 1000) +
+    31.77 * ((litres - 10500) / 1000);
+  console.log(`You pay R${payment.toFixed(2)}`);
+} else if (litres > 35000) {
+  payment =
+    15.73 * 6 +
+    22.38 * ((10500 - 6000) / 1000) +
+    31.77 * ((35000 - 10500) / 1000) +
+    69.76 * ((litres - 35000) / 1000);
+  console.log(`You pay R${payment.toFixed(2)}`);
 }
