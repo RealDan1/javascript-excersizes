@@ -1,5 +1,6 @@
 let number = prompt('Please enter a number of atleast three digits');
 
+//input verification
 if (number.length < 3) {
   alert(
     'Please enter atleast three digits. Please refresh the page and try again'
