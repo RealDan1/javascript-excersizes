@@ -18,3 +18,10 @@ outerloop: for (let i = 0; i < 10; i++) {
     }
   }
 }
+
+let isReplacing = prompt(
+  'You can only add a maximum of 10 people to your guest list. Would you like to replace someone on the list with the last person you entered? yes/no: '
+);
+
+if (isReplacing === 'yes') {
+}
