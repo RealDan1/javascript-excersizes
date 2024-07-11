@@ -1,5 +1,11 @@
 let number = prompt('Please enter a number of atleast three digits');
 
+if (number.length < 3) {
+  alert(
+    'Please enter atleast three digits. Please refresh the page and try again'
+  );
+}
+
 //create a new number for the final output
 let newNumber = '';
 
