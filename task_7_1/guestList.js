@@ -6,22 +6,35 @@ outerloop: for (let i = 0; i < 10; i++) {
     'Input a name of a person you would like to invite to the dinner party'
   );
 
-  //check if input contains any numbers(thus not a name in russia and certain american states apparently)
-  for (let j = 0; j < 10; j++) {
+  //check if input contains any numbers(thus not a name in russia and certain states apparently)
+  for (let j = 0; j < 11; j++) {
     //j is inner loop, i is outer loop
     if (names[i].includes(j)) {
       alert(
         'No numbers are allowed, please input only letters for the names. Please refresh the page and try again'
       );
-      //break to outerloop so that it doesnt carry on asking to input more names
+      //break to outerloop so that it doesnt carry on asking to input more names, user must then refresh.
       break outerloop;
     }
   }
 }
 
+//check if user will be replacing
 let isReplacing = prompt(
   'You can only add a maximum of 10 people to your guest list. Would you like to replace someone on the list with the last person you entered? yes/no: '
 );
-
+isReplacing.toLowerCase;
+//check if replacing or not
 if (isReplacing === 'yes') {
+  //if yes then find index of chosen name
+  let indexToReplace = names.indexOf(names[10]);
+  //replace that name with name11(index10)
+  names.splice(indexToReplace, 1, names[10]);
+} else if ((isReplacing = 'no')) {
+  //if no, delete the 11th name
+  names.splice(10, 1);
+  //then print the names with spaces inbetween
+  console.log(names.join(' '));
+} else {
+  console.log('Please input "yes" or "no" only');
 }
