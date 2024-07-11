@@ -1,7 +1,7 @@
 let names = [];
 //loop input for all 10 names and add to the array
 
-outerloop: for (let i = 0; i < 10; i++) {
+outerloop: for (let i = 0; i < 11; i++) {
   names[i] = prompt(
     'Input a name of a person you would like to invite to the dinner party'
   );
@@ -26,10 +26,15 @@ let isReplacing = prompt(
 isReplacing.toLowerCase;
 //check if replacing or not
 if (isReplacing === 'yes') {
-  //if yes then find index of chosen name
-  let indexToReplace = names.indexOf(names[10]);
-  //replace that name with name11(index10)
+  let nameToReplace = prompt('Enter the name of the person to be replaced');
+  //find index of chosen name
+  let indexToReplace = names.indexOf(nameToReplace);
+  //replace that name with nameToReplace
   names.splice(indexToReplace, 1, names[10]);
+  //delete the 11th name
+  names.splice(10, 1);
+  //then print the names with spaces inbetween
+  console.log(names.join(' '));
 } else if ((isReplacing = 'no')) {
   //if no, delete the 11th name
   names.splice(10, 1);
