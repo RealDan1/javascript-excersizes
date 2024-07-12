@@ -17,7 +17,7 @@ translator.set('yes', 'ja');
 
 //get user input "chosen word" for translation
 let input =
-  prompt(`please select one of the ten words to translate from english to german:
+  prompt(`Please select one of these ten words to translate from English to German:
   1. Good
   2. Day
   3. Dog
@@ -29,7 +29,7 @@ let input =
   9. House
   10. Yes`);
 
-//make selected word lowercase for key check
+//make selected word lowercase for key check(objects and maps are case sensitive)
 input = input.toLowerCase();
 //check if translator contains the word (with map.has()), otherwise display "incorrect input"
 if (translator.has(input)) {
