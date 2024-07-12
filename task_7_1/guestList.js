@@ -33,12 +33,12 @@ if (isReplacing === 'yes') {
   names.splice(indexToReplace, 1, names[10]);
   //delete the 11th name
   names.splice(10, 1);
-  //then print the names with spaces inbetween
-  console.log(names.join(' '));
+  //then print the names with commas in between
+  console.log(names.join(', '));
 } else if ((isReplacing = 'no')) {
   //if no, delete the 11th name
   names.splice(10, 1);
-  //then print the names with spaces inbetween
+  //then print the names with commas in between
   console.log(names.join(', '));
 } else {
   console.log('Please input "yes" or "no" only');
