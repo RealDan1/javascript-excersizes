@@ -1,6 +1,6 @@
 let names = [];
-//loop input for all 10 names and add to the array
 
+//loop input for all 10 names and add to the array
 outerloop: for (let i = 0; i < 11; i++) {
   names[i] = prompt(
     'Input a name of a person you would like to invite to the dinner party'
