@@ -39,7 +39,7 @@ if (isReplacing === 'yes') {
   //if no, delete the 11th name
   names.splice(10, 1);
   //then print the names with spaces inbetween
-  console.log(names.join(' '));
+  console.log(names.join(', '));
 } else {
   console.log('Please input "yes" or "no" only');
 }
