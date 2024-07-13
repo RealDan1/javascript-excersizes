@@ -23,3 +23,15 @@ const findSumRest = (...rest) => {
 };
 
 const subtractNumbers = (a, b) => a - b;
+
+const multiplyNumbers = (a, b) => a * b;
+
+const divideNumbers = (a, b) => {
+  if (b === 0) {
+    console.log("You can't divide by zero");
+  } else {
+    return a / b;
+  }
+};
+
+console.log(divideNumbers(1, 0));
