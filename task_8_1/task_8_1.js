@@ -43,9 +43,12 @@ const array = [5, 4, 3];
 
 //sum all
 console.log(findSum(array));
+
 //subtract array 2nd from 1st
 console.log(subtractNumbers(array[0], array[1]));
+
 //multiply 3rd and 1st
 console.log(multiplyNumbers(array[2], array[0]));
+
 //divide sum of all by third
 console.log(divideNumbers(findSum(array), array[2]));
