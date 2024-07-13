@@ -43,8 +43,8 @@ const array = [5, 4, 3];
 
 console.log(findSum(array));
 
-console.log(subtractNumbers(array[1], array[2]));
+console.log(subtractNumbers(array[0], array[1]));
 
-console.log(multiplyNumbers(array[3], array[1]));
+console.log(multiplyNumbers(array[2], array[0]));
 
-console.log(divideNumbers(findSum(array), array[3]));
+console.log(divideNumbers(findSum(array), array[2]));
