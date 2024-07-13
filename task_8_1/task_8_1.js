@@ -1,4 +1,4 @@
-//standard findsum function
+//standard findsum function expression
 let findSum = (sumArray) => {
   let total = 0;
   for (item of sumArray) {
@@ -11,7 +11,7 @@ let findSum = (sumArray) => {
 //I used it briefly before but didnt enforce it properly.
 //If I understand this correctly:
 //...rest will not accept an array and function the same way as findSum()
-//but will accept indefinite individual arguments and add them together.
+//but will accept an indefinite amount of individual arguments and add them together.
 //So for the purpose of this excersize ignore it, my submission to this question is just the above standard findSum().
 //Apologies I document all my excersizes on Github for later.
 const findSumRest = (...rest) => {
@@ -22,11 +22,15 @@ const findSumRest = (...rest) => {
   return total;
 };
 
+//arrow function subtractNumbers
 const subtractNumbers = (a, b) => a - b;
 
+//arrow function multiplyNumbers
 const multiplyNumbers = (a, b) => a * b;
 
+//arrow function divideNumbers
 const divideNumbers = (a, b) => {
+  //edge case divide by zero
   if (b === 0) {
     console.log("You can't divide by zero");
   } else {
@@ -34,4 +38,13 @@ const divideNumbers = (a, b) => {
   }
 };
 
-console.log(divideNumbers(1, 0));
+//define the array and start test section of excersize
+const array = [5, 4, 3];
+
+console.log(findSum(array));
+
+console.log(subtractNumbers(array[1], array[2]));
+
+console.log(multiplyNumbers(array[3], array[1]));
+
+console.log(divideNumbers(findSum(array), array[3]));
