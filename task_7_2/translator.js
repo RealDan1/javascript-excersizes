@@ -31,7 +31,7 @@ let input =
 
 //make selected word lowercase for key check(objects and maps are case sensitive)
 input = input.toLowerCase();
-//check if translator contains the word (with map.has()), otherwise display "incorrect input"
+//check if translator contains the word (with map.has()), otherwise display "incorrect input".
 if (translator.has(input)) {
   //output selected word with .get()
   console.log(translator.get(input));
