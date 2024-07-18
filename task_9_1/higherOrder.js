@@ -38,4 +38,4 @@ const filterType = (item) => {
   }
 };
 
-console.log(myFilterFunction(inputArray));
+console.log(myFilterFunction(inputArray)(filterType));
