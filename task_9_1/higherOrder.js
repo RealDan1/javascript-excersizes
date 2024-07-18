@@ -24,6 +24,7 @@ inputArray = [
 // startArray = myFilterFunction(inputArray);
 // console.log(startArray());
 
+//write this in long form so i understand it
 let myFilterFunction = (arr) => (fn) => {
   const arrayAfterFilter = [];
   for (let i = 0; i < arr.length; i++) {
