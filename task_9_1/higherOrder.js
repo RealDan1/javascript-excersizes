@@ -24,7 +24,7 @@ inputArray = [
 // startArray = myFilterFunction(inputArray);
 // console.log(startArray());
 
-let myFilterFunction = (arr, fn) => {
+let myFilterFunction = (arr) => (fn) => {
   const arrayAfterFilter = [];
   for (let i = 0; i < arr.length; i++) {
     arrayAfterFilter.push(fn(arr[i]));
