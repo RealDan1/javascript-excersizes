@@ -25,12 +25,26 @@ inputArray = [
 // console.log(startArray());
 
 //write this in long form so i understand it
-let myFilterFunction = (arr) => (fn) => {
-  const arrayAfterFilter = [];
-  for (let i = 0; i < arr.length; i++) {
-    arrayAfterFilter.push(fn(arr[i]));
-  }
-  return arrayAfterFilter;
+// let myFilterFunction = (arr) => (fn) => {
+//   const arrayAfterFilter = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     arrayAfterFilter.push(fn(arr[i]));
+//   }
+//   return arrayAfterFilter;
+// };
+
+//I wrote this task with the filter function partly in long form so I could understand the logic better.
+
+//create filterFunction
+let myLongFilterFunction = function (arr) {
+  //filter function must return another function (which is anonymous), it uses a function as its argument(fn which contains the function that )
+  return (fn) => {
+    const arrayAfterFilter = [];
+    for (let i = 0; i < arr.length; i++) {
+      arrayAfterFilter.push(fn(arr[i]));
+    }
+    return arrayAfterFilter;
+  };
 };
 
 const filterType = (item) => {
@@ -39,6 +53,4 @@ const filterType = (item) => {
   }
 };
 
-console.log(myFilterFunction(inputArray)(filterType));
-
-let myLongFilterFunction = function (arr) {};
+console.log(myLongFilterFunction(inputArray)(filterType));
