@@ -40,3 +40,5 @@ const filterType = (item) => {
 };
 
 console.log(myFilterFunction(inputArray)(filterType));
+
+let myLongFilterFunction = function (arr) {};
