@@ -67,4 +67,4 @@ const lengthIsSix = (item) => {
 };
 
 //output the function plus the required arguments
-console.log(myFilterFunction(inputArray)(lengthIsSix));
+console.log(myFilterFunction(inputArray, lengthIsSix));
