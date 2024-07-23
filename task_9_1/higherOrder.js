@@ -44,13 +44,13 @@ inputArray = [
 
 //create filterFunction
 let myFilterFunction = function (arr, fn) {
+  //create a new array to be used as the final return
   const arrayAfterFilter = [];
   //iterate through the whole input array
   for (let i = 0; i < arr.length; i++) {
     //if the callback function is given the input array item and returns true
     if (fn(arr[i])) {
-      //add the current item to the new array
-      arrayAfterFilter.push(arr[i]);
+      arrayAfterFilter.push(arr[i]); //add the current item to the new array
     }
   }
   //return the new array for output
@@ -66,5 +66,5 @@ const lengthIsSix = (item) => {
   }
 };
 
-//output the function plus the required arguments
+//output the function and its required arguments
 console.log(myFilterFunction(inputArray, lengthIsSix));
