@@ -28,6 +28,7 @@ let myFilterFunction = function (arr, fn) {
 
 //callback function that returns true if input string length is six
 const lengthIsSix = (item) => {
+  //also do an input check: if item in question is not a string it wont return true
   if (item.length === 6 && typeof item === 'string') {
     return true;
   } else {
