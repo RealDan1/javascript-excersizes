@@ -3,7 +3,7 @@
 // Setting variables to hold the intervalID
 // and also a counter
 let intervalID;
-let counter = 0;
+let counter = 1;
 
 let startCounter = function () {
   intervalID = setInterval(
