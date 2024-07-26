@@ -6,15 +6,10 @@ let intervalID;
 let counter = 1;
 
 let startCounter = function () {
-  intervalID = setInterval(
-    () => {
-      console.log(counter);
-      counter += 1;
-    },
-    1000
-    // Create the logic needed in the setInterval() function for
-    //incrementing the counter and outputting to the console
-  );
+  intervalID = setInterval(() => {
+    console.log(counter); //output counter to console
+    counter += 1; //increment the counter
+  }, 1000); //set interval at 1 second(1000ms)
 };
 
 function stopCounter() {
