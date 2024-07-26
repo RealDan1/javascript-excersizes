@@ -1,9 +1,7 @@
 // Code here for the callbacks task
 
-// Setting variables to hold the intervalID
-// and also a counter
-let intervalID;
-let counter = 1;
+let intervalID; // Set variables to hold the intervalID
+let counter = 1; // and also a counter
 
 let startCounter = function () {
   intervalID = setInterval(() => {
@@ -13,9 +11,7 @@ let startCounter = function () {
 };
 
 function stopCounter() {
-  clearInterval(intervalID);
-  // add the logic required to stop the counter
-  // using clearInterval()
+  clearInterval(intervalID); //clearInterval uses the reference of the setInterval ID to stop the current counter
 }
 
 let startButton = document.getElementById('start');
