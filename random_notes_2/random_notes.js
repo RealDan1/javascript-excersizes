@@ -65,3 +65,16 @@ editColour(cars, 'Gray', 'White');
 /* Display the updated car details in a table. This is the first time you’re seeing the .table built-in function in action! */
 console.log('\nThe updated table:');
 console.table(cars);
+
+//test out console.table on objects
+function fruit(name, shape, color) {
+  this.name = name;
+  this.shape = shape;
+  this.color = color;
+}
+
+let orange = new fruit('orange', 'round', 'orange');
+let apple = new fruit('apple', 'round', 'green');
+
+let fruitArr = [orange, apple];
+console.table(fruitArr);
