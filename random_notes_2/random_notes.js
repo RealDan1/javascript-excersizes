@@ -44,3 +44,24 @@ function findNewestCar(array) {
 }
 // Call the findNewestCar function
 findNewestCar(cars);
+
+// Define an edit function that takes 3 parameters
+function editColour(cars, carColour, newColour) {
+  // Loop through each car object in the array
+  for (let i = 0; i < cars.length; i++) {
+    // If current car colour matches the value passed to the carColour
+    //parameter;
+    if (cars[i].colour === carColour) {
+      // Update the colour property to the value passed to the newColour
+      //parameter;
+      cars[i]['colour'] = newColour;
+      // Return the updated car object
+      return cars[i];
+    }
+  }
+}
+// Call the function to change the colour of a car from "Gray" to "White".
+editColour(cars, 'Gray', 'White');
+/* Display the updated car details in a table. This is the first time you’re seeing the .table built-in function in action! */
+console.log('\nThe updated table:');
+console.table(cars);
