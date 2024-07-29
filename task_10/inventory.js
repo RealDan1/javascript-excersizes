@@ -16,18 +16,18 @@ let shoesArray = [shoe1, shoe2, shoe3, shoe4, shoe5];
 
 // Search function that takes a string and an Array of objects as arguments and outputs the details of the found object if it matches the string or outputs an error if not
 // It also returns the object for further processing if found
-function searchArray(searchFor, inputArray) {
+function searchArray(search, inputArray) {
   // Define a "returnObject" variable to return later - if the search finds nothing this will remain null and an error message will be shown
   let returnObject = null;
 
   // Loop through shoesArray(or any array)
   for (let i = 0; i < inputArray.length; i++) {
     //If (at the index of the current array item) the name contains the search value
-    if (inputArray[i].name.includes(searchFor)) {
+    if (inputArray[i].name.includes(search)) {
       // Firstly console.log the index of the item:
       // Then present the full object in a table (to see all the details of the shoe)
       console.log(
-        `${searchFor} was found at index ${i}. \n\nThe item details are as follows:`
+        `${search} was found at index ${i}. \n\nThe item details are as follows:`
       );
       console.table(inputArray[i]);
 
