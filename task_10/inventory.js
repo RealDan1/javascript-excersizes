@@ -15,7 +15,7 @@ let shoe5 = new Shoes('Hoka', 'A5', 120, 800);
 let shoesArray = [shoe1, shoe2, shoe3, shoe4, shoe5];
 // console.table(shoesArray);
 
-//Define a search function that takes a string and an Array as arguments and returns the found array if found or outputs error if not found
+//Define a search function that takes a string and an Array of objects as arguments and outputs the details of the found object if it matches the string or outputs an error if not - it also returns the object for further processing if found
 let searchArray = (searchFor, inputArray) => {
   let returnArray = null;
 
@@ -44,7 +44,7 @@ let searchArray = (searchFor, inputArray) => {
       `The item was not found at any of the indexes, please note the search is case sensitive`
     );
   } else {
-    //otherwise return the array for further processing if needed
+    //otherwise the array was found - return the array for further processing if needed
     return returnArray;
   }
 };
