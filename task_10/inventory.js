@@ -15,15 +15,15 @@ let shoesArray = [shoe1, shoe2, shoe3, shoe4, shoe5];
 console.table(shoesArray);
 
 let searchArray = (searchFor, inputArray) => {
-  if (inputArray.includes(searchFor.name)) {
-    let foundItem = inputArray[inputArray.indexOf(searchFor.name)];
-    //firstly console.log the item in a presentable manner:
-    console.log(foundItem);
-    //also return the item incase its needed for further processing:
-    return;
-  } else {
-    console.log('Item not found, or does not exist in the array');
+  //loop through shoesArray(or any array)
+  for (let i = 0; i < inputArray.length; i++) {
+    if (inputArray[i].name.includes(searchFor)) {
+      let foundItem = inputArray[i];
+      //firstly console.log the item in a presentable manner:
+      console.log(foundItem);
+      //also return the item incase its needed for further processing:
+    }
   }
 };
 
-searchArray('nike', shoesArray);
+searchArray('vans', shoesArray);
