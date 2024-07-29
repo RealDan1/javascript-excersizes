@@ -15,9 +15,11 @@ let shoe5 = new Shoes('Hoka', 'A5', 120, 800);
 let shoesArray = [shoe1, shoe2, shoe3, shoe4, shoe5];
 // console.table(shoesArray);
 
-//Define a search function that takes a string and an Array of objects as arguments and outputs the details of the found object if it matches the string or outputs an error if not - it also returns the object for further processing if found
+// Define a search function that takes a string and an Array of objects as arguments and outputs the details of the found object if it matches the string or outputs an error if not
+//It also returns the object for further processing if found
 let searchArray = (searchFor, inputArray) => {
-  let returnArray = null;
+  //Define a "returnObject" variable to return later - if the search finds nothing this will remain null and an error message will be shown
+  let returnObject = null;
 
   //loop through shoesArray(or any array)
   for (let i = 0; i < inputArray.length; i++) {
@@ -32,20 +34,20 @@ let searchArray = (searchFor, inputArray) => {
       );
       console.table(inputArray[foundItem]);
 
-      //also add the item to the "returnArray" variable for return later - if the search finds nothing this will remain null and an error message will be shown
-      returnArray = inputArray[i];
-
+      //also add the item to the "returnObject" variable for return later - if the search finds nothing this will remain null and an error message will be shown
+      returnObject = inputArray[i];
+      //stop the loop because a match was found
       break;
     }
   }
-  //if the returnArray hasn't been filled(null), log: "not found", because then the search did not find a match
-  if (returnArray === null) {
+  //if the returnObject hasn't been filled(null), log: "not found", because then the search did not find a match
+  if (returnObject === null) {
     console.log(
       `The item was not found at any of the indexes, please note the search is case sensitive`
     );
   } else {
-    //otherwise the array was found - return the array for further processing if needed
-    return returnArray;
+    //otherwise the object was found - return the object for further processing if needed
+    return returnObject;
   }
 };
 
