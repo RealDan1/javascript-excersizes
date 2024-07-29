@@ -25,16 +25,14 @@ let searchArray = (searchFor, inputArray) => {
   for (let i = 0; i < inputArray.length; i++) {
     //if (at the index of the current array item) the name contains the search value
     if (inputArray[i].name.includes(searchFor)) {
-      //store the index of the found item
-      let foundItem = i;
-      //firstly console.log the number of the item:
+      //firstly console.log the index of the item:
       //then present the full object in a table (to see all the details of the shoe)
       console.log(
-        `The item was found at index ${foundItem} \nThe item details are as follows:`
+        `The item was found at index ${i} \nThe item details are as follows:`
       );
-      console.table(inputArray[foundItem]);
+      console.table(inputArray[i]);
 
-      //also add the item to the "returnObject" variable for return later - if the search finds nothing this will remain null and an error message will be shown
+      //also store the item to return it later - if the search finds nothing this will remain null and an error will be displayed
       returnObject = inputArray[i];
       //stop the loop because a match was found
       break;
