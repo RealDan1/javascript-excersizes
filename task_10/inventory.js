@@ -14,7 +14,7 @@ let shoe5 = new Shoes('Hoka', 'A5', 120, 800);
 
 let shoesArray = [shoe1, shoe2, shoe3, shoe4, shoe5];
 
-// Search function that takes a string and an Array of objects as arguments and outputs the details of the found object if it matches the string or outputs an error if not
+// define a search function that takes a string and an Array of objects as arguments and outputs its details if it matches the string or outputs an error if not found
 // It also returns the object for further processing if found
 function searchArray(search, inputArray) {
   // Define a "returnObject" variable to return later - if the search finds nothing this will remain null and an error message will be shown
@@ -48,7 +48,7 @@ function searchArray(search, inputArray) {
   }
 }
 
-// Define a funxtion
+// Define a function to find the lowest Value
 function findLowest(inputArray) {
   // Use the array.sort function to arrange the input array in ascending order(so the lowest value will be first)
   inputArray.sort((firstShoe, secondShoe) =>
@@ -64,7 +64,25 @@ function findLowest(inputArray) {
   return inputArray[0];
 }
 
+// Define a function to find the highest Value
+function findHighest(inputArray) {
+  // Use the array.sort function to arrange the input array in descending order(so the Highest value will be first)
+  inputArray.sort((firstShoe, secondShoe) =>
+    // Select the .valuePerItem of the objects as the sort value
+    firstShoe.valuePerItem > secondShoe.valuePerItem ? -1 : 1
+  );
+  // Output the first value in the newly sorted array(as it now contains the highest value)
+  console.log(
+    `The most expensive shoe in the array is ${inputArray[0].name} with a value of R${inputArray[0].valuePerItem}. \n\nThe item details are as follows:`
+  );
+  console.table(inputArray[0]);
+  // Return the item for processing(just the item, not its value)
+  return inputArray[0];
+}
+
 // Test the search function:
 searchArray('Vans', shoesArray);
-// Test the find Lowest Price function:
+// Test the find Lowest Value function:
 findLowest(shoesArray);
+// Test the find Highest Value function
+findHighest(shoesArray);
