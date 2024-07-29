@@ -18,10 +18,15 @@ let searchArray = (searchFor, inputArray) => {
   //loop through shoesArray(or any array)
   for (let i = 0; i < inputArray.length; i++) {
     if (inputArray[i].name.includes(searchFor)) {
-      let foundItem = inputArray[i];
+      let foundItem = i;
       //firstly console.log the item in a presentable manner:
-      console.log(foundItem);
-      //also return the item incase its needed for further processing:
+      console.log(
+        `The item was found at array ${foundItem} \nThe item details are as follows:`
+      );
+      console.table(inputArray[foundItem]);
+
+      //also return the item object incase its needed for further processing:
+      return inputArray[i];
     }
   }
 };
