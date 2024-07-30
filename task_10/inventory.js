@@ -111,9 +111,8 @@ function ascendingOrder(inputArray) {
   console.log(
     `the array has now been sorted in ascending order based on the Value Per Item.\n\nThe new order is as follows:`
   );
-
   console.table(inputArray);
-  // Return the inputArrau for processing
+  // Return the inputArray for processing
   return inputArray;
 }
 
