@@ -80,9 +80,33 @@ function findHighest(inputArray) {
   return inputArray[0];
 }
 
+function editProperty(object, propertyToChange, newValue) {
+  //validate that the property exists(I assumed we are only allowed to change existing properties)
+  if (
+    propertyToChange === 'name' ||
+    propertyToChange === 'productCode' ||
+    propertyToChange === 'quantity' ||
+    propertyToChange === 'valuePerItem'
+  ) {
+    //computed value for the property to be changed using []
+    object[propertyToChange] = newValue;
+    //display the object for output validation
+    console.log(
+      `You chose to modify the objects "${propertyToChange}" property with the new value "${newValue}". \n\nThe item details are now as follows:`
+    );
+    console.table(object);
+  } else {
+    console.log(
+      'This property does not exist, please only enter an existing property - NOTE: they are case sensitive'
+    );
+  }
+}
+
 // Test the search function:
 searchArray('Vans', shoesArray);
 // Test the find Lowest Value function:
 findLowest(shoesArray);
 // Test the find Highest Value function
 findHighest(shoesArray);
+// Test the ChangeProperty Function
+editProperty(shoe1, 'name', 'NikeJordans');
