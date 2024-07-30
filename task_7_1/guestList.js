@@ -23,7 +23,7 @@ outerloop: for (let i = 0; i < 11; i++) {
 let isReplacing = prompt(
   'You can only add a maximum of 10 people to your guest list. Would you like to replace someone on the list with the last person you entered? yes/no: '
 );
-isReplacing.toLowerCase;
+isReplacing = isReplacing.toLowerCase();
 //check if replacing or not
 if (isReplacing === 'yes') {
   let nameToReplace = prompt('Enter the name of the person to be replaced');
@@ -35,7 +35,7 @@ if (isReplacing === 'yes') {
   names.splice(10, 1);
   //then print the names with commas in between
   console.log(names.join(', '));
-} else if ((isReplacing = 'no')) {
+} else if (isReplacing === 'no') {
   //if no, delete the 11th name
   names.splice(10, 1);
   //then print the names with commas in between
