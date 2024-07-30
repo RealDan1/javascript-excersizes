@@ -80,7 +80,20 @@ function findHighest(inputArray) {
   return inputArray[0];
 }
 
-function editProperties(object, name, productCode, quantity, valuePerItem) {}
+function editProperties(
+  object,
+  newName,
+  newProductCode,
+  newQuantity,
+  newValuePerItem
+) {
+  object.name = newName;
+  object.productCode = newProductCode;
+  object.quantity = newQuantity;
+  object.valuePerItem = newValuePerItem;
+  console.log(`The object has been updated with new values as follows:`);
+  console.table(object);
+}
 
 //an extra function to edit a SINGLE property of ONE of the shoes - not for task just for my own interest.
 function editSingleProperty(object, propertyToChange, newValue) {
@@ -121,11 +134,19 @@ function ascendingOrder(inputArray) {
 
 // Test the search function:
 searchArray('Vans', shoesArray);
+
 // Test the find Lowest Value function:
 findLowest(shoesArray);
+
 // Test the find Highest Value function
 findHighest(shoesArray);
-// Test the ChangeProperty Function - NOTE: function requires you to select which shoe you want to change
-editSingleProperty(shoe1, 'name', 'NikeJordans');
+
+// Test the editProperties Function - NOTE: function requires you to select which shoe you want to change, followed by (in order) the new Name, productCode, Quantity, ValuePerItem.
+editProperties(shoe1, 'Jordans', 'B1', 5, 2000);
+
+// Test my custom SINGLE property changer function(for my own interest not for the task):
+// editSingleProperty(shoe1, 'name', 'NikeJordans');
+
 // Test the ascendingOrder function
 ascendingOrder(shoesArray);
+//
