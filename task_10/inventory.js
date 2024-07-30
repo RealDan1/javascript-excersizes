@@ -80,7 +80,10 @@ function findHighest(inputArray) {
   return inputArray[0];
 }
 
-function editProperty(object, propertyToChange, newValue) {
+function editProperties(object, name, productCode, quantity, valuePerItem) {}
+
+//an extra function to edit a SINGLE property of ONE of the shoes - not for task just for my own interest.
+function editSingleProperty(object, propertyToChange, newValue) {
   //validate that the property exists(I assumed we are only allowed to change existing properties)
   if (
     propertyToChange === 'name' ||
@@ -123,6 +126,6 @@ findLowest(shoesArray);
 // Test the find Highest Value function
 findHighest(shoesArray);
 // Test the ChangeProperty Function - NOTE: function requires you to select which shoe you want to change
-editProperty(shoe1, 'name', 'NikeJordans');
+editSingleProperty(shoe1, 'name', 'NikeJordans');
 // Test the ascendingOrder function
 ascendingOrder(shoesArray);
