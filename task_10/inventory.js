@@ -92,7 +92,7 @@ function editProperty(object, propertyToChange, newValue) {
     object[propertyToChange] = newValue;
     //display the object for output validation
     console.log(
-      `You chose to modify the objects "${propertyToChange}" property with the new value "${newValue}". \n\nThe item details are now as follows:`
+      `You chose to modify the object's "${propertyToChange}" property with the new value "${newValue}". \n\nThe item details are now as follows:`
     );
     console.table(object);
   } else {
@@ -108,5 +108,5 @@ searchArray('Vans', shoesArray);
 findLowest(shoesArray);
 // Test the find Highest Value function
 findHighest(shoesArray);
-// Test the ChangeProperty Function
+// Test the ChangeProperty Function - NOTE: function requires you to select which shoe you want to change
 editProperty(shoe1, 'name', 'NikeJordans');
