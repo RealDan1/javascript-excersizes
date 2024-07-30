@@ -102,6 +102,21 @@ function editProperty(object, propertyToChange, newValue) {
   }
 }
 
+function ascendingOrder(inputArray) {
+  // Use the array.sort function to arrange the input array in ascending order
+  inputArray.sort((firstShoe, secondShoe) =>
+    // Select the .valuePerItem of the objects as the sort value
+    firstShoe.valuePerItem < secondShoe.valuePerItem ? -1 : 1
+  );
+  console.log(
+    `the array has now been sorted in ascending order based on the Value Per Item.\n\nThe new order is as follows:`
+  );
+
+  console.table(inputArray);
+  // Return the inputArrau for processing
+  return inputArray;
+}
+
 // Test the search function:
 searchArray('Vans', shoesArray);
 // Test the find Lowest Value function:
@@ -110,3 +125,5 @@ findLowest(shoesArray);
 findHighest(shoesArray);
 // Test the ChangeProperty Function - NOTE: function requires you to select which shoe you want to change
 editProperty(shoe1, 'name', 'NikeJordans');
+// Test the ascendingOrder function
+ascendingOrder(shoesArray);
