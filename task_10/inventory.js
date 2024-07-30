@@ -14,7 +14,7 @@ let shoe5 = new Shoes('Hoka', 'A5', 120, 800);
 
 let shoesArray = [shoe1, shoe2, shoe3, shoe4, shoe5];
 
-// define a search function that takes a string and an Array of objects as arguments and outputs its details if it matches the string or outputs an error if not found
+// Define a search function that takes a string and an Array of objects as arguments and outputs its details if it matches the string or outputs an error if not found
 // It also returns the object for further processing if found
 function searchArray(search, inputArray) {
   // Define a "returnObject" variable to return later - if the search finds nothing this will remain null and an error message will be shown
@@ -80,22 +80,25 @@ function findHighest(inputArray) {
   return inputArray[0];
 }
 
+// Define a function to edit all four properties of a single shoe
 function editProperties(
-  object,
+  shoe,
   newName,
   newProductCode,
   newQuantity,
   newValuePerItem
 ) {
-  object.name = newName;
-  object.productCode = newProductCode;
-  object.quantity = newQuantity;
-  object.valuePerItem = newValuePerItem;
-  console.log(`The object has been updated with new values as follows:`);
-  console.table(object);
+  // Modify each property based on the input
+  shoe.name = newName;
+  shoe.productCode = newProductCode;
+  shoe.quantity = newQuantity;
+  shoe.valuePerItem = newValuePerItem;
+  // Log the details of the shoe with updated values in a table:
+  console.log(`The shoe has been updated with new values as follows:`);
+  console.table(shoe);
 }
 
-//an extra function to edit a SINGLE property of ONE of the shoes - not for task just for my own interest.
+// An extra function to edit a SINGLE property of ONE of the shoes - not for task just for my own interest.
 function editSingleProperty(object, propertyToChange, newValue) {
   //validate that the property exists(I assumed we are only allowed to change existing properties)
   if (
@@ -118,6 +121,7 @@ function editSingleProperty(object, propertyToChange, newValue) {
   }
 }
 
+// Define a function to arrange the items in ascending order
 function ascendingOrder(inputArray) {
   // Use the array.sort function to arrange the input array in ascending order
   inputArray.sort((firstShoe, secondShoe) =>
@@ -125,7 +129,7 @@ function ascendingOrder(inputArray) {
     firstShoe.valuePerItem < secondShoe.valuePerItem ? -1 : 1
   );
   console.log(
-    `the array has now been sorted in ascending order based on the Value Per Item.\n\nThe new order is as follows:`
+    `The array has now been sorted in ascending order based on the value per item.\n\nThe new order is as follows:`
   );
   console.table(inputArray);
   // Return the inputArray for processing
@@ -149,4 +153,3 @@ editProperties(shoe1, 'Jordans', 'B1', 5, 2000);
 
 // Test the ascendingOrder function
 ascendingOrder(shoesArray);
-//
