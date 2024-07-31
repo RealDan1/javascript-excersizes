@@ -1,3 +1,4 @@
+// Object Constructor
 function Shoes(name, productCode, quantity, valuePerItem) {
   this.name = name;
   this.productCode = productCode;
@@ -5,13 +6,14 @@ function Shoes(name, productCode, quantity, valuePerItem) {
   this.valuePerItem = valuePerItem;
 }
 
-// Store all shoes
+// Create 5 instances of shoes
 let shoe1 = new Shoes('Nike', 'A1', 100, 1000);
 let shoe2 = new Shoes('Adiddas', 'A2', 20, 900);
 let shoe3 = new Shoes('Vans', 'A3', 40, 600);
 let shoe4 = new Shoes('DC', 'A4', 200, 400);
 let shoe5 = new Shoes('Hoka', 'A5', 120, 800);
 
+// Store them in an array
 let shoesArray = [shoe1, shoe2, shoe3, shoe4, shoe5];
 
 // Define a search function that takes a string and an Array of objects as arguments and outputs its details if it matches the string or outputs an error if not found
