@@ -14,3 +14,6 @@ weight:
 ${pokemon.weight}`
     );
   });
+
+//delete this:
+console.log('test this text');
