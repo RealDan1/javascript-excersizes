@@ -102,16 +102,16 @@ function editProperties(
 
 // An extra function to edit a SINGLE property of ONE of the shoes - not for task just for my own interest.
 function editSingleProperty(object, propertyToChange, newValue) {
-  //validate that the property exists(I assumed we are only allowed to change existing properties)
+  // Validate that the property exists(I assumed we are only allowed to change existing properties)
   if (
     propertyToChange === 'name' ||
     propertyToChange === 'productCode' ||
     propertyToChange === 'quantity' ||
     propertyToChange === 'valuePerItem'
   ) {
-    //computed value for the property to be changed using []
+    // Computed value for the property to be changed using []
     object[propertyToChange] = newValue;
-    //display the object for output validation
+    // Display the object for output validation
     console.log(
       `You chose to modify the object's "${propertyToChange}" property with the new value "${newValue}". \n\nThe item details are now as follows:`
     );
