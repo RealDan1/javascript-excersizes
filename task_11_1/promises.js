@@ -16,7 +16,7 @@ ${pokemon.weight}`
       );
     },
     (error) => {
-      // Return an error in the console
+      // Log error in the console
       console.log(error);
     }
   );
