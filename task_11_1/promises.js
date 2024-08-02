@@ -1,22 +1,20 @@
 //output results
 let pokemon = [];
 fetch('https://pokeapi.co/api/v2/pokemon/pikachu/')
-  //convert response to a json object
+  //convert JSON response to a object that we can use
   .then((res) => res.json())
-  //output results
-  .then(
-    (result) => {
-      pokemon = result;
-      console.log(
-        `Name:
-${pokemon.name}
+  //drop the returned object into result
+  .then((result) => {
+    // pass result(the object) into pokemon array
+    pokemon = result;
+    //log the details of the pokemon object neatly
+    console.log(
+      `Name:\n${pokemon.name}
 
-Weight:
-${pokemon.weight}`
-      );
-    },
-    (error) => {
-      // Log error in the console
-      console.log(error);
-    }
-  );
+        \nWeight:\n${pokemon.weight}`
+    );
+  })
+  //catch the error at any point a promise is rejected and log it to the console
+  .catch((error) => {
+    console.log(error);
+  });
