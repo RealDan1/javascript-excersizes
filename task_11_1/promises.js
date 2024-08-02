@@ -14,17 +14,11 @@ fetch('https://pokeapi.co/api/v2/pokemon/pikachu/')
         \nWeight:\n${pokemon.weight}
         \nAbilities:
         `
-
-      // \n${pokemon.abilities.ability[0].name}
     );
     let abilities = pokemon.abilities;
     for (const ability of abilities) {
       console.log(`\n${ability.ability.name}`);
     }
-    // let abilities1 = pokemon.abilities;
-    // for (const ability in abilities1) {
-    //   console.log(`\nAbilities:\n${ability.name}`);
-    // }
   })
   //catch the error at any point a promise is rejected and log it to the console
   .catch((error) => {
