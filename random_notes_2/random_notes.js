@@ -128,10 +128,3 @@ myPromise.then(
 );
 // Return message to indicate the code is still running
 console.log("I'll still be running though");
-
-//test shorthand for OR |
-let bool = true;
-let bool2 = false;
-if ((bool2 === true) | (bool === true)) {
-  console.log('success----------');
-}
