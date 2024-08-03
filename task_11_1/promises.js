@@ -15,7 +15,7 @@ fetch('https://pokeapi.co/api/v2/pokemon/pikachu/')
         \nAbilities:
         `
     );
-    // Log pokemon.abilities in a seperate console.log call because JS handles complex objects inside template literals strangely - this was not mentioned in the task and perhaps should be mentioned otherwise it prints [object Object] if placed inside a template literal.
+    // Log pokemon.abilities in a seperate console.log call because JS handles complex objects inside template literals strangely - might be a good idea to mention this in the task otherwise it prints [object Object] if placed inside a template literal.
     console.log(pokemon.abilities);
   })
   // catch the error at any point a promise is rejected and log it to the console
