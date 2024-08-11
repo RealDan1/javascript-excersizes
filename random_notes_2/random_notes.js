@@ -126,5 +126,5 @@ myPromise.then(
     console.log(error);
   }
 );
-// Return message to indicate the code is still running
+// Return message to indicate the code is still running - could this be first or later?
 console.log("I'll still be running though");
