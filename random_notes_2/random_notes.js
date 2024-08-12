@@ -118,6 +118,7 @@ let myPromise = new Promise(function (resolve, reject) {
   }
 });
 // Return the resolved or rejected results
+// shouldnt this be wrapped in a try catch? - it should
 myPromise.then(
   function (result) {
     console.log(result);
