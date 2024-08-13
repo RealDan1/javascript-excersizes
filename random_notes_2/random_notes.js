@@ -127,5 +127,18 @@ myPromise.then(
     console.log(error);
   }
 );
+
+//vs this code:
+myPromise.then(
+  function (result) {
+    console.log(result);
+  })
+
+  // is this the correct syntax for a catch
+  .catch (function (error) {
+    console.log(error);
+  })
+
+
 // Return message to indicate the code is still running - could this be first or later?
 console.log("I'll still be running though");
