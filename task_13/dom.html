@@ -7,11 +7,13 @@
   </head>
   <body></body>
   <script>
-    // create income object
-    let income = {
-      name: 'salary',
-      amount: 4000,
-      recurring: true,
-    };
+    // create income constructor
+    function income(name, amount, isRecurring) {
+      this.name = name;
+      this.amount = amount;
+      this.isRecurring = isRecurring;
+    }
+    //create 5 instances
+    let salary = new income();
   </script>
 </html>
