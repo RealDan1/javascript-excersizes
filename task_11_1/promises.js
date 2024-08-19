@@ -1,11 +1,12 @@
-// create an array for the pokemon data
-let pokemon = [];
+// create a variable for the pokemon data
+let pokemon;
+//do a fetch call to the API and return a promise
 fetch('https://pokeapi.co/api/v2/pokemon/pikachu/')
-  // convert JSON response to a object that we can use
+  // then convert JSON response to an object that we can use
   .then((res) => res.json())
-  // drop the returned object into result
+  // then drop the returned object into result so we can log it inside the function
   .then((result) => {
-    // pass result(the object) into pokemon array
+    // pass the result(the object) into the pokemon variable
     pokemon = result;
 
     // log the details of the pokemon object neatly
