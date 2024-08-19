@@ -150,7 +150,7 @@ findHighest(shoesArray);
 // Test the editProperties Function - NOTE: function requires you to select which shoe you want to change, followed by (in order) the new Name, productCode, Quantity, ValuePerItem.
 editProperties(shoe1, 'Jordans', 'B1', 5, 2000);
 
-// Test my custom SINGLE property changer function(for my own interest not for the task):
+// Test my custom SINGLE property changer function(for my own interest not for the task - thus its commented out):
 // editSingleProperty(shoe1, 'name', 'NikeJordans');
 
 // Test the ascendingOrder function
