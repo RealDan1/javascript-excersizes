@@ -44,8 +44,24 @@
     let incomes = [income1, income2, income3, income4, income5];
     let expenses = [expense1, expense2, expense3, expense4, expense5];
 
-    //store the arrays (of objects) inside session storage(after converting them to JSON strings with .stringify since sessionstorage only accepts string data - when calling the data we should always convert back from JSON with .parse):
+    //store the arrays (of objects) inside session storage(after converting them to JSON strings with .stringify since sessionstorage only accepts string data - when recalling the data we should always convert back from JSON with JSON.parse):
     sessionStorage.setItem('incomes', JSON.stringify(incomes));
+    sessionStorage.setItem('expenses', JSON.stringify(expenses));
+
+    //to simulate the scenario, lets call the expense and income data from session storage and use it in the following section of the assignment. This basically simulates "recalling" the users data from a previous session even though we just created the data ourselves and its essentially unchanged. we are now using session data to do the next part of the activity
+
+    let recalledIncomes = JSON.parse(sessionStorage.getItem('incomes'));
+    let recalledExpenses = JSON.parse(sessionStorage.getItem('expenses'));
+
+    let newIncome = prompt(
+      'Your income is as follows' +
+        incomes[0].amount +
+        incomes[1] +
+        incomes[2] +
+        incomes[3] +
+        incomes[4]
+    );
+
     console.log(JSON.parse(sessionStorage.getItem('incomes')));
   </script>
 </html>
