@@ -3,17 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>JSON and Client-Server Communication</title>
+    <style>
+      /* add a simple dark mode for the html file - my eyes hurt*/
+      * {
+        background-color: rgb(24, 24, 24);
+      }
+    </style>
   </head>
   <body></body>
   <script>
-    // create income constructor
+    // create income Obj constructor
     function income(name, amount, isRecurring) {
       this.name = name;
       this.amount = amount;
       this.isRecurring = isRecurring;
     }
-    //create 5 instances
-    let till = new income('till', 1250, true);
+    // create 5 instances of income Obj
+    let income1 = new income('Salary', 25000, true);
+    let income2 = new income('Freelance', 5000, false);
+    let income3 = new income('Investment', 1000, true);
+    let income4 = new income('Crypto', 600, true);
+    let income5 = new income('Garage sale', 1000, false);
+
+    // Creat expense Obj constructor
+    function expense(name, amount, isRecurring) {
+      this.name = name;
+      this.amount = amount;
+      this.isRecurring = isRecurring;
+    }
+
+    // create 5 instances of income Obj
+    let expense1 = new expense('Rent', 8000, true);
+    let expense2 = new expense('Groceries', 5000, true);
+    let expense3 = new expense('Utilities', 2000, true);
+    let expense4 = new expense('Petrol', 2000, true);
+    let expense5 = new expense('Entertainment', 2000, false);
+
+    //place the objects inside an array for each type(income and expense)
+    let incomes = [income1, income2, income3, income4, income5];
+    let expenses = [expense1, expense2, expense3, expense4, expense5];
+
+    //store the arrays (of objects) inside session storage(after converting them to JSON strings with .stringify since sessionstorage only accepts string data - when calling the data we should always convert back from JSON with .parse):
+    sessionStorage.setItem('incomes', JSON.stringify(incomes));
+    console.log(JSON.parse(sessionStorage.getItem('incomes')));
   </script>
 </html>
