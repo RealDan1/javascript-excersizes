@@ -70,8 +70,20 @@
       'please enter true or false for if the income is recurring or not'
     );
 
-    let newCustomIncome = console.log(
-      JSON.parse(sessionStorage.getItem('incomes'))
+    //input the retrieved values into a new income object
+    let income6 = new income(
+      newIncomeName,
+      newIncomeAmount,
+      newIncomeIsRecurring
     );
+
+    //store the new income object into a new position on the recalled incomes array to update it
+    recalledIncomes[5] = income6;
+    console.log(recalledIncomes[5]);
+
+    //then using the same key store them into sessionstorage again - this will overwrite the previous array
+    sessionStorage.setItem('incomes', JSON.stringify(recalledIncomes));
+
+    console.log(JSON.parse(sessionStorage.getItem('incomes')));
   </script>
 </html>
