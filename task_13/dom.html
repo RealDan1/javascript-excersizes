@@ -72,8 +72,8 @@
           'Please enter a name for another income item.'
       );
       //prompt for the amount of a new income item
-      let newIncomeAmount = prompt(
-        'Please enter an amount for the new income item.'
+      let newIncomeAmount = Number(
+        prompt('Please enter an amount for the new income item.')
       );
       //prompt for the isRecurring boolean of a new income item
       let newIncomeIsRecurring = prompt(
@@ -123,8 +123,8 @@
           'Please enter a name for another expense item.'
       );
       //prompt for the amount of a new Expense item
-      let newExpenseAmount = prompt(
-        'Please enter an amount for the new Expense item.'
+      let newExpenseAmount = Number(
+        prompt('Please enter an amount for the new Expense item.')
       );
       //prompt for the isRecurring boolean of a new Expense item
       let newExpenseIsRecurring = prompt(
@@ -181,10 +181,12 @@
     let disposableIncome = totalIncome - totalExpenses;
 
     //prompt the user for the chosen amount of savings
-    let savings = prompt(
-      'Your current disposable income stands at:\n' +
-        disposableIncome +
-        '\n How much of this would you like to place into savings?'
+    let savings = Number(
+      prompt(
+        'Your current disposable income stands at:\n' +
+          disposableIncome +
+          '\n How much of this would you like to place into savings?'
+      )
     );
 
     //subtract the savings from disposableIncome
