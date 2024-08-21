@@ -154,9 +154,8 @@
       //return the final object
       return expense6;
     }
-
-    //run the createIncome and createExpense functions to create a new entry in each one:
     //===================================================
+    //run the createIncome and createExpense functions to create a new entry in each one:
 
     //run the creatIncome() function and store the returned income object into a new position on the recalled incomes array to update it()
     recalledIncomes[5] = createNewIncome();
@@ -166,6 +165,25 @@
     sessionStorage.setItem('incomes', JSON.stringify(recalledIncomes));
     sessionStorage.setItem('expenses', JSON.stringify(recalledExpenses));
 
+    //initialise two variables for the totals:
+    let totalIncome = 0;
+    let totalExpenses = 0;
+
+    //loop through the arrays and total them
+    for (const item of recalledIncomes) {
+      totalIncome += item;
+    }
+    for (const item of recalledExpenses) {
+      totalExpenses += item;
+    }
+
+    //calculate disposable income
+    let disposableIncome = totalIncome - totalExpenses;
+
+    //prompt the user for the chosen amount of savings
+    let savings = prompt();
+
+    //log the current values of each of the arrays in session storage for testing
     console.log(JSON.parse(sessionStorage.getItem('incomes')));
     console.log(JSON.parse(sessionStorage.getItem('expenses')));
   </script>
