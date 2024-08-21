@@ -53,55 +53,116 @@
     let recalledIncomes = JSON.parse(sessionStorage.getItem('incomes'));
     let recalledExpenses = JSON.parse(sessionStorage.getItem('expenses'));
 
-    //prompt for the name of a new income item(and display the current income values pulled from sessionstorage)
-    let newIncomeName = prompt(
-      'Your income is as follows \n' +
-        recalledIncomes[0].amount +
-        '\n' +
-        recalledIncomes[1].amount +
-        '\n' +
-        recalledIncomes[2].amount +
-        '\n' +
-        recalledIncomes[3].amount +
-        '\n' +
-        recalledIncomes[4].amount +
-        '\n' +
-        'please enter a name for another income item'
-    );
-    //prompt for the amount of a new income item
-    let newIncomeAmount = prompt(
-      'please enter an amount for the new income item'
-    );
-    //prompt for the isRecurring boolean of a new income item
-    let newIncomeIsRecurring = prompt(
-      'please enter yes or no to show if the income is recurring or not'
-    );
-    // Error check the input
-    if (
-      newIncomeIsRecurring.toLocaleLowerCase === 'yes' ||
-      newIncomeIsRecurring.toLocaleLowerCase === 'no'
-    ) {
-      //if it passes: convert the string to a boolean with a ternary operator
-      newIncomeIsRecurring =
-        newIncomeIsRecurring.toLocaleLowerCase === 'yes' ? true : false;
-    } else {
-      alert(
-        'Please only enter yes or no into the prompt box, please refresh the page and start again'
+    //create a function to ask the user for new income values and return the resulting object
+    //==========================================
+    function createNewIncome() {
+      //prompt for the name of a new income item(and display the current income values pulled from sessionstorage)
+      let newIncomeName = prompt(
+        'Your income is as follows \n' +
+          recalledIncomes[0].amount +
+          '\n' +
+          recalledIncomes[1].amount +
+          '\n' +
+          recalledIncomes[2].amount +
+          '\n' +
+          recalledIncomes[3].amount +
+          '\n' +
+          recalledIncomes[4].amount +
+          '\n' +
+          'please enter a name for another income item'
       );
+      //prompt for the amount of a new income item
+      let newIncomeAmount = prompt(
+        'please enter an amount for the new income item'
+      );
+      //prompt for the isRecurring boolean of a new income item
+      let newIncomeIsRecurring = prompt(
+        'please enter yes or no to show if the income is recurring or not'
+      );
+      // Error check the input
+      if (
+        newIncomeIsRecurring.toLowerCase() === 'yes' ||
+        newIncomeIsRecurring.toLowerCase() === 'no'
+      ) {
+        //if it passes: convert the string to a boolean with a ternary operator
+        newIncomeIsRecurring =
+          newIncomeIsRecurring.toLowerCase() === 'yes' ? true : false;
+      } else {
+        alert(
+          'Please only enter yes or no into the prompt box, please refresh the page and start again'
+        );
+      }
+
+      //input the retrieved values into a new income object
+      let income6 = new income(
+        newIncomeName,
+        newIncomeAmount,
+        newIncomeIsRecurring
+      );
+
+      //return the final object
+      return income6;
     }
 
-    //input the retrieved values into a new income object
-    let income6 = new income(
-      newIncomeName,
-      newIncomeAmount,
-      newIncomeIsRecurring
-    );
+    //create a function to ask the user for new expense values and return the resulting object
+    //===================================================
+    function createNewExpense() {
+      //prompt for the name of a new Expense item(and display the current Expense values pulled from sessionstorage)
+      let newExpenseName = prompt(
+        'Your Expenses are as follows \n' +
+          recalledExpenses[0].amount +
+          '\n' +
+          recalledExpenses[1].amount +
+          '\n' +
+          recalledExpenses[2].amount +
+          '\n' +
+          recalledExpenses[3].amount +
+          '\n' +
+          recalledExpenses[4].amount +
+          '\n' +
+          'please enter a name for another expense item'
+      );
+      //prompt for the amount of a new Expense item
+      let newExpenseAmount = prompt(
+        'please enter an amount for the new Expense item'
+      );
+      //prompt for the isRecurring boolean of a new Expense item
+      let newExpenseIsRecurring = prompt(
+        'please enter yes or no to show if the Expense is recurring or not'
+      );
+      // Error check the input
+      if (
+        newExpenseIsRecurring.toLowerCase() === 'yes' ||
+        newExpenseIsRecurring.toLowerCase() === 'no'
+      ) {
+        //if it passes: convert the string to a boolean with a ternary operator
+        newExpenseIsRecurring =
+          newExpenseIsRecurring.toLowerCase() === 'yes' ? true : false;
+      } else {
+        alert(
+          'Please only enter yes or no into the prompt box, please refresh the page and start again'
+        );
+      }
 
-    //store the new income object into a new position on the recalled incomes array to update it
-    recalledIncomes[5] = income6;
-    console.log(recalledIncomes[5]);
+      //input the retrieved values into a new Expense object
+      let expense6 = new expense(
+        newExpenseName,
+        newExpenseAmount,
+        newExpenseIsRecurring
+      );
 
-    //then using the same key store them into sessionstorage again - this will overwrite the previous array
+      //return the final object
+      return expense6;
+    }
+
+    //run the createIncome and createExpense functions to create a new entry in each one:
+    //===================================================
+
+    //run the creatIncome() function and store the returned income object into a new position on the recalled incomes array to update it()
+    recalledIncomes[5] = createNewIncome();
+    recalledExpenses[5] = createNewExpense();
+
+    // then using the same key store them into sessionstorage again - this will overwrite the previous array
     sessionStorage.setItem('incomes', JSON.stringify(recalledIncomes));
 
     console.log(JSON.parse(sessionStorage.getItem('incomes')));
