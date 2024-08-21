@@ -181,7 +181,19 @@
     let disposableIncome = totalIncome - totalExpenses;
 
     //prompt the user for the chosen amount of savings
-    let savings = prompt();
+    let savings = prompt(
+      'Your current disposable income stands at:\n' +
+        disposableIncome +
+        '\n How much of this would you like to place into savings?'
+    );
+
+    //subtract the savings from disposableIncome
+    disposableIncome -= savings;
+
+    //alert the result
+    alert(
+      'Your total disposable income left after savings is:\n' + disposableIncome
+    );
 
     //log the current values of each of the arrays in session storage for testing
     console.log(JSON.parse(sessionStorage.getItem('incomes')));
