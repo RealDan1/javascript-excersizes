@@ -55,20 +55,40 @@
 
     //prompt for the name of a new income item(and display the current income values pulled from sessionstorage)
     let newIncomeName = prompt(
-      'Your income is as follows' +
+      'Your income is as follows \n' +
         recalledIncomes[0].amount +
+        '\n' +
         recalledIncomes[1].amount +
+        '\n' +
         recalledIncomes[2].amount +
+        '\n' +
         recalledIncomes[3].amount +
+        '\n' +
         recalledIncomes[4].amount +
+        '\n' +
         'please enter a name for another income item'
     );
+    //prompt for the amount of a new income item
     let newIncomeAmount = prompt(
       'please enter an amount for the new income item'
     );
+    //prompt for the isRecurring boolean of a new income item
     let newIncomeIsRecurring = prompt(
-      'please enter true or false for if the income is recurring or not'
+      'please enter yes or no to show if the income is recurring or not'
     );
+    // Error check the input
+    if (
+      newIncomeIsRecurring.toLocaleLowerCase === 'yes' ||
+      newIncomeIsRecurring.toLocaleLowerCase === 'no'
+    ) {
+      //if it passes: convert the string to a boolean with a ternary operator
+      newIncomeIsRecurring =
+        newIncomeIsRecurring.toLocaleLowerCase === 'yes' ? true : false;
+    } else {
+      alert(
+        'Please only enter yes or no into the prompt box, please refresh the page and start again'
+      );
+    }
 
     //input the retrieved values into a new income object
     let income6 = new income(
