@@ -171,10 +171,10 @@
 
     //loop through the arrays and total them
     for (const item of recalledIncomes) {
-      totalIncome += item;
+      totalIncome += item.amount;
     }
     for (const item of recalledExpenses) {
-      totalExpenses += item;
+      totalExpenses += item.amount;
     }
 
     //calculate disposable income
