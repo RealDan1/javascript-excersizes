@@ -58,26 +58,26 @@
     function createNewIncome() {
       //prompt for the name of a new income item(and display the current income values pulled from sessionstorage)
       let newIncomeName = prompt(
-        'Your income is as follows \n' +
+        'Your income is as follows:\n+' +
           recalledIncomes[0].amount +
-          '\n' +
+          '\n+' +
           recalledIncomes[1].amount +
-          '\n' +
+          '\n+' +
           recalledIncomes[2].amount +
-          '\n' +
+          '\n+' +
           recalledIncomes[3].amount +
-          '\n' +
+          '\n+' +
           recalledIncomes[4].amount +
           '\n' +
-          'please enter a name for another income item'
+          'Please enter a name for another income item.'
       );
       //prompt for the amount of a new income item
       let newIncomeAmount = prompt(
-        'please enter an amount for the new income item'
+        'Please enter an amount for the new income item.'
       );
       //prompt for the isRecurring boolean of a new income item
       let newIncomeIsRecurring = prompt(
-        'please enter yes or no to show if the income is recurring or not'
+        'Please enter yes or no to show if the income is recurring or not.'
       );
       // Error check the input
       if (
@@ -89,7 +89,7 @@
           newIncomeIsRecurring.toLowerCase() === 'yes' ? true : false;
       } else {
         alert(
-          'Please only enter yes or no into the prompt box, please refresh the page and start again'
+          'Please only enter yes or no into the prompt box, please refresh the page and start again.'
         );
       }
 
@@ -109,26 +109,26 @@
     function createNewExpense() {
       //prompt for the name of a new Expense item(and display the current Expense values pulled from sessionstorage)
       let newExpenseName = prompt(
-        'Your Expenses are as follows \n' +
+        'Your Expenses are as follows: \n-' +
           recalledExpenses[0].amount +
-          '\n' +
+          '\n-' +
           recalledExpenses[1].amount +
-          '\n' +
+          '\n-' +
           recalledExpenses[2].amount +
-          '\n' +
+          '\n-' +
           recalledExpenses[3].amount +
-          '\n' +
+          '\n-' +
           recalledExpenses[4].amount +
           '\n' +
-          'please enter a name for another expense item'
+          'Please enter a name for another expense item.'
       );
       //prompt for the amount of a new Expense item
       let newExpenseAmount = prompt(
-        'please enter an amount for the new Expense item'
+        'Please enter an amount for the new Expense item.'
       );
       //prompt for the isRecurring boolean of a new Expense item
       let newExpenseIsRecurring = prompt(
-        'please enter yes or no to show if the Expense is recurring or not'
+        'Please enter yes or no to show if the Expense is recurring or not.'
       );
       // Error check the input
       if (
@@ -140,7 +140,7 @@
           newExpenseIsRecurring.toLowerCase() === 'yes' ? true : false;
       } else {
         alert(
-          'Please only enter yes or no into the prompt box, please refresh the page and start again'
+          'Please only enter yes or no into the prompt box, please refresh the page and start again.'
         );
       }
 
@@ -162,9 +162,11 @@
     recalledIncomes[5] = createNewIncome();
     recalledExpenses[5] = createNewExpense();
 
-    // then using the same key store them into sessionstorage again - this will overwrite the previous array
+    // then, using the same key, store them into sessionstorage again - this will overwrite the previous array
     sessionStorage.setItem('incomes', JSON.stringify(recalledIncomes));
+    sessionStorage.setItem('expenses', JSON.stringify(recalledExpenses));
 
     console.log(JSON.parse(sessionStorage.getItem('incomes')));
+    console.log(JSON.parse(sessionStorage.getItem('expenses')));
   </script>
 </html>
