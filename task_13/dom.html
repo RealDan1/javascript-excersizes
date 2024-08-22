@@ -75,6 +75,13 @@
       let newIncomeAmount = Number(
         prompt('Please enter an amount for the new income item.')
       );
+
+      //error check the input:
+      if (isNaN(newIncomeAmount)) {
+        alert(
+          'Please only enter an integer into the amount, please refresh and try again.'
+        );
+      }
       //prompt for the isRecurring boolean of a new income item
       let newIncomeIsRecurring = prompt(
         'Please enter yes or no to show if the income is recurring or not.'
@@ -126,6 +133,14 @@
       let newExpenseAmount = Number(
         prompt('Please enter an amount for the new Expense item.')
       );
+
+      //error check the input:
+      if (isNaN(newExpenseAmount)) {
+        alert(
+          'Please only enter an integer into the amount, please refresh and try again.'
+        );
+      }
+
       //prompt for the isRecurring boolean of a new Expense item
       let newExpenseIsRecurring = prompt(
         'Please enter yes or no to show if the Expense is recurring or not.'
@@ -188,6 +203,13 @@
           '\n How much of this would you like to place into savings?'
       )
     );
+
+    //error check the input:
+    if (isNaN(savings)) {
+      alert(
+        'Please only enter an integer into the amount, please refresh and try again.'
+      );
+    }
 
     //subtract the savings from disposableIncome
     disposableIncome -= savings;
