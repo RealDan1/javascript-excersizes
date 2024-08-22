@@ -58,15 +58,15 @@
     function createNewIncome() {
       //prompt for the name of a new income item(and display the current income values pulled from sessionstorage)
       let newIncomeName = prompt(
-        'Your income is as follows:\n+' +
+        'Your income is as follows:\nSalary: +' +
           recalledIncomes[0].amount +
-          '\n+' +
+          '\nFreelance: +' +
           recalledIncomes[1].amount +
-          '\n+' +
+          '\nInvestment: +' +
           recalledIncomes[2].amount +
-          '\n+' +
+          '\nCrypto: +' +
           recalledIncomes[3].amount +
-          '\n+' +
+          '\nGarage sale: +' +
           recalledIncomes[4].amount +
           '\n' +
           'Please enter a name for another income item.'
@@ -109,17 +109,17 @@
     function createNewExpense() {
       //prompt for the name of a new Expense item(and display the current Expense values pulled from sessionstorage)
       let newExpenseName = prompt(
-        'Your Expenses are as follows: \n-' +
+        'Your Expenses are as follows: \nRent: -' +
           recalledExpenses[0].amount +
-          '\n-' +
+          '\nGroceries: -' +
           recalledExpenses[1].amount +
-          '\n-' +
+          '\nUtilities: -' +
           recalledExpenses[2].amount +
-          '\n-' +
+          '\nPetrol: -' +
           recalledExpenses[3].amount +
-          '\n-' +
+          '\nEntertainment: -' +
           recalledExpenses[4].amount +
-          '\n' +
+          '\n ' +
           'Please enter a name for another expense item.'
       );
       //prompt for the amount of a new Expense item
