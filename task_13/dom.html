@@ -10,217 +10,218 @@
         background-color: rgb(24, 24, 24);
       }
     </style>
+    <script defer>
+      // create income Obj constructor
+      function income(name, amount, isRecurring) {
+        this.name = name;
+        this.amount = amount;
+        this.isRecurring = isRecurring;
+      }
+      // create 5 instances of income Obj
+      let income1 = new income('Salary', 25000, true);
+      let income2 = new income('Freelance', 5000, false);
+      let income3 = new income('Investment', 1000, true);
+      let income4 = new income('Crypto', 600, true);
+      let income5 = new income('Garage sale', 1000, false);
+
+      // Creat expense Obj constructor
+      function expense(name, amount, isRecurring) {
+        this.name = name;
+        this.amount = amount;
+        this.isRecurring = isRecurring;
+      }
+
+      // create 5 instances of income Obj
+      let expense1 = new expense('Rent', 8000, true);
+      let expense2 = new expense('Groceries', 5000, true);
+      let expense3 = new expense('Utilities', 2000, true);
+      let expense4 = new expense('Petrol', 2000, true);
+      let expense5 = new expense('Entertainment', 2000, false);
+
+      //place the objects inside an array for each type(income and expense)
+      let incomes = [income1, income2, income3, income4, income5];
+      let expenses = [expense1, expense2, expense3, expense4, expense5];
+
+      //store the arrays (of objects) inside session storage(after converting them to JSON strings with .stringify since sessionstorage only accepts string data - when recalling the data we should always convert back from JSON with JSON.parse):
+      sessionStorage.setItem('incomes', JSON.stringify(incomes));
+      sessionStorage.setItem('expenses', JSON.stringify(expenses));
+
+      //to simulate the scenario, lets call the expense and income data from session storage and use it in the following section of the assignment. This basically simulates "recalling" the users data from a previous session even though we just created the data ourselves and its essentially unchanged. we are now using session data to do the next part of the activity
+
+      let recalledIncomes = JSON.parse(sessionStorage.getItem('incomes'));
+      let recalledExpenses = JSON.parse(sessionStorage.getItem('expenses'));
+
+      //create a function to ask the user for new income values and return the resulting object
+      //==========================================
+      function createNewIncome() {
+        //prompt for the name of a new income item(and display the current income values pulled from sessionstorage)
+        let newIncomeName = prompt(
+          'Your income is as follows:\nSalary: +' +
+            recalledIncomes[0].amount +
+            '\nFreelance: +' +
+            recalledIncomes[1].amount +
+            '\nInvestment: +' +
+            recalledIncomes[2].amount +
+            '\nCrypto: +' +
+            recalledIncomes[3].amount +
+            '\nGarage sale: +' +
+            recalledIncomes[4].amount +
+            '\n' +
+            'Please enter a name for another income item.'
+        );
+        //prompt for the amount of a new income item
+        let newIncomeAmount = Number(
+          prompt('Please enter an amount for the new income item.')
+        );
+
+        //error check the input:
+        if (isNaN(newIncomeAmount)) {
+          alert(
+            'Please only enter an integer into the amount, please refresh and try again.'
+          );
+        }
+        //prompt for the isRecurring boolean of a new income item
+        let newIncomeIsRecurring = prompt(
+          'Please enter yes or no to show if the income is recurring or not.'
+        );
+        // Error check the input
+        if (
+          newIncomeIsRecurring.toLowerCase() === 'yes' ||
+          newIncomeIsRecurring.toLowerCase() === 'no'
+        ) {
+          //if it passes: convert the string to a boolean with a ternary operator
+          newIncomeIsRecurring =
+            newIncomeIsRecurring.toLowerCase() === 'yes' ? true : false;
+        } else {
+          alert(
+            'Please only enter yes or no into the prompt box, please refresh the page and start again.'
+          );
+        }
+
+        //input the retrieved values into a new income object
+        let income6 = new income(
+          newIncomeName,
+          newIncomeAmount,
+          newIncomeIsRecurring
+        );
+
+        //return the final object
+        return income6;
+      }
+
+      //create a function to ask the user for new expense values and return the resulting object
+      //===================================================
+      function createNewExpense() {
+        //prompt for the name of a new Expense item(and display the current Expense values pulled from sessionstorage)
+        let newExpenseName = prompt(
+          'Your Expenses are as follows: \nRent: -' +
+            recalledExpenses[0].amount +
+            '\nGroceries: -' +
+            recalledExpenses[1].amount +
+            '\nUtilities: -' +
+            recalledExpenses[2].amount +
+            '\nPetrol: -' +
+            recalledExpenses[3].amount +
+            '\nEntertainment: -' +
+            recalledExpenses[4].amount +
+            '\n ' +
+            'Please enter a name for another expense item.'
+        );
+        //prompt for the amount of a new Expense item
+        let newExpenseAmount = Number(
+          prompt('Please enter an amount for the new Expense item.')
+        );
+
+        //error check the input:
+        if (isNaN(newExpenseAmount)) {
+          alert(
+            'Please only enter an integer into the amount, please refresh and try again.'
+          );
+        }
+
+        //prompt for the isRecurring boolean of a new Expense item
+        let newExpenseIsRecurring = prompt(
+          'Please enter yes or no to show if the Expense is recurring or not.'
+        );
+        // Error check the input
+        if (
+          newExpenseIsRecurring.toLowerCase() === 'yes' ||
+          newExpenseIsRecurring.toLowerCase() === 'no'
+        ) {
+          //if it passes: convert the string to a boolean with a ternary operator
+          newExpenseIsRecurring =
+            newExpenseIsRecurring.toLowerCase() === 'yes' ? true : false;
+        } else {
+          alert(
+            'Please only enter yes or no into the prompt box, please refresh the page and start again.'
+          );
+        }
+
+        //input the retrieved values into a new Expense object
+        let expense6 = new expense(
+          newExpenseName,
+          newExpenseAmount,
+          newExpenseIsRecurring
+        );
+
+        //return the final object
+        return expense6;
+      }
+      //===================================================
+      //run the createIncome and createExpense functions to create a new entry in each one:
+
+      //run the creatIncome() function and store the returned income object into a new position on the recalled incomes array to update it()
+      recalledIncomes[5] = createNewIncome();
+      recalledExpenses[5] = createNewExpense();
+
+      // then, using the same key, store them into sessionstorage again - this will overwrite the previous array
+      sessionStorage.setItem('incomes', JSON.stringify(recalledIncomes));
+      sessionStorage.setItem('expenses', JSON.stringify(recalledExpenses));
+
+      //initialise two variables for the totals:
+      let totalIncome = 0;
+      let totalExpenses = 0;
+
+      //loop through the arrays and total them
+      for (const item of recalledIncomes) {
+        totalIncome += item.amount;
+      }
+      for (const item of recalledExpenses) {
+        totalExpenses += item.amount;
+      }
+
+      //calculate disposable income
+      let disposableIncome = totalIncome - totalExpenses;
+
+      //prompt the user for the chosen amount of savings
+      let savings = Number(
+        prompt(
+          'Your current disposable income stands at:\n' +
+            disposableIncome +
+            '\n How much of this would you like to place into savings?'
+        )
+      );
+
+      //error check the input:
+      if (isNaN(savings)) {
+        alert(
+          'Please only enter an integer into the amount, please refresh and try again.'
+        );
+      }
+
+      //subtract the savings from disposableIncome
+      disposableIncome -= savings;
+
+      //alert the result
+      alert(
+        'Your total disposable income left after savings is:\n' +
+          disposableIncome
+      );
+
+      //log the current values of each of the arrays in session storage for testing
+      console.log(JSON.parse(sessionStorage.getItem('incomes')));
+      console.log(JSON.parse(sessionStorage.getItem('expenses')));
+    </script>
   </head>
   <body></body>
-  <script>
-    // create income Obj constructor
-    function income(name, amount, isRecurring) {
-      this.name = name;
-      this.amount = amount;
-      this.isRecurring = isRecurring;
-    }
-    // create 5 instances of income Obj
-    let income1 = new income('Salary', 25000, true);
-    let income2 = new income('Freelance', 5000, false);
-    let income3 = new income('Investment', 1000, true);
-    let income4 = new income('Crypto', 600, true);
-    let income5 = new income('Garage sale', 1000, false);
-
-    // Creat expense Obj constructor
-    function expense(name, amount, isRecurring) {
-      this.name = name;
-      this.amount = amount;
-      this.isRecurring = isRecurring;
-    }
-
-    // create 5 instances of income Obj
-    let expense1 = new expense('Rent', 8000, true);
-    let expense2 = new expense('Groceries', 5000, true);
-    let expense3 = new expense('Utilities', 2000, true);
-    let expense4 = new expense('Petrol', 2000, true);
-    let expense5 = new expense('Entertainment', 2000, false);
-
-    //place the objects inside an array for each type(income and expense)
-    let incomes = [income1, income2, income3, income4, income5];
-    let expenses = [expense1, expense2, expense3, expense4, expense5];
-
-    //store the arrays (of objects) inside session storage(after converting them to JSON strings with .stringify since sessionstorage only accepts string data - when recalling the data we should always convert back from JSON with JSON.parse):
-    sessionStorage.setItem('incomes', JSON.stringify(incomes));
-    sessionStorage.setItem('expenses', JSON.stringify(expenses));
-
-    //to simulate the scenario, lets call the expense and income data from session storage and use it in the following section of the assignment. This basically simulates "recalling" the users data from a previous session even though we just created the data ourselves and its essentially unchanged. we are now using session data to do the next part of the activity
-
-    let recalledIncomes = JSON.parse(sessionStorage.getItem('incomes'));
-    let recalledExpenses = JSON.parse(sessionStorage.getItem('expenses'));
-
-    //create a function to ask the user for new income values and return the resulting object
-    //==========================================
-    function createNewIncome() {
-      //prompt for the name of a new income item(and display the current income values pulled from sessionstorage)
-      let newIncomeName = prompt(
-        'Your income is as follows:\nSalary: +' +
-          recalledIncomes[0].amount +
-          '\nFreelance: +' +
-          recalledIncomes[1].amount +
-          '\nInvestment: +' +
-          recalledIncomes[2].amount +
-          '\nCrypto: +' +
-          recalledIncomes[3].amount +
-          '\nGarage sale: +' +
-          recalledIncomes[4].amount +
-          '\n' +
-          'Please enter a name for another income item.'
-      );
-      //prompt for the amount of a new income item
-      let newIncomeAmount = Number(
-        prompt('Please enter an amount for the new income item.')
-      );
-
-      //error check the input:
-      if (isNaN(newIncomeAmount)) {
-        alert(
-          'Please only enter an integer into the amount, please refresh and try again.'
-        );
-      }
-      //prompt for the isRecurring boolean of a new income item
-      let newIncomeIsRecurring = prompt(
-        'Please enter yes or no to show if the income is recurring or not.'
-      );
-      // Error check the input
-      if (
-        newIncomeIsRecurring.toLowerCase() === 'yes' ||
-        newIncomeIsRecurring.toLowerCase() === 'no'
-      ) {
-        //if it passes: convert the string to a boolean with a ternary operator
-        newIncomeIsRecurring =
-          newIncomeIsRecurring.toLowerCase() === 'yes' ? true : false;
-      } else {
-        alert(
-          'Please only enter yes or no into the prompt box, please refresh the page and start again.'
-        );
-      }
-
-      //input the retrieved values into a new income object
-      let income6 = new income(
-        newIncomeName,
-        newIncomeAmount,
-        newIncomeIsRecurring
-      );
-
-      //return the final object
-      return income6;
-    }
-
-    //create a function to ask the user for new expense values and return the resulting object
-    //===================================================
-    function createNewExpense() {
-      //prompt for the name of a new Expense item(and display the current Expense values pulled from sessionstorage)
-      let newExpenseName = prompt(
-        'Your Expenses are as follows: \nRent: -' +
-          recalledExpenses[0].amount +
-          '\nGroceries: -' +
-          recalledExpenses[1].amount +
-          '\nUtilities: -' +
-          recalledExpenses[2].amount +
-          '\nPetrol: -' +
-          recalledExpenses[3].amount +
-          '\nEntertainment: -' +
-          recalledExpenses[4].amount +
-          '\n ' +
-          'Please enter a name for another expense item.'
-      );
-      //prompt for the amount of a new Expense item
-      let newExpenseAmount = Number(
-        prompt('Please enter an amount for the new Expense item.')
-      );
-
-      //error check the input:
-      if (isNaN(newExpenseAmount)) {
-        alert(
-          'Please only enter an integer into the amount, please refresh and try again.'
-        );
-      }
-
-      //prompt for the isRecurring boolean of a new Expense item
-      let newExpenseIsRecurring = prompt(
-        'Please enter yes or no to show if the Expense is recurring or not.'
-      );
-      // Error check the input
-      if (
-        newExpenseIsRecurring.toLowerCase() === 'yes' ||
-        newExpenseIsRecurring.toLowerCase() === 'no'
-      ) {
-        //if it passes: convert the string to a boolean with a ternary operator
-        newExpenseIsRecurring =
-          newExpenseIsRecurring.toLowerCase() === 'yes' ? true : false;
-      } else {
-        alert(
-          'Please only enter yes or no into the prompt box, please refresh the page and start again.'
-        );
-      }
-
-      //input the retrieved values into a new Expense object
-      let expense6 = new expense(
-        newExpenseName,
-        newExpenseAmount,
-        newExpenseIsRecurring
-      );
-
-      //return the final object
-      return expense6;
-    }
-    //===================================================
-    //run the createIncome and createExpense functions to create a new entry in each one:
-
-    //run the creatIncome() function and store the returned income object into a new position on the recalled incomes array to update it()
-    recalledIncomes[5] = createNewIncome();
-    recalledExpenses[5] = createNewExpense();
-
-    // then, using the same key, store them into sessionstorage again - this will overwrite the previous array
-    sessionStorage.setItem('incomes', JSON.stringify(recalledIncomes));
-    sessionStorage.setItem('expenses', JSON.stringify(recalledExpenses));
-
-    //initialise two variables for the totals:
-    let totalIncome = 0;
-    let totalExpenses = 0;
-
-    //loop through the arrays and total them
-    for (const item of recalledIncomes) {
-      totalIncome += item.amount;
-    }
-    for (const item of recalledExpenses) {
-      totalExpenses += item.amount;
-    }
-
-    //calculate disposable income
-    let disposableIncome = totalIncome - totalExpenses;
-
-    //prompt the user for the chosen amount of savings
-    let savings = Number(
-      prompt(
-        'Your current disposable income stands at:\n' +
-          disposableIncome +
-          '\n How much of this would you like to place into savings?'
-      )
-    );
-
-    //error check the input:
-    if (isNaN(savings)) {
-      alert(
-        'Please only enter an integer into the amount, please refresh and try again.'
-      );
-    }
-
-    //subtract the savings from disposableIncome
-    disposableIncome -= savings;
-
-    //alert the result
-    alert(
-      'Your total disposable income left after savings is:\n' + disposableIncome
-    );
-
-    //log the current values of each of the arrays in session storage for testing
-    console.log(JSON.parse(sessionStorage.getItem('incomes')));
-    console.log(JSON.parse(sessionStorage.getItem('expenses')));
-  </script>
 </html>
