@@ -112,6 +112,7 @@
         newIncomeIsRecurring =
           newIncomeIsRecurring.toLowerCase() === 'yes' ? true : false;
 
+        //input the retrieved values into a new income object
         let income6 = new income(
           newIncomeName,
           newIncomeAmount,
@@ -178,7 +179,6 @@
           newExpenseIsRecurring.toLowerCase() === 'yes' ? true : false;
 
         //input the retrieved values into a new Expense object
-
         let expense6 = new expense(
           newExpenseName,
           newExpenseAmount,
@@ -187,9 +187,9 @@
         //return the final object
         return expense6;
       }
-
+      //run the createIncome and createExpense functions to create a new entry in each one:
+      //===================================================
       function processNewEntries() {
-        //run the createIncome and createExpense functions to create a new entry in each one:
         let newIncome = createNewIncome();
         if (isWrongInput) {
           return; // Stop if invalid input
@@ -206,7 +206,8 @@
         sessionStorage.setItem('incomes', JSON.stringify(recalledIncomes));
         sessionStorage.setItem('expenses', JSON.stringify(recalledExpenses));
       }
-
+      //function to calculate the totals:
+      //===================================================
       function calculateTotals() {
         if (isWrongInput) {
           // If invalid input stop
