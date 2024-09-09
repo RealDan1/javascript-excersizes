@@ -186,9 +186,8 @@
         return expense6;
       }
 
-      // This function processes the new income and expense entries from the user
-      // If either createNewIncome() or createNewExpense() returns undefined, the function
-      // stops the program execution and alerts the user
+      // create a functino to process the new income and expense entries from the user
+      //===================================================
       function processNewEntries() {
         recalledIncomes[5] = createNewIncome();
         if (recalledIncomes[5] === undefined) {
@@ -199,6 +198,7 @@
         recalledExpenses[5] = createNewExpense();
         if (recalledExpenses[5] === undefined) {
           alert('Invalid input. Program stopped.');
+          //return and stop the program since the input was wrong
           return;
         }
 
@@ -209,9 +209,10 @@
 
       // create a function to calculate the total income, total expenses, and disposable income
       function calculateTotals() {
+        //initialise two variables for the totals:
         let totalIncome = 0;
         let totalExpenses = 0;
-
+        //loop through the arrays and total them
         for (const item of recalledIncomes) {
           totalIncome += item.amount;
         }
@@ -219,6 +220,7 @@
           totalExpenses += item.amount;
         }
 
+        //calculate disposable income
         let disposableIncome = totalIncome - totalExpenses;
 
         let savings = Number(
@@ -229,10 +231,12 @@
           )
         );
 
+        //error check the input
         if (isNaN(savings)) {
           alert(
             'Please only enter an integer into the amount, please refresh and try again.'
           );
+          //return and stop the program since the input was wrong
           return;
         }
 
@@ -244,15 +248,13 @@
         );
       }
 
-      // The main function that executes the program
-      // If either processNewEntries() or calculateTotals() returns undefined,
-      // the program stops and alerts the user
-      function main() {
-        processNewEntries();
-        calculateTotals();
-      }
+      // create a main function  function that executes the program
+      // function main() {
+      processNewEntries();
+      calculateTotals();
+      // }
 
-      main();
+      // main();
     </script>
   </head>
   <body></body>
