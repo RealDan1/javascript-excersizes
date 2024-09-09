@@ -226,7 +226,30 @@
         //calculate disposable income
         let disposableIncome = totalIncome - totalExpenses;
 
-        alert('Your total disposable income is: ' + disposableIncome);
+        //prompt the user for the chosen amount of savings
+        let savings = Number(
+          prompt(
+            'Your current disposable income stands at:\n' +
+              disposableIncome +
+              '\n How much of this would you like to place into savings?'
+          )
+        );
+
+        //error check the input:
+        if (isNaN(savings)) {
+          alert(
+            'Please only enter an integer into the amount, please refresh and try again.'
+          );
+        }
+
+        //subtract the savings from disposableIncome
+        disposableIncome -= savings;
+
+        //alert the result
+        alert(
+          'Your total disposable income left after savings is:\n' +
+            disposableIncome
+        );
       }
 
       processNewEntries();
