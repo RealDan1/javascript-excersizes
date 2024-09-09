@@ -71,8 +71,10 @@
             'Please enter a name for another income item.'
         );
 
+        //CHANGE: If the user cancels or leaves input empty (null), stop the function
         if (!newIncomeName) {
-          return undefined;
+          // Explanation: `prompt()` returns `null` when the user presses cancel or leaves it empty. This check returns the function early to prevent further prompts.
+          return; // Stops further execution of this function if input is invalid or canceled
         }
 
         //prompt for the amount of a new income item
@@ -80,12 +82,13 @@
           prompt('Please enter an amount for the new income item.')
         );
 
-        //error check the input:
+        //CHANGE: Check for NaN (not a number) to ensure valid input
         if (isNaN(newIncomeAmount)) {
           alert(
             'Please only enter an integer into the amount, please refresh and try again.'
           );
-          return;
+          // Explanation: If the user enters non-numeric input, the function will stop by returning here.
+          return; // Stops the function from proceeding
         }
 
         //prompt for the isRecurring boolean of a new income item
@@ -93,14 +96,16 @@
           'Please enter yes or no to show if the income is recurring or not.'
         );
 
-        // Error check the input
+        //CHANGE: If user cancels the prompt or enters something besides yes/no, stop the function
         if (
-          newIncomeIsRecurring.toLowerCase() !== 'yes' &&
-          newIncomeIsRecurring.toLowerCase() !== 'no'
+          !newIncomeIsRecurring ||
+          (newIncomeIsRecurring.toLowerCase() !== 'yes' &&
+            newIncomeIsRecurring.toLowerCase() !== 'no')
         ) {
           alert(
             'Please only enter yes or no into the prompt box, please refresh the page and start again.'
           );
+          // Explanation: Check for null (cancel) or invalid input. Return early to stop execution.
           return;
         }
 
@@ -137,8 +142,10 @@
             'Please enter a name for another expense item.'
         );
 
+        //CHANGE: If the user cancels or leaves input empty, stop the function
         if (!newExpenseName) {
-          return undefined;
+          // Explanation: Same as the income name prompt, returning here stops further prompts if input is invalid or canceled.
+          return;
         }
 
         //prompt for the amount of a new Expense item
@@ -146,11 +153,12 @@
           prompt('Please enter an amount for the new Expense item.')
         );
 
-        //error check the input:
+        //CHANGE: Check if the input is NaN (non-numeric) and stop if so
         if (isNaN(newExpenseAmount)) {
           alert(
             'Please only enter an integer into the amount, please refresh and try again.'
           );
+          // Explanation: Ensures valid numeric input and stops the function if incorrect input is given.
           return;
         }
 
@@ -159,14 +167,16 @@
           'Please enter yes or no to show if the Expense is recurring or not.'
         );
 
-        // Error check the input
+        //CHANGE: Check for null (cancel) or invalid input ('yes'/'no' only)
         if (
-          newExpenseIsRecurring.toLowerCase() !== 'yes' &&
-          newExpenseIsRecurring.toLowerCase() !== 'no'
+          !newExpenseIsRecurring ||
+          (newExpenseIsRecurring.toLowerCase() !== 'yes' &&
+            newExpenseIsRecurring.toLowerCase() !== 'no')
         ) {
           alert(
             'Please only enter yes or no into the prompt box, please refresh the page and start again.'
           );
+          // Explanation: Stops execution if invalid input or cancel happens.
           return;
         }
 
@@ -187,12 +197,14 @@
       function processNewEntries() {
         let newIncome = createNewIncome();
         if (newIncome === undefined) {
+          //CHANGE: Stop the function if new income creation failed
           alert('Invalid input. Program stopped.');
           return;
         }
 
         let newExpense = createNewExpense();
         if (newExpense === undefined) {
+          //CHANGE: Stop the function if new expense creation failed
           alert('Invalid input. Program stopped.');
           return;
         }
@@ -217,35 +229,11 @@
 
         let disposableIncome = totalIncome - totalExpenses;
 
-        let savings = Number(
-          prompt(
-            'Your current disposable income stands at:\n' +
-              disposableIncome +
-              '\n How much of this would you like to place into savings?'
-          )
-        );
-
-        if (isNaN(savings)) {
-          alert(
-            'Please only enter an integer into the amount, please refresh and try again.'
-          );
-          return;
-        }
-
-        disposableIncome -= savings;
-
-        alert(
-          'Your total disposable income left after savings is:\n' +
-            disposableIncome
-        );
-      }
-      // create a main function  function that executes the program
-      function main() {
-        processNewEntries();
-        calculateTotals();
+        alert('Your total disposable income is: ' + disposableIncome);
       }
 
-      main();
+      processNewEntries();
+      calculateTotals();
     </script>
   </head>
   <body></body>
