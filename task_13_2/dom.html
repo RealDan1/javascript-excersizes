@@ -17,6 +17,7 @@
         this.amount = amount;
         this.isRecurring = isRecurring;
       }
+
       // create 5 instances of income Obj
       let income1 = new income('Salary', 25000, true);
       let income2 = new income('Freelance', 5000, false);
@@ -69,6 +70,12 @@
             '\n' +
             'Please enter a name for another income item.'
         );
+
+        // If the user cancels the prompt, return undefined to indicate failure
+        if (!newIncomeName) {
+          return undefined;
+        }
+
         //prompt for the amount of a new income item
         let newIncomeAmount = Number(
           prompt('Please enter an amount for the new income item.')
@@ -79,28 +86,27 @@
           alert(
             'Please only enter an integer into the amount, please refresh and try again.'
           );
-          //return null to show the user input failed
-          return null;
+          return undefined;
         }
+
         //prompt for the isRecurring boolean of a new income item
         let newIncomeIsRecurring = prompt(
           'Please enter yes or no to show if the income is recurring or not.'
         );
+
         // Error check the input
         if (
-          newIncomeIsRecurring.toLowerCase() === 'yes' ||
-          newIncomeIsRecurring.toLowerCase() === 'no'
+          newIncomeIsRecurring.toLowerCase() !== 'yes' &&
+          newIncomeIsRecurring.toLowerCase() !== 'no'
         ) {
-          //if it passes: convert the string to a boolean with a ternary operator
-          newIncomeIsRecurring =
-            newIncomeIsRecurring.toLowerCase() === 'yes' ? true : false;
-        } else {
           alert(
             'Please only enter yes or no into the prompt box, please refresh the page and start again.'
           );
-          //return null to show the user input failed
-          return null;
+          return undefined;
         }
+
+        // Convert the string to a boolean with a ternary operator
+        newIncomeIsRecurring = newIncomeIsRecurring.toLowerCase() === 'yes';
 
         //input the retrieved values into a new income object
         let income6 = new income(
@@ -131,6 +137,12 @@
             '\n ' +
             'Please enter a name for another expense item.'
         );
+
+        // If the user cancels the prompt, return undefined to indicate failure
+        if (!newExpenseName) {
+          return undefined;
+        }
+
         //prompt for the amount of a new Expense item
         let newExpenseAmount = Number(
           prompt('Please enter an amount for the new Expense item.')
@@ -141,25 +153,27 @@
           alert(
             'Please only enter an integer into the amount, please refresh and try again.'
           );
+          return undefined;
         }
 
         //prompt for the isRecurring boolean of a new Expense item
         let newExpenseIsRecurring = prompt(
           'Please enter yes or no to show if the Expense is recurring or not.'
         );
+
         // Error check the input
         if (
-          newExpenseIsRecurring.toLowerCase() === 'yes' ||
-          newExpenseIsRecurring.toLowerCase() === 'no'
+          newExpenseIsRecurring.toLowerCase() !== 'yes' &&
+          newExpenseIsRecurring.toLowerCase() !== 'no'
         ) {
-          //if it passes: convert the string to a boolean with a ternary operator
-          newExpenseIsRecurring =
-            newExpenseIsRecurring.toLowerCase() === 'yes' ? true : false;
-        } else {
           alert(
             'Please only enter yes or no into the prompt box, please refresh the page and start again.'
           );
+          return undefined;
         }
+
+        // Convert the string to a boolean with a ternary operator
+        newExpenseIsRecurring = newExpenseIsRecurring.toLowerCase() === 'yes';
 
         //input the retrieved values into a new Expense object
         let expense6 = new expense(
@@ -171,60 +185,74 @@
         //return the final object
         return expense6;
       }
-      //===================================================
-      //run the createIncome and createExpense functions to create a new entry in each one:
 
-      //run the creatIncome() function and store the returned income object into a new position on the recalled incomes array to update it()
-      recalledIncomes[5] = createNewIncome();
-      recalledExpenses[5] = createNewExpense();
+      // This function processes the new income and expense entries from the user
+      // If either createNewIncome() or createNewExpense() returns undefined, the function
+      // stops the program execution and alerts the user
+      function processNewEntries() {
+        recalledIncomes[5] = createNewIncome();
+        if (recalledIncomes[5] === undefined) {
+          alert('Invalid input. Program stopped.');
+          return;
+        }
 
-      // then, using the same key, store them into sessionstorage again - this will overwrite the previous array
-      sessionStorage.setItem('incomes', JSON.stringify(recalledIncomes));
-      sessionStorage.setItem('expenses', JSON.stringify(recalledExpenses));
+        recalledExpenses[5] = createNewExpense();
+        if (recalledExpenses[5] === undefined) {
+          alert('Invalid input. Program stopped.');
+          return;
+        }
 
-      //initialise two variables for the totals:
-      let totalIncome = 0;
-      let totalExpenses = 0;
-
-      //loop through the arrays and total them
-      for (const item of recalledIncomes) {
-        totalIncome += item.amount;
+        // Update the incomes and expenses arrays in session storage
+        sessionStorage.setItem('incomes', JSON.stringify(recalledIncomes));
+        sessionStorage.setItem('expenses', JSON.stringify(recalledExpenses));
       }
-      for (const item of recalledExpenses) {
-        totalExpenses += item.amount;
-      }
 
-      //calculate disposable income
-      let disposableIncome = totalIncome - totalExpenses;
+      // create a function to calculate the total income, total expenses, and disposable income
+      function calculateTotals() {
+        let totalIncome = 0;
+        let totalExpenses = 0;
 
-      //prompt the user for the chosen amount of savings
-      let savings = Number(
-        prompt(
-          'Your current disposable income stands at:\n' +
-            disposableIncome +
-            '\n How much of this would you like to place into savings?'
-        )
-      );
+        for (const item of recalledIncomes) {
+          totalIncome += item.amount;
+        }
+        for (const item of recalledExpenses) {
+          totalExpenses += item.amount;
+        }
 
-      //error check the input:
-      if (isNaN(savings)) {
+        let disposableIncome = totalIncome - totalExpenses;
+
+        let savings = Number(
+          prompt(
+            'Your current disposable income stands at:\n' +
+              disposableIncome +
+              '\n How much of this would you like to place into savings?'
+          )
+        );
+
+        if (isNaN(savings)) {
+          alert(
+            'Please only enter an integer into the amount, please refresh and try again.'
+          );
+          return;
+        }
+
+        disposableIncome -= savings;
+
         alert(
-          'Please only enter an integer into the amount, please refresh and try again.'
+          'Your total disposable income left after savings is:\n' +
+            disposableIncome
         );
       }
 
-      //subtract the savings from disposableIncome
-      disposableIncome -= savings;
+      // The main function that executes the program
+      // If either processNewEntries() or calculateTotals() returns undefined,
+      // the program stops and alerts the user
+      function main() {
+        processNewEntries();
+        calculateTotals();
+      }
 
-      //alert the result
-      alert(
-        'Your total disposable income left after savings is:\n' +
-          disposableIncome
-      );
-
-      //log the current values of each of the arrays in session storage for testing
-      console.log(JSON.parse(sessionStorage.getItem('incomes')));
-      console.log(JSON.parse(sessionStorage.getItem('expenses')));
+      main();
     </script>
   </head>
   <body></body>
