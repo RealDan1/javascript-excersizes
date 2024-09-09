@@ -71,7 +71,6 @@
             'Please enter a name for another income item.'
         );
 
-        // If the user cancels the prompt, return undefined to indicate failure
         if (!newIncomeName) {
           return undefined;
         }
@@ -86,7 +85,7 @@
           alert(
             'Please only enter an integer into the amount, please refresh and try again.'
           );
-          return undefined;
+          return;
         }
 
         //prompt for the isRecurring boolean of a new income item
@@ -102,7 +101,7 @@
           alert(
             'Please only enter yes or no into the prompt box, please refresh the page and start again.'
           );
-          return undefined;
+          return;
         }
 
         // Convert the string to a boolean with a ternary operator
@@ -138,7 +137,6 @@
             'Please enter a name for another expense item.'
         );
 
-        // If the user cancels the prompt, return undefined to indicate failure
         if (!newExpenseName) {
           return undefined;
         }
@@ -153,7 +151,7 @@
           alert(
             'Please only enter an integer into the amount, please refresh and try again.'
           );
-          return undefined;
+          return;
         }
 
         //prompt for the isRecurring boolean of a new Expense item
@@ -169,7 +167,7 @@
           alert(
             'Please only enter yes or no into the prompt box, please refresh the page and start again.'
           );
-          return undefined;
+          return;
         }
 
         // Convert the string to a boolean with a ternary operator
@@ -186,33 +184,30 @@
         return expense6;
       }
 
-      // create a functino to process the new income and expense entries from the user
-      //===================================================
       function processNewEntries() {
-        recalledIncomes[5] = createNewIncome();
-        if (recalledIncomes[5] === undefined) {
+        let newIncome = createNewIncome();
+        if (newIncome === undefined) {
           alert('Invalid input. Program stopped.');
           return;
         }
 
-        recalledExpenses[5] = createNewExpense();
-        if (recalledExpenses[5] === undefined) {
+        let newExpense = createNewExpense();
+        if (newExpense === undefined) {
           alert('Invalid input. Program stopped.');
-          //return and stop the program since the input was wrong
           return;
         }
 
-        // Update the incomes and expenses arrays in session storage
+        recalledIncomes[5] = newIncome;
+        recalledExpenses[5] = newExpense;
+
         sessionStorage.setItem('incomes', JSON.stringify(recalledIncomes));
         sessionStorage.setItem('expenses', JSON.stringify(recalledExpenses));
       }
 
-      // create a function to calculate the total income, total expenses, and disposable income
       function calculateTotals() {
-        //initialise two variables for the totals:
         let totalIncome = 0;
         let totalExpenses = 0;
-        //loop through the arrays and total them
+
         for (const item of recalledIncomes) {
           totalIncome += item.amount;
         }
@@ -220,7 +215,6 @@
           totalExpenses += item.amount;
         }
 
-        //calculate disposable income
         let disposableIncome = totalIncome - totalExpenses;
 
         let savings = Number(
@@ -231,12 +225,10 @@
           )
         );
 
-        //error check the input
         if (isNaN(savings)) {
           alert(
             'Please only enter an integer into the amount, please refresh and try again.'
           );
-          //return and stop the program since the input was wrong
           return;
         }
 
@@ -247,14 +239,13 @@
             disposableIncome
         );
       }
-
       // create a main function  function that executes the program
-      // function main() {
-      processNewEntries();
-      calculateTotals();
-      // }
+      function main() {
+        processNewEntries();
+        calculateTotals();
+      }
 
-      // main();
+      main();
     </script>
   </head>
   <body></body>
