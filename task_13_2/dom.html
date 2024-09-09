@@ -53,7 +53,7 @@
       let recalledExpenses = JSON.parse(sessionStorage.getItem('expenses'));
 
       // Create a flag to track invalid inputs
-      let isWrongInput = false; // Initially, no errors
+      let isWrongInput = false;
 
       //create a function to ask the user for new income values and return the resulting object
       //==========================================
@@ -73,9 +73,9 @@
             '\n' +
             'Please enter a name for another income item.'
         );
-
+        // Set flag to true for invalid input
         if (!newIncomeName) {
-          isWrongInput = true; // Set flag to true for invalid input
+          isWrongInput = true;
           return;
         }
 
@@ -83,19 +83,20 @@
         let newIncomeAmount = Number(
           prompt('Please enter an amount for the new income item.')
         );
-
+        //error check the input:
         if (isNaN(newIncomeAmount)) {
           alert(
             'Please only enter an integer into the amount, please refresh and try again.'
           );
-          isWrongInput = true; // Set flag to true for invalid input
+          // Set flag to true for invalid input
+          isWrongInput = true;
           return;
         }
-
+        //prompt for the isRecurring boolean of a new income item
         let newIncomeIsRecurring = prompt(
           'Please enter yes or no to show if the income is recurring or not.'
         );
-
+        // Error check the input
         if (
           !newIncomeIsRecurring ||
           (newIncomeIsRecurring.toLowerCase() !== 'yes' &&
@@ -107,15 +108,16 @@
           isWrongInput = true; // Set flag to true for invalid input
           return;
         }
-
-        newIncomeIsRecurring = newIncomeIsRecurring.toLowerCase() === 'yes';
+        //if it passes: convert the string to a boolean with a ternary operator
+        newIncomeIsRecurring =
+          newIncomeIsRecurring.toLowerCase() === 'yes' ? true : false;
 
         let income6 = new income(
           newIncomeName,
           newIncomeAmount,
           newIncomeIsRecurring
         );
-
+        //return the final object
         return income6;
       }
 
@@ -136,28 +138,29 @@
             '\n ' +
             'Please enter a name for another expense item.'
         );
-
+        // Set flag to true for invalid input
         if (!newExpenseName) {
-          isWrongInput = true; // Set flag to true for invalid input
+          isWrongInput = true;
           return;
         }
 
         let newExpenseAmount = Number(
           prompt('Please enter an amount for the new Expense item.')
         );
-
+        //error check the input:
         if (isNaN(newExpenseAmount)) {
           alert(
             'Please only enter an integer into the amount, please refresh and try again.'
           );
-          isWrongInput = true; // Set flag to true for invalid input
+          // Set flag to true for invalid input
+          isWrongInput = true;
           return;
         }
-
+        //prompt for the isRecurring boolean of a new Expense item
         let newExpenseIsRecurring = prompt(
           'Please enter yes or no to show if the Expense is recurring or not.'
         );
-
+        // Error check the input
         if (
           !newExpenseIsRecurring ||
           (newExpenseIsRecurring.toLowerCase() !== 'yes' &&
@@ -166,27 +169,36 @@
           alert(
             'Please only enter yes or no into the prompt box, please refresh the page and start again.'
           );
-          isWrongInput = true; // Set flag to true for invalid input
+          // Set flag to true for invalid input
+          isWrongInput = true;
           return;
         }
 
-        newExpenseIsRecurring = newExpenseIsRecurring.toLowerCase() === 'yes';
+        newExpenseIsRecurring =
+          newExpenseIsRecurring.toLowerCase() === 'yes' ? true : false;
+
+        //input the retrieved values into a new Expense object
 
         let expense6 = new expense(
           newExpenseName,
           newExpenseAmount,
           newExpenseIsRecurring
         );
-
+        //return the final object
         return expense6;
       }
 
       function processNewEntries() {
+        //run the createIncome and createExpense functions to create a new entry in each one:
         let newIncome = createNewIncome();
-        if (isWrongInput) return; // Stop if invalid input occurred
+        if (isWrongInput) {
+          return; // Stop if invalid input
+        }
 
         let newExpense = createNewExpense();
-        if (isWrongInput) return; // Stop if invalid input occurred
+        if (isWrongInput) {
+          return; // Stop if invalid input
+        }
 
         recalledIncomes[5] = newIncome;
         recalledExpenses[5] = newExpense;
@@ -197,21 +209,21 @@
 
       function calculateTotals() {
         if (isWrongInput) {
-          // If invalid input occurred, stop and do not calculate
-          alert('Cannot calculate totals due to invalid input.');
+          // If invalid input stop
           return;
         }
-
+        //initialise two variables for the totals:
         let totalIncome = 0;
         let totalExpenses = 0;
 
+        //loop through the arrays and total them
         for (const item of recalledIncomes) {
           totalIncome += item.amount;
         }
         for (const item of recalledExpenses) {
           totalExpenses += item.amount;
         }
-
+        //calculate disposable income
         let disposableIncome = totalIncome - totalExpenses;
 
         alert('Your total disposable income is: ' + disposableIncome);
