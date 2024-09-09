@@ -52,6 +52,9 @@
       let recalledIncomes = JSON.parse(sessionStorage.getItem('incomes'));
       let recalledExpenses = JSON.parse(sessionStorage.getItem('expenses'));
 
+      // Create a flag to track invalid inputs
+      let isWrongInput = false; // Initially, no errors
+
       //create a function to ask the user for new income values and return the resulting object
       //==========================================
       function createNewIncome() {
@@ -71,10 +74,9 @@
             'Please enter a name for another income item.'
         );
 
-        //CHANGE: If the user cancels or leaves input empty (null), stop the function
         if (!newIncomeName) {
-          // Explanation: `prompt()` returns `null` when the user presses cancel or leaves it empty. This check returns the function early to prevent further prompts.
-          return; // Stops further execution of this function if input is invalid or canceled
+          isWrongInput = true; // Set flag to true for invalid input
+          return;
         }
 
         //prompt for the amount of a new income item
@@ -82,21 +84,18 @@
           prompt('Please enter an amount for the new income item.')
         );
 
-        //CHANGE: Check for NaN (not a number) to ensure valid input
         if (isNaN(newIncomeAmount)) {
           alert(
             'Please only enter an integer into the amount, please refresh and try again.'
           );
-          // Explanation: If the user enters non-numeric input, the function will stop by returning here.
-          return; // Stops the function from proceeding
+          isWrongInput = true; // Set flag to true for invalid input
+          return;
         }
 
-        //prompt for the isRecurring boolean of a new income item
         let newIncomeIsRecurring = prompt(
           'Please enter yes or no to show if the income is recurring or not.'
         );
 
-        //CHANGE: If user cancels the prompt or enters something besides yes/no, stop the function
         if (
           !newIncomeIsRecurring ||
           (newIncomeIsRecurring.toLowerCase() !== 'yes' &&
@@ -105,28 +104,24 @@
           alert(
             'Please only enter yes or no into the prompt box, please refresh the page and start again.'
           );
-          // Explanation: Check for null (cancel) or invalid input. Return early to stop execution.
+          isWrongInput = true; // Set flag to true for invalid input
           return;
         }
 
-        // Convert the string to a boolean with a ternary operator
         newIncomeIsRecurring = newIncomeIsRecurring.toLowerCase() === 'yes';
 
-        //input the retrieved values into a new income object
         let income6 = new income(
           newIncomeName,
           newIncomeAmount,
           newIncomeIsRecurring
         );
 
-        //return the final object
         return income6;
       }
 
       //create a function to ask the user for new expense values and return the resulting object
       //===================================================
       function createNewExpense() {
-        //prompt for the name of a new Expense item(and display the current Expense values pulled from sessionstorage)
         let newExpenseName = prompt(
           'Your Expenses are as follows: \nRent: -' +
             recalledExpenses[0].amount +
@@ -142,32 +137,27 @@
             'Please enter a name for another expense item.'
         );
 
-        //CHANGE: If the user cancels or leaves input empty, stop the function
         if (!newExpenseName) {
-          // Explanation: Same as the income name prompt, returning here stops further prompts if input is invalid or canceled.
+          isWrongInput = true; // Set flag to true for invalid input
           return;
         }
 
-        //prompt for the amount of a new Expense item
         let newExpenseAmount = Number(
           prompt('Please enter an amount for the new Expense item.')
         );
 
-        //CHANGE: Check if the input is NaN (non-numeric) and stop if so
         if (isNaN(newExpenseAmount)) {
           alert(
             'Please only enter an integer into the amount, please refresh and try again.'
           );
-          // Explanation: Ensures valid numeric input and stops the function if incorrect input is given.
+          isWrongInput = true; // Set flag to true for invalid input
           return;
         }
 
-        //prompt for the isRecurring boolean of a new Expense item
         let newExpenseIsRecurring = prompt(
           'Please enter yes or no to show if the Expense is recurring or not.'
         );
 
-        //CHANGE: Check for null (cancel) or invalid input ('yes'/'no' only)
         if (
           !newExpenseIsRecurring ||
           (newExpenseIsRecurring.toLowerCase() !== 'yes' &&
@@ -176,38 +166,27 @@
           alert(
             'Please only enter yes or no into the prompt box, please refresh the page and start again.'
           );
-          // Explanation: Stops execution if invalid input or cancel happens.
+          isWrongInput = true; // Set flag to true for invalid input
           return;
         }
 
-        // Convert the string to a boolean with a ternary operator
         newExpenseIsRecurring = newExpenseIsRecurring.toLowerCase() === 'yes';
 
-        //input the retrieved values into a new Expense object
         let expense6 = new expense(
           newExpenseName,
           newExpenseAmount,
           newExpenseIsRecurring
         );
 
-        //return the final object
         return expense6;
       }
 
       function processNewEntries() {
         let newIncome = createNewIncome();
-        if (newIncome === undefined) {
-          //CHANGE: Stop the function if new income creation failed
-          alert('Invalid input. Program stopped.');
-          return;
-        }
+        if (isWrongInput) return; // Stop if invalid input occurred
 
         let newExpense = createNewExpense();
-        if (newExpense === undefined) {
-          //CHANGE: Stop the function if new expense creation failed
-          alert('Invalid input. Program stopped.');
-          return;
-        }
+        if (isWrongInput) return; // Stop if invalid input occurred
 
         recalledIncomes[5] = newIncome;
         recalledExpenses[5] = newExpense;
@@ -217,6 +196,12 @@
       }
 
       function calculateTotals() {
+        if (isWrongInput) {
+          // If invalid input occurred, stop and do not calculate
+          alert('Cannot calculate totals due to invalid input.');
+          return;
+        }
+
         let totalIncome = 0;
         let totalExpenses = 0;
 
