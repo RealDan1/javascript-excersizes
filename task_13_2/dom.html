@@ -192,6 +192,7 @@
         recalledIncomes[5] = createNewIncome();
         if (recalledIncomes[5] === undefined) {
           alert('Invalid input. Program stopped.');
+          //return and stop the program since the input was wrong
           return;
         }
 
@@ -248,13 +249,13 @@
         );
       }
 
-      // create a main function  function that executes the program
-      // function main() {
-      processNewEntries();
-      calculateTotals();
-      // }
+      // create a main function function that executes the program
+      function main() {
+        processNewEntries();
+        calculateTotals();
+      }
 
-      // main();
+      main();
     </script>
   </head>
   <body></body>
