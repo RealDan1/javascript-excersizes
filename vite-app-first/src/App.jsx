@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <Heading />
+      <Heading name="John" age={23} />
       <p>Paragraph Test</p>
     </>
   );
