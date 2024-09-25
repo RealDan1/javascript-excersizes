@@ -3,3 +3,10 @@
   flex-direction: column;
   align-items: center;
 }
+
+.red-border {
+  border: 1px solid red;
+  padding: 5px;
+  align-self: center;
+  margin: 15px;
+}
