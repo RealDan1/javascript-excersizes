@@ -42,7 +42,9 @@ export default function App() {
           Frameworks and Libraries make it easier to handle manage large scale
           projects. it allows modular collaboration and updating of the code.
         </li>
-        <li></li>
+        <li>
+          each lbrary has allot of support for intagrating other fgramewowkrs
+        </li>
       </ul>
     </div>
   );
