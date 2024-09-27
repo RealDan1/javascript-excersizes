@@ -1,25 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import image from './assets/images/profile.jpeg';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const user = {
+  name: 'James',
+  surname: 'Bond',
+  date_of_birth: '1997/07/07',
+  country: 'UK',
+  email: 'bond@mi6.co.uk',
+  telephone: 7007007007,
+  company: 'mi6',
+  profile_picture: image,
+  shopping_cart: [],
+};
+export default function App() {
+  return <img src={user.profile_picture} alt="profile Picture" />;
 }
-
-export default App;
