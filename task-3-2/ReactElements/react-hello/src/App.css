@@ -4,9 +4,11 @@
   background-color: #f4f4f4;
 }
 
+/* split the profile and user info as separate containers and style them - very basic styling but just a proof of concept - more styling can be added*/
 .profile-container {
   width: 30%;
   background-color: #34a0a4;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,7 +17,8 @@
 
 .shopping-cart-container {
   width: 30%;
-  background-color: #34a0a4;
+  background-color: #1c5b8b;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
