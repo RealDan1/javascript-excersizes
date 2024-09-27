@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client';
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
+// create a new date object
 const date = new Date().toLocaleString();
 
 root.render(
