@@ -24,16 +24,25 @@ const user = {
 export default function App() {
   return (
     <div className="main-container">
-      <h1>
-        Shopper name: {user.name} {user.surname}
-      </h1>
-      <img src={user.profile_picture} alt="Profile Picture" />
-      <p>Birthday: {user.date_of_birth}</p>
-      <p>Country: {user.country}</p>
-      <p>Email: {user.email}</p>
-      <p>Telephone: {user.telephone}</p>
-      <p>Company: {user.company}</p>
-      <h2>Shopping Cart:</h2>
+      <div className="profile-container">
+        <h1>
+          Shopper name: {user.name} {user.surname}
+        </h1>
+        <img src={user.profile_picture} alt="Profile Picture" />
+        <p>Birthday: {user.date_of_birth}</p>
+        <p>Country: {user.country}</p>
+        <p>Email: {user.email}</p>
+        <p>Telephone: {user.telephone}</p>
+        <p>Company: {user.company}</p>
+      </div>
+      <div className="shopping-cart-container">
+        <h2>Shopping Cart:</h2>
+        <ol>
+          {user.shopping_cart.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ol>
+      </div>
     </div>
   );
 }
