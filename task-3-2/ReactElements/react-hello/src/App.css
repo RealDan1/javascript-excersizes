@@ -1,31 +1,58 @@
+/* Add comments above each selector to explain its purpose */
+
+/* Style the main container */
 .main-container {
   display: flex;
   justify-content: space-between;
-  background-color: #f4f4f4;
+  background-color: #f0f0f0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
 }
 
-/* split the profile and user info as separate containers and style them - very basic styling but just a proof of concept - more styling can be added*/
+/* Style the profile container */
 .profile-container {
-  width: 30%;
+  width: 45%;
   background-color: #34a0a4;
   color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Style the shopping cart container */
 .shopping-cart-container {
-  width: 30%;
+  width: 45%;
   background-color: #1c5b8b;
   color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Style the profile image */
 img {
   max-width: 150px;
   border: 2px solid #50a995;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+/* Style headings */
+h1,
+h2 {
+  margin-bottom: 15px;
+}
+
+/* Style paragraphs */
+p {
+  margin: 5px 0;
+}
+
+/* Style the shopping cart list */
+ol {
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 5px;
 }
