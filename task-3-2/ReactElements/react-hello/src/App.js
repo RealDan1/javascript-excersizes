@@ -13,5 +13,13 @@ const user = {
   shopping_cart: [],
 };
 export default function App() {
-  return <img src={user.profile_picture} alt="profile Picture" />;
+  return (
+    <div className="main-container">
+      <h1>
+        This is {user.name} {user.surname}
+      </h1>
+      <p>He is a legend</p>
+      <img src={user.profile_picture} alt="profile Picture" />
+    </div>
+  );
 }
