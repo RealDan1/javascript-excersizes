@@ -1,4 +1,4 @@
-/* very basic styling just as proof of concept, styling intentionally left basic - can be added to afterward */
+/* very basic styling just as proof of concept, styling intentionally left basic - can be added to afterward - not enough UI currently to style the elements in depth*/
 .main-container {
   display: flex;
   justify-content: space-between;
