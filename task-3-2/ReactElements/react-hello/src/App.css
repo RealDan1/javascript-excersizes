@@ -1,15 +1,12 @@
-/* Add comments above each selector to explain its purpose */
-
-/* Style the main container */
+/* very basic styling just as proof of concept, styling intentionally left basic - can be added to afterward */
 .main-container {
   display: flex;
   justify-content: space-between;
-  background-color: #f0f0f0;
+  background-color: #b3b3b3;
   padding: 20px;
   font-family: Arial, sans-serif;
 }
 
-/* Style the profile container */
 .profile-container {
   width: 45%;
   background-color: #34a0a4;
@@ -19,7 +16,6 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Style the shopping cart container */
 .shopping-cart-container {
   width: 45%;
   background-color: #1c5b8b;
@@ -29,7 +25,6 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Style the profile image */
 img {
   max-width: 150px;
   border: 2px solid #50a995;
@@ -37,15 +32,13 @@ img {
   margin-bottom: 15px;
 }
 
-/* Style headings */
 h1,
 h2 {
   margin-bottom: 15px;
 }
 
-/* Style paragraphs */
 p {
-  margin: 5px 0;
+  margin: 15px;
 }
 
 /* Style the shopping cart list */
