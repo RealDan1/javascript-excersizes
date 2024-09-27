@@ -1,6 +1,7 @@
 import './App.css';
 import image from './assets/images/profile.jpeg';
 
+//create the user object with an object literal
 const user = {
   name: 'James',
   surname: 'Bond',
@@ -28,6 +29,7 @@ export default function App() {
         <h1>
           Shopper name: {user.name} {user.surname}
         </h1>
+        {/* dynamically render the profile in case someone wishes to change it */}
         <img src={user.profile_picture} alt="Profile Picture" />
         <p>Birthday: {user.date_of_birth}</p>
         <p>Country: {user.country}</p>
@@ -37,6 +39,7 @@ export default function App() {
       </div>
       <div className="shopping-cart-container">
         <h2>Shopping Cart:</h2>
+        {/* dynamically render each array item */}
         <ol>
           {user.shopping_cart.map((item) => (
             <li>{item}</li>
