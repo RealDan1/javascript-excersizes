@@ -4,6 +4,8 @@ import { createRoot } from 'react-dom/client';
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
 
+const date = new Date().toLocaleString();
+
 root.render(
   <StrictMode>
     <div className="App">
@@ -14,7 +16,7 @@ root.render(
         <button>LinkedIn</button>
       </a>
       <hr />
-      <h1>22 September 2024 19:31</h1>
+      <h1>{date}</h1>
       <hr />
       <h2>Advantages of Libraries and Frameworks:</h2>
       <ul>
@@ -24,18 +26,19 @@ root.render(
           want the UI to look like and then react handles the how to do it part.
           Writing vanilla JS as a beginner would normally take much more work.
         </li>
-        <li>
-          You can create buttons, forms, or sections as components and use them
-          again and again without rewriting the same code.
-        </li>
+
         <li>
           React lets you split your UI into small, reusable pieces called
           components, so you don’t have to write everything in one big file.
-          This makes it easier to maintain and update the code.
+          Which makes it easier to maintain and update the code.
         </li>
         <li>
-          Frameworks and libraries provide preset and template methods for
-          workflow so you can focus less on the code and more on what you want
+          You can create components and use them again and again without
+          rewriting the same code.
+        </li>
+        <li>
+          Frameworks and libraries provide predefined workflow methods and
+          templates so you can focus less on the code and more on what you want
           the end design to look like.
         </li>
         <li>
@@ -46,7 +49,7 @@ root.render(
 
         <li>
           Frameworks and Libraries make it easier to handle manage large scale
-          projects. it allows modular collaboration and updating of the code.
+          projects. It allows modular collaboration and updating of the code.
         </li>
         <li>
           Many libraries provide support for integrating other libraries and
