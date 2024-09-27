@@ -7,6 +7,7 @@ const user = {
   surname: 'Bond',
   date_of_birth: '1997/07/07',
   country: 'UK',
+  address: 'London, Mi6, 7 headquarters road 0007',
   email: 'bond@mi6.co.uk',
   telephone: 7007007007,
   company: 'mi6',
@@ -33,6 +34,7 @@ export default function App() {
         <img src={user.profile_picture} alt="Profile Picture" />
         <p>Birthday: {user.date_of_birth}</p>
         <p>Country: {user.country}</p>
+        <p>Address: {user.address}</p>
         <p>Email: {user.email}</p>
         <p>Telephone: {user.telephone}</p>
         <p>Company: {user.company}</p>
