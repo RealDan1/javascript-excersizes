@@ -1,0 +1,23 @@
+/* * {
+  border: solid 1px red;
+} */
+
+nav {
+  display: flex;
+  flex: 1;
+}
+
+.navbar-logo {
+  margin-right: auto;
+  margin-left: 15%;
+}
+
+.navbar-items {
+}
+
+li,
+.navbar-items {
+  display: flex;
+  list-style-type: none;
+  margin-left: 20px;
+}
