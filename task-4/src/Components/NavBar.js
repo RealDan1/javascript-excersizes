@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './NavBar.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -9,18 +10,18 @@ export default function NavBar() {
       <div className="navbar-logo">
         <a href="">Medium</a>
       </div>
-      <ul>
-        <li>
+      <ul className="navbar-items">
+        <li className="navbar-item">
           <a href="" target="_blank">
             Our story
           </a>
         </li>
-        <li>
+        <li className="navbar-item">
           <a href="" target="_blank">
             Membership
           </a>
         </li>
-        <li>
+        <li className="navbar-item">
           <a href="" target="_blank">
             Write
           </a>
@@ -30,7 +31,7 @@ export default function NavBar() {
             Sign in
           </a>
         </li>
-        <li>
+        <li className="navbar-item">
           <button>
             <a href="" target="_blank">
               Get started
