@@ -10,6 +10,8 @@
 nav {
   display: flex;
   flex: 1;
+  align-items: center; /* Vertically center all items */
+  margin-top: 20px; /* Add spacing from the top */
 }
 
 .navbar-logo {
@@ -21,20 +23,22 @@ li,
 .navbar-items {
   display: flex;
   list-style-type: none;
+  align-items: center; /* Ensure li elements and their content are vertically aligned */
   margin-left: 20px;
+  padding: 5px;
 }
+
+/* .navbar-items {
+  margin: 15px 10px; 
+} */
 
 li,
 .navbar-items,
 a {
   color: black;
   text-decoration: none;
-}
-
-.navbar-logo {
-  /* Noe Display Bold */
-  font-family: 'Libre Bodoni', serif;
-  font-size: 40px;
+  font-size: 16px; /* Ensure consistent font size */
+  line-height: 1.5; /* Set consistent line-height */
 }
 
 /* .navbar-hr {
@@ -48,13 +52,29 @@ nav #navbar-btn {
   border-radius: 35px;
   padding: 10px 20px;
   font-size: 16px;
+  display: flex;
+  justify-content: center;
   cursor: pointer;
 }
 
 nav #navbar-btn a {
   color: white;
+  font-family: Arial, Helvetica, sans-serif, serif;
 }
 
 button:hover {
   background-color: #d93737;
+}
+
+.navbar-items li {
+  margin-right: 15px;
+}
+
+.navbar-item button {
+  vertical-align: middle; /* Align the button to the middle of the navbar items */
+}
+
+#navbar-logo {
+  font-family: 'Libre Bodoni', serif;
+  font-size: 40px;
 }
