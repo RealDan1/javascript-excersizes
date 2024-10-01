@@ -2,3 +2,8 @@
   background-color: #f7f4ed;
   border-top: 1px solid #f7f4ed;
 }
+
+hr #hr-nav {
+  padding: 0px;
+  margin: 0px 0px;
+}
