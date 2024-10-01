@@ -24,6 +24,12 @@ li,
   margin-left: 20px;
 }
 
+li,
+.navbar-items,
+a {
+  text-decoration: none;
+}
+
 .navbar-logo {
   /* Noe Display Bold */
   font-family: 'Libre Bodoni', serif;
