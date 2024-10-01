@@ -6,39 +6,42 @@ import Col from 'react-bootstrap/Col';
 
 export default function NavBar() {
   return (
-    <nav>
-      <div className="navbar-logo">
-        <a href="">Medium</a>
-      </div>
-      <ul className="navbar-items">
-        <li className="navbar-item">
-          <a href="" target="_blank">
-            Our story
-          </a>
-        </li>
-        <li className="navbar-item">
-          <a href="" target="_blank">
-            Membership
-          </a>
-        </li>
-        <li className="navbar-item">
-          <a href="" target="_blank">
-            Write
-          </a>
-        </li>
-        <li>
-          <a href="" target="_blank">
-            Sign in
-          </a>
-        </li>
-        <li className="navbar-item">
-          <button>
+    <div className="container">
+      <nav>
+        <div className="navbar-logo">
+          <a href="">Medium</a>
+        </div>
+        <ul className="navbar-items">
+          <li className="navbar-item">
             <a href="" target="_blank">
-              Get started
+              Our story
             </a>
-          </button>
-        </li>
-      </ul>
-    </nav>
+          </li>
+          <li className="navbar-item">
+            <a href="" target="_blank">
+              Membership
+            </a>
+          </li>
+          <li className="navbar-item">
+            <a href="" target="_blank">
+              Write
+            </a>
+          </li>
+          <li>
+            <a href="" target="_blank">
+              Sign in
+            </a>
+          </li>
+          <li className="navbar-item">
+            <button>
+              <a href="" target="_blank">
+                Get started
+              </a>
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <hr className="navbar-hr" />
+    </div>
   );
 }
