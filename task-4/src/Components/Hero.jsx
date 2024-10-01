@@ -1,5 +1,10 @@
 import './Hero.css';
 
 export default function Hero() {
-  return <h1>test</h1>;
+  return (
+    <div className="Hero">
+      <h1>Human stories & ideas</h1>
+      <p>A place to read, write, and deepen your understanding</p>
+    </div>
+  );
 }
