@@ -9,7 +9,7 @@ export default function NavBar() {
     <div className="container">
       <nav>
         <div className="navbar-logo" id="navbar-logo">
-          <a href="">Medium</a>
+          <a href="https://medium.com/">Medium</a>
         </div>
         <ul className="navbar-items">
           <li className="navbar-item">
