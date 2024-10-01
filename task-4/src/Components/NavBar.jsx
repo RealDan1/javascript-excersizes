@@ -6,42 +6,42 @@ import Col from 'react-bootstrap/Col';
 
 export default function NavBar() {
   return (
-    <div className="container">
-      <nav>
-        <div className="navbar-logo" id="navbar-logo">
-          <a href="https://medium.com/">Medium</a>
-        </div>
-        <ul className="navbar-items">
-          <li className="navbar-item">
+    // <div className="container">
+    <nav>
+      <div className="navbar-logo" id="navbar-logo">
+        <a href="https://medium.com/">Medium</a>
+      </div>
+      <ul className="navbar-items">
+        <li className="navbar-item">
+          <a href="" target="_blank">
+            Our story
+          </a>
+        </li>
+        <li className="navbar-item">
+          <a href="" target="_blank">
+            Membership
+          </a>
+        </li>
+        <li className="navbar-item">
+          <a href="" target="_blank">
+            Write
+          </a>
+        </li>
+        <li className="navbar-item">
+          <a href="" target="_blank">
+            Sign in
+          </a>
+        </li>
+        <li className="navbar-item">
+          <button id="navbar-btn">
             <a href="" target="_blank">
-              Our story
+              Get started
             </a>
-          </li>
-          <li className="navbar-item">
-            <a href="" target="_blank">
-              Membership
-            </a>
-          </li>
-          <li className="navbar-item">
-            <a href="" target="_blank">
-              Write
-            </a>
-          </li>
-          <li className="navbar-item">
-            <a href="" target="_blank">
-              Sign in
-            </a>
-          </li>
-          <li className="navbar-item">
-            <button id="navbar-btn">
-              <a href="" target="_blank">
-                Get started
-              </a>
-            </button>
-          </li>
-        </ul>
-      </nav>
-      <hr className="navbar-hr" />
-    </div>
+          </button>
+        </li>
+      </ul>
+      {/* <hr className="navbar-hr" />
+    </div> */}
+    </nav>
   );
 }

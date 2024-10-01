@@ -7,11 +7,13 @@ nav {
   flex: 1;
   align-items: center; /* Vertically center all items */
   margin-top: 20px; /* Add spacing from the top */
+  background-color: #f7f4ed;
 }
 
 .navbar-logo {
   margin-right: auto;
   margin-left: 15%;
+  margin-top: 0px;
 }
 
 li,
@@ -20,7 +22,7 @@ li,
   list-style-type: none;
   align-items: center; /* Ensure li elements and their content are vertically aligned */
   margin-left: 20px;
-  padding: 5px;
+  /* padding: 5px; */
 }
 
 /* .navbar-items {
@@ -32,7 +34,7 @@ li,
 a {
   color: black;
   text-decoration: none;
-  font-size: 16px; /* Ensure consistent font size */
+  /* font-size: 16px; Ensure consistent font size */
   line-height: 1.5; /* Set consistent line-height */
 }
 
@@ -66,7 +68,7 @@ button:hover {
 }
 
 .navbar-item button {
-  vertical-align: middle; /* Align the button to the middle of the navbar items */
+  /*vertical-align: middle;  Align the button to the middle of the navbar items */
 }
 
 #navbar-logo {
