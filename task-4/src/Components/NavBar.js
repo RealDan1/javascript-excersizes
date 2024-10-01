@@ -8,7 +8,7 @@ export default function NavBar() {
   return (
     <div className="container">
       <nav>
-        <div className="navbar-logo">
+        <div className="navbar-logo" id="navbar-logo">
           <a href="">Medium</a>
         </div>
         <ul className="navbar-items">
@@ -27,7 +27,7 @@ export default function NavBar() {
               Write
             </a>
           </li>
-          <li>
+          <li className="navbar-item">
             <a href="" target="_blank">
               Sign in
             </a>
