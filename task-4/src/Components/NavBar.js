@@ -33,7 +33,7 @@ export default function NavBar() {
             </a>
           </li>
           <li className="navbar-item">
-            <button>
+            <button id="navbar-btn">
               <a href="" target="_blank">
                 Get started
               </a>
