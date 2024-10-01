@@ -27,6 +27,7 @@ li,
 li,
 .navbar-items,
 a {
+  color: black;
   text-decoration: none;
 }
 
@@ -40,3 +41,20 @@ a {
   color: black;
   border: 1px solid red;
 } */
+
+nav #navbar-btn {
+  background-color: black;
+  border: none;
+  border-radius: 35px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+nav #navbar-btn a {
+  color: white;
+}
+
+button:hover {
+  background-color: #d93737;
+}
