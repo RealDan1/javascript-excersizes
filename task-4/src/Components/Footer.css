@@ -1,7 +1,17 @@
 footer {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   padding-bottom: 20px;
-  justify-content: center;
+}
+
+footer div {
+  display: flex;
+}
+
+#clone-link {
+  padding: 10px;
+  color: #6b6b6b;
 }
 
 li a {
