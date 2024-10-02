@@ -8,7 +8,7 @@ export default function Hero() {
         <p>A place to read, write, and deepen your understanding</p>
         <button>
           <a href="#" className="Hero-button">
-            Start Reading
+            Start reading
           </a>
         </button>
       </div>
