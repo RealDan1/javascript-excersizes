@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <NavBar></NavBar>
       <hr id="hr-nav" />
-      <Hero></Hero>
+      <Hero title="Human stories & ideas"></Hero>
       <hr id="hr-footer" />
       <Footer></Footer>
     </div>
