@@ -1,0 +1,13 @@
+footer {
+  display: flex;
+  padding-bottom: 20px;
+  justify-content: center;
+}
+
+li a {
+  color: #6b6b6b;
+}
+
+footer li a {
+  font-size: 13px;
+}
