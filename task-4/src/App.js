@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <NavBar></NavBar>
       <hr id="hr-nav" />
-      {/* pass the prop */}
+      {/* pass the prop to the hero component - to change the text of the hero dynamically - we can also use a variable here but I've hardcoded it for simplicity*/}
       <Hero title="Human stories & ideas"></Hero>
       <hr id="hr-footer" />
       <Footer></Footer>
