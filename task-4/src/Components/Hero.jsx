@@ -1,10 +1,11 @@
 import './Hero.css';
 
-export default function Hero({ title }) {
+export default function Hero(props) {
   return (
     <div className="Hero">
       <div className="Hero-content">
-        <h1>{title}</h1>
+        {/* using the prop to dynamically change the text of the Hero */}
+        <h1>{props.title}</h1>
         <p>A place to read, write, and deepen your understanding</p>
         <button>
           <a href="#" className="Hero-button">

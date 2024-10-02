@@ -8,6 +8,7 @@ function App() {
     <div className="App">
       <NavBar></NavBar>
       <hr id="hr-nav" />
+      {/* pass the prop */}
       <Hero title="Human stories & ideas"></Hero>
       <hr id="hr-footer" />
       <Footer></Footer>
