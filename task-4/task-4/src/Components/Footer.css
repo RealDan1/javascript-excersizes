@@ -1,0 +1,23 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+footer div {
+  display: flex;
+}
+
+#clone-link {
+  padding: 10px;
+  color: #6b6b6b;
+}
+
+li a {
+  color: #6b6b6b;
+}
+
+footer li a {
+  font-size: 13px;
+}
