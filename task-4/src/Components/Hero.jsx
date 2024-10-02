@@ -1,5 +1,6 @@
 import './Hero.css';
 
+// use a prop in this function
 export default function Hero(props) {
   return (
     <div className="Hero">
