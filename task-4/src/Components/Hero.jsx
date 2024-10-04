@@ -2,6 +2,7 @@ import './Hero.css';
 
 // use a prop in this function
 export default function Hero(props) {
+  //declare event handler function to display the title
   const displayTitle = () => {
     console.log(props.title);
   };
