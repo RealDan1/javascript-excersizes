@@ -6,9 +6,10 @@ import Col from 'react-bootstrap/Col';
 
 export default function NavBar() {
   return (
+    // <div className="container">
     <nav>
-      <div className="navbar-logo">
-        <a href="">Medium</a>
+      <div className="navbar-logo" id="navbar-logo">
+        <a href="https://medium.com/">Medium</a>
       </div>
       <ul className="navbar-items">
         <li className="navbar-item">
@@ -26,19 +27,21 @@ export default function NavBar() {
             Write
           </a>
         </li>
-        <li>
+        <li className="navbar-item">
           <a href="" target="_blank">
             Sign in
           </a>
         </li>
         <li className="navbar-item">
-          <button>
+          <button id="navbar-btn">
             <a href="" target="_blank">
               Get started
             </a>
           </button>
         </li>
       </ul>
+      {/* <hr className="navbar-hr" />
+    </div> */}
     </nav>
   );
 }
