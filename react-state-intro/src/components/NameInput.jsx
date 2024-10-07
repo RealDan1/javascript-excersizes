@@ -1,13 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
-export default function NameInput() {
+
+export default function NameInput({ handleChange, userName }) {
   // Create a name state object with a default value
-  const [userName, setUserName] = useState('');
   return (
     <div>
       <label for="nameInput">Enter Name: </label>
       <input
-        onChange={(event) => setUserName(event.target.value)}
+        onChange={(event) => handleChange(event.target.value)}
         //  Input component using onChange to update the value of the state
         id="nameInput"
         placeholder="Enter name here"
