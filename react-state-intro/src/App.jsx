@@ -1,6 +1,6 @@
 import './App.css';
 import Count from './components/Count';
-import NameInput from './components/NameInput';
+import DisplayName from './components/DisplayName.jsx';
 // Create the App component
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       {/* Import the count component */}
       <Count />
       <hr />
-      <NameInput />
+      <DisplayName />
     </div>
   );
 }
