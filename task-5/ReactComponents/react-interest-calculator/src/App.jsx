@@ -1,6 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Balance from './components/Balance';
 function App() {
   return (
     <div>
