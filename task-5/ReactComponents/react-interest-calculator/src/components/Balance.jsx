@@ -6,24 +6,27 @@ export default function Balance() {
 
   // declare state var for deposit amount
   const [depositAmount, setDepositAmount] = useState(0);
-  // Function to handle the deposit input change
+
+  // Function to handle the deposit event change
   function handleDepositChange(e) {
     setDepositAmount(e.target.value);
   }
 
   // declare state var for withdraw amount
   const [withdrawAmount, setWithdrawAmount] = useState(0);
-  // Function to handle the withdraw input change
+
+  // Function to handle the withdraw event change
   function handleWithdrawChange(e) {
     setWithdrawAmount(e.target.value);
   }
 
-  // Function to deposit (increase) the balance by the depositAmount
+  // declare function to increase the balance by the amount
   function handleDeposit() {
+    //convert input string to a number
     setBalance(balance + Number(depositAmount));
   }
 
-  // Function to withdraw (decrease) the balance by the withdrawAmount
+  // declare function to decrease the balance by the amount
   function handleWithdraw() {
     setBalance(balance - Number(withdrawAmount));
   }
