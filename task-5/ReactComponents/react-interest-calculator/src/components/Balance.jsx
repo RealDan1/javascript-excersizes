@@ -8,11 +8,12 @@ export default function Balance() {
   function handleInput(e) {
     setInputAmount(e.target.value);
   }
-
-  function increaseNumber() {
+  //function to increase the balance state var by the inputAmount(which is also a state var)
+  function increaseAmount() {
     setBalance(balance + Number(inputAmount));
   }
-  function decreaseNumber() {
+  //function to decrease the balance state var by the inputAmount(which is also a state var)
+  function decreaseAmount() {
     setBalance(balance - Number(inputAmount));
   }
   return (
@@ -24,8 +25,8 @@ export default function Balance() {
         onChange={handleInput}
         placeholder="Enter a number"
       />
-      <button onClick={increaseNumber}>Deposit</button>
-      <button onClick={decreaseNumber}>Withdraw</button>
+      <button onClick={increaseAmount}>Deposit</button>
+      <button onClick={decreaseAmount}>Withdraw</button>
     </div>
   );
 }
