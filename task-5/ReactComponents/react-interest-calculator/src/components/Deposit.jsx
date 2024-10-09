@@ -20,17 +20,26 @@ export default function Deposit({ balance, setBalance }) {
 
   return (
     <div id="deposit">
-      <label htmlFor="depositInput" className="form-label">
-        Deposit Amount:{' '}
-      </label>
-      <input
-        id="depositInput"
-        type="number"
-        value={depositAmount}
-        onChange={handleDepositChange}
-        placeholder="Enter an amount for deposit"
-      />
-      <button type="button" className="btn btn-primary" onClick={handleDeposit}>
+      <div className="inputGroup">
+        <label htmlFor="depositInput" className="form-label">
+          Deposit Amount:{' '}
+        </label>
+        <br />
+        <input
+          id="depositInput"
+          type="number"
+          value={depositAmount}
+          onChange={handleDepositChange}
+          placeholder="Enter an amount for deposit"
+        />
+      </div>
+
+      <button
+        type="button"
+        className="btn btn-primary"
+        onClick={handleDeposit}
+        style={{ margin: '0px 10px', marginBottom: '3px' }}
+      >
         Deposit
       </button>
     </div>
