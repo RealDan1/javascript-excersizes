@@ -2,11 +2,22 @@
   text-align: center;
   padding: 6px;
   margin: 6px;
-  /* border: 1px solid red; */
   background-color: rgb(249, 249, 249);
 }
 
 #balance {
   display: flex;
   flex-direction: column;
+}
+.inputContainer {
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.inputItem {
+  min-width: 400px;
+  margin: auto;
 }

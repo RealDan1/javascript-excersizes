@@ -13,13 +13,23 @@ export default function Balance() {
       <h1>Balance: R{balance}</h1>
       <hr />
       {/* the balance state is lifted to this parent component(balance) and shared between the withdraw, deposit, addInterest and chargeFees components */}
-      <Deposit balance={balance} setBalance={setBalance} />
-      <hr />
-      <Withdraw balance={balance} setBalance={setBalance} />
-      <hr />
-      <AddInterest balance={balance} setBalance={setBalance} />
-      <hr />
-      <ChargeFees balance={balance} setBalance={setBalance} />
+      <div className="inputContainer">
+        <div className="inputItem">
+          <Deposit balance={balance} setBalance={setBalance} />
+        </div>
+        {/* <hr /> */}
+        <div className="inputItem">
+          <Withdraw balance={balance} setBalance={setBalance} />
+        </div>
+        {/* <hr /> */}
+        <div className="inputItem">
+          <AddInterest balance={balance} setBalance={setBalance} />
+        </div>
+        {/* <hr /> */}
+        <div className="inputItem">
+          <ChargeFees balance={balance} setBalance={setBalance} />
+        </div>
+      </div>
     </div>
   );
 }
