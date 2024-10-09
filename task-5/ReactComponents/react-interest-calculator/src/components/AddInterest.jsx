@@ -1,12 +1,16 @@
 import React from 'react';
 import { useState } from 'react';
 
-export default function AddInterest() {
+export default function AddInterest({ balance, setBalance }) {
   const [interestPercent, setInterestPercent] = useState(10);
 
   //function to handle the interest input change event
   function handleInterestPercentChange(e) {
     setInterestPercent(e.target.value);
+  }
+
+  function handleInterest() {
+    setBalance(balance + balance * (Number(interestPercent) / 100));
   }
 
   return (
@@ -20,7 +24,7 @@ export default function AddInterest() {
         value={interestPercent}
         onChange={handleInterestPercentChange}
       />
-      <button>Add Interest</button>
+      <button onClick={handleInterest}>Add Interest</button>
       <h1>{interestPercent}</h1>
     </div>
   );
