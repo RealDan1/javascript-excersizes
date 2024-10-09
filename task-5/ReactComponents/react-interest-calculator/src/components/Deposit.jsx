@@ -19,7 +19,6 @@ export default function Deposit({ balance, setBalance }) {
 
   return (
     <div>
-      <button onClick={handleDeposit}>Deposit</button>
       <label htmlFor="depositInput">Deposit Amount: </label>
       <input
         id="depositInput"
@@ -28,6 +27,7 @@ export default function Deposit({ balance, setBalance }) {
         onChange={handleDepositChange}
         placeholder="Enter a number"
       />
+      <button onClick={handleDeposit}>Deposit</button>
     </div>
   );
 }
