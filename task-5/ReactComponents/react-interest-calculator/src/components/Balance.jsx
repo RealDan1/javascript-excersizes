@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Deposit from './Deposit';
 import Withdraw from './Withdraw';
+import AddInterest from './AddInterest';
 
 export default function Balance() {
   // declare state var for balance

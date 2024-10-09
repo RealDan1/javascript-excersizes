@@ -25,7 +25,7 @@ export default function Deposit({ balance, setBalance }) {
         type="number"
         value={depositAmount}
         onChange={handleDepositChange}
-        placeholder="Enter a number"
+        placeholder="Enter an amount for deposit"
       />
       <button onClick={handleDeposit}>Deposit</button>
     </div>
