@@ -12,7 +12,7 @@ export default function AddFees({ balance, setBalance }) {
   }
   //function to deduct the fees from the balance
   function handleFees() {
-    setBalance(balance - balance * (Number(feesPercent) / 100));
+    setBalance((balance - balance * (Number(feesPercent) / 100)).toFixed(2));
   }
 
   //function to handle the fixed bank fee deduction (R10)
