@@ -18,19 +18,26 @@ export default function Withdraw({ balance, setBalance }) {
   }
   return (
     <div>
-      <label htmlFor="withdrawInput">Withdraw Amount: </label>
-      <input
-        id="withdrawInput"
-        type="number"
-        value={withdrawAmount}
-        onChange={handleWithdrawChange}
-        placeholder="Enter an amount for withdrawal"
-      />
+      <div className="inputGroup">
+        {' '}
+        <label htmlFor="withdrawInput" className="form-label">
+          Withdraw Amount:{' '}
+        </label>
+        <br />
+        <input
+          id="withdrawInput"
+          type="number"
+          value={withdrawAmount}
+          onChange={handleWithdrawChange}
+          placeholder="Enter an amount for withdrawal"
+        />
+      </div>
 
       <button
         type="button"
         className="btn btn-primary"
         onClick={handleWithdraw}
+        style={{ margin: '0px 10px', marginBottom: '3px' }}
       >
         Withdraw
       </button>
