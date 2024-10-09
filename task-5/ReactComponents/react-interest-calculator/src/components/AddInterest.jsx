@@ -1,5 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../App.css';
 import { useState } from 'react';
 
 export default function AddInterest({ balance, setBalance }) {
@@ -16,20 +17,26 @@ export default function AddInterest({ balance, setBalance }) {
 
   return (
     <div id="addInterest">
-      <label htmlFor="inputInterest">
-        Add Interest Percentage(default is 10%)
-      </label>
-      <input
-        id="inputInterest"
-        type="number"
-        value={interestPercent}
-        onChange={handleInterestPercentChange}
-        placeholder="Add a percentage amount as a number"
-      />
+      <div className="inputGroup">
+        {' '}
+        <label htmlFor="inputInterest" className="form-label">
+          Add Interest Percentage(default is 10%)
+        </label>
+        <br />
+        <input
+          id="inputInterest"
+          type="number"
+          value={interestPercent}
+          onChange={handleInterestPercentChange}
+          placeholder="Add a percentage amount as a number"
+        />
+      </div>
+
       <button
         type="button"
         className="btn btn-primary"
         onClick={handleInterest}
+        style={{ margin: '0px 10px', marginBottom: '3px' }}
       >
         Add Interest
       </button>
