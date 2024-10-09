@@ -27,7 +27,13 @@ export default function Withdraw({ balance, setBalance }) {
         placeholder="Enter an amount for withdrawal"
       />
 
-      <button onClick={handleWithdraw}>Withdraw</button>
+      <button
+        type="button"
+        className="btn btn-primary"
+        onClick={handleWithdraw}
+      >
+        Withdraw
+      </button>
     </div>
   );
 }
