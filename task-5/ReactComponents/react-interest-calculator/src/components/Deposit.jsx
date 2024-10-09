@@ -19,8 +19,10 @@ export default function Deposit({ balance, setBalance }) {
   }
 
   return (
-    <div>
-      <label htmlFor="depositInput">Deposit Amount: </label>
+    <div id="deposit">
+      <label htmlFor="depositInput" className="form-label">
+        Deposit Amount:{' '}
+      </label>
       <input
         id="depositInput"
         type="number"
@@ -28,7 +30,9 @@ export default function Deposit({ balance, setBalance }) {
         onChange={handleDepositChange}
         placeholder="Enter an amount for deposit"
       />
-      <button onClick={handleDeposit}>Deposit</button>
+      <button type="button" className="btn btn-primary" onClick={handleDeposit}>
+        Deposit
+      </button>
     </div>
   );
 }

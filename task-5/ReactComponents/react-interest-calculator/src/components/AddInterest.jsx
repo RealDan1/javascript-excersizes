@@ -15,7 +15,7 @@ export default function AddInterest({ balance, setBalance }) {
   }
 
   return (
-    <div>
+    <div id="addInterest">
       <label htmlFor="inputInterest">
         Add Interest Percentage(default is 10%)
       </label>
@@ -24,9 +24,15 @@ export default function AddInterest({ balance, setBalance }) {
         type="number"
         value={interestPercent}
         onChange={handleInterestPercentChange}
+        placeholder="Add a percentage amount as a number"
       />
-      <button onClick={handleInterest}>Add Interest</button>
-      <h1>{interestPercent}</h1>
+      <button
+        type="button"
+        className="btn btn-primary"
+        onClick={handleInterest}
+      >
+        Add Interest
+      </button>
     </div>
   );
 }
