@@ -15,6 +15,7 @@ export default function AddFees({ balance, setBalance }) {
     setBalance(balance - balance * (Number(feesPercent) / 100));
   }
 
+  //function to handle the fixed bank fee deduction (R10)
   function handleFixedFees() {
     setBalance(balance - 10);
   }
@@ -24,7 +25,7 @@ export default function AddFees({ balance, setBalance }) {
       <div className="inputGroup">
         {' '}
         <label htmlFor="inputFees" className="form-label">
-          Deduct Custom Bank fees as a Percentage
+          Deduct custom bank fee as a percentage
         </label>
         <br />
         <input
@@ -42,7 +43,7 @@ export default function AddFees({ balance, setBalance }) {
         onClick={handleFees}
         style={{ margin: '0px 10px 3px 10px' }}
       >
-        Charge custom bank fees(%)
+        Charge custom bank fee (%)
       </button>
       <p>or</p>
       <button
@@ -51,7 +52,7 @@ export default function AddFees({ balance, setBalance }) {
         onClick={handleFixedFees}
         style={{ margin: '0px 10px 3px 10px' }}
       >
-        Charge fixed bank fees(deduct R10 per )
+        Charge fixed bank fee (R10)
       </button>
     </div>
   );
