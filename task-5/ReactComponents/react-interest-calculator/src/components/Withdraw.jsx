@@ -23,7 +23,7 @@ export default function Withdraw({ balance, setBalance }) {
         type="number"
         value={withdrawAmount}
         onChange={handleWithdrawChange}
-        placeholder="Enter a number"
+        placeholder="Enter an amount for withdrawal"
       />
 
       <button onClick={handleWithdraw}>Withdraw</button>
