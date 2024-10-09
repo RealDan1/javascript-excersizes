@@ -10,7 +10,7 @@ export default function Balance() {
 
   return (
     <div id="balance">
-      <h1>Balance: R{balance}</h1>
+      <h1>Balance: R {balance}</h1>
       <hr />
       {/* the balance state is lifted to this parent component(balance) and shared between the withdraw, deposit, addInterest and chargeFees components */}
       <div className="inputContainer">
