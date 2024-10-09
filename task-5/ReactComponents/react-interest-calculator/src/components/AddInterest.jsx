@@ -49,7 +49,7 @@ export default function AddInterest({ balance, setBalance }) {
         type="button"
         className="btn btn-primary"
         onClick={handleFixedInterest}
-        style={{ margin: '0px 10px', marginBottom: '3px' }}
+        style={{ margin: '0px 10px 3px 10px' }}
       >
         Add Fixed Interest(10%)
       </button>
