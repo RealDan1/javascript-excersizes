@@ -3,35 +3,31 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.css';
 import { useState } from 'react';
 
-export default function AddInterest({ balance, setBalance }) {
-  const [interestPercent, setInterestPercent] = useState(0);
+export default function AddFees({ balance, setBalance }) {
+  const [feesPercent, setFeesPercent] = useState(0);
 
   //function to handle the interest input change event
-  function handleInterestPercentChange(e) {
-    setInterestPercent(e.target.value);
+  function handleFeesPercentChange(e) {
+    setFeesPercent(e.target.value);
   }
 
-  function handleInterest() {
-    setBalance(balance + balance * (Number(interestPercent) / 100));
-  }
-
-  function handleFixedInterest() {
-    setBalance(balance + balance * (10 / 100));
+  function handleFees() {
+    setBalance(balance + balance * (Number(feesPercent) / 100));
   }
 
   return (
-    <div id="addInterest">
+    <div id="addFees">
       <div className="inputGroup">
         {' '}
-        <label htmlFor="inputInterest" className="form-label">
-          Add Interest Percentage
+        <label htmlFor="inputFees" className="form-label">
+          Deduct Custom Bank fees as a Percentage
         </label>
         <br />
         <input
           id="inputInterest"
           type="number"
-          value={interestPercent}
-          onChange={handleInterestPercentChange}
+          value={feesPercent}
+          onChange={handleFeesPercentChange}
           placeholder="Add a percentage amount as a number"
         />
       </div>
@@ -39,19 +35,19 @@ export default function AddInterest({ balance, setBalance }) {
       <button
         type="button"
         className="btn btn-primary"
-        onClick={handleInterest}
+        onClick={handleFees}
         style={{ margin: '0px 10px', marginBottom: '3px' }}
       >
-        Add Custom Interest
+        Charge custom bank fees
       </button>
       <p>or</p>
       <button
         type="button"
         className="btn btn-primary"
-        onClick={handleFixedInterest}
+        onClick={handleFees}
         style={{ margin: '0px 10px', marginBottom: '3px' }}
       >
-        Add Fixed Interest(10%)
+        Charge fixed bank fees
       </button>
     </div>
   );
