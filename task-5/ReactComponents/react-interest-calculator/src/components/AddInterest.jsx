@@ -12,11 +12,13 @@ export default function AddInterest({ balance, setBalance }) {
   }
 
   function handleInterest() {
-    setBalance(balance + balance * (Number(interestPercent) / 100));
+    // add the interest amount rounded to two decimals
+    setBalance(balance + balance * (Number(interestPercent) / 100).toFixed(2));
   }
 
   function handleFixedInterest() {
-    setBalance(balance + balance * (10 / 100));
+    // add the interest amount rounded to two decimals
+    setBalance(balance + (balance * (10 / 100)).toFixed(2));
   }
 
   return (

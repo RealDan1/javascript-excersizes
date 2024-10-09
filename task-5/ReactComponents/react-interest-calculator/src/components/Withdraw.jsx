@@ -14,7 +14,7 @@ export default function Withdraw({ balance, setBalance }) {
 
   // declare function to decrease the balance by the amount
   function handleWithdraw() {
-    setBalance(balance - Number(withdrawAmount));
+    setBalance(balance - Math.round(Number(withdrawAmount) * 100) / 100);
   }
   return (
     <div>
