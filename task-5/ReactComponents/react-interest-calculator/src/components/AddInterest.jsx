@@ -3,13 +3,25 @@ import { useState } from 'react';
 
 export default function AddInterest() {
   const [interestPercent, setInterestPercent] = useState(10);
+
+  //function to handle the interest input change event
+  function handleInterestPercentChange(e) {
+    setInterestPercent(e.target.value);
+  }
+
   return (
     <div>
       <label htmlFor="inputInterest">
         Add Interest Percentage(default is 10%)
       </label>
-      <input id="inputInterest" type="number" />
+      <input
+        id="inputInterest"
+        type="number"
+        value={interestPercent}
+        onChange={handleInterestPercentChange}
+      />
       <button>Add Interest</button>
+      <h1>{interestPercent}</h1>
     </div>
   );
 }
