@@ -13,6 +13,7 @@ export default function Balance() {
       {/* the balance state is lifted to this parent component(balance) and shared between the withdraw and deposit components */}
       <Deposit balance={balance} setBalance={setBalance} />
       <Withdraw balance={balance} setBalance={setBalance} />
+      <AddInterest />
     </div>
   );
 }
