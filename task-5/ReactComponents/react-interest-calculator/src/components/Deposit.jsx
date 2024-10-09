@@ -14,8 +14,8 @@ export default function Deposit({ balance, setBalance }) {
 
   // declare function to increase the balance by the amount
   function handleDeposit() {
-    //convert input string to a number and add it to the balance
-    setBalance(balance + Number(depositAmount));
+    //convert input string to a number and add it to the balance - round the new number to two decimals
+    setBalance(balance + Math.round(Number(depositAmount) * 100) / 100);
   }
 
   return (
