@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Deposit from './Deposit';
 import Withdraw from './Withdraw';
 import AddInterest from './AddInterest';

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Component to deposit an amount - pull state from parent: balance, and use the balance and setBalance for calculation - object destructuring is used to pass
 export default function Deposit({ balance, setBalance }) {
