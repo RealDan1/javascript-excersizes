@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-// Component to deposit an amount - pull state from parent: balance, and use the balance and setBalance for calculation
+// Component to deposit an amount - pull state from parent: balance, and use the balance and setBalance for calculation - object destructuring is used to pass
 export default function Deposit({ balance, setBalance }) {
   // declare state var for deposit amount
   const [depositAmount, setDepositAmount] = useState(0);
