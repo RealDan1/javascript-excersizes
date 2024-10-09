@@ -38,7 +38,7 @@ export default function Deposit({ balance, setBalance }) {
         type="button"
         className="btn btn-primary"
         onClick={handleDeposit}
-        style={{ margin: '0px 10px', marginBottom: '3px' }}
+        style={{ margin: '0px 10px 3px 10px' }}
       >
         Deposit
       </button>
