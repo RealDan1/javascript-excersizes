@@ -1,4 +1,5 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 
 // Component to withdraw an amount - pull state from parent: balance, and use the balance and setBalance for calculation
