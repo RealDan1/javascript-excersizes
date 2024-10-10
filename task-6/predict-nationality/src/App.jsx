@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function App() {
   //create name state
-  const [name, setName] = useState(null);
+  const [name, setName] = useState('');
 
   //create useRef for focus function
   const inputRef = useRef();
@@ -16,7 +16,7 @@ export default function App() {
   }, []);
 
   //create nationality state to store after api call
-  const [nationality, setNationality] = useState(null);
+  const [nationality, setNationality] = useState('');
 
   //function to do the api call and store the found nationality in state
   async function handlePredict() {
