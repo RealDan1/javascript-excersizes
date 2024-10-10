@@ -9,6 +9,7 @@ export default function AutoFocus() {
 
   return (
     <div>
+      <h1>Auto focus input</h1>
       <input
         ref={inputRef}
         value={username}
