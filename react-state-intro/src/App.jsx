@@ -1,6 +1,7 @@
 import './App.css';
 import Count from './components/Count';
 import DisplayName from './components/DisplayName.jsx';
+import AutoFocus from './components/AutoFocus.jsx';
 // Create the App component
 function App() {
   return (
@@ -9,6 +10,8 @@ function App() {
       <Count />
       <hr />
       <DisplayName />
+      <hr />
+      <AutoFocus />
     </div>
   );
 }
