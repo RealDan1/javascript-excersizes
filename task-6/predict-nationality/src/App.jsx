@@ -18,7 +18,13 @@ export default function App() {
   //create nationality state to store after api call
   const [nationality, setNationality] = useState(null);
 
-  function handlePredict() {}
+  //function to do the api call and store the found nationality in state
+  async function handlePredict() {
+    let response = await fetch(`https://api.nationalize.io?name=${name}`);
+    let data = await response.json();
+    setNationality(data);
+    console.log(nationality);
+  }
 
   return (
     <div className="App">
@@ -28,7 +34,7 @@ export default function App() {
         id="nameInput"
         ref={inputRef}
         type="text"
-        onChange={() => setName(e.target.value)}
+        onChange={(e) => setName(e.target.value)}
         value={name}
       />
       <br />
