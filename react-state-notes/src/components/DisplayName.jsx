@@ -1,6 +1,6 @@
 import React from 'react';
 import Welcome from './Welcome.jsx';
-import NameInput from './NameInput';
+import NameInput from './NameInput.jsx';
 import { useState } from 'react';
 
 export default function DisplayName() {

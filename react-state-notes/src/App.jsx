@@ -1,5 +1,5 @@
 import './App.css';
-import Count from './components/Count';
+import Count from './components/Count.jsx';
 import DisplayName from './components/DisplayName.jsx';
 import AutoFocus from './components/AutoFocus.jsx';
 // Create the App component
