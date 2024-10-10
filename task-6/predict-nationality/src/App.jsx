@@ -24,11 +24,11 @@ export default function App() {
     if (name !== '') {
       //do the api fetch with name
       let response = await fetch(
-        `https://api.nationalize.io?name=${name.toLowerCase}`
+        `https://api.nationalize.io?name=${name.toLowerCase()}`
       );
       let data = await response.json();
       //set nationality as the string of the first object in the country array (data can be displayed in a more user friendly manner later - this was as the task requested)
-      setNationality(JSON.stringify(data.country[1]));
+      setNationality(JSON.stringify(data.country[0]));
     }
   }
 
