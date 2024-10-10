@@ -20,10 +20,11 @@ export default function App() {
 
   //function to do the api call and store the found nationality in state
   async function handlePredict() {
+    //do the api fetch with name
     let response = await fetch(`https://api.nationalize.io?name=${name}`);
     let data = await response.json();
-    setNationality(data);
-    console.log(nationality);
+    //set nationality as the string of the first object in the country array (data can be displayed in a more user friendly manner later - this was as the task requested)
+    setNationality(JSON.stringify(data.country[1]));
   }
 
   return (
@@ -41,6 +42,13 @@ export default function App() {
       <button className="btn btn-primary" onClick={handlePredict}>
         Predict Nationality
       </button>
+      {/* display nationality only if it is not empty */}
+      {nationality !== '' && (
+        <>
+          <h1>Your predicted nationality is:</h1>
+          <h2>{nationality}</h2>
+        </>
+      )}
     </div>
   );
 }
