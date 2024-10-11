@@ -12,11 +12,17 @@ function App() {
   }, []);
 
   const findWeather = async () => {
-    let response = await fetch(
-      `http://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_API_KEY}&q=${city}`
-    );
-    let data = await resonse.json();
-    setWeather(data);
+    try {
+      let response = await fetch(
+        `http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_WEATHER_API_KEY}&q=${city}`
+      );
+
+      // process.env.REACT_APP_WEATHER_API_KEY
+      let data = await response.json();
+      setWeather(data);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -28,8 +34,13 @@ function App() {
         value={city}
       />
       <button onClick={findWeather}>Find Weather</button>
-      <h1>The weather is:</h1>
-      <h2>{JSON.stringify(weather)}</h2>
+
+      {weather !== '' && (
+        <>
+          <h1>The weather is:</h1>
+          <h2>{JSON.stringify(weather)}</h2>
+        </>
+      )}
     </div>
   );
 }
