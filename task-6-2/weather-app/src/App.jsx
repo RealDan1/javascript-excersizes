@@ -28,7 +28,9 @@ function App() {
 
   return (
     <div className="App">
-      <label htmlFor="inputCity">Please enter City below:</label>
+      <label htmlFor="inputCity">
+        <h1>Please enter a city below:</h1>
+      </label>
       <input
         id="inputCity"
         type="text"
@@ -44,11 +46,14 @@ function App() {
         Find Weather
       </button>
 
-      {weather !== '' && (
-        <>
-          <h1>The weather is:</h1>
-          <h2>{JSON.stringify(weather)}</h2>
-        </>
+      {city !== '' && weather != '' && (
+        <div id="displayWeatherDiv">
+          <h1>The weather for your city is:</h1>
+          <p>Temperature(C): {JSON.stringify(weather.current.temp_c)}</p>
+          <p>Description: {JSON.stringify(weather.current.condition.text)}</p>
+          <p>Humidity: {JSON.stringify(weather.current.humidity)}</p>
+          <p>Cloud Cover: {JSON.stringify(weather.current.cloud)}</p>
+        </div>
       )}
     </div>
   );
