@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
+import Welcome from './Welcome';
 
 export default function Home() {
   const inputRef = useRef();
@@ -8,34 +9,32 @@ export default function Home() {
   }, []);
 
   const [user, setUser] = useState('');
-  const [password, setPassword] = useState('');
+
+  let loginClicked = false;
 
   const handleLogin = () => {
-    let userLogin = user;
+    loginClicked = true;
   };
 
   return (
-    <div className="homepage">
-      <label htmlFor="login-input">User: </label>
-      <input
-        id="login-input"
-        type="text"
-        value={user}
-        ref={inputRef}
-        onChange={(e) => {
-          setUser(e.target.value);
-        }}
-      />
-      <label htmlFor="password-input">Password:</label>
-      <input
-        id="password-input"
-        type="text"
-        value={password}
-        onChange={(e) => {
-          setPassword(e.target.value);
-        }}
-      />
-      <button onClick={handleLogin}>Login</button>
+    <div className="home">
+      {loginClicked && user !== '' ? (
+        <Welcome user={user} />
+      ) : (
+        <div className="login-container">
+          <label htmlFor="login-input">User: </label>
+          <input
+            id="login-input"
+            type="text"
+            value={user}
+            ref={inputRef}
+            onChange={(e) => {
+              setUser(e.target.value);
+            }}
+          />
+          <button onClick={handleLogin}>Login</button>
+        </div>
+      )}
     </div>
   );
 }
