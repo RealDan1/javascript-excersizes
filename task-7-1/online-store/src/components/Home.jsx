@@ -9,7 +9,7 @@ export default function Home() {
   }, []);
 
   const [user, setUser] = useState('');
-  const [loggedIn, setLoggedIn] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const handleLogin = () => {
     setLoggedIn(true);
