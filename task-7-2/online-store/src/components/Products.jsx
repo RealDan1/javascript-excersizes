@@ -4,11 +4,52 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 function Products() {
-  let productArray = ['Milk', 'Cigars', 'Eggs', 'Robertson Spice', 'Chicken'];
+  let products = [
+    {
+      title: 'Milk',
+      description: '500ml Full cream Milk',
+    },
+    {
+      title: 'Apples',
+      description: 'Red Delicious Apples',
+    },
+    {
+      title: 'Bread',
+      description: 'Whole Wheat Bread',
+    },
+    {
+      title: 'Eggs',
+      description: 'Large Eggs',
+    },
+    {
+      title: 'Coffee',
+      description: 'Ground Coffee',
+    },
+    {
+      title: 'Pasta',
+      description: 'Spaghetti Pasta',
+    },
+    {
+      title: 'Tomato Ketchup',
+      description: 'Tomato Ketchup',
+    },
+    {
+      title: 'Olive Oil',
+      description: 'Extra Virgin Olive Oil',
+    },
+    {
+      title: 'Chicken Breast',
+      description: 'Boneless, Skinless Chicken Breast',
+    },
+    {
+      title: 'Bananas',
+      description: 'Ripe Bananas',
+    },
+  ];
   return (
     <div className="products">
       <ul>
-        {productArray.map((item) => {
+        {products.map((item) => {
           return (
             <li key={item}>
               <Card style={{ width: '18rem' }}>
