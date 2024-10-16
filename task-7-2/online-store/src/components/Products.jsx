@@ -51,12 +51,12 @@ function Products() {
       <ul>
         {products.map((item) => {
           return (
-            <li key={item}>
+            <li key={item.title}>
               <Card style={{ width: '18rem' }}>
                 <Card.Img variant="top" src="holder.js/100px180" />
                 <Card.Body>
-                  <Card.Title>{item}</Card.Title>
-                  <Card.Text>Description</Card.Text>
+                  <Card.Title>{item.title}</Card.Title>
+                  <Card.Text>{item.description}</Card.Text>
                   <Button variant="primary">Buy</Button>
                 </Card.Body>
               </Card>
