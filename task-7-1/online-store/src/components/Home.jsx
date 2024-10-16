@@ -12,12 +12,15 @@ export default function Home() {
   const [user, setUser] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  //change login state so the component re-renders and loads the welcome
   const handleLogin = () => {
     setIsLoggedIn(true);
   };
 
   const handleLogout = () => {
     setIsLoggedIn(false);
+    //reset userName since user must type it in again
+    setUser('');
   };
 
   return (
