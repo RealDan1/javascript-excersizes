@@ -1,7 +1,7 @@
 import './App.css';
-import Home from './components/Home';
-import Products from './components/Products';
-import About from './components/About';
+import Home from './pages/Home';
+import Products from './pages/Products';
+import About from './pages/About';
 import { Routes, Route, Link } from 'react-router-dom';
 
 function App() {
