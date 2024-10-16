@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Welcome({ user }) {
@@ -8,9 +9,7 @@ export default function Welcome({ user }) {
   return (
     <div className="welcome">
       <p>Welcome {user} </p>
-      <button onClick={() => nav('/', { state: { loggedOut: true } })}>
-        Logout
-      </button>
+      <button onClick={() => nav('/')}>Logout</button>
     </div>
   );
 }
