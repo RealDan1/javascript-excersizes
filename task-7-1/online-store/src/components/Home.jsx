@@ -9,16 +9,15 @@ export default function Home() {
   }, []);
 
   const [user, setUser] = useState('');
-
-  let loginClicked = false;
+  const [loggedIn, setLoggedIn] = useState('');
 
   const handleLogin = () => {
-    loginClicked = true;
+    setLoggedIn(true);
   };
 
   return (
     <div className="home">
-      {loginClicked && user !== '' ? (
+      {loggedIn && user !== '' ? (
         <Welcome user={user} />
       ) : (
         <div className="login-container">
