@@ -1,28 +1,31 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
+  //auto focus the user input
   const inputRef = useRef();
   useEffect(() => {
     inputRef.current.focus();
   }, []);
 
+  //declare user and loggedIn state variables
   const [user, setUser] = useState('');
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  const nav = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLogin = () => {
-    setLoggedIn(true);
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
   };
 
   return (
     <div className="home">
-      {loggedIn && user !== '' ? (
+      {isLoggedIn && user !== '' ? (
         <div className="welcome-paragraph">
           <p>Welcome {user} </p>
-          <button onClick={() => nav('/')}>Logout</button>
+          <button onClick={handleLogout}>Logout</button>
         </div>
       ) : (
         <div className="login-container">
