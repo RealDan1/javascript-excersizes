@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
-import Welcome from './Welcome';
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
   const inputRef = useRef();
@@ -11,6 +11,8 @@ export default function Home() {
   const [user, setUser] = useState('');
   const [loggedIn, setLoggedIn] = useState(false);
 
+  const nav = useNavigate();
+
   const handleLogin = () => {
     setLoggedIn(true);
   };
@@ -18,7 +20,10 @@ export default function Home() {
   return (
     <div className="home">
       {loggedIn && user !== '' ? (
-        <Welcome user={user} />
+        <div className="welcome-paragraph">
+          <p>Welcome {user} </p>
+          <button onClick={() => nav('/')}>Logout</button>
+        </div>
       ) : (
         <div className="login-container">
           <label htmlFor="login-input">User: </label>
