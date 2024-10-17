@@ -21,3 +21,7 @@ nav ul li {
 input {
   margin: 20px;
 }
+
+.product-card {
+  min-width: fit-content;
+}
