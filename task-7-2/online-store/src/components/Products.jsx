@@ -91,9 +91,9 @@ function Products() {
                       {item.description}
                     </Card.Text>
                     <DropDown
-                      color1={item.color[1]}
-                      color2={item.color[2]}
-                      color3={item.color[3]}
+                      color1={item.color[0]}
+                      color2={item.color[1]}
+                      color3={item.color[2]}
                     />
                     <Button variant="primary">Buy</Button>
                   </Card.Body>
