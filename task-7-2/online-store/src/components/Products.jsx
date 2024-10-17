@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import DropDown from './DropDown';
+import CardGroup from 'react-bootstrap/CardGroup';
 
 function Products() {
   let products = [
@@ -71,27 +72,33 @@ function Products() {
   return (
     <div className="products">
       <ul>
-        {products.map((item) => {
-          return (
-            <li key={item.title}>
-              <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
-                <Card.Body>
-                  <Card.Title>{item.title}</Card.Title>
-                  <Card.Text>
-                    Price:
-                    {item.price}
-                    Description:
-                    {item.description}
-                    //needs dynamic colors property.
-                  </Card.Text>
-                  <DropDown color1="Red" color2="Black" color3="White" />
-                  <Button variant="primary">Buy</Button>
-                </Card.Body>
-              </Card>
-            </li>
-          );
-        })}
+        <CardGroup>
+          {products.map((item) => {
+            return (
+              <li key={item.title}>
+                <Card className="product-card" style={{ width: '18rem' }}>
+                  <Card.Img variant="top" src="holder.js/100px180" />
+                  <Card.Body>
+                    <Card.Title>{item.title}</Card.Title>
+                    <Card.Text>
+                      Price:
+                      {item.price}
+                      <br />
+                      Description:
+                      {item.description}
+                    </Card.Text>
+                    <DropDown
+                      color1={item.color[1]}
+                      color2={item.color[2]}
+                      color3={item.color[3]}
+                    />
+                    <Button variant="primary">Buy</Button>
+                  </Card.Body>
+                </Card>
+              </li>
+            );
+          })}
+        </CardGroup>
       </ul>
     </div>
   );
