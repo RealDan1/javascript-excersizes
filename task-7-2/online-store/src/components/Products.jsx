@@ -83,6 +83,7 @@ function Products() {
                     {item.price}
                     Description:
                     {item.description}
+                    //needs dynamic colors property.
                   </Card.Text>
                   <DropDown color1="Red" color2="Black" color3="White" />
                   <Button variant="primary">Buy</Button>
