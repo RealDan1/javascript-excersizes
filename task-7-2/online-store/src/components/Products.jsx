@@ -76,13 +76,16 @@ function Products() {
           {products.map((item) => {
             return (
               <li key={item.title}>
-                <Card className="product-card" style={{ width: '18rem' }}>
+                <Card
+                  className="product-card"
+                  style={{ width: '18rem' }}
+                  bg="dark"
+                >
                   <Card.Img variant="top" src="holder.js/100px180" />
                   <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
                     <Card.Text>
-                      Price:
-                      {item.price}
+                      Price: R{item.price}
                       <br />
                       Description:
                       {item.description}
