@@ -2,58 +2,69 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import DropDown from './DropDown';
 
 function Products() {
   let products = [
     {
-      title: 'Milk',
-      description: '500ml Full cream Milk',
-      price: 49.99,
+      title: 'Sneakers',
+      description: 'Running Sneakers',
+      price: 999.99,
+      color: ['black', 'white', 'red'],
     },
     {
-      title: 'Apples',
-      description: 'Red Delicious Apples',
-      price: 29.99,
+      title: 'T-shirt',
+      description: 'Cotton T-shirt',
+      price: 199.99,
+      color: ['blue', 'gray', 'green'],
     },
     {
-      title: 'Bread',
-      description: 'Whole Wheat Bread',
-      price: 39.99,
+      title: 'Jacket',
+      description: 'Leather Jacket',
+      price: 1499.99,
+      color: ['brown', 'black', 'tan'],
     },
     {
-      title: 'Eggs',
-      description: 'Large Eggs',
-      price: 44.99,
+      title: 'Jeans',
+      description: 'Denim Jeans',
+      price: 799.99,
+      color: ['blue', 'black', 'gray'],
     },
     {
-      title: 'Coffee',
-      description: 'Ground Coffee',
-      price: 119.99,
+      title: 'Hat',
+      description: 'Wool Hat',
+      price: 249.99,
+      color: ['red', 'navy', 'beige'],
     },
     {
-      title: 'Pasta',
-      description: 'Spaghetti Pasta',
-      price: 24.99,
+      title: 'Socks',
+      description: 'Cotton Socks',
+      price: 59.99,
+      color: ['white', 'black', 'gray'],
     },
     {
-      title: 'Tomato Ketchup',
-      description: 'Tomato Ketchup',
-      price: 19.99,
+      title: 'Dress',
+      description: 'Silk Dress',
+      price: 1299.99,
+      color: ['red', 'black', 'gold'],
     },
     {
-      title: 'Olive Oil',
-      description: 'Extra Virgin Olive Oil',
-      price: 169.99,
+      title: 'Watch',
+      description: 'Analog Wrist Watch',
+      price: 4999.99,
+      color: ['silver', 'gold', 'black'],
     },
     {
-      title: 'Chicken Breast',
-      description: 'Boneless, Skinless Chicken Breast',
-      price: 119.99,
+      title: 'Sunglasses',
+      description: 'Polarized Sunglasses',
+      price: 899.99,
+      color: ['black', 'brown', 'gray'],
     },
     {
-      title: 'Bananas',
-      description: 'Ripe Bananas',
-      price: 24.99,
+      title: 'Belt',
+      description: 'Leather Belt',
+      price: 299.99,
+      color: ['black', 'brown', 'tan'],
     },
   ];
 
@@ -73,6 +84,7 @@ function Products() {
                     Description:
                     {item.description}
                   </Card.Text>
+                  <DropDown color1="Red" color2="Black" color3="White" />
                   <Button variant="primary">Buy</Button>
                 </Card.Body>
               </Card>
