@@ -1,4 +1,5 @@
-import React from 'react';
+// import React, { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -14,8 +15,9 @@ import sunglassesImage from '../assets/images/sunglasses.jpg';
 import watchImage from '../assets/images/watch.jpeg';
 import socksImage from '../assets/images/socks.jpeg';
 import hatImage from '../assets/images/hat.jpeg';
+import TotalPrice from './TotalPrice';
 
-function Products() {
+function Products({ handleTotal, totalPrice }) {
   let productData = [
     {
       title: 'Sneakers',
@@ -111,7 +113,14 @@ function Products() {
                       color2={item.color[1]}
                       color3={item.color[2]}
                     />
-                    <Button variant="primary">Buy</Button>
+                    <Button
+                      variant="primary"
+                      onClick={() => {
+                        handleTotal(item.price);
+                      }}
+                    >
+                      Buy
+                    </Button>
                   </Card.Body>
                 </Card>
               </li>
@@ -119,6 +128,7 @@ function Products() {
           })}
         </CardGroup>
       </ul>
+      <TotalPrice totalPrice={totalPrice} />
     </div>
   );
 }
