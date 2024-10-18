@@ -27,7 +27,7 @@ export default function Home() {
     <div className="home">
       {isLoggedIn && user !== '' ? (
         <div className="welcome-paragraph">
-          <p>Welcome {user} </p>
+          <h1>Welcome {user} </h1>
           <button onClick={handleLogout}>Logout</button>
         </div>
       ) : (
