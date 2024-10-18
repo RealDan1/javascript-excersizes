@@ -34,12 +34,10 @@ nav ul li a {
 input {
   margin: 20px;
   padding: 5px;
-  font-size: 1rem;
 }
 
 .product-card {
-  min-width: fit-content;
-  margin: 1rem;
+  margin: 20px;
   background-color: #282c34;
   color: #f0f0f0;
 }
@@ -60,8 +58,8 @@ button {
   font-size: 1rem;
 }
 
-.card-group {
+/* .card-group {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
+} */
