@@ -11,7 +11,8 @@ function App() {
   // const nav = useNavigate();
 
   function handleTotal(price) {
-    setTotalPrice((totalPrice += price));
+    setTotalPrice(Math.round((totalPrice += price) * 100) / 100);
+    // const formattedNumber = Math.round((totalPrice += price) * 100) / 100;
   }
   return (
     <div className="App">
