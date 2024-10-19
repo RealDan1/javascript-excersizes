@@ -1,6 +1,7 @@
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useState } from 'react';
 
+//dynamic color selector based on what color has been handed down from parent via the productData object
 function DropDown({ color1, color2, color3 }) {
   const [selectedColor, setSelectedColor] = useState('Choose colour');
 
