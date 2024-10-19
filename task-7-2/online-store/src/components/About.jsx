@@ -6,9 +6,7 @@ import logoImage from '../assets/images/logo.jpeg';
 export default function About({ totalPrice }) {
   return (
     <div className="about">
-      <div className="total-price">
-        <TotalPrice totalPrice={totalPrice} />
-      </div>
+      <TotalPrice totalPrice={totalPrice} />
 
       <Figure>
         <Figure.Image width={171} height={180} alt="171x180" src={logoImage} />
