@@ -6,5 +6,11 @@ export default function TotalPrice({ totalPrice }) {
 
   // const data = location.state;
 
-  return totalPrice !== 0 && <h2>Total Price: {totalPrice}</h2>;
+  return (
+    totalPrice !== 0 && (
+      <div className="total-price">
+        <h2>Total Price: {totalPrice}</h2>
+      </div>
+    )
+  );
 }

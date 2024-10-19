@@ -63,3 +63,18 @@ button {
   flex-wrap: wrap;
   justify-content: center;
 } */
+
+.total-price {
+  position: absolute;
+  top: 10px; /* Places it 10px from the top of the page */
+  right: 10px; /* Places it 10px from the right of the page */
+}
+
+.about {
+  margin: 20px;
+  max-width: 70%;
+}
+
+.about p {
+  color: white;
+}
