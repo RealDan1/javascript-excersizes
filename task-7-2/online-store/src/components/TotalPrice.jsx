@@ -9,7 +9,7 @@ export default function TotalPrice({ totalPrice }) {
   return (
     totalPrice !== 0 && (
       <div className="total-price">
-        <h2>Total Price: {totalPrice}</h2>
+        <h2>Total Price: R{totalPrice}</h2>
       </div>
     )
   );
