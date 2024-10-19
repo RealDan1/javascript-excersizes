@@ -1,5 +1,3 @@
-// import React, { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
@@ -91,6 +89,7 @@ function Products({ handleTotal, totalPrice }) {
     },
   ];
 
+  // bootstrap cards with variable item, color, price, image and title etc based on the productData object
   return (
     <div className="products">
       <ul>
