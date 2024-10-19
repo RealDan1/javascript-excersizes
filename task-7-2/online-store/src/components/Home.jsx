@@ -18,12 +18,14 @@ export default function Home() {
   };
 
   const handleLogout = () => {
+    //just change the value to false and the ternary will just switch to the other statement (result: the user has log back in to see the welcome)
     setIsLoggedIn(false);
-    //reset userName since user must type it in again
+    //reset userName since user must type it in again(so it doesn't persist upon logout)
     setUser('');
   };
 
   return (
+    // only display the Welcome if user has clicked login and entered a value into input field
     <div className="home">
       {isLoggedIn && user !== '' ? (
         <div className="welcome-paragraph">
