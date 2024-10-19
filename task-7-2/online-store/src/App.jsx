@@ -4,15 +4,13 @@ import Products from './components/Products';
 import About from './components/About';
 import { Routes, Route, Link } from 'react-router-dom';
 import { useState } from 'react';
-// import TotalPrice from './components/TotalPrice';
 
 function App() {
   let [totalPrice, setTotalPrice] = useState(0);
-  // const nav = useNavigate();
 
+  //parent app.jsx will hand down a handleTotal function to children and then in turn will display the total price data consistently across tabs (using useState)
   function handleTotal(price) {
     setTotalPrice(Math.round((totalPrice += price) * 100) / 100);
-    // const formattedNumber = Math.round((totalPrice += price) * 100) / 100;
   }
   return (
     <div className="App">
@@ -35,6 +33,7 @@ function App() {
         <Route
           path="/products"
           element={
+            //hand down function and total to children
             <Products handleTotal={handleTotal} totalPrice={totalPrice} />
           }
         />
