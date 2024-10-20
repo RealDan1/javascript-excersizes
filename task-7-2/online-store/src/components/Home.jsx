@@ -14,7 +14,9 @@ export default function Home() {
 
   //change login state so the component re-renders and loads the welcome
   const handleLogin = () => {
-    setIsLoggedIn(true);
+    if (user !== '') {
+      setIsLoggedIn(true);
+    }
   };
 
   const handleLogout = () => {
