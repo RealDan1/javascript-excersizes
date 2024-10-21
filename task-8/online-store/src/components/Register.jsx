@@ -41,8 +41,35 @@ export default function Register() {
   return (
     // Note the use of the formik object below
     <form onSubmit={formik.handleSubmit}>
-      {' '}
-      {/* // Submit handler */}
+      {/* input for firstName */}
+      <label htmlFor="firstName">First Name</label>
+      <input
+        id="firstName"
+        name="firstName"
+        type="text"
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.firstName}
+      />
+      {/* // Tweaked error message display logic */}
+      {formik.touched.firstName && formik.errors.firstName ? (
+        <div>{formik.errors.firstName}</div>
+      ) : null}
+      {/* input for lastName */}
+      <label htmlFor="lastName">Last Name</label>
+      <input
+        id="lastName"
+        name="lastName"
+        type="text"
+        onChange={formik.handleChange}
+        onBlur={formik.handleBlur}
+        value={formik.values.lastName}
+      />
+      {/* // Tweaked error message display logic */}
+      {formik.touched.lastName && formik.errors.lastName ? (
+        <div>{formik.errors.lastName}</div>
+      ) : null}
+      {/* input for email */}
       <label htmlFor="email">Email Address</label>
       <input
         id="email"
