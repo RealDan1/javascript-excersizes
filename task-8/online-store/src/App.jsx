@@ -1,5 +1,6 @@
 import './App.css';
 import Home from './components/Home';
+import Login from './components/Login';
 import Products from './components/Products';
 import About from './components/About';
 import { Routes, Route, Link } from 'react-router-dom';
@@ -20,6 +21,9 @@ function App() {
             <Link to="/">Home</Link>
           </li>
           <li>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
             <Link to="/products">Products</Link>
           </li>
           <li>
@@ -30,6 +34,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="login" element={<Login />} />
         <Route
           path="/products"
           element={
