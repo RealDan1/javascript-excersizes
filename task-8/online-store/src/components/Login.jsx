@@ -6,8 +6,8 @@ export default function Login() {
 
     if (!values.password) {
       errors.password = 'Required';
-    } else if (values.password.length > 20) {
-      errors.password = 'Must be 20 characters or less';
+    } else if (values.password.length < 8) {
+      errors.password = 'Password must be more than 8 Characters long';
     }
 
     if (!values.email) {
