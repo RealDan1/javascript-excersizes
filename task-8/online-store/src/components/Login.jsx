@@ -28,7 +28,12 @@ export default function Login() {
     },
     validate,
     onSubmit: (values) => {
-      // Submit handling code goes here
+      console.log(
+        'Login successful \nEmail:' +
+          values.email +
+          '\nPassword:' +
+          values.password
+      );
     },
   });
 
@@ -62,7 +67,9 @@ export default function Login() {
       />
       {/* // Tweaked error message display logic */}
       {formik.touched.password && formik.errors.password ? (
-        <div>{formik.errors.password}</div>
+        <div>
+          <i>{formik.errors.password}</i>
+        </div>
       ) : null}
       <button type="submit">Login</button>
     </form>
