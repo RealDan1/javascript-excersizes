@@ -23,6 +23,9 @@ function App() {
           <li>
             <Link to="/login">Login</Link>
           </li>
+          <li className="hidden">
+            <Link to="/loginAuthorised">Login</Link>
+          </li>
           <li>
             <Link to="/products">Products</Link>
           </li>
@@ -35,6 +38,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="login" element={<Login />} />
+        <Route path="loginAuthorised" element={<Login />} />
         <Route
           path="/products"
           element={
