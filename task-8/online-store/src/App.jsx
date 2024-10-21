@@ -1,6 +1,7 @@
 import './App.css';
 import Home from './components/Home';
 import Login from './components/Login';
+import Register from './components/Register';
 import Products from './components/Products';
 import About from './components/About';
 import { Routes, Route, Link } from 'react-router-dom';
@@ -23,8 +24,8 @@ function App() {
           <li>
             <Link to="/login">Login</Link>
           </li>
-          <li className="hidden">
-            <Link to="/loginAuthorised">Login</Link>
+          <li>
+            <Link to="/register">Register</Link>
           </li>
           <li>
             <Link to="/products">Products</Link>
@@ -37,8 +38,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="login" element={<Login />} />
-        <Route path="loginAuthorised" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route
           path="/products"
           element={
