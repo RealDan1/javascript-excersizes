@@ -150,6 +150,19 @@ export default function Register() {
           value={formik.values.password}
         />
       </div>
+
+      <div className="register-container">
+        <label htmlFor="confirmPassword">Confirm Password: </label>
+        <input
+          id="confirmPassword"
+          name="confirmPassword"
+          type="password"
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.confirmPassword}
+        />
+      </div>
+
       {/* // Tweaked error message display logic */}
       {formik.touched.password && formik.errors.password ? (
         <div>
