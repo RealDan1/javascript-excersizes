@@ -56,6 +56,10 @@ export default function Register() {
       errors.password = passwordErrorMessage;
     }
 
+    if (values.password !== values.confirmPassword) {
+      errors.confirmPassword = 'password must match confirm password';
+    }
+
     if (!values.email) {
       errors.email = 'Required.';
     } else if (
@@ -69,8 +73,11 @@ export default function Register() {
 
   const formik = useFormik({
     initialValues: {
+      firstName: '',
+      lastName: '',
       email: '',
       password: '',
+      confirmPassword: '',
     },
     validate,
     onSubmit: (values) => {
@@ -104,7 +111,9 @@ export default function Register() {
       </div>
       {/* // Tweaked error message display logic */}
       {formik.touched.firstName && formik.errors.firstName ? (
-        <div>{formik.errors.firstName}</div>
+        <div>
+          <i>{formik.errors.firstName}</i>
+        </div>
       ) : null}
       {/* input for lastName */}
       <div className="register-container">
@@ -120,7 +129,9 @@ export default function Register() {
       </div>
       {/* // Tweaked error message display logic */}
       {formik.touched.lastName && formik.errors.lastName ? (
-        <div>{formik.errors.lastName}</div>
+        <div>
+          <i>{formik.errors.lastName}</i>
+        </div>
       ) : null}
       {/* input for email */}
       <div className="register-container">
@@ -136,7 +147,9 @@ export default function Register() {
       </div>
       {/* // Tweaked error message display logic */}
       {formik.touched.email && formik.errors.email ? (
-        <div>{formik.errors.email}</div>
+        <div>
+          <i>{formik.errors.email}</i>
+        </div>
       ) : null}
       {/* // Submit handler */}
       <div className="register-container">
@@ -150,7 +163,11 @@ export default function Register() {
           value={formik.values.password}
         />
       </div>
-
+      {formik.touched.password && formik.errors.password ? (
+        <div>
+          <i>{formik.errors.password}</i>
+        </div>
+      ) : null}
       <div className="register-container">
         <label htmlFor="confirmPassword">Confirm Password: </label>
         <input
@@ -164,9 +181,9 @@ export default function Register() {
       </div>
 
       {/* // Tweaked error message display logic */}
-      {formik.touched.password && formik.errors.password ? (
+      {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
         <div>
-          <i>{formik.errors.password}</i>
+          <i>{formik.errors.confirmPassword}</i>
         </div>
       ) : null}
       <button type="submit">Login</button>
