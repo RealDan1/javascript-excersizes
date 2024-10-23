@@ -12,6 +12,7 @@ function App() {
 
   //parent app.jsx will hand down a handleTotal function to children and then in turn will display the total price data consistently across tabs (using useState)
   function handleTotal(price) {
+    // round total to nearest 2 decimals
     setTotalPrice(Math.round((totalPrice += price) * 100) / 100);
   }
   return (
