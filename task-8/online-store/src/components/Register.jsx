@@ -2,51 +2,63 @@ import React from 'react';
 import { useFormik } from 'formik';
 
 export default function Register() {
+  // function to check if user input is valid
   const validate = (values) => {
     const errors = {};
 
+    // checks if first name is empty
     if (!values.firstName) {
-      errors.firstName = 'first Name Required.';
+      errors.firstName = 'First name Required.';
     } else if (values.firstName.length > 15) {
       errors.firstName =
-        'First name may not be longer than 15 Characters long.';
+        'First name may not be longer than 15 characters long.';
     }
 
+    // checks if last name is empty
     if (!values.lastName) {
       errors.lastName = 'Last Name Required.';
     } else if (values.lastName.length > 20) {
-      errors.lastName = 'Last name may not be longer than 20 Characters long.';
+      errors.lastName = 'Last name may not be longer than 20 characters long.';
     }
 
+    // checks if email is empty
+    if (!values.email) {
+      errors.email = 'Required.';
+    } else if (
+      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+    ) {
+      errors.email = 'Invalid email address.';
+    }
+
+    // checks if password is empty
     let passwordErrorMessage = '';
-    // add validation for if password is empty:
     if (!values.password) {
       passwordErrorMessage += 'Password is required.\n';
     }
 
-    // Check password length
+    // checks if password length is valid
     if (values.password.length < 8) {
       passwordErrorMessage += 'Password must contain at least 8 characters.\n';
     }
 
-    // Check for uppercase letter
+    // checks if password contains uppercase letter
     if (!/[A-Z]/.test(values.password)) {
       passwordErrorMessage +=
         'Password must contain at least one uppercase letter.\n';
     }
 
-    // Check for lowercase letter
+    // checks if password contains lowercase letter
     if (!/[a-z]/.test(values.password)) {
       passwordErrorMessage +=
         'Password must contain at least one lowercase letter.\n';
     }
 
-    // Check for number
+    // checks if password contains number
     if (!/\d/.test(values.password)) {
       passwordErrorMessage += 'Password must contain at least one number.\n';
     }
 
-    // Check for special character
+    // checks if password contains special character
     if (!/[@$!%*?&]/.test(values.password)) {
       passwordErrorMessage +=
         'Password must contain at least one special character.\n';
@@ -56,21 +68,15 @@ export default function Register() {
       errors.password = passwordErrorMessage;
     }
 
+    // checks if password and confirm password match
     if (values.password !== values.confirmPassword) {
-      errors.confirmPassword = 'password must match confirm password';
-    }
-
-    if (!values.email) {
-      errors.email = 'Required.';
-    } else if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-    ) {
-      errors.email = 'Invalid email address.';
+      errors.confirmPassword = 'Password must match confirm password';
     }
 
     return errors;
   };
 
+  // formik hook that handles form submission and validation
   const formik = useFormik({
     initialValues: {
       firstName: '',
@@ -94,8 +100,8 @@ export default function Register() {
     },
   });
 
+  // form with input fields for user to enter their info
   return (
-    // Note the use of the formik object below
     <form className="register-form" onSubmit={formik.handleSubmit}>
       {/* input for firstName */}
       <div className="register-container">
