@@ -42,7 +42,9 @@ function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <div className="App">
-      <h1>Balance: {state.balance}</h1>
+      {/* add a heading for the app in h1 tag */}
+      <h1>Banking App</h1>
+      <h2>Balance: {state.balance}</h2>
       <input
         type="text"
         name="input"
