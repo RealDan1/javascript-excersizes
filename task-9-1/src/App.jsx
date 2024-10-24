@@ -9,24 +9,25 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'INPUT': //change the state of 'input' to the users text input
       return { ...state, input: action.payload };
-    case 'WITHDRAW':
+
+    case 'WITHDRAW': // case for withdraw is to decrease the balance
       return {
         ...state,
         balance: Math.round((state.balance - Number(state.input)) * 100) / 100,
       };
 
-    case 'DEPOSIT':
+    case 'DEPOSIT': // case for deposit is to increase the balance
       return {
         ...state,
         balance: Math.round((state.balance + Number(state.input)) * 100) / 100,
       };
-    case 'ADD_INTEREST':
+    case 'ADD_INTEREST': //case for adding interest 5%
       return {
         ...state,
         balance:
           Math.round((state.balance + Number(state.input) * 0.05) * 100) / 100,
       };
-    case 'CHARGES':
+    case 'CHARGES': //case for deducting interest 15%
       return {
         ...state,
         balance:
@@ -52,28 +53,28 @@ function App() {
       />
       <Btn
         btnFunction={() => {
-          dispatch({ type: 'WITHDRAW' });
+          dispatch({ type: 'WITHDRAW' }); //function sent to the button for 'onclick' is to send a dispatch WITHDRAW event (to the reducer)
         }}
         btnText={'Withdraw'}
         btnDescription={'withdraw the input amount from balance'}
       />
       <Btn
         btnFunction={() => {
-          dispatch({ type: 'DEPOSIT' });
+          dispatch({ type: 'DEPOSIT' }); //function sent to the button for 'onclick' is to send a dispatch DEPOSIT event (to the reducer)
         }}
         btnText={'Deposit'}
         btnDescription={'deposit the input amount to the balance'}
       />
       <Btn
         btnFunction={() => {
-          dispatch({ type: 'ADD_INTEREST' });
+          dispatch({ type: 'ADD_INTEREST' }); //function sent to the button for 'onclick' is to send a dispatch ADD_INTEREST event (to the reducer)
         }}
         btnText={'Add Interest'}
         btnDescription={'add 5% interest to the balance'}
       />
       <Btn
         btnFunction={() => {
-          dispatch({ type: 'CHARGES' });
+          dispatch({ type: 'CHARGES' }); //function sent to the button for 'onclick' is to send a dispatch CHARGES event (to the reducer)
         }}
         btnText={'Charges'}
         btnDescription={'deduct 15% interest from the balance'}
