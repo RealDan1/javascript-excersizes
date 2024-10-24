@@ -5,19 +5,35 @@ import Btn from './components/Btn';
 const initialState = { balance: 0, input: 0 };
 
 const reducer = (state = initialState, action) => {
-  //use switch case for better readability
+  //used switch/case for better readability
   switch (action.type) {
-    //change the state of input to the users text input
-    case 'INPUT':
+    case 'INPUT': //change the state of 'input' to the users text input
       return { ...state, input: action.payload };
     case 'WITHDRAW':
-      return { ...state, balance: state.balance - Number(state.input) };
+      return {
+        ...state,
+        balance: Math.round((state.balance - Number(state.input)) * 100) / 100,
+      };
+
     case 'DEPOSIT':
-      return { ...state, balance: state.balance + Number(state.input) };
+      return {
+        ...state,
+        balance: Math.round((state.balance + Number(state.input)) * 100) / 100,
+      };
     case 'ADD_INTEREST':
-      return { ...state, balance: state.balance + Number(state.input) * 0.15 };
+      return {
+        ...state,
+        balance:
+          Math.round((state.balance + Number(state.input) * 0.05) * 100) / 100,
+      };
+    case 'CHARGES':
+      return {
+        ...state,
+        balance:
+          Math.round((state.balance - Number(state.input) * 0.15) * 100) / 100,
+      };
     default:
-      return state;
+      return state; //if action.type isn't recognised, return the current state
   }
 };
 
@@ -46,8 +62,21 @@ function App() {
           dispatch({ type: 'DEPOSIT' });
         }}
         btnText={'Deposit'}
-        //sentence starts with lowercase as it completes a sentence
         btnDescription={'deposit the input amount to the balance'}
+      />
+      <Btn
+        btnFunction={() => {
+          dispatch({ type: 'ADD_INTEREST' });
+        }}
+        btnText={'Add Interest'}
+        btnDescription={'add 5% interest to the balance'}
+      />
+      <Btn
+        btnFunction={() => {
+          dispatch({ type: 'CHARGES' });
+        }}
+        btnText={'Charges'}
+        btnDescription={'deduct 15% interest from the balance'}
       />
     </div>
   );
