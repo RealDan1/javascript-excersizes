@@ -25,13 +25,15 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         balance:
-          Math.round((state.balance + Number(state.input) * 0.05) * 100) / 100,
+          Math.round((state.balance + Number(state.balance) * 0.05) * 100) /
+          100,
       };
     case 'CHARGES': //case for deducting interest 15%
       return {
         ...state,
         balance:
-          Math.round((state.balance - Number(state.input) * 0.15) * 100) / 100,
+          Math.round((state.balance - Number(state.balance) * 0.15) * 100) /
+          100,
       };
     default:
       return state; //if action.type isn't recognised, return the current state
