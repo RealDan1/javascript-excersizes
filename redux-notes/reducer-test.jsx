@@ -1,6 +1,7 @@
 // counterState.js
 import { createSlice } from '@reduxjs/toolkit';
 
+//createslice is the main object
 const counterSlice = createSlice({
   name: 'counter',
   initialState: {
