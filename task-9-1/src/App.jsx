@@ -52,7 +52,7 @@ function App() {
         name="input"
         id="input"
         value={state.input}
-        //send the input to the global state so we can hold on to user input
+        //send the input to the global state so the app can grab the user input
         onChange={(e) => dispatch({ type: 'INPUT', payload: e.target.value })}
       />
       <Btn
