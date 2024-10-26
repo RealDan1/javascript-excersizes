@@ -9,3 +9,14 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+li {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+li label {
+  padding-left: 10px;
+  padding-bottom: 3px;
+}
