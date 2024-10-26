@@ -15,6 +15,7 @@ const toDoSlice = createSlice({
     },
     check: (state, action) => {
 
+state.toDoCheck.splice()//maybe splice in "true" at the index of action.payload somehow? see i havent even seen how i would get this input at the correct index yet from a standard JS/html input box let alone in react with redux
 
     }
   },
