@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import toDoState from './toDoState';
+import toDoListReducer from './toDoListSlice';
 
 const store = configureStore({
   reducer: {
-    toDoList: toDoState,
+    toDoList: toDoListReducer,
   },
 });
 

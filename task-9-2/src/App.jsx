@@ -1,5 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToDo, editToDo, checkToDo, unCheckToDo } from './toDoListSlice';
 
 let toDoArray = ['write something', 'drink something'];
 

@@ -32,19 +32,25 @@ const toDoListSlice = createSlice({
           //for each item if the id matches:
           return { ...item, completed: true }; // return the original item plus a modified "completed" field
         } else {
-          return item;
+          return item; //otherwise keep flipping through the array
         }
       });
     },
     unCheckToDo: (state, action) => {
-      const { id, completed } = action.payload; // deconstruct the payload
+      const { id } = action.payload; // deconstruct the payload
       state.map((item) => {
+        // flip through the whole state array as done previously
         if (item.id === id) {
+          //for each item if the id matches:
+          return { ...item, completed: true }; // return the original item plus a modified "completed" field
+        } else {
+          return item; //otherwise keep flipping through the array
         }
       });
     },
   },
 });
 
-export const { addToDo, editToDo, checkToDo } = toDoListSlice.actions;
+export const { addToDo, editToDo, checkToDo, unCheckToDo } =
+  toDoListSlice.actions;
 export default toDoListSlice.reducer;
