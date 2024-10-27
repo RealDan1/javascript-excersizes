@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const toDoSlice = createSlice({
-  name: 'toDo',
-  initialState: {toDoItems: [],toDoCheck: []},
+  name: 'toDoItems',
+  initialState: [{id:0, text: 'homework', completed: false}, {id:1,text: 'gardening'}],
   },
   reducers: {
     add: (state, action) => {
-      state.toDoItems.push(action.payload), // push the string to the new array item
+      const {id, text} = action.payload;
+      state.push({id: toDoItems.length}), // push the string to the new array item
       state.toDoItems.push(false),//push the checkbox item as unchecked when its created
     },
     edit: (state, action) => {
