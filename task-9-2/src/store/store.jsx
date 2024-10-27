@@ -3,7 +3,7 @@ import toDoState from './toDoState';
 
 const store = configureStore({
   reducer: {
-    toDo: toDoState,
+    toDoList: toDoState,
   },
 });
 
