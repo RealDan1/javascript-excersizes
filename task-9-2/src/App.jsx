@@ -12,11 +12,14 @@ import { useState } from 'react';
 function App() {
   let toDoListData = useSelector((state) => state.toDoList);
 
-  const { addNoteInput, setAddNoteInput } = useState('');
+  const dispatch = useDispatch();
+
+  const { addNoteInput, setAddNoteInput } = useState(''); // state for input of the input box
 
   function handleSetAddNoteInput(e) {
     setAddNoteInput(e.target.value);
   }
+
   return (
     <div className="App">
       <div className="heading">
@@ -37,10 +40,15 @@ function App() {
                 type="checkbox"
                 id={key}
                 name={key}
-                value={item.completed}
+                checked={item.completed}
+                onChange={(e) => {
+                  e.target.checked
+                    ? dispatch(checkToDo({ id: item.id }))
+                    : dispatch(unCheckToDo({ id: item.id }));
+                }}
               />
               <label htmlFor={key}>{item.text}</label>
-              <button>Edit</button>
+              {/* <button onClick={}>Edit</button> */}
             </li>
           ))}
         </ul>
