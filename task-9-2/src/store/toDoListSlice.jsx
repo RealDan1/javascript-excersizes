@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const toDoListSlice = createSlice({
   name: 'toDoList',
   initialState: [
-    { id: 0, text: 'homework', completed: false },
-    { id: 1, text: 'gardening', completed: false },
+    { id: 0, text: 'Homework', completed: false },
+    { id: 1, text: 'Gardening', completed: false },
   ],
   reducers: {
     // HERE
