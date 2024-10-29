@@ -1,16 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+
 const toDoListSlice = createSlice({
+
+  
   name: 'toDoList',
-  initialState: [
+  initialState:  [
     { id: 0, text: 'Homework', completed: false },
     { id: 1, text: 'Gardening', completed: false },
   ],
   reducers: {
-    // HERE
     addToDo: (state, action) => {
-      const { id, text } = action.payload; // HERE
-      state.push({ id: id, text: text, completed: false }); // push the string to the new array item
+      
+      const { text } = action.payload;
+      state.push({ id: , text: text, completed: false }); // push the string to the new array item
     },
     editToDo: (state, action) => {
       const { id, text } = action.payload; // deconstruct the payload
@@ -48,9 +51,13 @@ const toDoListSlice = createSlice({
         }
       });
     },
+    deleteToDo: (state, action) => {
+      const { id } = action.payload;
+      return state.toSpliced(id - 1, 1); // return a new copy of the state but use tospliced to cut the id of the item being deleted out (tospliced returns the whole array as a copy - so it doesnt mutate the original)
+    },
   },
 });
 
-export const { addToDo, editToDo, checkToDo, unCheckToDo } =
+export const { addToDo, editToDo, checkToDo, unCheckToDo, deleteToDo } =
   toDoListSlice.actions;
 export default toDoListSlice.reducer;
