@@ -40,11 +40,11 @@ function App() {
                 type="checkbox"
                 id={key}
                 name={key}
-                checked={item.completed}
+                checked={item.completed} // set the initial value to the status of the "completed" boolean inside the redux state slice (toDoList)
                 onChange={(e) => {
-                  e.target.checked
-                    ? dispatch(checkToDo({ id: item.id }))
-                    : dispatch(unCheckToDo({ id: item.id }));
+                  e.target.checked //if the boolean of the checked input is true? then dispatch the check reducer else dispatch the uncheck reducer
+                    ? dispatch(checkToDo({ id: item.id })) // then dispatch the check reducer
+                    : dispatch(unCheckToDo({ id: item.id })); // else dispatch the uncheck reducer
                 }}
               />
               <label htmlFor={key}>{item.text}</label>
