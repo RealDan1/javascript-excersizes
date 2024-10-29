@@ -6,18 +6,24 @@ import {
   editToDo,
   checkToDo,
   unCheckToDo,
+  deleteToDo,
 } from './store/toDoListSlice';
+import { increment, decrement } from './counterSlice';
 import { useState } from 'react';
 
 function App() {
-  let toDoListData = useSelector((state) => state.toDoList);
+  let toDoListData = useSelector((state) => state.toDoList); // grab the toDoList Store and put it into a variable for use in the app
 
   const dispatch = useDispatch();
 
-  const { addNoteInput, setAddNoteInput } = useState(''); // state for input of the input box
+  const [addNoteInput, setAddNoteInput] = useState(''); // state for input of the input box
 
   function handleSetAddNoteInput(e) {
     setAddNoteInput(e.target.value);
+  }
+  function dispatchAddNote() {
+    dispatch(increment);
+    dispatch(addToDo({ text: addNoteInput }));
   }
 
   return (
@@ -31,6 +37,8 @@ function App() {
           value={addNoteInput}
           onChange={handleSetAddNoteInput}
         />
+
+        <button onClick={dispatchAddNote}>Add Note</button>
       </div>
       <div className="toDoList">
         <ul>
@@ -48,7 +56,14 @@ function App() {
                 }}
               />
               <label htmlFor={key}>{item.text}</label>
-              {/* <button onClick={}>Edit</button> */}
+              <button
+                onClick={() => {
+                  dispatch(decrement);
+                  dispatch(deleteToDo({ id: item.id }));
+                }}
+              >
+                DELETE
+              </button>
             </li>
           ))}
         </ul>
