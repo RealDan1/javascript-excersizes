@@ -69,7 +69,7 @@ function App() {
             </li>
           ))}
         </ul>
-        <p>this is the count {count.value}</p>
+        <p>Total Items: {count.value}</p>
       </div>
     </div>
   );
