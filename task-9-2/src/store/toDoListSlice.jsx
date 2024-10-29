@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { useSelector } from 'react-redux';
 
 const toDoListSlice = createSlice({
   name: 'toDoList',
@@ -9,8 +8,8 @@ const toDoListSlice = createSlice({
   ],
   reducers: {
     addToDo: (state, action) => {
-      const { text, count } = action.payload;
-      state.push({ id: count, text: text, completed: false }); // push the string to the new array item
+      const { text, id } = action.payload;
+      state.push({ id: id, text: text, completed: false }); // push the string to the new array item
     },
     editToDo: (state, action) => {
       const { id, text } = action.payload; // deconstruct the payload
@@ -50,7 +49,7 @@ const toDoListSlice = createSlice({
     },
     deleteToDo: (state, action) => {
       const { id } = action.payload;
-      return state.toSpliced(id - 1, 1); // return a new copy of the state but use tospliced to cut the id of the item being deleted out (tospliced returns the whole array as a copy - so it doesnt mutate the original)
+      return state.filter((item) => item.id !== id); // filter - only keep the items that DON'T match the id of the send ID - return that to state
     },
   },
 });

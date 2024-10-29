@@ -25,7 +25,7 @@ function App() {
   }
   function dispatchAddNote() {
     dispatch(increment());
-    dispatch(addToDo({ text: addNoteInput, count: count }));
+    dispatch(addToDo({ text: addNoteInput, id: Date.now() }));
   }
 
   return (
@@ -53,8 +53,8 @@ function App() {
                 checked={item.completed} // set the initial value to the status of the "completed" boolean inside the redux state slice (toDoList)
                 onChange={(e) => {
                   e.target.checked //if the boolean of the checked input is true? then dispatch the check reducer else dispatch the uncheck reducer
-                    ? dispatch(checkToDo({ id: count })) // then dispatch the check reducer
-                    : dispatch(unCheckToDo({ id: count })); // else dispatch the uncheck reducer
+                    ? dispatch(checkToDo({ id: item.id })) // then dispatch the check reducer
+                    : dispatch(unCheckToDo({ id: item.id })); // else dispatch the uncheck reducer
                 }}
               />
               <label htmlFor={key}>{item.text}</label>
