@@ -1,19 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+import { useSelector } from 'react-redux';
 
 const toDoListSlice = createSlice({
-
-  
   name: 'toDoList',
-  initialState:  [
+  initialState: [
     { id: 0, text: 'Homework', completed: false },
     { id: 1, text: 'Gardening', completed: false },
   ],
   reducers: {
     addToDo: (state, action) => {
-      
-      const { text } = action.payload;
-      state.push({ id: , text: text, completed: false }); // push the string to the new array item
+      const { text, count } = action.payload;
+      state.push({ id: count, text: text, completed: false }); // push the string to the new array item
     },
     editToDo: (state, action) => {
       const { id, text } = action.payload; // deconstruct the payload
