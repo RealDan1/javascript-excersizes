@@ -46,6 +46,13 @@ function App() {
                             <label htmlFor={key}>{item.text}</label>
                             <button
                                 onClick={() => {
+                                    // dispatch(editToDo({ id: item.id, text: }));
+                                }}
+                            >
+                                DELETE
+                            </button>
+                            <button
+                                onClick={() => {
                                     dispatch(decrement());
                                     dispatch(deleteToDo({ id: item.id }));
                                 }}
