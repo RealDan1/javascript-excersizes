@@ -1,9 +1,11 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { addToDo, editToDo, checkToDo, unCheckToDo, deleteToDo } from './store/toDoListSlice';
+import { addToDo, editToDo, checkToDo, unCheckToDo, deleteToDo, editModalText } from './store/toDoListSlice';
 import { increment, decrement } from './store/counterSlice';
 import { useState } from 'react';
+// modal import:
+import MyModal from './store/Modal';
 
 function App() {
     let toDoListData = useSelector((state) => state.toDoList); // grab the toDoList Store and put it into a variable for use in the app
@@ -19,6 +21,13 @@ function App() {
         dispatch(increment());
         dispatch(addToDo({ text: addNoteInput, id: Date.now() }));
     }
+
+    // modal functions:
+    // =================
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     return (
         <div className="App">
             <div className="heading">
@@ -44,13 +53,18 @@ function App() {
                                 }}
                             />
                             <label htmlFor={key}>{item.text}</label>
-                            <button
-                                onClick={() => {
-                                    // dispatch(editToDo({ id: item.id, text: }));
+                            {/* show the modal if the edit button is clicked */}
+                            <button onClick={handleShow}>Edit</button>
+                            {/* manually pass does the state of bootstrap modal with useState*/}
+                            <MyModal
+                                handleShow={handleShow}
+                                handleClose={handleClose}
+                                show={show}
+                                id={item.id}
+                                launchEditDispatch={(text) => {
+                                    dispatch(editToDo({ id: item.id, text: text }));
                                 }}
-                            >
-                                DELETE
-                            </button>
+                            />
                             <button
                                 onClick={() => {
                                     dispatch(decrement());
