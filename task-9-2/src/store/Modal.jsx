@@ -1,11 +1,13 @@
-import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { useSelector, useDispatch } from 'react-redux';
+// import { editModalText } from './modalSlice';
 
-function MyModal({ id, handleClose, show, launchEditDispatch, editModalText }) {
+function MyModal({ id, handleClose, show, launchEditDispatch, modalText }) {
     let toDoListData = useSelector((state) => state.toDoList);
+
+    const dispatch = useDispatch();
 
     // const [show, setShow] = useState(false);
     // const handleClose = () => setShow(false);
@@ -27,9 +29,15 @@ function MyModal({ id, handleClose, show, launchEditDispatch, editModalText }) {
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" placeholder="name@example.com" autoFocus />
                         </Form.Group> */}
+                        {/*  */}
                         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                            <Form.Label>{toDoListData.filter((item) => item.id === id).text}</Form.Label>
-                            <Form.Control as="textarea" rows={3} />
+                            <Form.Label>{toDoListData.find((item) => item.id === id).text}</Form.Label>
+                            <Form.Control
+                                as="textarea"
+                                rows={3}
+                                value={modalText.input}
+                                onChange={(e) => dispatch({ type: 'editModalText', payload: e.target.value })}
+                            />
                         </Form.Group>
                     </Form>
                 </Modal.Body>
@@ -37,7 +45,13 @@ function MyModal({ id, handleClose, show, launchEditDispatch, editModalText }) {
                     <Button variant="secondary" onClick={handleClose}>
                         Close
                     </Button>
-                    <Button variant="primary" onClick={() => launchEditDispatch(text)}>
+                    <Button
+                        variant="primary"
+                        onClick={() => {
+                            launchEditDispatch(modalText);
+                            handleClose();
+                        }}
+                    >
                         Save Changes
                     </Button>
                 </Modal.Footer>
