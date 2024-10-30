@@ -16,7 +16,6 @@ const toDoListSlice = createSlice({
             state.map((item) => {
                 if (item.id === id) {
                     //for each item in the state array: if the item id matches the id inside the payload:
-                    console.log(JSON.stringify(item));
                     return { ...item, text }; // return a copy of the original item object, plus a modified text field
                 } else {
                     return item; //otherwise just return the original item and keep flipping through the state until the item is found
