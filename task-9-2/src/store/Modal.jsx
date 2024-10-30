@@ -2,16 +2,20 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { useSelector, useDispatch } from 'react-redux';
-// import { editModalText } from './modalSlice';
+import { useState, useEffect } from 'react';
+import { editToDo } from './toDoListSlice';
 
-function MyModal({ id, handleClose, show, launchEditDispatch, modalText }) {
+function MyModal({ id, handleClose, show }) {
     let toDoListData = useSelector((state) => state.toDoList);
 
     const dispatch = useDispatch();
 
-    // const [show, setShow] = useState(false);
-    // const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
+    const [inputValue, setInputValue] = useState('');
+
+    useEffect(() => {
+        const currentItem = toDoListData.find((item) => item.id === id);
+        if (currentItem) setInputValue(currentItem.text);
+    }, [id, toDoListData]);
 
     return (
         <>
@@ -35,8 +39,8 @@ function MyModal({ id, handleClose, show, launchEditDispatch, modalText }) {
                             <Form.Control
                                 as="textarea"
                                 rows={3}
-                                value={modalText.input}
-                                onChange={(e) => dispatch({ type: 'editModalText', payload: e.target.value })}
+                                value={inputValue}
+                                onChange={(e) => setInputValue(e.target.value)}
                             />
                         </Form.Group>
                     </Form>
@@ -48,7 +52,7 @@ function MyModal({ id, handleClose, show, launchEditDispatch, modalText }) {
                     <Button
                         variant="primary"
                         onClick={() => {
-                            launchEditDispatch(modalText);
+                            dispatch(editToDo({ id, text: inputValue }));
                             handleClose();
                         }}
                     >
