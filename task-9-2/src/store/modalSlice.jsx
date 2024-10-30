@@ -5,10 +5,10 @@ const modalSlice = createSlice({
     initialState: { input: '' }, // default is two since there are already two items in the list by default
     reducers: {
         editModalText: (state, action) => {
-            return { ...state, input: action.payload };
+            state.input = action.payload;
         },
     },
 });
 
-export const { increment, decrement } = modalSlice.actions;
+export const { editModalText } = modalSlice.actions;
 export default modalSlice.reducer;
