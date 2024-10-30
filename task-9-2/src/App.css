@@ -1,22 +1,101 @@
-.App {
-  text-align: center;
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
 }
 
-li {
-  list-style-type: none;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+.App {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #1e1e1e;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
 }
-li label {
-  padding-left: 10px;
-  padding-bottom: 3px;
+
+.heading h1 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #e0e0e0;
+}
+
+input[type='text'] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #292929;
+    color: #e0e0e0;
+}
+
+button {
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background-color: #616161;
+}
+
+button:active {
+    background-color: #757575;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.noteItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #292929;
+    border-radius: 8px;
+}
+
+.noteItem label {
+    flex: 1;
+    margin-left: 10px;
+    color: #b3b3b3;
+}
+
+input[type='checkbox'] {
+    cursor: pointer;
+}
+
+.noteItem button {
+    background-color: #d32f2f;
+    margin-left: 5px;
+}
+
+.noteItem button:hover {
+    background-color: #e57373;
+}
+
+p {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.add-note-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* Override Bootstrap's button styles */
+button,
+.btn {
+    border-radius: 8px !important;
 }

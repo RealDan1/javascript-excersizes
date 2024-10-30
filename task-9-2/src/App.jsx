@@ -5,6 +5,8 @@ import { addToDo, checkToDo, unCheckToDo, deleteToDo } from './store/toDoListSli
 import { increment, decrement } from './store/counterSlice';
 import { useState } from 'react';
 // modal import:
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 import MyModal from './store/Modal';
 
 function App() {
@@ -22,17 +24,34 @@ function App() {
     function handleSetAddNoteInput(e) {
         setAddNoteInput(e.target.value);
     }
-    function dispatchAddNote() {
-        dispatch(increment());
-        dispatch(addToDo({ text: addNoteInput, id: Date.now() }));
-    }
-
     // modal functions:
-    // =================
+    // ======================================
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    //warning modal functions:
+    // ======================================
+    const [showWarning, setShowWarning] = useState(false);
+
+    const handleWarningClose = () => setShowWarning(false);
+
+    const handleWarningShow = () => setShowWarning(true);
+
+    //dispatch addNote function
+    // ======================================
+    function dispatchAddNote() {
+        // if the input is empty, alert the user
+
+        if (addNoteInput.trim() === '') {
+            handleWarningShow();
+            return;
+        }
+        dispatch(increment());
+        dispatch(addToDo({ text: addNoteInput, id: Date.now() }));
+    }
+
     return (
         <div className="App">
             <div className="heading">
@@ -40,7 +59,9 @@ function App() {
 
                 <input id="addNoteInput" type="text" value={addNoteInput} onChange={handleSetAddNoteInput} />
 
-                <button onClick={dispatchAddNote}>Add Note</button>
+                <button className="add-note-container" onClick={dispatchAddNote}>
+                    Add Note
+                </button>
             </div>
             <div className="toDoList">
                 <ul>
@@ -58,7 +79,7 @@ function App() {
                                 }}
                             />
                             <label htmlFor={key}>{item.text}</label>
-                            {/* show the modal if the edit button is clicked */}
+                            {/* if clicked grab the id of the item being clicked and show the modal  */}
                             <button
                                 onClick={() => {
                                     handleSetEditId(item.id);
@@ -67,8 +88,9 @@ function App() {
                             >
                                 Edit
                             </button>
-                            {/* manually pass does the state of bootstrap modal with useState*/}
+                            {/* manually pass the state of bootstrap modal with useState*/}
                             <MyModal handleShow={handleShow} handleClose={handleClose} show={show} id={editId} />
+
                             <button
                                 onClick={() => {
                                     dispatch(decrement());
@@ -82,6 +104,18 @@ function App() {
                 </ul>
                 <p>Total Items: {count.value}</p>
             </div>
+            {/* warning modal ======================================*/}
+            <MyModal show={showWarning} handleClose={handleWarningClose} id={null}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Warning</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Please enter a value before adding a to-do.</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleWarningClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </MyModal>
         </div>
     );
 }
