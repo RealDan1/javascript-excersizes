@@ -13,6 +13,11 @@ function App() {
     let count = useSelector((state) => state.count); //grab the count from the store and put it in a var
     const dispatch = useDispatch();
     const [addNoteInput, setAddNoteInput] = useState(''); // state for input of the input box
+    const [editId, setEditId] = useState('');
+
+    function handleSetEditId(id) {
+        setEditId(id);
+    }
 
     function handleSetAddNoteInput(e) {
         setAddNoteInput(e.target.value);
@@ -54,9 +59,16 @@ function App() {
                             />
                             <label htmlFor={key}>{item.text}</label>
                             {/* show the modal if the edit button is clicked */}
-                            <button onClick={handleShow}>Edit</button>
+                            <button
+                                onClick={() => {
+                                    handleSetEditId(item.id);
+                                    handleShow();
+                                }}
+                            >
+                                Edit
+                            </button>
                             {/* manually pass does the state of bootstrap modal with useState*/}
-                            <MyModal handleShow={handleShow} handleClose={handleClose} show={show} id={item.id} />
+                            <MyModal handleShow={handleShow} handleClose={handleClose} show={show} id={editId} />
                             <button
                                 onClick={() => {
                                     dispatch(decrement());
