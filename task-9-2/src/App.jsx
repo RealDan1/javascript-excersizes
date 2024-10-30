@@ -1,14 +1,17 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { addToDo, editToDo, checkToDo, unCheckToDo, deleteToDo, editModalText } from './store/toDoListSlice';
+import { addToDo, editToDo, checkToDo, unCheckToDo, deleteToDo } from './store/toDoListSlice';
 import { increment, decrement } from './store/counterSlice';
 import { useState } from 'react';
 // modal import:
 import MyModal from './store/Modal';
+import { editModalText } from './store/modalSlice';
 
 function App() {
     let toDoListData = useSelector((state) => state.toDoList); // grab the toDoList Store and put it into a variable for use in the app
+
+    let modalText = useSelector((state) => state.modal);
 
     let count = useSelector((state) => state.count); //grab the count from the store and put it in a var
     const dispatch = useDispatch();
@@ -62,8 +65,10 @@ function App() {
                                 show={show}
                                 id={item.id}
                                 launchEditDispatch={(text) => {
-                                    dispatch(editToDo({ id: item.id, text: text }));
+                                    dispatch(editToDo({ id: item.id, text:  }));
                                 }}
+                                modalText={modalText}
+                                editModalText={editModalText}
                             />
                             <button
                                 onClick={() => {
