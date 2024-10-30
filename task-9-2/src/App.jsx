@@ -1,13 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-    addToDo,
-    editToDo,
-    checkToDo,
-    unCheckToDo,
-    deleteToDo,
-} from './store/toDoListSlice';
+import { addToDo, editToDo, checkToDo, unCheckToDo, deleteToDo } from './store/toDoListSlice';
 import { increment, decrement } from './store/counterSlice';
 import { useState } from 'react';
 
@@ -33,12 +27,7 @@ function App() {
             <div className="heading">
                 <h1>To Do's:</h1>
 
-                <input
-                    id="addNoteInput"
-                    type="text"
-                    value={addNoteInput}
-                    onChange={handleSetAddNoteInput}
-                />
+                <input id="addNoteInput" type="text" value={addNoteInput} onChange={handleSetAddNoteInput} />
 
                 <button onClick={dispatchAddNote}>Add Note</button>
             </div>
@@ -54,9 +43,7 @@ function App() {
                                 onChange={(e) => {
                                     e.target.checked //if the boolean of the checked input is true? then dispatch the check reducer else dispatch the uncheck reducer
                                         ? dispatch(checkToDo({ id: item.id })) // then dispatch the check reducer
-                                        : dispatch(
-                                              unCheckToDo({ id: item.id })
-                                          ); // else dispatch the uncheck reducer
+                                        : dispatch(unCheckToDo({ id: item.id })); // else dispatch the uncheck reducer
                                 }}
                             />
                             <label htmlFor={key}>{item.text}</label>
