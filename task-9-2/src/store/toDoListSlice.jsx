@@ -13,7 +13,7 @@ const toDoListSlice = createSlice({
         },
         editToDo: (state, action) => {
             const { id, text } = action.payload; // deconstruct the payload
-            state.map((item) => {
+            return state.map((item) => {
                 if (item.id === id) {
                     //for each item in the state array: if the item id matches the id inside the payload:
                     return { ...item, text }; // return a copy of the original item object, plus a modified text field
