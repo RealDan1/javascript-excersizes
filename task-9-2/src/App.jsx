@@ -9,9 +9,7 @@ function App() {
     let toDoListData = useSelector((state) => state.toDoList); // grab the toDoList Store and put it into a variable for use in the app
 
     let count = useSelector((state) => state.count); //grab the count from the store and put it in a var
-
     const dispatch = useDispatch();
-
     const [addNoteInput, setAddNoteInput] = useState(''); // state for input of the input box
 
     function handleSetAddNoteInput(e) {
@@ -21,7 +19,6 @@ function App() {
         dispatch(increment());
         dispatch(addToDo({ text: addNoteInput, id: Date.now() }));
     }
-
     return (
         <div className="App">
             <div className="heading">
