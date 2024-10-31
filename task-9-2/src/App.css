@@ -6,7 +6,7 @@ body {
 }
 
 .App {
-    max-width: 600px;
+    max-width: 800px;
     margin: 50px auto;
     padding: 20px;
     background-color: #1e1e1e;
@@ -20,14 +20,46 @@ body {
     color: #e0e0e0;
 }
 
+.input-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-and-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    max-width: 600px; /* Increased width for more input space */
+    margin: 0 auto;
+}
+
 input[type='text'] {
-    width: 100%;
+    flex: 1;
     padding: 10px;
-    margin-bottom: 10px;
     border: 1px solid #333;
     border-radius: 4px;
     background-color: #292929;
     color: #e0e0e0;
+    width: 100%; /* Ensures the input fills available space */
+}
+
+.add-note-container {
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+.add-note-container:hover {
+    background-color: #616161;
+}
+
+.add-note-container:active {
+    background-color: #757575;
 }
 
 button {
@@ -88,14 +120,16 @@ p {
     margin-top: 15px;
 }
 
-.add-note-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-
 /* Override Bootstrap's button styles */
 button,
 .btn {
     border-radius: 8px !important;
+}
+
+/* Modal Styling Overrides */
+.modal-content {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7) !important;
 }
