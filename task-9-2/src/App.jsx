@@ -109,7 +109,7 @@ function App() {
                         </li>
                     ))}
                 </ul>
-                <p>Total Items: {count.value}</p>
+                <p className="totalItems">Total To Do's: {count.value}</p>
             </div>
             {/* warning modal ======================================*/}
             <WarningModal show={showWarning} handleClose={handleWarningClose} />
