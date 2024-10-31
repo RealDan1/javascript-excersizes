@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { useSelector, useDispatch } from 'react-redux';
 import { useState, useEffect } from 'react';
-import { editToDo } from './toDoListSlice';
+import { editToDo } from '../store/toDoListSlice';
 
 function MyModal({ id, handleClose, show }) {
     let toDoListData = useSelector((state) => state.toDoList);
