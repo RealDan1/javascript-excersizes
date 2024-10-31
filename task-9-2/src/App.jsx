@@ -4,9 +4,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addToDo, checkToDo, unCheckToDo, deleteToDo } from './store/toDoListSlice';
 import { increment, decrement } from './store/counterSlice';
 import { useState } from 'react';
-import MyModal from './store/Modal';
-import WarningModal from './store/WarningModal';
-import InfoModal from './store/InfoModal.jsx';
+import MyModal from './components/Modal.jsx';
+import WarningModal from './components/WarningModal.jsx';
+import InfoModal from './components/InfoModal.jsx';
 
 function App() {
     let toDoListData = useSelector((state) => state.toDoList);
