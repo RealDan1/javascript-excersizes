@@ -5,9 +5,8 @@ import { addToDo, checkToDo, unCheckToDo, deleteToDo } from './store/toDoListSli
 import { increment, decrement } from './store/counterSlice';
 import { useState } from 'react';
 // modal import:
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
 import MyModal from './store/Modal';
+import WarningModal from './store/WarningModal';
 
 function App() {
     let toDoListData = useSelector((state) => state.toDoList); // grab the toDoList Store and put it into a variable for use in the app
@@ -105,17 +104,7 @@ function App() {
                 <p>Total Items: {count.value}</p>
             </div>
             {/* warning modal ======================================*/}
-            <MyModal show={showWarning} handleClose={handleWarningClose} id={null}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Warning</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>Please enter a value before adding a to-do.</Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleWarningClose}>
-                        Close
-                    </Button>
-                </Modal.Footer>
-            </MyModal>
+            <WarningModal show={showWarning} handleClose={handleWarningClose} />
         </div>
     );
 }
