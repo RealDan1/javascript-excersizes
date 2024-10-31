@@ -7,10 +7,10 @@ import { useState } from 'react';
 // modal import:
 import MyModal from './store/Modal';
 import WarningModal from './store/WarningModal';
-import InfoModal from './store/InfoModal.jsx';
+import InfoModal from './store/InfoModal';
 
 function App() {
-    let toDoListData = useSelector((state) => state.toDoList); // grab the toDoList Store and put it into a variable for use in the app
+    let toDoListData = useSelector((state) => state.toDoList.list);
 
     let count = useSelector((state) => state.count); //grab the count from the store and put it in a var
     const dispatch = useDispatch();
@@ -62,7 +62,7 @@ function App() {
                     <h1>To Do's:</h1>
                     <button className="info-icon" onClick={handleInfoShow}>
                         ℹ️
-                    </button>{' '}
+                    </button>
                     <div className="input-and-button">
                         <input id="addNoteInput" type="text" value={addNoteInput} onChange={handleSetAddNoteInput} />
                         <button className="add-note-container" onClick={dispatchAddNote}>
@@ -120,7 +120,7 @@ function App() {
             {/* warning modal ======================================*/}
             <WarningModal show={showWarning} handleClose={handleWarningClose} />
             {/* info modal =========================================*/}
-            <InfoModal show={showInfo} handleClose={handleInfoClose} />{' '}
+            <InfoModal show={showInfo} handleClose={handleInfoClose} />
         </div>
     );
 }
