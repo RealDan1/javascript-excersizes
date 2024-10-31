@@ -79,7 +79,13 @@ function App() {
                                         : dispatch(unCheckToDo({ id: item.id })); // else dispatch the uncheck reducer
                                 }}
                             />
-                            <label htmlFor={key}>{item.text}</label>
+
+                            <label
+                                htmlFor={key}
+                                style={{ textDecoration: item.completed ? 'line-through' : 'none' }} // Add strikethrough when item is completed
+                            >
+                                {item.text}
+                            </label>
                             {/* if clicked grab the id of the item being clicked and show the modal  */}
                             <button
                                 onClick={() => {
