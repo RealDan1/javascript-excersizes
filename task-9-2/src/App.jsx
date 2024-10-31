@@ -7,6 +7,7 @@ import { useState } from 'react';
 // modal import:
 import MyModal from './store/Modal';
 import WarningModal from './store/WarningModal';
+import InfoModal from './store/InfoModal.jsx';
 
 function App() {
     let toDoListData = useSelector((state) => state.toDoList); // grab the toDoList Store and put it into a variable for use in the app
@@ -27,17 +28,20 @@ function App() {
     // modal functions:
     // ======================================
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    //warning modal functions:
+    // warning modal functions:
     // ======================================
     const [showWarning, setShowWarning] = useState(false);
-
     const handleWarningClose = () => setShowWarning(false);
-
     const handleWarningShow = () => setShowWarning(true);
+
+    // info modal functions:
+    // ======================================
+    const [showInfo, setShowInfo] = useState(false);
+    const handleInfoClose = () => setShowInfo(false);
+    const handleInfoShow = () => setShowInfo(true);
 
     //dispatch addNote function
     // ======================================
@@ -56,6 +60,9 @@ function App() {
             <div className="heading">
                 <div className="input-section">
                     <h1>To Do's:</h1>
+                    <button className="info-icon" onClick={handleInfoShow}>
+                        ℹ️
+                    </button>{' '}
                     <div className="input-and-button">
                         <input id="addNoteInput" type="text" value={addNoteInput} onChange={handleSetAddNoteInput} />
                         <button className="add-note-container" onClick={dispatchAddNote}>
@@ -79,7 +86,6 @@ function App() {
                                         : dispatch(unCheckToDo({ id: item.id })); // else dispatch the uncheck reducer
                                 }}
                             />
-
                             <label
                                 htmlFor={key}
                                 style={{ textDecoration: item.completed ? 'line-through' : 'none' }} // Add strikethrough when item is completed
@@ -113,6 +119,8 @@ function App() {
             </div>
             {/* warning modal ======================================*/}
             <WarningModal show={showWarning} handleClose={handleWarningClose} />
+            {/* info modal =========================================*/}
+            <InfoModal show={showInfo} handleClose={handleInfoClose} />{' '}
         </div>
     );
 }
