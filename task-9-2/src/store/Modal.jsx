@@ -12,6 +12,7 @@ function MyModal({ id, handleClose, show }) {
 
     const [inputValue, setInputValue] = useState('');
 
+    // when the modal is opened, set the default text to the current item for editing
     useEffect(() => {
         const currentItem = toDoListData.find((item) => item.id === id);
         if (currentItem) setInputValue(currentItem.text);
