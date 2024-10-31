@@ -23,6 +23,7 @@ function App() {
     function handleSetAddNoteInput(e) {
         setAddNoteInput(e.target.value);
     }
+
     // modal functions:
     // ======================================
     const [show, setShow] = useState(false);
@@ -42,7 +43,6 @@ function App() {
     // ======================================
     function dispatchAddNote() {
         // if the input is empty, alert the user
-
         if (addNoteInput.trim() === '') {
             handleWarningShow();
             return;
@@ -54,13 +54,15 @@ function App() {
     return (
         <div className="App">
             <div className="heading">
-                <h1>To Do's:</h1>
-
-                <input id="addNoteInput" type="text" value={addNoteInput} onChange={handleSetAddNoteInput} />
-
-                <button className="add-note-container" onClick={dispatchAddNote}>
-                    Add Note
-                </button>
+                <div className="input-section">
+                    <h1>To Do's:</h1>
+                    <div className="input-and-button">
+                        <input id="addNoteInput" type="text" value={addNoteInput} onChange={handleSetAddNoteInput} />
+                        <button className="add-note-container" onClick={dispatchAddNote}>
+                            Add Note
+                        </button>
+                    </div>
+                </div>
             </div>
             <div className="toDoList">
                 <ul>
