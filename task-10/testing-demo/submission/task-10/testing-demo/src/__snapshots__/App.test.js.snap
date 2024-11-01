@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders correctly 1`] = `
+<div
+  style={
+    Object {
+      "padding": "50px",
+      "textAlign": "center",
+    }
+  }
+>
+  <h1>
+    Simple Counter App
+  </h1>
+  <p>
+    Count: 
+    0
+  </p>
+  <button
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "lightblue",
+        "border": "none",
+        "borderRadius": "4px",
+        "cursor": "pointer",
+        "fontSize": "1rem",
+        "marginRight": "10px",
+        "padding": "10px 20px",
+      }
+    }
+  >
+    Increment
+  </button>
+  <button
+    onClick={[Function]}
+    style={
+      Object {
+        "backgroundColor": "lightblue",
+        "border": "none",
+        "borderRadius": "4px",
+        "cursor": "pointer",
+        "fontSize": "1rem",
+        "padding": "10px 20px",
+      }
+    }
+  >
+    Decrement
+  </button>
+</div>
+`;
