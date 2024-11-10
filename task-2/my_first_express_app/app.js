@@ -14,8 +14,8 @@ app.get('*', function (req, res, next) {
     next(err);
 });
 
-app.listen(8000, function () {
-    console.log('Example app listening on port 8000!');
+app.listen(3000, function () {
+    console.log('Example app listening on port 3000!');
 });
 
 app.use(express.static('public'));
