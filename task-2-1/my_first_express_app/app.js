@@ -2,6 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const app = express();
 
+//read person.json external file
 const person = JSON.parse(fs.readFileSync('person.json', 'utf8'));
 
 app.get('/', function (req, res) {
