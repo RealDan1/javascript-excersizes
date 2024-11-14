@@ -5,6 +5,7 @@ const app = express();
 //read person.json external file
 const person = JSON.parse(fs.readFileSync('person.json', 'utf8'));
 
+//send welcome message on root page
 app.get('/', function (req, res) {
     res.send(`Welcome ${person.name}!`);
 });
