@@ -10,6 +10,7 @@ app.get('/', function (req, res) {
     res.send(`Welcome ${person.name}!`);
 });
 
+//serve static files in public folder
 app.use(express.static('public'));
 
 app.get('*', function (req, res, next) {
