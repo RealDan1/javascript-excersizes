@@ -13,6 +13,7 @@ app.get('/', function (req, res) {
 //serve static files in public folder
 app.use(express.static('public'));
 
+// send error message if page is not found
 app.get('*', function (req, res, next) {
     let err = new Error('Sorry! Can’t find that resource. Please check your URL.');
     err.statusCode = 404;
