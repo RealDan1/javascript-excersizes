@@ -1,7 +1,7 @@
 //import express to create server
 const express = require('express');
 const fs = require('fs');
-const app = express();
+const app = express(); //create express app
 
 //read person.json external file
 const person = JSON.parse(fs.readFileSync('person.json', 'utf8'));
