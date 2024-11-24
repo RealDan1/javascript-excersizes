@@ -15,12 +15,11 @@ router.put('/update-author', blogController.updateByAuthor);
 // Delete all blogs with specified author name
 router.delete('/delete-author', blogController.deleteBlogsByAuthor);
 
-
 module.exports = router;
 
-/* If you need a refresher about routing in Express, see here: 
+/* If you need a refresher about routing in Express, see here:
 https://expressjs.com/en/starter/basic-routing.html
 
-and here: 
-https://expressjs.com/en/guide/routing.html 
+and here:
+https://expressjs.com/en/guide/routing.html
 */
