@@ -15,6 +15,7 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 // ! [IMPORTANT]: Replace with your mongoDB URI string. You can get it from your Atlas cluster.
+//not string from shell - use string with password embedded
 
 // Connect to the database
 mongoose.Promise = global.Promise;
