@@ -1,6 +1,6 @@
 // Import dependencies
 require('dotenv').config();
-const uri = process.env.MONGO_URI;
+const uri = process.env.MONGO_URI; // use unique user database password in monogdb
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
