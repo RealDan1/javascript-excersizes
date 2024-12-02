@@ -19,6 +19,7 @@ const PORT = process.env.PORT || 8080;
 
 // Connect to the database
 mongoose.Promise = global.Promise;
+// ! [IMPORTANT]: Replace with your mongoDB URI string. You can get it from your Atlas cluster.
 mongoose.connect(uri, { useNewUrlParser: true }).then(
     () => {
         console.log('Successfully connected to the database!');
