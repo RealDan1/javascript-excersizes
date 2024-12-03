@@ -6,7 +6,7 @@ exports.create = async (req, res) => {
         const blogModel = new Blog({
             title: 'Example Code',
             text: 'Demonstrating how to add data to a database using Mongoose',
-            author: 'HyperionDev'
+            author: 'HyperionDev',
         });
 
         // Save the new blog
@@ -19,7 +19,7 @@ exports.create = async (req, res) => {
         // Error response
         console.error(error);
         res.status(500).send({
-            message: "Some error occurred while creating the blog."
+            message: 'Some error occurred while creating the blog.',
         });
     }
 };
@@ -27,19 +27,18 @@ exports.create = async (req, res) => {
 exports.findAll = (req, res) => {
     // Use the "find" method to return all blogs
     Blog.find()
-        .then(blogs => {
+        .then((blogs) => {
             // Send the retrieved blogs as a success response
             res.send(blogs);
         })
-        .catch(err => {
+        .catch((err) => {
             // Error response
             console.log(err);
             res.status(500).send({
-                message: "An error occurred while retrieving blogs"
+                message: 'An error occurred while retrieving blogs',
             });
         });
 };
-
 
 exports.updateByAuthor = async (req, res) => {
     try {
@@ -55,13 +54,13 @@ exports.updateByAuthor = async (req, res) => {
         const updatedBlog = await Blog.findOneAndUpdate(query, update, { new: true });
 
         if (updatedBlog) {
-            res.send("Updated successfully");
+            res.send('Updated successfully');
         } else {
-            res.status(404).send("Blog not found");
+            res.status(404).send('Blog not found');
         }
     } catch (error) {
-        console.error("Something went wrong when updating data.", error);
-        res.status(500).send("An error occurred while updating.");
+        console.error('Something went wrong when updating data.', error);
+        res.status(500).send('An error occurred while updating.');
     }
 };
 
@@ -71,13 +70,12 @@ exports.deleteBlogsByAuthor = async (req, res) => {
         const deleteResult = await Blog.deleteMany({ author: 'NewAuthorName' });
 
         if (deleteResult.deletedCount > 0) {
-            res.send("Successfully deleted all blogs from author.");
+            res.send('Successfully deleted all blogs from author.');
         } else {
-            res.send("Author not found...");
+            res.send('Author not found...');
         }
     } catch (error) {
-        console.error("An error occurred while removing blogs.", error);
-        res.status(500).send("An error occurred while removing blogs.");
+        console.error('An error occurred while removing blogs.', error);
+        res.status(500).send('An error occurred while removing blogs.');
     }
 };
-
