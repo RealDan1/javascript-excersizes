@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 function App() {
-    const [customMessage, setCustomMessage] = useState(''); // State to store fetched data
+    const [data, setData] = useState({}); // State to store first mesa
     useEffect(() => {
         fetchData(); // Fetch data each time the component loads
     }, []);
@@ -12,8 +12,8 @@ function App() {
         try {
             /* Sends a GET request to
       'http://localhost:5000//api/data' (backend server) */
-            const response = await axios.get('/api/message');
-            setCustomMessage(response.message); // Update state with fetched data
+            const response = await axios.get('/api/data');
+            setData(response.data); // Update state with fetched data
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -22,7 +22,7 @@ function App() {
         <div className="App">
             <header className="App-header">
                 {/* Display the message, or 'Loading...' if data is not yet fetched*/}
-                <h1>{customMessage || 'Loading...'}</h1>
+                <h1>{data.message || 'Loading...'}</h1>
             </header>
         </div>
     );
