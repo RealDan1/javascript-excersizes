@@ -11,6 +11,11 @@ app.get('/api/data', (req, res) => {
     res.json(data); // Send data as a response
 });
 
+app.get('/api/message', (req, res) => {
+    const data = { message: 'This is a custom message from the backend' };
+    res.json(data); // Send custom message as a response
+});
+
 //custom message
 app.get('/api/data', (req, res) => {
     const data = { message: 'Hello from the back end!' };
