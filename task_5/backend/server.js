@@ -6,9 +6,15 @@ const PORT = process.env.PORT || 6000;
 // Enable Cross-Origin Resource Sharing
 app.use(cors());
 // Define the route to retrieve the message
-app.get('/api/message', (req, res) => {
-    const message = 'Hello from the back end!';
-    res.json(message); // Send data as a response
+app.get('/api/data', (req, res) => {
+    const data = { message: 'Hello from the back end!' };
+    res.json(data); // Send data as a response
+});
+
+//custom message
+app.get('/api/data', (req, res) => {
+    const data = { message: 'Hello from the back end!' };
+    res.json(data); // Send data as a response
 });
 // Start the server
 app.listen(PORT, () => {
