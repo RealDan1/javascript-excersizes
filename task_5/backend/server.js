@@ -7,8 +7,8 @@ const PORT = process.env.PORT || 6000;
 app.use(cors());
 // Define the route to retrieve the message
 app.get('/api/message', (req, res) => {
-    const data = 'Hello from the back end!';
-    res.json(data); // Send data as a response
+    const message = 'Hello from the back end!';
+    res.json(message); // Send data as a response
 });
 // Start the server
 app.listen(PORT, () => {
