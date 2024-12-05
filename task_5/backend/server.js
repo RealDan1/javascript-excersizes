@@ -16,11 +16,6 @@ app.get('/api/message', (req, res) => {
     res.json(data); // Send custom message as a response
 });
 
-//custom message
-app.get('/api/data', (req, res) => {
-    const data = { message: 'Hello from the back end!' };
-    res.json(data); // Send data as a response
-});
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
