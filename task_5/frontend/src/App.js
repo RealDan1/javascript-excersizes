@@ -13,7 +13,7 @@ function App() {
             /* Sends a GET request to
       'http://localhost:5000//api/data' (backend server) */
             const response = await axios.get('/api/message');
-            setCustomMessage(response.data); // Update state with fetched data
+            setCustomMessage(response.message); // Update state with fetched data
         } catch (error) {
             console.error('Error fetching data:', error);
         }
