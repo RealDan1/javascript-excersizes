@@ -12,7 +12,7 @@ function App() {
     const fetchData = async () => {
         try {
             /* Sends a GET request to
-      'http://localhost:5000//api/data' (backend server) */
+      'http://localhost:6000//api/data' (backend server) */
             const response1 = await axios.get('/api/data');
             setMessage1(response1.data.message); // Update state with fetched data
 
