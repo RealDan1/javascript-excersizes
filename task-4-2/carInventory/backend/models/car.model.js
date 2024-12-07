@@ -18,8 +18,11 @@ const carSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    price: {
-        type: Number,
+    registration: {
+        type: String,
         required: true,
     },
 });
+
+//module.exports makes the model available outside of your module
+module.exports = mongoose.model('Car', carSchema);
