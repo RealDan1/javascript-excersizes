@@ -1,8 +1,9 @@
 //import dependencies
 //would have imported dotenv for secure DB password but not needed at this point (all open source)
 
-require('dotenv').config();
-const uri = process.env.MONGO_URI;
+// require('dotenv').config();
+const uri =
+    'mongodb+srv://daneelvdm:mydatabasis@doncluster.uw8qd.mongodb.net/?retryWrites=true&w=majority&appName=DonCluster';
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
