@@ -4,7 +4,6 @@
 require('dotenv').config();
 const uri = process.env.MONGO_URI;
 const express = require('express');
-
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
