@@ -18,6 +18,16 @@ exports.create = async (req, res) => {
         res.send(savedCar);
         res.status(200).send({ message: 'The car has been added' });
     } catch (error) {
-        res.status(500).send({ message: 'Some error occurred while creating the blog.' });
+        res.status(500).send({ message: 'Some error occurred while creating the car.' });
+    }
+};
+
+exports.findall = (req, res) => {
+    try {
+        Car.find().then((cars) => {
+            res.send(cars);
+        });
+    } catch (error) {
+        res.status(500).send({ message: 'Some error occurred while retrieving the car.' });
     }
 };
