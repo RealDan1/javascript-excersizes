@@ -1,5 +1,6 @@
 const Car = require('../models/car.model');
 
+//CREATE a new car
 exports.create = async (req, res) => {
     try {
         // Create a new car
@@ -14,20 +15,19 @@ exports.create = async (req, res) => {
         // Save the new car
         const savedCar = await carModel.save();
 
-        // Success response
-        res.send(savedCar);
-        res.status(200).send({ message: 'The car has been added' });
+        // Success response and send car as json
+        res.status(201).json(savedCar);
     } catch (error) {
-        res.status(500).send({ message: 'Some error occurred while creating the car.' });
+        res.status(500).send({ message: error.message });
     }
 };
 
-exports.findall = (req, res) => {
+// READ all cars
+exports.getAllCars = async (req, res) => {
     try {
-        Car.find().then((cars) => {
-            res.send(cars);
-        });
+        const cars = await Car.find();
+        res.json(cars);
     } catch (error) {
-        res.status(500).send({ message: 'Some error occurred while retrieving the car.' });
+        res.status(500).json({ message: error.message });
     }
 };
