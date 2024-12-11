@@ -5,7 +5,7 @@ function App() {
     //READ all cars
     //==================================
     // State to store fetched data
-    const [cars, setCars] = useState({});
+    const [cars, setCars] = useState([]);
     useEffect(() => {
         fetchCars(); // Fetch cars each time the component loads
     }, []);
