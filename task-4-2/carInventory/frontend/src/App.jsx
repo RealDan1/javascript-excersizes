@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from './api'; // Import the Axios instance.
 import './App.css';
 function App() {
     //READ all cars
     //==================================
     // State to store fetched data
-    const [data, setData] = useState({});
+    const [cars, setCars] = useState({});
     useEffect(() => {
-        fetchCars(); // Fetch data each time the component loads
+        fetchCars(); // Fetch cars each time the component loads
     }, []);
 
-    // Function to fetch data from the server
+    // Function to fetch cars from the server
     //================
     const fetchCars = async () => {
         try {
             /* Sends a POST request to
-      'http://localhost:5000//api/data' (backend server) */
-            const response = await axios.get('/cars');
-            setData(response.data); // Update state with fetched data
+      'http://localhost:8080//api/cars' (backend server) */
+            const response = await api.get('/');
+            setCars(response.data); //update state with cars
         } catch (error) {
-            console.error('Error fetching data:', error);
+            console.error('Error fetching cars:', error);
         }
     };
     //CREATE a Car
@@ -27,16 +27,34 @@ function App() {
     //State to hold the input
     const [newCar, setNewCar] = useState({ make: '', model: 0, year: 0, owner: '', registration: '' });
 
-    const addCar = async () => {};
+    const addCar = async () => {
+        try {
+            // POST request.
+            const response = await api.post('/', newCar);
+            setCars(...cars, response.data); //add new car to state
+            setNewCar({ make: '', model: 0, year: 0, owner: '', registration: '' }); // Reset the form.
+        } catch (error) {
+            console.error('Error adding car:', error);
+        }
+    };
     return (
         <div className="App">
             <header className="App-header">
                 {/* Display the message, or 'Loading...' if data is not yet fetched*/}
-                <button onClick={addCar}></button>
+
+                <h5>Enter values for new car:</h5>
+                <input
+                    value={newCar.make}
+                    onChange={(e) => setNewCar({ ...newCar, make: e.target.value })}
+                    placeholder="Car Make"
+                />
+                <button onClick={addCar}>Add Car</button>
+
+                <h5>Cars:</h5>
 
                 <ul>
                     {'Loading...' ||
-                        data.map((item) => {
+                        cars.map((item) => {
                             <li>{item.make}</li>;
                         })}
                 </ul>

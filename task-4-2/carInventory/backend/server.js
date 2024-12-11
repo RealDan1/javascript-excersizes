@@ -17,7 +17,7 @@ const getCars = require('./routes/getCars');
 const app = express();
 
 // Set up port for server to listen on
-const PORT = process.env.PORT || 8080;
+const PORT = 8080;
 
 //enable cors
 app.use(cors());
