@@ -31,3 +31,13 @@ exports.getAllCars = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+// DELETE a car
+exports.deleteCar = async (req, res) => {
+    try {
+        await Car.findByIdAndDelete(req.params.id);
+        res.json({ message: 'Car deleted!' });
+    } catch (error) {
+        res.status(500).json({ message: error.message }); // Handle errors.
+    }
+};

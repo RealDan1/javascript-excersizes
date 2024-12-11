@@ -37,6 +37,17 @@ function App() {
             console.error('Error adding car:', error);
         }
     };
+
+    //DELETE a car
+    //==================================
+    const deleteCar = async (id) => {
+        try {
+            await api.delete(`/${id}`);
+            setCars(cars.filter((car) => car._id !== id));
+        } catch (error) {
+            console.error('Error deleting potion:', error);
+        }
+    };
     return (
         <div className="App">
             <header className="App-header">
@@ -81,12 +92,20 @@ function App() {
                 <ul>
                     {cars.map((item) => {
                         return (
-                            <div className="car" key={item.make}>
+                            <div className="car" key={item._id}>
                                 <li>Make: {item.make}</li>
                                 <li>Model: {item.model}</li>
                                 <li>Year: {item.year}</li>
                                 <li>Owner: {item.owner}</li>
                                 <li>Registration: {item.registration}</li>
+
+                                <button
+                                    onClick={() => {
+                                        deleteCar(item._id);
+                                    }}
+                                >
+                                    Delete
+                                </button>
                             </div>
                         );
                     })}
