@@ -16,7 +16,7 @@ function App() {
         try {
             /* Sends a POST request to
       'http://localhost:8080//api/cars' (backend server) */
-            const response = await api.get('/');
+            const response = await api.get('');
             setCars(response.data); //update state with cars
         } catch (error) {
             console.error('Error fetching cars:', error);
@@ -25,12 +25,12 @@ function App() {
     //CREATE a Car
     //==================================
     //State to hold the input
-    const [newCar, setNewCar] = useState({ make: '', model: 0, year: 0, owner: '', registration: '' });
+    const [newCar, setNewCar] = useState({ make: '', model: '', year: 0, owner: '', registration: '' });
 
     const addCar = async () => {
         try {
             // POST request.
-            const response = await api.post('/', newCar);
+            const response = await api.post('/add', newCar);
             setCars(...cars, response.data); //add new car to state
             setNewCar({ make: '', model: 0, year: 0, owner: '', registration: '' }); // Reset the form.
         } catch (error) {
@@ -41,22 +41,55 @@ function App() {
         <div className="App">
             <header className="App-header">
                 {/* Display the message, or 'Loading...' if data is not yet fetched*/}
-
-                <h5>Enter values for new car:</h5>
+                <h3>Enter values for new car:</h3>
+                <label htmlFor="makeInput">Make:</label>
                 <input
                     value={newCar.make}
                     onChange={(e) => setNewCar({ ...newCar, make: e.target.value })}
-                    placeholder="Car Make"
+                    placeholder="e.g. Honda"
                 />
+                <label htmlFor="modelInput">Model:</label>
+                <input
+                    id="modelInput"
+                    value={newCar.model}
+                    onChange={(e) => setNewCar({ ...newCar, model: e.target.value })}
+                    placeholder="e.g. Civic"
+                />
+                <label htmlFor="yearInput">Year:</label>
+                <input
+                    id="yearInput"
+                    value={newCar.year}
+                    onChange={(e) => setNewCar({ ...newCar, year: e.target.value })}
+                    placeholder="e.g. 2022"
+                />
+                <label htmlFor="ownerInput">Owner:</label>{' '}
+                <input
+                    id="ownerInput"
+                    value={newCar.owner}
+                    onChange={(e) => setNewCar({ ...newCar, owner: e.target.value })}
+                    placeholder="e.g. John Doe"
+                ></input>
+                <label htmlFor="registrationInput">Registration:</label>
+                <input
+                    id="registrationInput"
+                    value={newCar.registration}
+                    onChange={(e) => setNewCar({ ...newCar, registration: e.target.value })}
+                    placeholder="e.g. ABC123"
+                ></input>
                 <button onClick={addCar}>Add Car</button>
-
-                <h5>Cars:</h5>
-
+                <h3>Cars:</h3>
                 <ul>
-                    {'Loading...' ||
-                        cars.map((item) => {
-                            <li>{item.make}</li>;
-                        })}
+                    {cars.map((item) => {
+                        return (
+                            <div className="car" key={item.make}>
+                                <li>Make: {item.make}</li>
+                                <li>Model: {item.model}</li>
+                                <li>Year: {item.year}</li>
+                                <li>Owner: {item.owner}</li>
+                                <li>Registration: {item.registration}</li>
+                            </div>
+                        );
+                    })}
                 </ul>
             </header>
         </div>
