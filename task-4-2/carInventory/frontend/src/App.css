@@ -1,0 +1,30 @@
+.App {
+    text-align: center;
+}
+
+.App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.car {
+    display: flex;
+    margin: 10px;
+    list-style-type: none;
+    min-width: max-content + 2;
+}
+
+li {
+    padding: 15px;
+    margin: 5px;
+}
+
+/* * {
+    border: solid 1px red;
+} */

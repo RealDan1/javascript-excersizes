@@ -2,9 +2,11 @@
 //would have imported dotenv for secure DB password but not needed at this point (all open source)
 
 // require('dotenv').config();
+
 const uri =
     'mongodb+srv://daneelvdm:mydatabasis@doncluster.uw8qd.mongodb.net/?retryWrites=true&w=majority&appName=DonCluster';
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
@@ -15,7 +17,18 @@ const getCars = require('./routes/getCars');
 const app = express();
 
 // Set up port for server to listen on
-const PORT = process.env.PORT || 8080;
+const PORT = 8080;
+
+//enable cors
+app.use(cors());
+
+//POTENTIAL BUG - SHOULD ADD(to make cors work with react?):
+
+app.use(
+    cors({
+        origin: 'http://localhost:3000', // Replace with your React app's URL in production
+    })
+);
 
 // ! [IMPORTANT]: Replace with your mongoDB URI string. You can get it from your Atlas cluster.
 
