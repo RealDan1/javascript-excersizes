@@ -50,10 +50,37 @@ function App() {
     };
 
     //UPDATE a car
+    //=======================================
+    const [editingCar, setEditingCar] = useState(null);
+
+    //function to start editing a car(for the form)
+    const startEditingCar = (car) => {
+        setEditingCar(car);
+    };
+
+    const updateCar = async () => {
+        try {
+            //sent PUT request to update car
+            const response = await api.put(`/${editingCar.id}`, editingCar);
+
+            //update the cars state (all cars array) with the edited car
+            setCars(
+                cars.map((car) => {
+                    if (car._id === editingCar._id) {
+                        return response.data;
+                    } else {
+                        return car;
+                    }
+                })
+            );
+        } catch (error) {
+            console.error('Error updating potion:', error);
+        }
+    };
     return (
         <div className="App">
             <header className="App-header">
-                {/* Display the message, or 'Loading...' if data is not yet fetched*/}
+                {/* Form for adding a new car*/}
                 <h3>Enter values for new car:</h3>
                 <label htmlFor="makeInput">Make:</label>
                 <input
@@ -90,6 +117,7 @@ function App() {
                     placeholder="e.g. ABC123"
                 ></input>
                 <button onClick={addCar}>Add Car</button>
+                {/* display list and details of all cars in the database */}
                 <h3>Cars:</h3>
                 <ul>
                     {cars.map((item) => {
@@ -108,6 +136,7 @@ function App() {
                                 >
                                     Delete
                                 </button>
+                                <button onClick={() => startEditingCar(car)}>Edit</button>
                             </div>
                         );
                     })}
