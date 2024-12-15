@@ -41,3 +41,17 @@ exports.deleteCar = async (req, res) => {
         res.status(500).json({ message: error.message }); // Handle errors.
     }
 };
+
+//UPDATE a car
+exports.updateCar = async (req, res) => {
+    try {
+        const updatedCar = await Car.findByIdAndUpdate(
+            req.params.id, // ID of the car to update.
+            req.body, // New data to update.
+            { new: true } // Return the updated car.
+        );
+        res.json(updatedCar);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};

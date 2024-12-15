@@ -31,7 +31,7 @@ function App() {
         try {
             // POST request.
             const response = await api.post('/add', newCar);
-            setCars(...cars, response.data); //add new car to state
+            setCars([...cars, response.data]); //add new car to state
             setNewCar({ make: '', model: 0, year: 0, owner: '', registration: '' }); // Reset the form.
         } catch (error) {
             console.error('Error adding car:', error);
@@ -48,6 +48,8 @@ function App() {
             console.error('Error deleting potion:', error);
         }
     };
+
+    //UPDATE a car
     return (
         <div className="App">
             <header className="App-header">
