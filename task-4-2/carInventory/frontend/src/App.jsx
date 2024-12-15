@@ -84,6 +84,7 @@ function App() {
                 <h3>Enter values for new car:</h3>
                 <label htmlFor="makeInput">Make:</label>
                 <input
+                    id="makeInput"
                     value={newCar.make}
                     onChange={(e) => setNewCar({ ...newCar, make: e.target.value })}
                     placeholder="e.g. Honda"
@@ -117,21 +118,56 @@ function App() {
                     placeholder="e.g. ABC123"
                 ></input>
                 <button onClick={addCar}>Add Car</button>
+                {/* Form to update potions */}
+                {editingCar && (
+                    <div>
+                        <h2>Update Car</h2>
+                        <input
+                            value={editingCar.make}
+                            onChange={(e) => setEditingCar({ ...editingCar, make: e.target.value })}
+                            placeholder="e.g. Honda"
+                        />
+                        <input
+                            value={editingCar.model}
+                            onChange={(e) => setEditingCar({ ...editingCar, model: e.target.value })}
+                            placeholder="e.g. Civic"
+                        />
+                        <input
+                            value={editingCar.year}
+                            onChange={(e) => setEditingCar({ ...editingCar, year: e.target.value })}
+                            placeholder="e.g. 2022"
+                        />
+                        <input
+                            value={editingCar.owner}
+                            onChange={(e) => setEditingCar({ ...editingCar, owner: e.target.value })}
+                            placeholder="e.g. John Doe"
+                        />
+                        <input
+                            value={editingCar.registration}
+                            onChange={(e) => setEditingCar({ ...editingCar, registration: e.target.value })}
+                            placeholder="e.g. ABC123"
+                        />
+                        {/* button to update the car */}
+                        <button onClick={updateCar}>Update</button>
+                        {/* button to cancel the update */}
+                        <button onClick={() => setEditingCar(null)}>Cancel</button>
+                    </div>
+                )}
                 {/* display list and details of all cars in the database */}
                 <h3>Cars:</h3>
                 <ul>
-                    {cars.map((item) => {
+                    {cars.map((car) => {
                         return (
-                            <div className="car" key={item._id}>
-                                <li>Make: {item.make}</li>
-                                <li>Model: {item.model}</li>
-                                <li>Year: {item.year}</li>
-                                <li>Owner: {item.owner}</li>
-                                <li>Registration: {item.registration}</li>
+                            <div className="car" key={car._id}>
+                                <li>Make: {car.make}</li>
+                                <li>Model: {car.model}</li>
+                                <li>Year: {car.year}</li>
+                                <li>Owner: {car.owner}</li>
+                                <li>Registration: {car.registration}</li>
 
                                 <button
                                     onClick={() => {
-                                        deleteCar(item._id);
+                                        deleteCar(car._id);
                                     }}
                                 >
                                     Delete
