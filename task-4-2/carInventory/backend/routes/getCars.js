@@ -13,5 +13,5 @@ router.get('', carController.getAllCars);
 router.delete('/:id', carController.deleteCar);
 
 //update a car
-router.put('/:id', potionController.deletePotion);
+router.put('/:id', carController.updateCar);
 module.exports = router;

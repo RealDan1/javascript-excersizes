@@ -45,7 +45,7 @@ function App() {
             await api.delete(`/${id}`);
             setCars(cars.filter((car) => car._id !== id));
         } catch (error) {
-            console.error('Error deleting potion:', error);
+            console.error('Error deleting car:', error);
         }
     };
 
@@ -61,7 +61,7 @@ function App() {
     const updateCar = async () => {
         try {
             //sent PUT request to update car
-            const response = await api.put(`/${editingCar.id}`, editingCar);
+            const response = await api.put(`/${editingCar._id}`, editingCar);
 
             //update the cars state (all cars array) with the edited car
             setCars(
@@ -74,7 +74,7 @@ function App() {
                 })
             );
         } catch (error) {
-            console.error('Error updating potion:', error);
+            console.error('Error updating car:', error);
         }
     };
     return (
@@ -100,7 +100,7 @@ function App() {
                 <input
                     id="yearInput"
                     value={newCar.year}
-                    onChange={(e) => setNewCar({ ...newCar, year: e.target.value })}
+                    onChange={(e) => setNewCar({ ...newCar, year: Number(e.target.value) })}
                     placeholder="e.g. 2022"
                 />
                 <label htmlFor="ownerInput">Owner:</label>{' '}
@@ -134,7 +134,7 @@ function App() {
                         />
                         <input
                             value={editingCar.year}
-                            onChange={(e) => setEditingCar({ ...editingCar, year: e.target.value })}
+                            onChange={(e) => setEditingCar({ ...editingCar, year: Number(e.target.value) })}
                             placeholder="e.g. 2022"
                         />
                         <input
@@ -165,6 +165,7 @@ function App() {
                                 <li>Owner: {car.owner}</li>
                                 <li>Registration: {car.registration}</li>
 
+                                <button onClick={() => startEditingCar(car)}>Edit</button>
                                 <button
                                     onClick={() => {
                                         deleteCar(car._id);
@@ -172,7 +173,6 @@ function App() {
                                 >
                                     Delete
                                 </button>
-                                <button onClick={() => startEditingCar(car)}>Edit</button>
                             </div>
                         );
                     })}
