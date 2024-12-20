@@ -11,7 +11,7 @@ function App() {
     }, []);
 
     // Function to fetch cars from the server
-    //================
+    //==================================
     const fetchCars = async () => {
         try {
             /* Sends a POST request to
@@ -39,7 +39,7 @@ function App() {
     };
 
     //DELETE a car
-    //==================================
+    //=========================================
     const deleteCar = async (id) => {
         try {
             await api.delete(`/${id}`);
@@ -100,6 +100,7 @@ function App() {
         <div className="App">
             <header className="App-header">
                 {/* Form for adding a new car*/}
+                {/* =============================== */}
                 <h3>Enter values for new car:</h3>
                 <label htmlFor="makeInput">Make:</label>
                 <input
@@ -138,6 +139,7 @@ function App() {
                 ></input>
                 <button onClick={addCar}>Add Car</button>
                 {/* Form to update potions */}
+                {/* ==================================================== */}
                 {editingCar && (
                     <div>
                         <h2>Update Car</h2>
@@ -173,6 +175,7 @@ function App() {
                     </div>
                 )}
                 {/* display list and details of all cars in the database */}
+                {/* ============================================ */}
                 <h3>Cars:</h3>
                 <ul>
                     {cars.map((car) => {
@@ -197,6 +200,7 @@ function App() {
                     })}
                 </ul>
                 {/* filter cars for anything older than a certain year*/}
+                {/* =============================================== */}
                 <h3>Filter cars by any car older than five years:</h3>
                 <button
                     onClick={() => {
