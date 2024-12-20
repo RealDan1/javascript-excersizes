@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import api from './api'; // Import the Axios instance.
+import api from './api';
 import './App.css';
 function App() {
     //READ all cars
@@ -77,6 +77,25 @@ function App() {
             console.error('Error updating car:', error);
         }
     };
+
+    //FILTER the cars array by any car older than five years (hardcoded):
+    // ======================
+    const [filteredCars, setFilteredCars] = useState([]);
+
+    const filterCars = () => {
+        const yearToFilter = 2019; // can potentially change this later to use a variable number but as a proof of concept it works.
+        setFilteredCars(cars.filter((car) => car.year < yearToFilter));
+    };
+
+    // add state for boolean to show/hide the form to filter cars
+    const [showFilterForm, setShowFilterForm] = useState(false);
+
+    //function to flip the boolean to show/hide the form
+    const toggleFilterForm = () => {
+        setShowFilterForm(!showFilterForm);
+        setFilteredCars([]);
+    };
+
     return (
         <div className="App">
             <header className="App-header">
@@ -177,6 +196,41 @@ function App() {
                         );
                     })}
                 </ul>
+                {/* filter cars for anything older than a certain year*/}
+                <h3>Filter cars by any car older than five years:</h3>
+                <button
+                    onClick={() => {
+                        filterCars();
+                        setShowFilterForm(true);
+                    }}
+                >
+                    Filter{' '}
+                </button>
+                {/* button to show/hide the filter form */}
+                {showFilterForm && (
+                    <div>
+                        {/* Button to hide the filtered form and reset filtered cars */}
+
+                        {/* Display the filtered cars */}
+                        {filteredCars.map((car) => (
+                            <div className="filteredCar" key={car._id}>
+                                <li>Make: {car.make}</li>
+                                <li>Model: {car.model}</li>
+                                <li>Year: {car.year}</li>
+                                <li>Owner: {car.owner}</li>
+                                <li>Registration: {car.registration}</li>
+                            </div>
+                        ))}
+                        <button
+                            onClick={() => {
+                                toggleFilterForm();
+                                setFilteredCars([]); // Reset the filtered cars array
+                            }}
+                        >
+                            Hide Filtered Cars
+                        </button>
+                    </div>
+                )}
             </header>
         </div>
     );
