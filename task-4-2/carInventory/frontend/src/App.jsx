@@ -11,7 +11,6 @@ function App() {
     }, []);
 
     // Function to fetch cars from the server
-    //==================================
     const fetchCars = async () => {
         try {
             /* Sends a POST request to
@@ -79,7 +78,7 @@ function App() {
     };
 
     //FILTER the cars array by any car older than five years (hardcoded):
-    // ======================
+    // ==========================================================
     const [filteredCars, setFilteredCars] = useState([]);
 
     const filterCars = () => {
