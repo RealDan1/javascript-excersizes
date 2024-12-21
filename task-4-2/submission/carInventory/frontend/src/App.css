@@ -1,0 +1,89 @@
+.App-header {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #20232a;
+}
+
+h3 {
+    margin: 20px 0 10px;
+    font-size: 24px;
+    color: #61dafb;
+    text-align: center;
+}
+
+/* filter cars form */
+form {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    max-width: 400px;
+    width: 90%;
+}
+
+input {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 90%;
+    font-size: 16px;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 15px;
+    background-color: #61dafb;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #21a1f1;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+
+.car,
+.filteredCar {
+    background-color: #444;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+li {
+    margin: 5px 0;
+}
+
+.car button {
+    margin-top: 10px;
+    align-self: center;
+}
+
+.App {
+    text-align: center;
+    color: white;
+}
