@@ -22,15 +22,11 @@ const PORT = 8080;
 //enable cors
 app.use(cors());
 
-//POTENTIAL BUG - SHOULD ADD(to make cors work with react?):
-
 app.use(
     cors({
         origin: 'http://localhost:3000', // Replace with your React app's URL in production
     })
 );
-
-// ! [IMPORTANT]: Replace with your mongoDB URI string. You can get it from your Atlas cluster.
 
 // Connect to the database
 mongoose.Promise = global.Promise;
@@ -42,7 +38,7 @@ mongoose.connect(uri, { useNewUrlParser: true }).then(
         console.log('Could not connect to the database...' + err);
     }
 );
-// Allow app to accept json and url encoded values
+// Allow app to accept json and url values
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 

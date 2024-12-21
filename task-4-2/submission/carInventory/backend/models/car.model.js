@@ -24,5 +24,4 @@ const carSchema = mongoose.Schema({
     },
 });
 
-//module.exports makes the model available outside of your module
 module.exports = mongoose.model('Car', carSchema);
