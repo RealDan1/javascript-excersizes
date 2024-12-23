@@ -10,6 +10,10 @@ function App() {
         fetchCars(); // Fetch cars each time the component loads
     }, []);
 
+    useEffect(() => {
+        fetchCars();
+    }, [cars]); // fetch all cars each time cars changes
+
     // Function to fetch cars from the server
     const fetchCars = async () => {
         try {
@@ -84,9 +88,10 @@ function App() {
     const updateMany = async () => {
         try {
             //sent PUT request to update all cars
+            console.log('Payload to be sent:', updateManyCars); //log for debugging
             const response = await api.put('/updateMany', updateManyCars);
             console.log(response); // this logs how many cars were updated and other data - e.g. if nothing was updated
-            fetchCars(); //run the read operation again to update the cars in the frontend.
+            // fetchCars(); this is already handled by the useEffect a the top that monitors for any changes in the cars array and updates the list accordingly
         } catch (error) {
             console.error('Error updating cars:', error);
         }
