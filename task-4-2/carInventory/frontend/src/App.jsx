@@ -85,7 +85,8 @@ function App() {
         try {
             //sent PUT request to update all cars
             const response = await api.put('/updateMany', updateManyCars);
-            fetchCars();
+            console.log(response); // this logs how many cars were updated and other data - e.g. if nothing was updated
+            fetchCars(); //run the read operation again to update the cars in the frontend.
         } catch (error) {
             console.error('Error updating cars:', error);
         }
@@ -248,6 +249,27 @@ function App() {
                         </button>
                     </div>
                 )}
+                <h3>Update Multiple Owners at once</h3>
+                <label htmlFor="updateOldOwner">
+                    Input previous owner - choose an owner that you wish to update all cars previously owned by that
+                    owner:
+                </label>
+                <input
+                    id="updateOldOwner"
+                    value={updateManyCars.oldOwner}
+                    onChange={(e) => setUpdateManyCars({ ...updateManyCars, oldOwner: e.target.value })}
+                    placeholder="e.g. John Doe"
+                />
+                <label htmlFor="updateNewOwner">
+                    Input new owner - this value will be updated across all cars that match the old owner.
+                </label>
+                <input
+                    id="updateNewOwner"
+                    value={updateManyCars.newOwner}
+                    onChange={(e) => setUpdateManyCars({ ...updateManyCars, newOwner: e.target.value })}
+                    placeholder="e.g. John Doe"
+                />
+                <button onClick={updateMany}>UpdateMany</button>
             </header>
         </div>
     );
