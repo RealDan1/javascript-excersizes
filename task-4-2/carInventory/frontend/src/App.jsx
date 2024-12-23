@@ -269,7 +269,7 @@ function App() {
                     onChange={(e) => setUpdateManyCars({ ...updateManyCars, newOwner: e.target.value })}
                     placeholder="e.g. John Doe"
                 />
-                <button onClick={updateMany}>UpdateMany</button>
+                <button onClick={updateMany}>Update Owners</button>
             </header>
         </div>
     );
