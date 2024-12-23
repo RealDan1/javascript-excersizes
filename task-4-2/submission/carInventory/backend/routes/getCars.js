@@ -12,6 +12,9 @@ router.get('', carController.getAllCars);
 //delete a car
 router.delete('/:id', carController.deleteCar);
 
+//update many cars
+router.put('/updateMany', carController.updateManyCars);
+module.exports = router;
+
 //update a car
 router.put('/:id', carController.updateCar);
-module.exports = router;

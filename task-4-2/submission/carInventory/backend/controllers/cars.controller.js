@@ -55,3 +55,18 @@ exports.updateCar = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+
+//UPDATE MANY cars - specifically the owner field only - for demonstrative purposes
+exports.updateManyCars = async (req, res) => {
+    try {
+        console.log(req.body.oldOwner, req.body.newOwner);
+        const result = await Car.updateMany(
+            { owner: req.body.oldOwner }, // find cars owned by the inputted owner.
+            { $set: { owner: req.body.newOwner } } //update the owner by the inputted new owner.
+        );
+
+        console.log(result);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};

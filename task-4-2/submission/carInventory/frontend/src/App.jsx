@@ -10,6 +10,10 @@ function App() {
         fetchCars(); // Fetch cars each time the component loads
     }, []);
 
+    useEffect(() => {
+        fetchCars();
+    }, [cars]); // fetch all cars each time cars changes
+
     // Function to fetch cars from the server
     const fetchCars = async () => {
         try {
@@ -77,6 +81,22 @@ function App() {
         }
     };
 
+    //UPDATE MANY cars - specifically the owner field only - for demonstrative purposes
+    //=======================================
+    const [updateManyCars, setUpdateManyCars] = useState({ oldOwner: '', newOwner: '' });
+
+    const updateMany = async () => {
+        try {
+            //sent PUT request to update all cars
+            console.log('Payload to be sent:', updateManyCars); //log for debugging
+            const response = await api.put('/updateMany', updateManyCars);
+            console.log(response); // this logs how many cars were updated and other data - e.g. if nothing was updated
+            // fetchCars(); this is already handled by the useEffect a the top that monitors for any changes in the cars array and updates the list accordingly
+        } catch (error) {
+            console.error('Error updating cars:', error);
+        }
+    };
+
     //FILTER the cars array by any car older than five years (hardcoded):
     // ==========================================================
     const [filteredCars, setFilteredCars] = useState([]);
@@ -137,7 +157,7 @@ function App() {
                     placeholder="e.g. ABC123"
                 ></input>
                 <button onClick={addCar}>Add Car</button>
-                {/* Form to update potions */}
+                {/* Form to update cars */}
                 {/* ==================================================== */}
                 {editingCar && (
                     <div>
@@ -234,6 +254,27 @@ function App() {
                         </button>
                     </div>
                 )}
+                <h3>Update Multiple Owners at once</h3>
+                <label htmlFor="updateOldOwner">
+                    Input previous owner - choose an owner that you wish to update all cars previously owned by that
+                    owner:
+                </label>
+                <input
+                    id="updateOldOwner"
+                    value={updateManyCars.oldOwner}
+                    onChange={(e) => setUpdateManyCars({ ...updateManyCars, oldOwner: e.target.value })}
+                    placeholder="e.g. John Doe"
+                />
+                <label htmlFor="updateNewOwner">
+                    Input new owner - this value will be updated across all cars that match the old owner.
+                </label>
+                <input
+                    id="updateNewOwner"
+                    value={updateManyCars.newOwner}
+                    onChange={(e) => setUpdateManyCars({ ...updateManyCars, newOwner: e.target.value })}
+                    placeholder="e.g. John Doe"
+                />
+                <button onClick={updateMany}>Update Owners</button>
             </header>
         </div>
     );
