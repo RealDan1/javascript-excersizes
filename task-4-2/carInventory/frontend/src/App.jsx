@@ -77,6 +77,20 @@ function App() {
         }
     };
 
+    //UPDATE MANY cars - specifically the owner field only - for demonstrative purposes
+    //=======================================
+    const [updateManyCars, setUpdateManyCars] = useState({ oldOwner: '', newOwner: '' });
+
+    const updateMany = async () => {
+        try {
+            //sent PUT request to update all cars
+            const response = await api.put('/updateMany', updateManyCars);
+            fetchCars();
+        } catch (error) {
+            console.error('Error updating cars:', error);
+        }
+    };
+
     //FILTER the cars array by any car older than five years (hardcoded):
     // ==========================================================
     const [filteredCars, setFilteredCars] = useState([]);
@@ -137,7 +151,7 @@ function App() {
                     placeholder="e.g. ABC123"
                 ></input>
                 <button onClick={addCar}>Add Car</button>
-                {/* Form to update potions */}
+                {/* Form to update cars */}
                 {/* ==================================================== */}
                 {editingCar && (
                     <div>
