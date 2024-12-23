@@ -56,7 +56,7 @@ exports.updateCar = async (req, res) => {
     }
 };
 
-//UPDATEMANY cars - specifically the owner field
+//UPDATE MANY cars - specifically the owner field only - for demonstrative purposes
 exports.updateManyCars = async (req, res) => {
     try {
         const result = await Car.updateMany(
