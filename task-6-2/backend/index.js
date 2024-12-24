@@ -17,7 +17,12 @@ app.post('/login', (req, res) => {
     //res.send(`Username: ${usr}\n Password: ${pwd}`)
 
     if (usr === 'zama' && pwd === 'secret') {
-        // To-do
+        payload = {
+            name: usr,
+            admin: false,
+        };
+        const token = jwt.sign(JSON.stringify(payload), 'jwt-secret', { algorithm: 'HS256' });
+        res.send({ token: token });
     } else {
         res.status(403).send({ err: 'Incorrect login!' });
     }
