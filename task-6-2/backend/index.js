@@ -19,7 +19,7 @@ app.post('/login', (req, res) => {
     if (usr === 'zama' && pwd === 'secret') {
         payload = {
             name: usr,
-            admin: false,
+            admin: true,
         };
         const token = jwt.sign(JSON.stringify(payload), 'jwt-secret', { algorithm: 'HS256' });
         res.send({ token: token });
@@ -38,6 +38,20 @@ app.get('/resource', (req, res) => {
         });
     } catch (err) {
         res.status(401).send({ err: 'Bad JWT!' });
+    }
+});
+
+app.get('/admin_resource', (req, res) => {
+    const token = req.headers['authorization'].split(' ')[1];
+    try {
+        const decoded = jwt.verify(token, 'jwt-secret');
+        if (decoded.admin) {
+            res.send({ msg: 'Success!' });
+        } else {
+            res.status(403).send({ msg: 'Your JWT was verified, but you are not an admin.' });
+        }
+    } catch (error) {
+        res.sendStatus(401);
     }
 });
 
