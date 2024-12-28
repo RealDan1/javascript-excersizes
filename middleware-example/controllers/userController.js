@@ -14,7 +14,7 @@ const userController = (req, res) => {
     }
     // DELETE what about else statement???
     // Create a JWT token - payload
-    payload = {
+    const payload = {
         name: username,
         admin: false,
     };
@@ -26,7 +26,7 @@ const userController = (req, res) => {
     console.log(`User ${username} logged in`);
     res.send({ message: `Welcome back ${username}`, token: token });
     //export controller functions to be used on the myLoggerRoute.js/routes
-    module.exports = {
-        userController,
-    };
+};
+module.exports = {
+    userController,
 };
