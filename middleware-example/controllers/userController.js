@@ -12,6 +12,7 @@ const userController = (req, res) => {
     if (!user) {
         return res.send('Incorrect user credentials');
     }
+    // DELETE what about else statement???
     // Create a JWT token - payload
     payload = {
         name: username,
