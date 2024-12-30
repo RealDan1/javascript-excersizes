@@ -24,7 +24,7 @@ const registerUser = (req, res) => {
         todos: [],
     };
 
-    userInformation.push(newUser);
+    userInformation.push(newUser); // push to the array
     //add the userInformation to the userDb.js file:
     fs.writeFile(userDbPath, `module.exports = ${JSON.stringify(userInformation)}`, (err) => {
         if (err) {
@@ -39,7 +39,7 @@ const registerUser = (req, res) => {
 // Define the login controller functions
 //====================================
 const userController = (req, res) => {
-    //Get the username and password from the request query
+    //Get the username and password from the request body
     const { username, password } = req.body;
     //Find the user in the database - returns a boolean
     const user = userInformation.find((user) => user.username === username && user.password === password);
@@ -66,7 +66,7 @@ const userController = (req, res) => {
 // Define the user data controller function (READ)
 //========================================
 const getToDos = (req, res) => {
-    // We get the username from the token’s payload
+    // We get the username from the token’s payload(no admin required)
     const { name, admin } = req.payload;
     //Find the user in the database - checking if the username and password
     //matches;
