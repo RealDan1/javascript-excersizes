@@ -1,7 +1,12 @@
 const express = require('express');
 const loginRoute = require('./routes/loginRoute');
 const userDataRoute = require('./routes/secure/userDataRoute');
+
+const bodyParser = require('body-parser');
+
 const app = express();
+
+app.use(bodyParser.json());
 
 // import the myLoggerRoute
 const myLoggerRoute = require('./routes/myLoggerRoute');
