@@ -36,7 +36,7 @@ const getTodos = (req, res) => {
     // We get the username from the token’s payload
     const { name, admin } = req.payload;
     //Find the user in the database - checking if the username and password
-    matches;
+    //matches;
     const user = userInformation.find((user) => user.username === name);
     // If the user is found, return the user's todos
     if (user) {
