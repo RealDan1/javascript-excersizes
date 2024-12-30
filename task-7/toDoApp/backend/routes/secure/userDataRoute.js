@@ -1,10 +1,10 @@
-// routes/userDataRoute.js
-const { getTodos } = require('../../controllers/userController');
+// routes/secure/userDataRoute.js
+const { getToDos } = require('../../controllers/userController');
 const { jwtMiddleware } = require('../../middleware/jwtMiddleware');
 
 const userDataRoute = (app) => {
     // GET request to /data with JWT auth
-    app.get('/data', jwtMiddleware, getTodos);
+    app.get('/todos', jwtMiddleware, getToDos);
 };
 
 module.exports = userDataRoute;

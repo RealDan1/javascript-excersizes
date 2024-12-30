@@ -32,7 +32,7 @@ const userController = (req, res) => {
 
 // Define the user data controller function (READ)
 //========================================
-const getTodos = (req, res) => {
+const getToDos = (req, res) => {
     // We get the username from the token’s payload
     const { name, admin } = req.payload;
     //Find the user in the database - checking if the username and password
@@ -46,5 +46,5 @@ const getTodos = (req, res) => {
 
 module.exports = {
     userController,
-    getTodos,
+    getToDos,
 };
