@@ -1,16 +1,16 @@
 const express = require('express');
+const registerRoute = require('./routes/registerRoute');
 const loginRoute = require('./routes/loginRoute');
 const userDataRoute = require('./routes/secure/userDataRoute');
-
 const bodyParser = require('body-parser');
 
 const app = express();
 
 app.use(bodyParser.json());
 
-//use the loginRoute in the app
+//use the various routes in the app
+registerRoute(app);
 loginRoute(app);
-
 userDataRoute(app);
 
 //Listening on port 8080

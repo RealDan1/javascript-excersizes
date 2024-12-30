@@ -3,6 +3,29 @@
 const userInformation = require('./userDb');
 const jwt = require('jsonwebtoken');
 
+//Define the registration controller functions:
+//===========================================
+const registerUser = (req, res) => {
+    const { username, password } = req.body;
+
+    //check if the user exists in the database - returns a boolean
+    const user = userInformation.find((user) => user.username === username && user.password === password);
+    if (user) {
+        return res.send('User already exists');
+    } else {
+        //otherwise create the new user and push it to userInformation
+        const newUser = {
+            id: userInformation.length + 1,
+            username: username, // from req.body
+            password: password, // from req.body
+            todos: [],
+        };
+
+        userInformation.push(newUser);
+        //add the userInformation to the userDb.js file:
+    }
+};
+
 // Define the login controller functions
 //====================================
 const userController = (req, res) => {
@@ -47,4 +70,5 @@ const getToDos = (req, res) => {
 module.exports = {
     userController,
     getToDos,
+    registerUser,
 };
