@@ -11,10 +11,8 @@ function Login() {
 
     async function handleLogin() {
         const token = await api.get('/login', {
-            body: {
-                username: userName,
-                password: password,
-            },
+            username: userName,
+            password: password,
         });
 
         if (token) {

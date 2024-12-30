@@ -1,10 +1,13 @@
 const express = require('express');
+const cors = require('cors');
 const registerRoute = require('./routes/registerRoute');
 const loginRoute = require('./routes/loginRoute');
 const userDataRoute = require('./routes/secure/userDataRoute');
 const bodyParser = require('body-parser');
 
 const app = express();
+
+app.use(cors());
 
 app.use(bodyParser.json());
 
