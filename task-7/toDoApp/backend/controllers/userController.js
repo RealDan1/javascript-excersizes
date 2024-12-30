@@ -1,7 +1,10 @@
-// userController.js
+// backend//controllers/userController.js
 // Require the user data from simulated database
 const userInformation = require('./userDb');
 const jwt = require('jsonwebtoken');
+const fs = require('fs'); //used to write to the userDb.js
+const path = require('path');
+const userDbPath = path.join(__dirname, './userDb.js');
 
 //Define the registration controller functions:
 //===========================================
@@ -11,19 +14,26 @@ const registerUser = (req, res) => {
     //check if the user exists in the database - returns a boolean
     const user = userInformation.find((user) => user.username === username && user.password === password);
     if (user) {
-        return res.send('User already exists');
-    } else {
-        //otherwise create the new user and push it to userInformation
-        const newUser = {
-            id: userInformation.length + 1,
-            username: username, // from req.body
-            password: password, // from req.body
-            todos: [],
-        };
-
-        userInformation.push(newUser);
-        //add the userInformation to the userDb.js file:
+        return res.status(400).send('User already exists');
     }
+    //otherwise create the new user and push it to userInformation
+    const newUser = {
+        id: userInformation.length + 1,
+        username: username, // from req.body
+        password: password, // from req.body
+        todos: [],
+    };
+
+    userInformation.push(newUser);
+    //add the userInformation to the userDb.js file:
+    fs.writeFile(userDbPath, `module.exports = ${JSON.stringify(userInformation)}`, (err) => {
+        if (err) {
+            console.error(err);
+            return;
+        }
+        res.send(`Registration successful: User ${username} registered`);
+        console.log(`User ${username} registered`);
+    });
 };
 
 // Define the login controller functions

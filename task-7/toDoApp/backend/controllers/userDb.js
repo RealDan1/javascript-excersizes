@@ -1,8 +1,5 @@
-// controllers/userDB.js
-const userInformation = [
+module.exports = [
     { id: 1, username: 'user1', password: 'password1', todos: ['eat', 'sleep', 'code'] },
     { id: 2, username: 'user2', password: 'password2', todos: ['Buy groceries', 'Food the dog', 'Make dinner'] },
-    // ... other user data
+    { id: 3, username: 'james', password: 'password', todos: [] },
 ];
-// Export the userInformation array to be used in userController.js
-module.exports = userInformation;
