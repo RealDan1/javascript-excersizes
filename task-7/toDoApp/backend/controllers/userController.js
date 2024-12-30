@@ -14,7 +14,7 @@ const userController = (req, res) => {
     if (!user) {
         return res.send('Incorrect user credentials');
     }
-    // DELETE what about else statement???
+
     // Create a JWT token - payload
     const payload = {
         name: username,
@@ -30,7 +30,7 @@ const userController = (req, res) => {
     //export controller functions to be used on the myLoggerRoute.js/routes
 };
 
-// Define the user data controller function
+// Define the user data controller function (READ)
 //========================================
 const getTodos = (req, res) => {
     // We get the username from the token’s payload
