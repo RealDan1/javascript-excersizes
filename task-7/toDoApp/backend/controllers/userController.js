@@ -74,6 +74,8 @@ const getToDos = (req, res) => {
     // If the user is found, return the user's todos
     if (user) {
         return res.send(user.todos);
+    } else {
+        return res.status(404).send({ error: 'User not found' }); // Handle no user found
     }
 };
 

@@ -19,7 +19,7 @@ function Login() {
 
             if (response.data.token) {
                 //if we receive a token, store it in local storage
-                localStorage.setItem('token', response);
+                localStorage.setItem('token', response.data.token);
                 //Redirect to home page (main to do)
                 navigate('/');
             } else {
@@ -33,11 +33,13 @@ function Login() {
     return (
         <div>
             <h1>Login</h1>
-            <label htmlFor="username">User Name:</label>
-            <input value={userName} onChange={(e) => setUserName(e.target.value)} />
-            <label htmlFor="password">Password:</label>
-            <input value={password} onChange={(e) => setPassword(e.target.value)} />
-            <button onClick={handleLogin}>Login</button>
+            <form onSubmit={(e) => e.preventDefault()}>
+                <label htmlFor="username">User Name:</label>
+                <input value={userName} onChange={(e) => setUserName(e.target.value)} />
+                <label htmlFor="password">Password:</label>
+                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <button onClick={handleLogin}>Login</button>
+            </form>
         </div>
     );
 }
