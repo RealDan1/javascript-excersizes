@@ -29,7 +29,7 @@ const registerUser = (req, res) => {
     fs.writeFile(userDbPath, `module.exports = ${JSON.stringify(userInformation)}`, (err) => {
         if (err) {
             console.error(err);
-            return;
+            return res.status(500).send('Error saving user');
         }
         res.send(`Registration successful: User ${username} registered`);
         console.log(`User ${username} registered`);
@@ -48,7 +48,7 @@ const userController = (req, res) => {
         return res.send('Incorrect user credentials');
     }
 
-    // Create a JWT token - payload
+    // Create a JWT token payload
     const payload = {
         name: username,
         admin: false,

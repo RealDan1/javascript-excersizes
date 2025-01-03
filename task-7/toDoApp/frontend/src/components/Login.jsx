@@ -10,16 +10,24 @@ function Login() {
     const [password, setPassword] = useState('');
 
     async function handleLogin() {
-        const token = await api.get('/login', {
-            username: userName,
-            password: password,
-        });
+        //get the token:
+        try {
+            const response = await api.post('/login', {
+                username: userName,
+                password: password,
+            });
 
-        if (token) {
-            localStorage.setItem('token', token);
-            navigate('/');
-        } else {
-            alert('Login failed - either user does not exist or token not received');
+            if (response.data.token) {
+                //if we receive a token, store it in local storage
+                localStorage.setItem('token', response);
+                //Redirect to home page (main to do)
+                navigate('/');
+            } else {
+                alert('Login failed - token not received');
+            }
+        } catch (error) {
+            console.error(error);
+            alert('Login failed');
         }
     }
     return (
