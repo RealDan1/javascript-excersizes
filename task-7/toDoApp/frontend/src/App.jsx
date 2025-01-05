@@ -6,6 +6,7 @@ import Login from './components/Login';
 function App() {
     const [toDos, setToDos] = useState([]);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [userName, setUserName] = useState('');
 
     useEffect(() => {
         if (isLoggedIn) {
@@ -29,7 +30,8 @@ function App() {
                     Authorization: `Bearer ${token}`, //add the token to the header
                 },
             });
-            setToDos(response.data.toDos); //update state with toDos
+            setToDos(response.data.toDos); //update toDos state with toDos
+            setUserName(response.data.userName);
         } catch (error) {
             console.error('Error fetching toDos:', error);
         }
@@ -41,7 +43,7 @@ function App() {
                 <Login onLogin={() => setIsLoggedIn(true)} /> // Pass a function to the login component that sets isLoggedIn to true
             ) : (
                 <div>
-                    <h1>My ToDos</h1>
+                    <h1>{userName}'s ToDos</h1>
                     {toDos.length > 0 ? (
                         <ul>
                             {toDos.map((todo, index) => (

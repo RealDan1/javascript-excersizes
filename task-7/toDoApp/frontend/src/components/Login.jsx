@@ -13,7 +13,7 @@ function Login({ onLogin }) {
         //get the token:
         try {
             const response = await api.post('/login', {
-                username: userName,
+                userName: userName,
                 password: password,
             });
 
@@ -35,7 +35,7 @@ function Login({ onLogin }) {
         <div>
             <h1>Login</h1>
             <form onSubmit={(e) => e.preventDefault()}>
-                <label htmlFor="username">User Name:</label>
+                <label htmlFor="userName">User Name:</label>
                 <input value={userName} onChange={(e) => setUserName(e.target.value)} />
                 <label htmlFor="password">Password:</label>
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
