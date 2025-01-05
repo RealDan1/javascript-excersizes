@@ -26,7 +26,7 @@ function App() {
       'http://localhost:8080/' (backend server) */
             const response = await api.get('/toDos', {
                 headers: {
-                    Authorisation: `Bearer ${token}`, //add the token to the header
+                    Authorization: `Bearer ${token}`, //add the token to the header
                 },
             });
             setToDos(response.data.toDos); //update state with toDos
@@ -38,7 +38,7 @@ function App() {
     return (
         <div className="App">
             {!isLoggedIn ? (
-                <Login onLogin={() => setIsLoggedIn(true)} /> // Pass a prop to handle login
+                <Login onLogin={() => setIsLoggedIn(true)} /> // Pass a function to the login component that sets isLoggedIn to true
             ) : (
                 <div>
                     <h1>My ToDos</h1>

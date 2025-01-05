@@ -20,7 +20,7 @@ function Login({ onLogin }) {
             if (response.data.token) {
                 //if we receive a token, store it in local storage
                 localStorage.setItem('token', response.data.token);
-                onLogin(); // send
+                onLogin(); // set isLoggedIn status to true
                 //Redirect to home page (main to do)
                 navigate('/');
             } else {

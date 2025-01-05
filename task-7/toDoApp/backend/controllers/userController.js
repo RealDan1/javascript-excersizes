@@ -73,7 +73,7 @@ const getToDos = (req, res) => {
     const user = userInformation.find((user) => user.username === name);
     // If the user is found, return the user's todos
     if (user) {
-        return res.send(user.todos);
+        return res.send(user); //send the whole user file instead of just the todos so we can do fun stuff like display the user name later if needed
     } else {
         return res.status(404).send({ error: 'User not found' }); // Handle no user found
     }
