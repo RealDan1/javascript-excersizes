@@ -6,7 +6,7 @@ const fs = require('fs'); //used to write to the userDb.js
 const path = require('path');
 const userDbPath = path.join(__dirname, './userDb.js');
 
-//Define the registration controller functions:
+//Registration controller function:
 //===========================================
 const registerUser = (req, res) => {
     const { userName, password } = req.body;
@@ -36,7 +36,7 @@ const registerUser = (req, res) => {
     });
 };
 
-// Define the login controller functions
+// Login controller function
 //====================================
 const userController = (req, res) => {
     //Get the userName and password from the request body
@@ -63,7 +63,15 @@ const userController = (req, res) => {
     //export controller functions to be used on the myLoggerRoute.js/routes
 };
 
-// Define the user data controller function (READ)
+// User ToDo Create Function (ADD) - UNFINISHED!!!!!!!!!!!!!!!!!!!!
+//========================================
+const addToDo = (req, res) => {
+    const { name } = req.payload;
+
+    const user = userInformation.find();
+};
+
+// User data Read function (GET)
 //========================================
 const getToDos = (req, res) => {
     // We get the userName from the token’s payload(no admin required)
