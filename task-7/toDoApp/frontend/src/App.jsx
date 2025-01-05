@@ -2,6 +2,7 @@ import './App.css';
 import api from './api';
 import { useState, useEffect } from 'react';
 import Login from './components/Login';
+import Register from './components/Register';
 
 function App() {
     const [toDos, setToDos] = useState([]);
@@ -40,8 +41,20 @@ function App() {
     return (
         <div className="App">
             {!isLoggedIn ? (
-                <Login onLogin={() => setIsLoggedIn(true)} /> // Pass a function to the login component that sets isLoggedIn to true
+                <>
+                    {/*  Login Component  */}
+                    {/* =================================== */}
+                    <Login onLogin={() => setIsLoggedIn(true)} />
+                    {/* // Pass a function to the login component that sets
+                    isLoggedIn to true */}
+
+                    {/* Register component */}
+                    {/* =================================== */}
+                    <Register />
+                </>
             ) : (
+                //ToDo's component once user logs in:
+                //===================================
                 <div>
                     <h1>{userName}'s ToDos</h1>
                     {toDos.length > 0 ? (

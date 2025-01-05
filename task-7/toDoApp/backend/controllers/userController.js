@@ -14,7 +14,8 @@ const registerUser = (req, res) => {
     //check if the user exists in the database - returns a boolean
     const user = userInformation.find((user) => user.userName === userName && user.password === password);
     if (user) {
-        return res.status(400).send('User already exists');
+        console.log('User already exists!');
+        return res.status(400).json('User already exists - please enter a different username');
     }
     //otherwise create the new user and push it to userInformation
     const newUser = {
@@ -24,15 +25,16 @@ const registerUser = (req, res) => {
         todos: [],
     };
 
-    userInformation.push(newUser); // push to the array
-    //add the userInformation to the userDb.js file:
+    userInformation.push(newUser); // push new user to the array
+    //add the updated userInformation to the userDb.js file:
     fs.writeFile(userDbPath, `module.exports = ${JSON.stringify(userInformation)}`, (err) => {
         if (err) {
             console.error(err);
-            return res.status(500).send('Error saving user');
+            return res.status(500).json('Error saving user');
         }
-        res.send(`Registration successful: User ${userName} registered`);
+
         console.log(`User ${userName} registered`);
+        res.status(200).json(`Registration successful: User ${userName} registered`);
     });
 };
 
