@@ -2,7 +2,7 @@ import { useState } from 'react';
 import api from '../api';
 import { useNavigate } from 'react-router-dom';
 
-function Login() {
+function Login({ onLogin }) {
     //navigate hook:
     const navigate = useNavigate();
     //state to hold login:
@@ -20,6 +20,7 @@ function Login() {
             if (response.data.token) {
                 //if we receive a token, store it in local storage
                 localStorage.setItem('token', response.data.token);
+                onLogin(); // send
                 //Redirect to home page (main to do)
                 navigate('/');
             } else {

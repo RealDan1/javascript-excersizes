@@ -5,10 +5,14 @@ import Login from './components/Login';
 
 function App() {
     const [toDos, setToDos] = useState([]);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     useEffect(() => {
-        fetchToDos(); // Fetch toDos each time the component loads
-    }, []);
+        if (isLoggedIn) {
+            fetchToDos();
+        }
+        // Fetch toDos each time the component loads
+    }, [isLoggedIn]);
 
     const fetchToDos = async () => {
         try {
@@ -33,20 +37,21 @@ function App() {
 
     return (
         <div className="App">
-            <Login />
-
-            {/* temporarily display toDos */}
-            {toDos.length > 0 ? (
+            {!isLoggedIn ? (
+                <Login onLogin={() => setIsLoggedIn(true)} /> // Pass a prop to handle login
+            ) : (
                 <div>
                     <h1>My ToDos</h1>
-                    <ul>
-                        {toDos.map((todo) => (
-                            <li key={todo.id}>{todo.title}</li>
-                        ))}
-                    </ul>
+                    {toDos.length > 0 ? (
+                        <ul>
+                            {toDos.map((todo, index) => (
+                                <li key={index}>{todo}</li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <h2>No ToDos found</h2>
+                    )}
                 </div>
-            ) : (
-                <h2>No ToDos found</h2>
             )}
         </div>
     );
