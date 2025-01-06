@@ -35,7 +35,7 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
         }
         // Fetch toDos each time the component loads
         // eslint-disable-next-line
-    }, [isLoggedIn]);
+    }, [isLoggedIn]); // if isLoggedIn changes - retrigger
     //disabled eslint for the above line because it was throwing a warning about dependencies but apparently this issue shouldn't cause problems in this case.
     return (
         <div>

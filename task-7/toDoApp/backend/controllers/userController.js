@@ -70,12 +70,21 @@ const userController = (req, res) => {
 // Create Todo Function (ADD)
 //========================================
 const addToDo = (req, res) => {
-    const { name, toDo } = req.payload;
+    const { userName, toDo } = req.payload;
 
-    const user = userInformation.find((user) => user.userName === name);
+    const user = userInformation.find((user) => user.userName === userName);
     if (user) {
-        userInformation.toDos.push(toDo); //push the new todo to the array
-        // write the
+        user.toDos.push(toDo); //push the new todo to the array
+        // overwrite the dB with the new toDo added
+        fs.writeFile(userDbPath, `module.exports = ${JSON.stringify(userInformation)}`, (err) => {
+            if (err) {
+                console.error(err);
+                return res.status(500).json('Error saving user to-do');
+            }
+
+            console.log(`To-Do "${toDo}" added to user`);
+            res.status(200).json(`To-Do "${toDo}" added successfully to user`);
+        });
     }
 };
 
@@ -98,5 +107,6 @@ const getToDos = (req, res) => {
 module.exports = {
     userController,
     getToDos,
+    addToDo,
     registerUser,
 };
