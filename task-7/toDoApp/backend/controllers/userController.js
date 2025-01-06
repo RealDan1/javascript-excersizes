@@ -45,7 +45,7 @@ const registerUser = (req, res) => {
 const userController = (req, res) => {
     //Get the userName and password from the request body
     const { userName, password } = req.body;
-    //Find the user in the database - returns a boolean
+    //Find the user in the database
     const user = userInformation.find((user) => user.userName === userName && user.password === password);
     //If the user is not found, return an error message - end the request
     if (!user) {
@@ -67,19 +67,23 @@ const userController = (req, res) => {
     //export controller functions to be used on the myLoggerRoute.js/routes
 };
 
-// User ToDo Create Function (ADD) - UNFINISHED!!!!!!!!!!!!!!!!!!!!
+// Create Todo Function (ADD)
 //========================================
 const addToDo = (req, res) => {
-    const { name } = req.payload;
+    const { name, toDo } = req.payload;
 
-    const user = userInformation.find();
+    const user = userInformation.find((user) => user.userName === name);
+    if (user) {
+        userInformation.toDos.push(toDo); //push the new todo to the array
+        // write the
+    }
 };
 
-// User data Read function (GET)
+// Read ToDos function (GET)
 //========================================
 const getToDos = (req, res) => {
     // We get the userName from the token’s payload(no admin required)
-    const { name, admin } = req.payload;
+    const { name } = req.payload;
     //Find the user in the database - checking if the userName and password
     //matches;
     const user = userInformation.find((user) => user.userName === name);
