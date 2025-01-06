@@ -1,10 +1,10 @@
 // routes/loginRoute.js
 // get the userController
-const { userController } = require('../controllers/userController');
+const { loginUser } = require('../controllers/userController');
 
 //Login Route:
 const loginRoute = (app) => {
-    app.post('/login', userController);
+    app.post('/login', loginUser);
     //This route URL will be http://localhost:8080/login
 };
 // export the login function to be used in "../app.js"

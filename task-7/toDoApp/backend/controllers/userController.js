@@ -42,7 +42,7 @@ const registerUser = (req, res) => {
 
 // Login controller function
 //====================================
-const userController = (req, res) => {
+const loginUser = (req, res) => {
     //Get the userName and password from the request body
     const { userName, password } = req.body;
     //Find the user in the database
@@ -70,12 +70,13 @@ const userController = (req, res) => {
 // Create Todo Function (ADD)
 //========================================
 const addToDo = (req, res) => {
-    const { userName, toDo } = req.payload;
+    const { name } = req.payload; //get the name from the middleware
+    const { toDo } = req.body; //get the toDo from the req body
 
-    const user = userInformation.find((user) => user.userName === userName);
+    const user = userInformation.find((user) => user.userName === name);
     if (user) {
         user.toDos.push(toDo); //push the new todo to the array
-        // overwrite the dB with the new toDo added
+        // overwrite the dB with userInformation (including the new toDo added)
         fs.writeFile(userDbPath, `module.exports = ${JSON.stringify(userInformation)}`, (err) => {
             if (err) {
                 console.error(err);
@@ -105,7 +106,7 @@ const getToDos = (req, res) => {
 };
 
 module.exports = {
-    userController,
+    loginUser,
     getToDos,
     addToDo,
     registerUser,
