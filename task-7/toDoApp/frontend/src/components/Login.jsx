@@ -22,7 +22,7 @@ function Login({ onLogin }) {
                 localStorage.setItem('token', response.data.token);
                 onLogin(); // set isLoggedIn status to true
                 //Redirect to home page (main to do)
-                navigate('/');
+                navigate('/todos');
             } else {
                 alert('Login failed - user does not exist or token not received');
             }

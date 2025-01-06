@@ -22,7 +22,7 @@ const registerUser = (req, res) => {
         id: userInformation.length + 1,
         userName: userName, // from req.body
         password: password, // from req.body
-        todos: [],
+        toDos: [],
     };
 
     userInformation.push(newUser); // push new user to the array

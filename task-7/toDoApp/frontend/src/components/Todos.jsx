@@ -22,6 +22,8 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
                     Authorization: `Bearer ${token}`, //add the token to the header
                 },
             });
+            const toDoData = response.data.toDos;
+            setToDos(toDoData);
             setToDos(response.data.toDos); //update toDos state with toDos
             setUserName(response.data.userName);
         } catch (error) {
