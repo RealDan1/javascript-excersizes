@@ -71,10 +71,11 @@ const loginUser = (req, res) => {
 //========================================
 const addToDo = (req, res) => {
     const { name } = req.payload; //get the name from the middleware
-    const { toDo } = req.body; //get the toDo from the req body
+    const { text, completed } = req.body; //get the toDo from the req body
 
     const user = userInformation.find((user) => user.userName === name);
     if (user) {
+        const toDo = { text, completed }; //add the new data to a toDo variable
         user.toDos.push(toDo); //push the new todo to the array
         // overwrite the dB with userInformation (including the new toDo added)
         fs.writeFile(userDbPath, `module.exports = ${JSON.stringify(userInformation)}`, (err) => {
