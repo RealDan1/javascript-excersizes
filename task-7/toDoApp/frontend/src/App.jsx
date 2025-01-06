@@ -16,6 +16,8 @@ function App() {
         // Fetch toDos each time the component loads
     }, [isLoggedIn]);
 
+    // Function for getting token and Todos if logged in:
+    // =================================
     const fetchToDos = async () => {
         try {
             //get the token from localstorage
@@ -36,6 +38,13 @@ function App() {
         } catch (error) {
             console.error('Error fetching toDos:', error);
         }
+    };
+
+    // Logout function(clear the token and log out):
+    // ==================================
+    const logout = () => {
+        localStorage.removeItem('token');
+        setIsLoggedIn(false);
     };
 
     return (
@@ -66,6 +75,7 @@ function App() {
                     ) : (
                         <h2>No ToDos found</h2>
                     )}
+                    <button onClick={logout}>Logout</button>
                 </div>
             )}
         </div>
