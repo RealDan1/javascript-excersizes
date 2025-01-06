@@ -34,7 +34,9 @@ const registerUser = (req, res) => {
         }
 
         console.log(`User ${userName} registered`);
-        res.status(200).json(`Registration successful: User ${userName} registered`);
+        res.status(200).json(
+            `Registration successful: User ${userName} registered - please log in now using new credentials`
+        );
     });
 };
 

@@ -1,1 +1,1 @@
-module.exports = [{ id: 1, userName: 'user', password: 'pass', toDos: ['eat', 'sleep', 'code'] }];
+module.exports = [{"id":1,"userName":"user","password":"pass","toDos":["eat","sleep","code"]},{"id":2,"userName":"james","password":"may","todos":[]}]

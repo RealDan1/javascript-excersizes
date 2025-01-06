@@ -24,7 +24,7 @@ function Login({ onLogin }) {
                 //Redirect to home page (main to do)
                 navigate('/');
             } else {
-                alert('Login failed - token not received');
+                alert('Login failed - user does not exist or token not received');
             }
         } catch (error) {
             console.error(error);

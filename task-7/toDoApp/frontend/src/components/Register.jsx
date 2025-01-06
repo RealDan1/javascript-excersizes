@@ -17,6 +17,9 @@ function Register() {
             const message = response.data;
             //alert the backend response message - done for my own interest
             alert(message);
+            //clear the register input fields so everything is neat again
+            setRegUserName('');
+            setRegPassword('');
         } catch (error) {
             alert(error.response.data); // display the backend error message saying "user does not exist" - done for my own interest
             console.error(error);
