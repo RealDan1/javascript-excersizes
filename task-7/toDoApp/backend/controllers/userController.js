@@ -47,7 +47,7 @@ const userController = (req, res) => {
     const user = userInformation.find((user) => user.userName === userName && user.password === password);
     //If the user is not found, return an error message - end the request
     if (!user) {
-        return res.send('Incorrect user credentials');
+        return res.json('Incorrect user credentials');
     }
 
     // Create a JWT token payload

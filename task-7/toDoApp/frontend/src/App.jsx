@@ -57,7 +57,7 @@ function App() {
                 //===================================
                 <div>
                     <h1>{userName}'s ToDos</h1>
-                    {toDos.length > 0 ? (
+                    {toDos.length > 0 && isLoggedIn ? (
                         <ul>
                             {toDos.map((todo, index) => (
                                 <li key={index}>{todo}</li>

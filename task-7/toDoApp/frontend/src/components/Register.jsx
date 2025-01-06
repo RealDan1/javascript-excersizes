@@ -24,7 +24,8 @@ function Register() {
     }
     return (
         <div>
-            <h1>Register New User</h1>
+            <h2>or</h2>
+            <h1>Register as new user</h1>
             <form onSubmit={(e) => e.preventDefault()}>
                 <label htmlFor="userName">User Name:</label>
                 <input value={regUserName} onChange={(e) => setRegUserName(e.target.value)} />
