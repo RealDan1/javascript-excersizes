@@ -21,27 +21,62 @@ h2 {
     color: #222;
 }
 
+h2 {
+    font-style: italic;
+    color: #666;
+}
+
+/* Forms */
 form {
     display: flex;
     flex-direction: column;
     gap: 15px;
     margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
 }
 
-label {
-    font-weight: bold;
-    margin-bottom: 5px;
+form > input[type='text'] {
+    flex-grow: 1;
+    margin-right: 10px;
 }
 
+div > form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+div ul {
+    padding: 10px 0;
+}
+
+/* Inputs */
 input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
+    box-sizing: border-box;
 }
 
 input:focus {
     outline: 2px solid #007bff;
+}
+
+input[type='text'] {
+    width: 100%;
+    max-width: 100%;
+}
+
+input[type='checkbox'] {
+    cursor: pointer;
+}
+
+input[type='checkbox']:checked + span {
+    text-decoration: line-through;
+    color: #888;
 }
 
 /* Buttons */
@@ -64,7 +99,6 @@ button:disabled {
     cursor: not-allowed;
 }
 
-/* Logout Button */
 button.logout {
     margin: 20px 0;
     background-color: #dc3545;
@@ -90,6 +124,7 @@ li {
     margin-bottom: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     background-color: #f9f9f9;
+    flex-wrap: wrap;
 }
 
 li:hover {
@@ -104,30 +139,14 @@ label {
     gap: 10px;
 }
 
-label span {
-    flex-grow: 1;
-    text-decoration: none;
-}
-
-input[type='checkbox'] {
-    transform: scale(1.2);
-    cursor: pointer;
-}
-
-input[type='checkbox']:checked + span {
-    text-decoration: line-through;
-    color: #888;
-}
-
-/* Buttons Inside List Items */
 li .actions {
     display: flex;
-    gap: 10px; /* Add spacing between buttons */
+    gap: 10px;
 }
 
 li button {
     background-color: #6c757d;
-    margin-right: 5px;
+    margin: 5px;
 }
 
 li button:hover {
@@ -138,31 +157,4 @@ li button:hover {
 li input[type='text'] {
     flex-grow: 1;
     margin-right: 10px;
-}
-
-h2 {
-    font-style: italic;
-    color: #666;
-}
-
-form > input[type='text'] {
-    flex-grow: 1;
-    margin-right: 10px;
-}
-
-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-div > form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 30px;
-}
-
-div ul {
-    padding: 10px 0;
 }

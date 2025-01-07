@@ -154,6 +154,7 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
                                         </label>
                                         {/* Edit button */}
                                         <button
+                                            className="actions"
                                             onClick={() => {
                                                 setEditMode(todo.id); // CHANGE!! -------> Set the edit mode to this to-do's ID
                                                 setEditText(todo.text); // CHANGE!! -------> Pre-fill the input with the current to-do text
@@ -186,7 +187,9 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
                                             </>
                                         )}
                                         {/* Delete button */}
-                                        <button onClick={() => deleteToDo(todo.id)}>Delete</button>
+                                        <button className="actions" onClick={() => deleteToDo(todo.id)}>
+                                            Delete
+                                        </button>
                                     </li> // Render each todo as a list item
                                 ))}
                             </ul>
