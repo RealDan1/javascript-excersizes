@@ -4,6 +4,7 @@ import api from '../api';
 function ToDos({ isLoggedIn, userName, setUserName }) {
     const [toDos, setToDos] = useState([]);
     const [newToDo, setNewToDo] = useState('');
+    const [editText, setEditText] = useState('');
 
     // Function for getting token and Todos if logged in:
     // =================================
@@ -63,8 +64,29 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
         setNewToDo(''); //clear the input
     };
 
-    //function to toggle completed stat of todo:
-    //==========================================
+    // Function to update a toDo
+    //=================================================
+    const updateToDo = async (id) => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            console.log('no token found');
+            return;
+        }
+        const response = await api.put(
+            `/todos/update/${id}`, //update the todo
+            { text: editText }, // Send new text in the body
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        );
+        setToDos(response.data.toDos); // Refresh the toDos state
+        setEditText(''); // reset the input
+    };
+
+    // function to toggle completed stat of todo:
+    // ==========================================
     const toggleToDo = async (id) => {
         // This function sends a PUT request to update the `completed` status of the to-do
         const token = localStorage.getItem('token');
@@ -82,6 +104,22 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
             }
         );
         setToDos(response.data.toDos); // Refresh the toDos state with the updated list
+    };
+
+    // function to delete a toDo
+    //============================================
+    const deleteToDo = async (id) => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            console.log('no token found');
+            return;
+        }
+        const response = await api.delete(`/todos/delete/${id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`, // Add token to header
+            },
+        });
+        setToDos(response.data.toDos); // Refresh the toDos state
     };
     return (
         <div>
@@ -112,6 +150,16 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
                                             />
                                             {todo.text}
                                         </label>
+                                        {/* Edit button */}
+                                        <button onClick={() => updateToDo(todo.id)}>Edit</button>
+                                        <input
+                                            type="text"
+                                            placeholder="Edit text"
+                                            value={editText}
+                                            onChange={(e) => setEditText(e.target.value)}
+                                        />
+                                        {/* Delete button */}
+                                        <button onClick={() => deleteToDo(todo.id)}>Delete</button>
                                     </li> // Render each todo as a list item
                                 ))}
                             </ul>

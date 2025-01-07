@@ -8,9 +8,11 @@ const userDataRoute = (app) => {
     //POST request to add a todo
     app.post('/todos/add', jwtMiddleware, addToDo);
     //PUT request to update the toDo
-    app.put('/:id', jwtMiddleware, updateToDo);
+    app.put('/todos/update/:id', jwtMiddleware, updateToDo);
     //PUT request to toggle the completed stat
     app.put('/toDos/toggle/:id', jwtMiddleware, toggleToDo);
+    // DELETE request to delete a toDo
+    app.delete('/todos/delete/:id', jwtMiddleware, deleteToDo);
 };
 
 module.exports = userDataRoute;

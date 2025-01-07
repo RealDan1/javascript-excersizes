@@ -81,7 +81,7 @@ const addToDo = (req, res) => {
         fs.writeFile(userDbPath, `module.exports = ${JSON.stringify(userInformation)}`, (err) => {
             if (err) {
                 console.error(err);
-                return res.status(500).json('Error saving user to-do');
+                return res.status(500).json('Error saving user todo');
             }
 
             console.log(`To-Do "${toDo}" added to user`);
@@ -98,11 +98,42 @@ const getToDos = (req, res) => {
     //Find the user in the database - checking if the userName and password
     //matches;
     const user = userInformation.find((user) => user.userName === name);
-    // If the user is found, return the user's todos
+    // If the user is found, return the todos
     if (user) {
         return res.send(user); //send the whole user file instead of just the todos so we can do fun stuff like display the user name later if needed
     } else {
         return res.status(404).send({ error: 'User not found' }); // Handle no user found
+    }
+};
+
+// Update ToDo function (PUT)
+//=======================================
+const updateToDo = (req, res) => {
+    const { id } = req.params;
+    const { name } = req.payload;
+    const { text } = req.body; //get the new text from the req body
+
+    const user = userInformation.find((user) => user.userName === name);
+    if (user) {
+        const toDo = user.toDos.find((todo) => todo.id === parseInt(id));
+        if (toDo) {
+            toDo.text = text; //update the todo text
+
+            // Overwrite userDb file
+            fs.writeFile(userDbPath, `module.exports = ${JSON.stringify(userInformation)}`, (err) => {
+                if (err) {
+                    console.error(err);
+                    return res.status(500).json({ error: 'Error saving updated todo' });
+                }
+
+                console.log(`Todo updated for user ${name}`);
+                res.status(200).json({ toDos: user.toDos }); // Send updated todos back to the frontend
+            });
+        } else {
+            res.status(404).json({ error: 'ToDo not found' });
+        }
+    } else {
+        res.status(404).json({ error: 'User not found' });
     }
 };
 
@@ -122,11 +153,11 @@ const toggleToDo = (req, res) => {
             fs.writeFile(userDbPath, `module.exports = ${JSON.stringify(userInformation)}`, (err) => {
                 if (err) {
                     console.error(err);
-                    return res.status(500).json({ error: 'Error saving updated to-do' });
+                    return res.status(500).json({ error: 'Error saving todo' });
                 }
 
-                console.log(`To-Do updated for user ${name}`);
-                res.status(200).json({ toDos: user.toDos }); // Send updated to-dos back to the frontend
+                console.log(`Todo updated for user ${name}`);
+                res.status(200).json({ toDos: user.toDos }); // Send updated todos back to the frontend
             });
         }
     } else {
@@ -134,14 +165,29 @@ const toggleToDo = (req, res) => {
     }
 };
 
-// Update ToDos function (PUT)
+// Delete ToDo function (DELETE)
 //=======================================
-const updateToDo = (req, res) => {
-    const { id } = req.params.id;
+const deleteToDo = (req, res) => {
+    const { id } = req.params;
     const { name } = req.payload;
 
     const user = userInformation.find((user) => user.userName === name);
     if (user) {
+        const updatedToDos = user.toDos.filter((todo) => todo.id !== parseInt(id)); // delete todo using filter to filter out the todo with the matching id
+        user.toDos = updatedToDos; // Update the todos
+
+        // overwrite the userDb file
+        fs.writeFile(userDbPath, `module.exports = ${JSON.stringify(userInformation)}`, (err) => {
+            if (err) {
+                console.error(err);
+                return res.status(500).json({ error: 'Error deleting to-do' });
+            }
+
+            console.log(`Todo deleted for user ${name}`);
+            res.status(200).json({ toDos: user.toDos }); // Send updated todos back to the frontend
+        });
+    } else {
+        res.status(404).json({ error: 'User not found' });
     }
 };
 
@@ -152,4 +198,6 @@ module.exports = {
     registerUser,
     toggleToDo,
     updateToDo,
+
+    deleteToDo,
 };
