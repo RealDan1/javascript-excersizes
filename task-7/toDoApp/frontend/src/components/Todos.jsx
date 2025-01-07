@@ -41,28 +41,32 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
     }, [isLoggedIn]); // if isLoggedIn changes - retrigger the useEffect.
     //disabled eslint for the above line because it was throwing a warning about dependencies but apparently this issue shouldn't cause problems in this case.
 
-    // Function to ADD new toDo
-    //=======================================
     const addToDo = async () => {
         const token = localStorage.getItem('token');
         if (!token) {
             console.log('no token found');
             return;
         }
-        const response = await api.post(
-            '/toDos/add',
-            {
-                text: newToDo,
-                completed: false,
-            },
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`, //add the token to the header
+
+        try {
+            const response = await api.post(
+                '/toDos/add',
+                {
+                    text: newToDo,
+                    completed: false,
                 },
-            }
-        );
-        setToDos(response.data.toDos); //refresh the toDos state
-        setNewToDo(''); //clear the input
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`, //add the token to the header
+                    },
+                }
+            );
+            setToDos(response.data.toDos); //refresh the toDos state
+            setNewToDo(''); //clear the input
+        } catch (error) {
+            alert(error.response?.data?.message || 'An error occurred while adding the To-Do');
+            console.error(error);
+        }
     };
 
     // Function to UPDATE a toDo
@@ -73,18 +77,24 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
             console.log('no token found');
             return;
         }
-        const response = await api.put(
-            `/todos/update/${id}`, //update the todo
-            { text: editText }, // Send new text in the body
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            }
-        );
-        setToDos(response.data.toDos); // Refresh the toDos state
-        setEditMode(null);
-        setEditText(''); // reset the input
+
+        try {
+            const response = await api.put(
+                `/todos/update/${id}`, //update the todo
+                { text: editText }, // Send new text in the body
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+            setToDos(response.data.toDos); // Refresh the toDos state
+            setEditMode(null);
+            setEditText(''); // reset the input
+        } catch (error) {
+            alert(error.response?.data?.message || 'An error occurred while updating the To-Do'); // discovered a neat way of safely accessing nested properties IF THEY EXIST. If they don't - display the message on the right.
+            console.error(error);
+        }
     };
 
     // function to TOGGLE completed stat of todo:

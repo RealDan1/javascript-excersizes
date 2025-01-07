@@ -12,7 +12,7 @@ function validateUsername(req, res, next) {
     if (userName.slice(-10) == '@gmail.com') {
         next();
     } else {
-        return res.status(400).json('Invalid username - only usernames ending in @gmail.com are allowed');
+        return res.status(403).json('Invalid username - only usernames ending in @gmail.com are allowed');
     }
 }
 
