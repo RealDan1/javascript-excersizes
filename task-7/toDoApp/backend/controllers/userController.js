@@ -1,5 +1,5 @@
 // backend//controllers/userController.js
-// Require the user data from simulated database
+// Require the user data from database
 const userInformation = require('./userDb');
 const jwt = require('jsonwebtoken');
 const fs = require('fs'); //used to write to the userDb.js
@@ -75,7 +75,7 @@ const addToDo = (req, res) => {
 
     const user = userInformation.find((user) => user.userName === name);
     if (user) {
-        const toDo = { text, completed }; //add the new data to a toDo variable
+        const toDo = { id: Date.now(), text, completed }; //add the new data to a toDo variable - with the current date/timestamp as ID (will work fine for small scale app, can add UID later - I'm just applying KISS right now: "Keep It Simple Stupid")
         user.toDos.push(toDo); //push the new todo to the array
         // overwrite the dB with userInformation (including the new toDo added)
         fs.writeFile(userDbPath, `module.exports = ${JSON.stringify(userInformation)}`, (err) => {
@@ -85,7 +85,7 @@ const addToDo = (req, res) => {
             }
 
             console.log(`To-Do "${toDo}" added to user`);
-            res.status(200).json(`To-Do "${toDo}" added successfully to user`);
+            res.status(200).json({ toDos: user.toDos }); //send the new todo back to the frontend so it refreshes with correct data
         });
     }
 };

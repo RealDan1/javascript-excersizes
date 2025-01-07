@@ -65,7 +65,7 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
         <div>
             {/* Display username's todos */}
             <h1>{userName}'s ToDos</h1>
-            {toDos.length && isLoggedIn > 0 ? (
+            {isLoggedIn > 0 ? (
                 <>
                     {' '}
                     <form
@@ -77,14 +77,22 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
                         <input type="text" value={newToDo} onChange={(e) => setNewToDo(e.target.value)} />
                         <button type="submit">Add</button>
                     </form>
-                    <ul>
-                        {toDos.map((todo, index) => (
-                            <li key={index}>{todo}</li> // Render each todo as a list item
-                        ))}
-                    </ul>
+                    <div>
+                        {toDos.length > 0 ? (
+                            <ul>
+                                {toDos.map((todo) => (
+                                    <li key={todo.id}>
+                                        {todo.text} - {todo.completed ? <p>Done</p> : <p>not done</p>}
+                                    </li> // Render each todo as a list item
+                                ))}
+                            </ul>
+                        ) : (
+                            <h2>Looks real empty here!</h2>
+                        )}
+                    </div>
                 </>
             ) : (
-                <h2>No ToDos found</h2> // Show message if no todos exist
+                <h2>You are not logged in</h2> // Show message if no todos exist
             )}
         </div>
     );
