@@ -40,6 +40,7 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
     //disabled eslint for the above line because it was throwing a warning about dependencies but apparently this issue shouldn't cause problems in this case.
 
     // Function to add new toDo
+    //=======================================
     const addToDo = async () => {
         const token = localStorage.getItem('token');
         if (!token) {
@@ -60,6 +61,27 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
         );
         setToDos(response.data.toDos); //refresh the toDos state
         setNewToDo(''); //clear the input
+    };
+
+    //function to toggle completed stat of todo:
+    //==========================================
+    const toggleToDo = async (id) => {
+        // This function sends a PUT request to update the `completed` status of the to-do
+        const token = localStorage.getItem('token');
+        if (!token) {
+            console.log('no token found');
+            return;
+        }
+        const response = await api.put(
+            `/toDos/toggle/${id}`, // Assuming backend has this endpoint
+            {},
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`, // Add token to header
+                },
+            }
+        );
+        setToDos(response.data.toDos); // Refresh the toDos state with the updated list
     };
     return (
         <div>
@@ -82,7 +104,14 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
                             <ul>
                                 {toDos.map((todo) => (
                                     <li key={todo.id}>
-                                        {todo.text} - {todo.completed ? <p>Done</p> : <p>not done</p>}
+                                        <label>
+                                            <input
+                                                type="checkbox"
+                                                checked={todo.completed}
+                                                onChange={() => toggleToDo(todo.id)} // checkbox for toggling completed field
+                                            />
+                                            {todo.text}
+                                        </label>
                                     </li> // Render each todo as a list item
                                 ))}
                             </ul>

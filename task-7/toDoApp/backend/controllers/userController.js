@@ -106,6 +106,34 @@ const getToDos = (req, res) => {
     }
 };
 
+// Update Completed stat of a todo(PUT):
+//=======================================
+const toggleToDo = (req, res) => {
+    const { id } = req.params;
+    const { name } = req.payload;
+    const user = userInformation.find((user) => user.userName === name);
+    if (user) {
+        const toDo = user.toDos.find((todo) => todo.id === parseInt(id));
+        if (toDo) {
+            //if the todo is found
+            toDo.completed = !toDo.completed; // Toggle the completed status
+
+            // Save the todo to userDb
+            fs.writeFile(userDbPath, `module.exports = ${JSON.stringify(userInformation)}`, (err) => {
+                if (err) {
+                    console.error(err);
+                    return res.status(500).json({ error: 'Error saving updated to-do' });
+                }
+
+                console.log(`To-Do updated for user ${name}`);
+                res.status(200).json({ toDos: user.toDos }); // Send updated to-dos back to the frontend
+            });
+        }
+    } else {
+        return res.status(404).send({ error: 'User not found' }); // Handle no user found
+    }
+};
+
 // Update ToDos function (PUT)
 //=======================================
 const updateToDo = (req, res) => {
@@ -122,4 +150,6 @@ module.exports = {
     getToDos,
     addToDo,
     registerUser,
+    toggleToDo,
+    updateToDo,
 };
