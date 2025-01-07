@@ -1,21 +1,19 @@
-// middleware/jwtMiddleware.js
+// middleware/validateUsername.js
 
 function validateUsername(req, res, next) {
-    // 1. Get the token from the request headers
-    const jwtToken = req.headers['authorization'];
-    // 2. Split the token from the Bearer
-    const tokenExtract = jwtToken.split(' ')[1];
-    try {
-        // 3. Verify the token using the secret key
-        const payload = jwt.verify(tokenExtract, 'HyperionDev');
-        // 4. Attach the payload to the request object
-        req.payload = payload;
-        // 5. Proceed to the protected route
+    // Get the username from the request body
+    const userName = req.body.userName;
+    //check for empty input
+    if (!userName) {
+        return res.status(400).json('Username is required');
+    }
+
+    //check the username contains gmail.com
+    if (userName.slice(-10) == '@gmail.com') {
         next();
-    } catch (error) {
-        // 6. If token verification fails, return a forbidden response
-        res.status(403).json({ message: 'Invalid token' });
+    } else {
+        return res.status(400).json('Invalid username - only usernames ending in @gmail.com are allowed');
     }
 }
 
-module.exports = { jwtMiddleware };
+module.exports = { validateUsername };
