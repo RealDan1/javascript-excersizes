@@ -198,6 +198,5 @@ module.exports = {
     registerUser,
     toggleToDo,
     updateToDo,
-
     deleteToDo,
 };

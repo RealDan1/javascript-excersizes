@@ -5,6 +5,7 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
     const [toDos, setToDos] = useState([]);
     const [newToDo, setNewToDo] = useState('');
     const [editText, setEditText] = useState('');
+    const [editMode, setEditMode] = useState(null);
 
     // Function for getting token and Todos if logged in:
     // =================================
@@ -40,7 +41,7 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
     }, [isLoggedIn]); // if isLoggedIn changes - retrigger
     //disabled eslint for the above line because it was throwing a warning about dependencies but apparently this issue shouldn't cause problems in this case.
 
-    // Function to add new toDo
+    // Function to ADD new toDo
     //=======================================
     const addToDo = async () => {
         const token = localStorage.getItem('token');
@@ -64,7 +65,7 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
         setNewToDo(''); //clear the input
     };
 
-    // Function to update a toDo
+    // Function to UPDATE a toDo
     //=================================================
     const updateToDo = async (id) => {
         const token = localStorage.getItem('token');
@@ -82,10 +83,11 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
             }
         );
         setToDos(response.data.toDos); // Refresh the toDos state
+        setEditMode(null);
         setEditText(''); // reset the input
     };
 
-    // function to toggle completed stat of todo:
+    // function to TOGGLE completed stat of todo:
     // ==========================================
     const toggleToDo = async (id) => {
         // This function sends a PUT request to update the `completed` status of the to-do
@@ -151,13 +153,38 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
                                             {todo.text}
                                         </label>
                                         {/* Edit button */}
-                                        <button onClick={() => updateToDo(todo.id)}>Edit</button>
-                                        <input
-                                            type="text"
-                                            placeholder="Edit text"
-                                            value={editText}
-                                            onChange={(e) => setEditText(e.target.value)}
-                                        />
+                                        <button
+                                            onClick={() => {
+                                                setEditMode(todo.id); // CHANGE!! -------> Set the edit mode to this to-do's ID
+                                                setEditText(todo.text); // CHANGE!! -------> Pre-fill the input with the current to-do text
+                                            }}
+                                        >
+                                            Edit
+                                        </button>
+                                        {/* Only show the input field when edit is clicked */}
+                                        {editMode === todo.id && (
+                                            <>
+                                                <input
+                                                    type="text"
+                                                    placeholder="Edit text"
+                                                    value={editText}
+                                                    onChange={(e) => setEditText(e.target.value)}
+                                                />
+                                                {/* Save button */}
+                                                <button onClick={() => updateToDo(todo.id)}>Save</button>{' '}
+                                                {/* Cancel button */}
+                                                <button
+                                                    onClick={() => {
+                                                        setEditMode(null);
+                                                        // cancel the edit
+                                                        setEditText('');
+                                                        // clear the input
+                                                    }}
+                                                >
+                                                    Cancel
+                                                </button>
+                                            </>
+                                        )}
                                         {/* Delete button */}
                                         <button onClick={() => deleteToDo(todo.id)}>Delete</button>
                                     </li> // Render each todo as a list item
