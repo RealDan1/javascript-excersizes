@@ -106,6 +106,17 @@ const getToDos = (req, res) => {
     }
 };
 
+// Update ToDos function (PUT)
+//=======================================
+const updateToDo = (req, res) => {
+    const { id } = req.params.id;
+    const { name } = req.payload;
+
+    const user = userInformation.find((user) => user.userName === name);
+    if (user) {
+    }
+};
+
 module.exports = {
     loginUser,
     getToDos,

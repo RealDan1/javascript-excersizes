@@ -1,5 +1,5 @@
 // routes/secure/userDataRoute.js
-const { getToDos, addToDo } = require('../../controllers/userController');
+const { getToDos, addToDo, updateToDo } = require('../../controllers/userController');
 const { jwtMiddleware } = require('../../middleware/jwtMiddleware');
 
 const userDataRoute = (app) => {
@@ -7,6 +7,8 @@ const userDataRoute = (app) => {
     app.get('/todos', jwtMiddleware, getToDos);
     //POST request to /todos/add
     app.post('/todos/add', jwtMiddleware, addToDo);
+    //PUT request to /todos/:id
+    app.put('/:id', jwtMiddleware, updateToDo);
 };
 
 module.exports = userDataRoute;
