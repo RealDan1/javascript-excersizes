@@ -96,11 +96,17 @@ li:hover {
     background-color: #f1f1f1;
 }
 
-/* To-Do Text */
+/* To-Do Text and Actions */
 label {
+    flex: 1;
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+label span {
+    flex-grow: 1;
+    text-decoration: none;
 }
 
 input[type='checkbox'] {
@@ -108,13 +114,24 @@ input[type='checkbox'] {
     cursor: pointer;
 }
 
-label span {
-    text-decoration: none;
-}
-
 input[type='checkbox']:checked + span {
     text-decoration: line-through;
     color: #888;
+}
+
+/* Buttons Inside List Items */
+li .actions {
+    display: flex;
+    gap: 10px; /* Add spacing between buttons */
+}
+
+li button {
+    background-color: #6c757d;
+    margin-right: 5px;
+}
+
+li button:hover {
+    background-color: #5a6268;
 }
 
 /* Edit Mode Input */
@@ -126,16 +143,6 @@ li input[type='text'] {
 h2 {
     font-style: italic;
     color: #666;
-}
-
-/* Buttons Inside List Items */
-li button {
-    margin-left: 10px;
-    background-color: #6c757d;
-}
-
-li button:hover {
-    background-color: #5a6268;
 }
 
 form > input[type='text'] {
