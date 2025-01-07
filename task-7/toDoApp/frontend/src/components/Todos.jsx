@@ -23,6 +23,7 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
             const response = await api.get('/toDos', {
                 headers: {
                     Authorization: `Bearer ${token}`, //add the token to the header
+                    'Content-Type': 'application/json', //add json content type
                 },
             });
             setToDos(response.data.toDos); //update toDos state with toDos
@@ -58,6 +59,7 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
                 {
                     headers: {
                         Authorization: `Bearer ${token}`, //add the token to the header
+                        'Content-Type': 'application/json', //add json content type
                     },
                 }
             );
@@ -85,6 +87,7 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
                 {
                     headers: {
                         Authorization: `Bearer ${token}`,
+                        'Content-Type': 'application/json', //add json content type
                     },
                 }
             );
@@ -112,6 +115,7 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
             {
                 headers: {
                     Authorization: `Bearer ${token}`, // Add token to header
+                    'Content-Type': 'application/json', //add json content type
                 },
             }
         );
@@ -129,6 +133,7 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
         const response = await api.delete(`/todos/delete/${id}`, {
             headers: {
                 Authorization: `Bearer ${token}`, // Add token to header
+                'Content-Type': 'application/json', //add json content type
             },
         });
         setToDos(response.data.toDos); // Refresh the toDos state

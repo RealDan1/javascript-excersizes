@@ -12,10 +12,18 @@ function Login({ onLogin }) {
     async function handleLogin() {
         //get the token:
         try {
-            const response = await api.post('/login', {
-                userName: userName,
-                password: password,
-            });
+            const response = await api.post(
+                '/login',
+                {
+                    userName: userName,
+                    password: password,
+                },
+                {
+                    headers: {
+                        'Content-Type': 'application/json', //add json content type
+                    },
+                }
+            );
 
             if (response.data.token) {
                 //if we receive a token, store it in local storage
