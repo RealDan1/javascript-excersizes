@@ -1,4 +1,3 @@
-// routes/secure/userDataRoute.js
 const { getToDos, addToDo, updateToDo, toggleToDo, deleteToDo } = require('../../controllers/userController');
 const { jwtMiddleware } = require('../../middleware/jwtMiddleware');
 const { validateInput } = require('../../middleware/validateInput');

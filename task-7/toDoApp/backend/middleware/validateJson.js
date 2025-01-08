@@ -1,5 +1,3 @@
-// middleware/validateJson.js
-
 function validateJson(req, res, next) {
     const contentType = req.headers['content-type']; // fetch the content type from req.headers
 

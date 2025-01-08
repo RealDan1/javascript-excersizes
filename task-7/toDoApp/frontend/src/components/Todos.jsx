@@ -95,7 +95,7 @@ function ToDos({ isLoggedIn, userName, setUserName }) {
             setEditMode(null);
             setEditText(''); // reset the input
         } catch (error) {
-            alert(error.response?.data?.message || 'An error occurred while updating the To-Do'); // discovered a neat way of safely accessing nested properties IF THEY EXIST. If they don't - display the message on the right.
+            alert(error.response?.data?.message || 'An error occurred while updating the to Do'); // discovered a neat way of safely accessing nested properties IF THEY EXIST. If they don't - display the message on the right.
             console.error(error);
         }
     };

@@ -11,7 +11,6 @@ app.use(cors());
 
 app.use(bodyParser.json());
 
-//use the various routes in the app
 registerRoute(app);
 loginRoute(app);
 userDataRoute(app);

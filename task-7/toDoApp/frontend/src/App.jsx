@@ -1,6 +1,6 @@
 import './App.css';
 import { useState } from 'react';
-import { Routes, Route, Navigate, useNavigate } from 'react-router-dom'; // CHANGE ===== Import Routes, Route, and Navigate
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Register';
 import ToDos from './components/Todos';
@@ -50,7 +50,7 @@ function App() {
                         )
                     }
                 />
-                {/* Redirect to /login for any undefined routes */}
+                {/* send user to /login for any undefined routes */}
                 <Route path="*" element={<Navigate to="/login" />} />
             </Routes>
         </div>

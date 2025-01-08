@@ -1,5 +1,3 @@
-// backend//controllers/userController.js
-// Require the user data from database
 const userInformation = require('./userDb');
 const jwt = require('jsonwebtoken');
 const fs = require('fs'); //used to write to the userDb.js
@@ -11,7 +9,7 @@ const userDbPath = path.join(__dirname, './userDb.js');
 const registerUser = (req, res) => {
     const { userName, password } = req.body;
 
-    //check if the user exists in the database - returns a boolean
+    //check if the user exists in the database
     const user = userInformation.find((user) => user.userName === userName && user.password === password);
     if (user) {
         console.log('User already exists!');
@@ -47,7 +45,7 @@ const loginUser = (req, res) => {
     const { userName, password } = req.body;
     //Find the user in the database
     const user = userInformation.find((user) => user.userName === userName && user.password === password);
-    //If the user is not found, return an error message - end the request
+    //If the user is not found, return an error message
     if (!user) {
         return res.json('Incorrect user credentials');
     }
@@ -57,14 +55,13 @@ const loginUser = (req, res) => {
         name: userName,
         admin: false,
     };
-    // sign(payload, secretOrPrivateKey, [options, callback])
+    // sign the token with the payload
     const token = jwt.sign(JSON.stringify(payload), 'HyperionDev', {
         algorithm: 'HS256',
     });
     //The res.send() function sends a string to the client
     console.log(`User ${userName} logged in`);
     res.send({ message: `Welcome back ${userName}`, token: token });
-    //export controller functions to be used on the myLoggerRoute.js/routes
 };
 
 // Create Todo Function (ADD)
@@ -93,7 +90,7 @@ const addToDo = (req, res) => {
 // Read ToDos function (GET)
 //========================================
 const getToDos = (req, res) => {
-    // We get the userName from the token’s payload(no admin required)
+    // We get the userName from the token’s payload
     const { name } = req.payload;
     //Find the user in the database - checking if the userName and password
     //matches;

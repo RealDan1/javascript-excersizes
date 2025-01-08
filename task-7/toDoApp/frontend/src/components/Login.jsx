@@ -3,7 +3,6 @@ import api from '../api';
 import { useNavigate } from 'react-router-dom';
 
 function Login({ onLogin }) {
-    //navigate hook:
     const navigate = useNavigate();
     //state to hold login:
     const [userName, setUserName] = useState('');

@@ -1,5 +1,3 @@
-// middleware/validateInput.js
-
 function validateInput(req, res, next) {
     // Get the username from the request body
     const input = req.body.text;
