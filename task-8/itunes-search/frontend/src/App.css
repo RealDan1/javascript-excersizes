@@ -1,38 +1,184 @@
+/* ==========================================================
+   FILE: src/App.css
+   This file contains all the styles for the app. We try to
+   keep it visually pleasing but in a similar style to
+   the code snippet you provided—just more modern now.
+   ========================================================== */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #444;
+}
+
+/* Container for the entire app */
 .App {
-  text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #1c1c1c; /* Changed to a darker background for a more modern look */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Navigation bar at the top */
+.nav-bar {
+    /* Subtle gradient for a modern effect */
+    background: linear-gradient(to right, #292929, #3c3c3c);
+    color: #ffffff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav-bar h1 {
+    margin: 0;
+    font-size: 1.8rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    transition: color 0.2s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-links a:hover {
+    color: #ffce2a; /* Some highlight color on hover */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Main content wrapper */
+.main-content-wrapper {
+    flex: 1;
+    padding: 20px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #2c2c2c; /* Slightly lighter than the navbar but still dark */
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Main headings */
+h2 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* Shared list and item styling for results & favourites */
+.results-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.result-item {
+    display: flex;
+    align-items: center;
+    background-color: #3a3a3a;
+    border: 1px solid #555;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.result-item:hover {
+    background-color: #4a4a4a;
+}
+
+/* Artwork thumbnail */
+.item-artwork {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+    border-radius: 4px;
+}
+
+/* Info block for track name and artist */
+.item-info {
+    flex: 1;
+    color: #fff; /* White text for contrast */
+}
+
+/* Favourites container + Search container */
+.favourites-container,
+.search-container {
+    padding: 20px;
+    color: #fff; /* Ensure text is white for dark background */
+}
+
+/* Additional inner containers for styling */
+.search-inner-container,
+.favourites-inner-container {
+    background-color: #2c2c2c;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Search form */
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.search-form label {
+    margin: auto 0;
+    color: #fff;
+}
+
+.search-form input[type='text'],
+.search-form select {
+    padding: 10px;
+    border: 1px solid #888;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+}
+
+.search-form button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ffce2a; /* Distinct button color */
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.search-form button:hover {
+    background-color: #ffc107; /* Slightly darker shade on hover */
+}
+
+/* Buttons for result items */
+.result-item button {
+    background-color: #ffce2a;
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.result-item button:hover {
+    background-color: #ffc107;
+}
+
+/* Utility classes */
+.results-container {
+    margin-top: 20px;
+    text-align: center;
 }
