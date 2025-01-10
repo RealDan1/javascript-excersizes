@@ -5,6 +5,8 @@ function jwtMiddleware(req, res, next) {
     const jwtToken = req.headers['authorization'];
 
     if (jwtToken) {
+        //if the token exists, it means its not the first request - verify the token
+        req.isFirstRequest = false;
         // 2. Split the token from the Bearer
         const tokenExtract = jwtToken.split(' ')[1];
         try {
@@ -16,8 +18,13 @@ function jwtMiddleware(req, res, next) {
             next();
         } catch (error) {
             // 6. If token verification fails, return a forbidden response
-            res.status(403).json({ message: 'Invalid token' });
+            res.status(401).json({ message: 'Invalid token - or token expired' });
+            console.log('Invalid token - or token expired');
         }
+    } else {
+        //if the token doesnt exist, it means its the first request - flip a boolean and attach it to the req object, then allow the request through - the backend will generate a token and send it back for subsequent requests.
+        req.isFirstRequest = true;
+        next();
     }
 }
 
