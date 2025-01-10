@@ -1,35 +1,24 @@
-// ==========================================================
-// FILE: src/components/Search.jsx
+// src/components/Search.jsx
 // This component renders the search form, allowing users to
-// enter a query term and choose a media type. It also displays
-// any search results (which are currently mocked in state, since
-// actual API calls are left for your backend).
+// enter a query term and choose a media type.
 // ----------------------------------------------------------
 // The user can click "Add to Favourites" on a result item. That
 // call is handled by the function passed down from the parent (App.js).
-// ==========================================================
+
 import { useState } from 'react';
+import api from '../api';
 
 function Search({ onAddToFavourites }) {
-    // --------------------------------------------
-    // State to hold the search term from the input,
-    // the selected media type, and the results array
-    // from the (yet-to-be-implemented) backend call.
-    // --------------------------------------------
     const [searchTerm, setSearchTerm] = useState('');
     const [mediaType, setMediaType] = useState('all');
-    const [searchResults, setSearchResults] = useState([]);
+    const [searchResults, setSearchResults] = useState([]); // results array from backend
 
     // --------------------------------------------
-    // Function that would normally send the search
-    // request to the backend, which in turn would
-    // call the iTunes API. We are leaving placeholders
-    // for the backend integration.
-    // --------------------------------------------
+
     const handleSearch = async (e) => {
-        e.preventDefault(); // prevent page refresh on form submit
+        e.preventDefault(); // prevent page refresh when the user submits the form
 
-        // Basic input validation:
+        // Check for empty input:
         if (!searchTerm.trim()) {
             alert('Please enter a search term!');
             return;
@@ -44,6 +33,27 @@ function Search({ onAddToFavourites }) {
         //  2) The backend would call iTunes Search API with the parameters
         //  3) Then the backend would respond with the results
         //  4) You would set those results into `searchResults` state.
+
+        try {
+            const token = localStorage.getItem('token');
+            if (token) {
+                const response = await api.get('/search', {
+                    headers: {
+                        Authorization: `Bearer ${token}`, // Add the token to the header
+                    },
+                    params: {
+                        searchTerm: searchTerm,
+                        mediaType: mediaType,
+                    },
+                });
+                console.log('Search results are:/n' + response.data);
+            } else {
+                const response = await api.get('/search', { searchTerm: searchTerm, mediaType: mediaType });
+                console.log('Search results are:/n' + response.data);
+            }
+        } catch (error) {
+            console.error(error);
+        }
 
         // For demonstration, we mock a sample response.
         // Replace this with your actual data from the backend.
