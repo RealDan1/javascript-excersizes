@@ -48,7 +48,12 @@ function Search({ onAddToFavourites }) {
                 });
                 console.log('Search results are:/n' + response.data);
             } else {
-                const response = await api.get('/search', { searchTerm: searchTerm, mediaType: mediaType });
+                const response = await api.get('/search', {
+                    params: {
+                        searchTerm: searchTerm,
+                        mediaType: mediaType,
+                    },
+                });
                 console.log('Search results are:/n' + response.data);
             }
         } catch (error) {
