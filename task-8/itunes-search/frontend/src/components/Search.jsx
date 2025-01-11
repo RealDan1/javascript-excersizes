@@ -1,4 +1,4 @@
-// src/components/Search.jsx
+// frontend/src/components/Search.jsx
 // This component renders the search form, allowing users to
 // enter a query term and choose a media type.
 // ----------------------------------------------------------

@@ -8,7 +8,7 @@
 // *****************************************************************************************
 
 // ==========================================================
-// FILE: src/App.js
+// FILE: frontend/src/App.js
 // This is the root component of the React app. It handles routing,
 // houses the main layout, and conditionally renders child components.
 //
@@ -20,7 +20,7 @@
 // switch between these sections.
 // ==========================================================
 import { useState } from 'react';
-import { Routes, Route, Navigate, useNavigate, Link } from 'react-router-dom';
+import { Routes, Route, Navigate, Link } from 'react-router-dom';
 import Search from './components/Search';
 import Favourites from './components/Favourites';
 import './App.css';
@@ -32,12 +32,6 @@ function App() {
     // once the page/app is refreshed.
     // --------------------------------------------
     const [favourites, setFavourites] = useState([]);
-
-    // --------------------------------------------
-    // useNavigate hook to programmatically navigate
-    // the user to different routes if needed.
-    // --------------------------------------------
-    const navigate = useNavigate();
 
     // --------------------------------------------
     // Function to add an item to 'favourites' array.

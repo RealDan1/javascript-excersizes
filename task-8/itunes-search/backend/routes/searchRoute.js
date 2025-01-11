@@ -1,4 +1,4 @@
-// const { getToDos, addToDo, updateToDo, toggleToDo, deleteToDo } = require('../../controllers/userController');
+// backend/routes/searchRoute.js
 const { searchItunes } = require('../controllers/itunesApiController');
 const { jwtMiddleware } = require('../middleware/jwtMiddleware');
 
