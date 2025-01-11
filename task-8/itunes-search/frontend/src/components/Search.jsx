@@ -36,8 +36,11 @@ function Search({ onAddToFavourites }) {
 
         try {
             const token = localStorage.getItem('token');
+            let response;
+
             if (token) {
-                const response = await api.get('/search', {
+                //if a token exists - send it with the request;
+                response = await api.get('/search', {
                     headers: {
                         Authorization: `Bearer ${token}`, // Add the token to the header
                     },
@@ -46,18 +49,21 @@ function Search({ onAddToFavourites }) {
                         mediaType: mediaType,
                     },
                 });
-                console.log('Search results are:/n' + response.data);
             } else {
-                const response = await api.get('/search', {
+                //do the first request without a token - the middleware will register it as a first request and let it through - subsequent requests will require a valid token
+                response = await api.get('/search', {
                     params: {
                         searchTerm: searchTerm,
                         mediaType: mediaType,
                     },
                 });
-                console.log('Search results are:/n' + response.data);
             }
+
+            console.log('Search results are:/n' + response.data); //DELETE!!!!!! Just log the response for dev purposes
         } catch (error) {
-            console.error(error);
+            console.error(
+                error.response?.data?.message || 'An error occurred while sending the search request to the backend.'
+            );
         }
 
         // For demonstration, we mock a sample response.
