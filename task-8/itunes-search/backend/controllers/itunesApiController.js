@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 
 const searchItunes = async (req, res) => {
     const isFirstRequest = req.isFirstRequest;
-    const { searchTerm, mediaType } = req.query; // deconstruct the searchTerm and mediaType from the req.query.
+    const { searchTerm, mediaType } = req.params; // deconstruct the searchTerm and mediaType from the req.params.
 
     if (isFirstRequest) {
         //create a new payload with id Date.now - just to have something to sign into the token
