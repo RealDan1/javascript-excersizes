@@ -6,4 +6,4 @@ const searchRoute = (app) => {
     app.get('/search', jwtMiddleware, searchItunes);
 };
 
-module.exports = { searchRoute };
+module.exports = searchRoute;

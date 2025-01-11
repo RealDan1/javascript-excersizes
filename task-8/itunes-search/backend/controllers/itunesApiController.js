@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 
 const searchItunes = async (req, res) => {
     const isFirstRequest = req.isFirstRequest;
-    const { searchTerm, mediaType } = req.params; // deconstruct the searchTerm and mediaType from the req.params.
+    const { searchTerm, mediaType } = req.query; // deconstruct the searchTerm and mediaType from the req.query.
 
     if (isFirstRequest) {
         //create a new payload with id Date.now - just to have something to sign into the token
@@ -27,7 +27,10 @@ const searchItunes = async (req, res) => {
             const itunesResponse = {}; //here
             //return the result and the token in the response object
             res.json({ itunesResponse: itunesResponse, token: token });
-        } catch (error) {}
+        } catch (error) {
+            console.log(error);
+            res.json(error);
+        }
     } else {
         //otherwise its not the first request and should include a token with an id:
         const { id } = req.payload;
@@ -38,7 +41,10 @@ const searchItunes = async (req, res) => {
             const itunesResult = {}; //here
             //return the result and the token in the response object
             res.json({ itunesResult: itunesResult, token: token });
-        } catch (error) {}
+        } catch (error) {
+            console.log(error);
+            res.json(error);
+        }
     }
 };
 
