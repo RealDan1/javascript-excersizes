@@ -25,7 +25,7 @@ const searchItunes = async (req, res) => {
         try {
             //-----------------------------------------
             const itunesResponse = await axios.get('https://itunes.apple.com/search?', {
-                params: { term: searchTerm }, // Sending query parameters
+                params: { term: searchTerm, country: 'ZA', media: mediaType }, // Sending query parameters
             });
             //return the result and the token in the response object
             res.json({ itunesResponse: itunesResponse.data, token: token });
@@ -41,7 +41,7 @@ const searchItunes = async (req, res) => {
         try {
             //-----------------------------------------
             const itunesResponse = await axios.get('https://itunes.apple.com/search', {
-                params: { term: searchTerm, country: 'ZA' }, // Sending query parameters
+                params: { term: searchTerm, country: 'ZA', media: mediaType }, // Sending query parameters
             });
 
             //console.log the response for testing

@@ -18,11 +18,11 @@ function Favourites({ favourites, onRemoveFromFavourites }) {
                 ) : (
                     <ul className="results-list">
                         {favourites.map((item) => (
-                            <li key={item.trackId} className="result-item">
-                                <img src={item.artworkUrl100} alt={item.trackName} className="item-artwork" />
+                            <li key={item.id} className="result-item">
+                                <img src={item.artwork} alt={item.name} className="item-artwork" />
                                 <div className="item-info">
-                                    <h4>{item.trackName}</h4>
-                                    <p>{item.artistName}</p>
+                                    <h4>{item.name}</h4>
+                                    <p>{item.description}</p>
                                 </div>
                                 <button onClick={() => onRemoveFromFavourites(item.trackId)}>Remove</button>
                             </li>

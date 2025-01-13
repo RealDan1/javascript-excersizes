@@ -40,11 +40,13 @@ function App() {
     // --------------------------------------------
     const handleAddToFavourites = (item) => {
         // Check if the item is already in favourites
-        const isAlreadyFavourited = favourites.some((fav) => fav.trackId === item.trackId);
-
-        if (!isAlreadyFavourited) {
-            setFavourites([...favourites, item]);
+        if (favourites.some((fav) => fav.id === item.id)) {
+            alert('This item is already in your favourites!');
+            return;
         }
+
+        // Append the new item to the existing favourites list
+        setFavourites((prevFavourites) => [...prevFavourites, item]);
     };
 
     // --------------------------------------------
