@@ -1,12 +1,3 @@
-// ==========================================================
-// FILE: src/components/Favourites.jsx
-// This component displays the user's current favourite
-// items (kept in the parent state in App.js and passed
-// down here as 'favourites').
-//
-// Each favourite item can be removed by triggering
-// "onRemoveFromFavourites" (passed from App.js).
-// ==========================================================
 function Favourites({ favourites, onRemoveFromFavourites }) {
     return (
         <div className="favourites-container">

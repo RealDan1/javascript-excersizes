@@ -1,10 +1,3 @@
-// frontend/src/components/Search.jsx
-// This component renders the search form, allowing users to
-// enter a query term and choose a media type.
-// ----------------------------------------------------------
-// The user can click "Add to Favourites" on a result item. That
-// call is handled by the function passed down from the parent (App.js).
-
 import { useState } from 'react';
 import api from '../api';
 
@@ -15,6 +8,7 @@ function Search({ onAddToFavourites }) {
 
     // --------------------------------------------
 
+    //search function
     const handleSearch = async (e) => {
         e.preventDefault(); // prevent page refresh when the user submits the form
 
@@ -23,16 +17,6 @@ function Search({ onAddToFavourites }) {
             alert('Please enter a search term!');
             return;
         }
-
-        // <-------------------BACKEND----------------------->
-        // Explanation: In this block, you would typically:
-        //  1) Make an HTTP request (axios/fetch) to your backend endpoint, sending:
-        //     - The searchTerm
-        //     - The selected mediaType
-        //     - Possibly a JWT if needed for authorized requests
-        //  2) The backend would call iTunes Search API with the parameters
-        //  3) Then the backend would respond with the results
-        //  4) You would set those results into `searchResults` state.
 
         try {
             const token = localStorage.getItem('token');

@@ -8,11 +8,10 @@ const app = express();
 app.use(cors());
 
 app.use(express.json()); // Parse JSON in built in express middleware
-app.use(express.urlencoded({ extended: true })); // Parse URL-encoded data
+app.use(express.urlencoded({ extended: true }));
 
 searchRoute(app);
 
-//Listening on port 8080
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);

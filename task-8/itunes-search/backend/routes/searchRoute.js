@@ -1,4 +1,3 @@
-// backend/routes/searchRoute.js
 const { searchItunes } = require('../controllers/itunesApiController');
 const { jwtMiddleware } = require('../middleware/jwtMiddleware');
 
