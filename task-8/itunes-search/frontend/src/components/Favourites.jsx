@@ -14,6 +14,7 @@ function Favourites({ favourites, onRemoveFromFavourites }) {
                                 <div className="item-info">
                                     <h4>{item.name}</h4>
                                     <p>{item.description}</p>
+                                    <p>Released: {item.releaseDate}</p>
                                 </div>
                                 <button onClick={() => onRemoveFromFavourites(item.trackId)}>Remove</button>
                             </li>

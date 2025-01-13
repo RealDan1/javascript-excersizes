@@ -51,9 +51,10 @@ function Search({ onAddToFavourites }) {
             setSearchResults(
                 results.map((item) => ({
                     id: item.trackId || item.collectionId || item.artistId, // Use any unique ID available.
-                    name: item.trackName || item.collectionName || item.artistName, // Generic name field.
+                    name: item.trackName || item.collectionName || item.artistName,
                     description: item.artistName || item.primaryGenreName, // Artist or genre as fallback.
-                    artwork: item.artworkUrl100 || '', // Ensure artwork is included
+                    artwork: item.artworkUrl100 || '',
+                    releaseDate: `${item.releaseDate.substring(0, 4)}` || 'Unknown',
                 }))
             );
             // Clear the input:
@@ -120,6 +121,7 @@ function Search({ onAddToFavourites }) {
                                     <div className="item-info">
                                         <h4>{item.name}</h4>
                                         <p>{item.description}</p>
+                                        <p>Released: {item.releaseDate}</p>
                                     </div>
                                     <button onClick={() => onAddToFavourites(item)}>Add to Favourites</button>
                                 </li>
