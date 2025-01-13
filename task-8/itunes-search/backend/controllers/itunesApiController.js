@@ -1,6 +1,7 @@
 //backend/controllers/itunesApiController.js
 
 const jwt = require('jsonwebtoken');
+const axios = require('axios');
 
 const searchItunes = async (req, res) => {
     const isFirstRequest = req.isFirstRequest;
@@ -16,17 +17,18 @@ const searchItunes = async (req, res) => {
         // Generate the token for the first time -  sign the token with the payload
         const token = jwt.sign(JSON.stringify(payload), 'HyperionDev', {
             algorithm: 'HS256',
-            expiresIn: '3h', // Set token expiration to 3h for dev purposes
         });
 
         //do the request with the searchTerm and mediaType:
-        //api request goes here:
-        //-----------------------------------------
 
+        //-----------------------------------------
         try {
-            const itunesResponse = {}; //here
+            //-----------------------------------------
+            const itunesResponse = await axios.get('https://itunes.apple.com/search?', {
+                params: { term: searchTerm }, // Sending query parameters
+            });
             //return the result and the token in the response object
-            res.json({ itunesResponse: itunesResponse, token: token });
+            res.json({ itunesResponse: itunesResponse.data, token: token });
         } catch (error) {
             console.log(error);
             res.json(error);
@@ -35,12 +37,18 @@ const searchItunes = async (req, res) => {
         //otherwise its not the first request and should include a token with an id:
         const { id } = req.payload;
         //do the request with the searchTerm and mediaType:
-        //api request goes here:
         //-----------------------------------------
         try {
-            const itunesResult = {}; //here
+            //-----------------------------------------
+            const itunesResponse = await axios.get('https://itunes.apple.com/search', {
+                params: { term: searchTerm, country: 'ZA' }, // Sending query parameters
+            });
+
+            //console.log the response for testing
+            console.log({ itunesResult: itunesResponse.data, token: token });
+
             //return the result and the token in the response object
-            res.json({ itunesResult: itunesResult, token: token });
+            res.json({ itunesResult: itunesResponse.data, token: token });
         } catch (error) {
             console.log(error);
             res.json(error);

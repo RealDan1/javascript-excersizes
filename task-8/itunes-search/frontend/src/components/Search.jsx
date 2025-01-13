@@ -59,35 +59,36 @@ function Search({ onAddToFavourites }) {
                 });
             }
 
-            console.log('Search results are:/n' + response.data); //DELETE!!!!!! Just log the response for dev purposes
+            console.dir(response.data, { depth: null }); //DELETE!!!!!! Just log the response for dev purposes
+
+            const results = response.data.itunesResponse.results || [];
+
+            // Update the state with the mocked data:
+            setSearchResults(
+                results.map((item) => ({
+                    id: item.trackId || item.collectionId || item.artistId, // Use any unique ID available.
+                    name: item.trackName || item.collectionName || item.artistName, // Generic name field.
+                    description: item.artistName || item.primaryGenreName, // Artist or genre as fallback.
+                    artwork: item.artworkUrl100 || '', // Ensure artwork is included
+                }))
+            );
+            // Clear the input:
+            setSearchTerm('');
+
+            //DELETE!!!!! log for testing
+            console.log(
+                results.map((item) => ({
+                    id: item.trackId || item.collectionId || item.artistId,
+                    name: item.trackName || item.collectionName || item.artistName,
+                    description: item.artistName || item.primaryGenreName,
+                    artwork: item.artworkUrl100 || '',
+                }))
+            );
         } catch (error) {
             console.error(
                 error.response?.data?.message || 'An error occurred while sending the search request to the backend.'
             );
         }
-
-        // For demonstration, we mock a sample response.
-        // Replace this with your actual data from the backend.
-        const mockedResults = [
-            {
-                trackId: 123,
-                trackName: 'Song 1',
-                artistName: 'Artist A',
-                artworkUrl100: 'https://via.placeholder.com/100/007bff/ffffff?text=Song+1',
-            },
-            {
-                trackId: 456,
-                trackName: 'Song 2',
-                artistName: 'Artist B',
-                artworkUrl100: 'https://via.placeholder.com/100/28a745/ffffff?text=Song+2',
-            },
-        ];
-
-        // Update the state with the mocked data:
-        setSearchResults(mockedResults);
-
-        // Clear the input:
-        setSearchTerm('');
     };
 
     return (
@@ -130,11 +131,11 @@ function Search({ onAddToFavourites }) {
                     ) : (
                         <ul className="results-list">
                             {searchResults.map((item) => (
-                                <li key={item.trackId} className="result-item">
-                                    <img src={item.artworkUrl100} alt={item.trackName} className="item-artwork" />
+                                <li key={item.id} className="result-item">
+                                    <img src={item.artwork} alt={item.name} className="item-artwork" />
                                     <div className="item-info">
-                                        <h4>{item.trackName}</h4>
-                                        <p>{item.artistName}</p>
+                                        <h4>{item.name}</h4>
+                                        <p>{item.description}</p>
                                     </div>
                                     <button onClick={() => onAddToFavourites(item)}>Add to Favourites</button>
                                 </li>
