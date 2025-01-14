@@ -5,7 +5,7 @@ import Favourites from './components/Favourites';
 import './App.css';
 
 function App() {
-    // State fpr favourites
+    // State for favourites
     // --------------------------------------------
     const [favourites, setFavourites] = useState([]);
 
@@ -33,7 +33,7 @@ function App() {
         <div className="App">
             {/* nav bar*/}
             <nav className="nav-bar">
-                <h1>iTunes Search App</h1>
+                <h1>iTunes Search</h1>
                 <div className="nav-links">
                     <Link to="/">Search</Link>
                     <Link to="/favourites">Favourites</Link>

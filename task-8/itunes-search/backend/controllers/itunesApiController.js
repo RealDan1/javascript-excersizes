@@ -1,5 +1,3 @@
-//backend/controllers/itunesApiController.js
-
 const jwt = require('jsonwebtoken');
 const axios = require('axios');
 
@@ -8,7 +6,7 @@ const searchItunes = async (req, res) => {
     const { searchTerm, mediaType } = req.query; // deconstruct the searchTerm and mediaType from the req.query.
 
     if (isFirstRequest) {
-        //create a new payload with id Date.now - just to have something to sign into the token
+        //create a new payload with id Date.now - just to have something to sign into the token - later we can set the token to expire after a certain amount of time, for now this works
         // Create a JWT token payload
         //--------------------------------
         const payload = {
@@ -20,10 +18,8 @@ const searchItunes = async (req, res) => {
         });
 
         //do the request with the searchTerm and mediaType:
-
         //-----------------------------------------
         try {
-            //-----------------------------------------
             const itunesResponse = await axios.get('https://itunes.apple.com/search?', {
                 params: { term: searchTerm, country: 'ZA', media: mediaType }, // Sending query parameters
             });
@@ -39,7 +35,6 @@ const searchItunes = async (req, res) => {
         //do the request with the searchTerm and mediaType:
         //-----------------------------------------
         try {
-            //-----------------------------------------
             const itunesResponse = await axios.get('https://itunes.apple.com/search', {
                 params: { term: searchTerm, country: 'ZA', media: mediaType }, // Sending query parameters
             });

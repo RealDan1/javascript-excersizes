@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a web app that lets users search for media on the iTunes Store. It is a full-stack project showcasing React on the front end and a secure Node.js backend. The app is designed to be both user-friendly and secure, making it a great example of a modern, professional-grade web application.
+This is a web app that lets users search for media on the iTunes Store. Users can search for any media including Music, Ebooks, Movies,Podcasts,Audiobooks, Software etc. and the app will return all results from the itunes store using the itunes search api. It is a full-stack project showcasing React on the front end and a secure Node.js backend. The app is designed to be both user-friendly and secure, making it a great example of a modern, professional-grade web application.
 
 ## Purpose
 
@@ -16,13 +16,13 @@ The app demonstrates how to:
 
 -   **Search Functionality:** Users can search the iTunes Store for music, movies, podcasts, and more by entering a search term and selecting a media type.
 -   **Secure Requests:** The backend uses JWT to secure API requests after the first search, ensuring a safe user experience.
--   **Favorites Management:** Users can save their favorite items, view them on a dedicated page, and remove them as needed.
+-   **Favorites:** Users can save their favorite items, view them on a dedicated page, and remove them as needed.
 -   **Interactive UI:** The React front end dynamically displays search results and updates the favorites list in real-time.
 -   **Responsive Design:** The app works well on both desktop and mobile devices, with a clean and modern interface.
 
 ---
 
-## How to Install and Run Locally
+## How to Install:
 
 ### Requirements
 
@@ -31,11 +31,7 @@ The app demonstrates how to:
 
 ### Steps
 
-1. Clone the repository:
-    ```bash
-    git clone <repository-url>
-    ```
-2. Set up the backend:
+1. Set up the backend:
     - Go to the backend folder:
         ```bash
         cd backend
@@ -48,7 +44,7 @@ The app demonstrates how to:
         ```bash
         npm start
         ```
-3. Set up the frontend:
+2. Set up the frontend:
     - Go to the frontend folder:
         ```bash
         cd frontend
@@ -61,7 +57,7 @@ The app demonstrates how to:
         ```bash
         npm start
         ```
-4. Open `http://localhost:3000/` in your browser.
+3. Open `http://localhost:3000/` in your browser.
 
 ---
 
@@ -71,17 +67,18 @@ The app demonstrates how to:
     -   Node.js
     -   Express.js
     -   JWT for secure API authorization
+    -       Axios for external API calls
 -   **Frontend:**
     -   React.js
     -   Axios for API calls
 -   **Styling:**
-    -   Custom CSS for a polished, responsive design
+    -   Custom CSS
 
 ---
 
 ## Why This Project Stands Out
 
--   **Portfolio:** I made this project as a demonstration of my web development skills, showcasing external API calls, dynamic web design, jwt authorisation and securing apis, as well as RESTful Api design.
+-   **Portfolio:** The app is a demonstration of my web development skills, showcasing external API calls, dynamic web design, jwt authorisation and securing apis, as well as RESTful Api design.
 -   **Reusable Code:** The JWT middleware and secure API flow are modular and can be adapted for other applications.
 -   **Clean, Scalable Design:** The app uses best practices in React for state and component management, making it easy to extend.
 -   **Other projects::** If you are interested, have a look at my other projects showcasing use of a more advanced React.js project - shop design of a eCommerce website (ReactMart), my toDoList with advanced JWT user authorisation using React.js/Express.js, or my car dataBase with MongoDb and React.js/Express.js.

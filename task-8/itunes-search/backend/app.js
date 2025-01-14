@@ -1,4 +1,3 @@
-//backend/app.js
 const express = require('express');
 const cors = require('cors');
 const searchRoute = require('./routes/searchRoute');

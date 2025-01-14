@@ -4,7 +4,7 @@ import api from '../api';
 function Search({ onAddToFavourites }) {
     const [searchTerm, setSearchTerm] = useState('');
     const [mediaType, setMediaType] = useState('all');
-    const [searchResults, setSearchResults] = useState([]); // results array from backend
+    const [searchResults, setSearchResults] = useState([]); // state for results array from backend
 
     // --------------------------------------------
 
@@ -45,7 +45,7 @@ function Search({ onAddToFavourites }) {
 
             const results = response.data.itunesResponse.results || [];
 
-            // Update the state with the mocked data:
+            // Update the state with the Itunes data:
             setSearchResults(
                 results.map((item) => ({
                     id: item.trackId || item.collectionId || item.artistId, // Use any ID available.
@@ -71,7 +71,7 @@ function Search({ onAddToFavourites }) {
                 <h2>Search the iTunes Store</h2>
                 <form onSubmit={handleSearch} className="search-form">
                     {/* Search term input */}
-                    <label htmlFor="searchTerm">Enter Search Term:</label>
+                    <label htmlFor="searchTerm">Search:</label>
                     <input
                         id="searchTerm"
                         type="text"
@@ -81,7 +81,7 @@ function Search({ onAddToFavourites }) {
                     />
 
                     {/* Media type dropdown */}
-                    <label htmlFor="mediaType">Select Media Type:</label>
+                    <label htmlFor="mediaType">Select Media:</label>
                     <select id="mediaType" value={mediaType} onChange={(e) => setMediaType(e.target.value)}>
                         <option value="all">All</option>
                         <option value="movie">Movie</option>

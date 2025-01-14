@@ -1,5 +1,3 @@
-//backend/middleware/jwtMiddleware.js
-
 const jwt = require('jsonwebtoken');
 
 function jwtMiddleware(req, res, next) {
@@ -24,7 +22,7 @@ function jwtMiddleware(req, res, next) {
             console.log('Invalid token - or token expired');
         }
     } else {
-        //if the token doesnt exist, it means its the first request - flip a boolean and attach it to the req object, then allow the request through - the backend will generate a token and send it back for subsequent requests.
+        //if the token doesnt exist, it means its the first request - set the boolean to true and attach it to the req object, then allow the request through - the backend will generate a token and send it back for subsequent requests.
         req.isFirstRequest = true;
         next();
     }
