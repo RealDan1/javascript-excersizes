@@ -50,11 +50,12 @@ function Search({ onAddToFavourites }) {
             // Update the state with the mocked data:
             setSearchResults(
                 results.map((item) => ({
-                    id: item.trackId || item.collectionId || item.artistId, // Use any unique ID available.
+                    id: item.trackId || item.collectionId || item.artistId, // Use any ID available.
                     name: item.trackName || item.collectionName || item.artistName,
                     description: item.artistName || item.primaryGenreName, // Artist or genre as fallback.
                     artwork: item.artworkUrl100 || '',
                     releaseDate: `${item.releaseDate.substring(0, 4)}` || 'Unknown',
+                    album: item.collectionName || null,
                 }))
             );
             // Clear the input:
@@ -67,6 +68,8 @@ function Search({ onAddToFavourites }) {
                     name: item.trackName || item.collectionName || item.artistName,
                     description: item.artistName || item.primaryGenreName,
                     artwork: item.artworkUrl100 || '',
+                    album: item.collectionName || null,
+                    // finish
                 }))
             );
         } catch (error) {
@@ -120,8 +123,9 @@ function Search({ onAddToFavourites }) {
                                     <img src={item.artwork} alt={item.name} className="item-artwork" />
                                     <div className="item-info">
                                         <h4>{item.name}</h4>
-                                        <p>{item.description}</p>
+                                        <p>By: {item.description}</p>
                                         <p>Released: {item.releaseDate}</p>
+                                        <p>Collection: {item.album ? item.album : null}</p>
                                     </div>
                                     <button onClick={() => onAddToFavourites(item)}>Add to Favourites</button>
                                 </li>

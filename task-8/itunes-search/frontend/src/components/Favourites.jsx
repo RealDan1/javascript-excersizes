@@ -15,6 +15,7 @@ function Favourites({ favourites, onRemoveFromFavourites }) {
                                     <h4>{item.name}</h4>
                                     <p>{item.description}</p>
                                     <p>Released: {item.releaseDate}</p>
+                                    <p>Collection: {item.album ? item.album : null}</p>
                                 </div>
                                 <button onClick={() => onRemoveFromFavourites(item.trackId)}>Remove</button>
                             </li>
