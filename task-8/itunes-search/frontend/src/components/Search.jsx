@@ -43,35 +43,21 @@ function Search({ onAddToFavourites }) {
                 });
             }
 
-            console.dir(response.data, { depth: null }); //DELETE!!!!!! Just log the response for dev purposes
-
             const results = response.data.itunesResponse.results || [];
 
             // Update the state with the mocked data:
             setSearchResults(
                 results.map((item) => ({
                     id: item.trackId || item.collectionId || item.artistId, // Use any ID available.
-                    name: item.trackName || item.collectionName || item.artistName,
+                    name: item.trackName || item.artistName || item.collectionName,
                     description: item.artistName || item.primaryGenreName, // Artist or genre as fallback.
                     artwork: item.artworkUrl100 || '',
-                    releaseDate: `${item.releaseDate.substring(0, 4)}` || 'Unknown',
+                    releaseDate: `${item.releaseDate.substring(0, 4)}` || 'Unknown', // truncate the release date string to the first four letters - the year
                     album: item.collectionName || null,
                 }))
             );
             // Clear the input:
             setSearchTerm('');
-
-            //DELETE!!!!! log for testing
-            console.log(
-                results.map((item) => ({
-                    id: item.trackId || item.collectionId || item.artistId,
-                    name: item.trackName || item.collectionName || item.artistName,
-                    description: item.artistName || item.primaryGenreName,
-                    artwork: item.artworkUrl100 || '',
-                    album: item.collectionName || null,
-                    // finish
-                }))
-            );
         } catch (error) {
             console.error(
                 error.response?.data?.message || 'An error occurred while sending the search request to the backend.'
