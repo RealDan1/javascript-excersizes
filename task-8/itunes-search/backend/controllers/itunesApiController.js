@@ -3,7 +3,7 @@ const axios = require('axios');
 
 const searchItunes = async (req, res) => {
     const isFirstRequest = req.isFirstRequest;
-    const { searchTerm, mediaType } = req.query; // deconstruct the searchTerm and mediaType from the req.query.
+    const { searchTerm, mediaType } = req.params; // deconstruct the searchTerm and mediaType from the req.params.
 
     if (isFirstRequest) {
         //create a new payload with id Date.now - just to have something to sign into the token - later we can set the token to expire after a certain amount of time, for now this works
