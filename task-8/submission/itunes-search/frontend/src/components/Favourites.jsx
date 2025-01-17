@@ -3,7 +3,7 @@ function Favourites({ favourites, onRemoveFromFavourites }) {
         <div className="favourites-container">
             <div className="favourites-inner-container">
                 <h2>Your Favourites</h2>
-                {/* Check if no favourites yet */}
+                {/* Check if user has any favourites yet */}
                 {favourites.length === 0 ? (
                     <p>You have no favourites yet.</p>
                 ) : (
