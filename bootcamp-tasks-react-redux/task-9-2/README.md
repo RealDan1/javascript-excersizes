@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# Redux To-Do Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+This is a responsive to-do list application built with React and Redux Toolkit. It includes features such as adding, editing, completing, and deleting tasks. The app also integrates Bootstrap for modals and user-friendly styling. It is a modern web application that demonstrates scalable state management and reusable components.
 
-In the project directory, you can run:
+## Purpose
 
-### `npm start`
+The app demonstrates how to:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+-   Implement state management using Redux Toolkit with slices for modular and maintainable code.
+-   Create dynamic and responsive user interfaces using React and Bootstrap.
+-   Utilize modals for editing and providing user feedback.
+-   Handle real-time state updates with Redux actions and reducers.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Key Features
 
-### `npm test`
+-   **Task Management:** Add, edit, complete, and delete tasks with a responsive UI.
+-   **State Management:** Centralized state using Redux Toolkit with separate slices for tasks and counters.
+-   **Dynamic Modals:** Includes warning, info, and edit modals using Bootstrap for a polished user experience.
+-   **Real-Time Updates:** Task list and counters update in real time as actions are performed.
+-   **Responsive Design:** Designed for desktop and mobile, with a clean interface.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## How to Install:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Requirements
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-   [Node.js](https://nodejs.org/)
+-   npm (comes with Node.js)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Steps
 
-### `npm run eject`
+1. Navigate to the folder in terminal:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    ```bash
+    cd redux-todo-app
+    ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Install dependencies:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    ```bash
+    npm install
+    ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Start the app:
 
-## Learn More
+    ```bash
+    npm start
+    ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. Open `http://localhost:3000/` in your browser.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## Technologies Used
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+-   **Frontend:**
+    -   React.js
+    -   Redux Toolkit
+    -   React-Bootstrap
+-   **Styling:**
+    -   Custom CSS
+    -   Bootstrap
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Why This Project Stands Out
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-   **Advanced State Management:** Demonstrates the power of Redux Toolkit for organizing and maintaining application state.
+-   **Component Reusability:** Features modular components like `MyModal`, `WarningModal`, and `InfoModal`, which can be reused across projects.
+-   **Clean Design:** Combines React and Bootstrap for a responsive, user-friendly interface.
+-   **Learning Tool:** A great example for understanding Redux and React integration with modern tools.
