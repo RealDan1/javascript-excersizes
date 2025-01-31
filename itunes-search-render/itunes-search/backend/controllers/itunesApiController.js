@@ -10,10 +10,10 @@ const searchItunes = async (req, res) => {
         // Create a JWT token payload
         //--------------------------------
         const payload = {
-            id: Date.now,
+            id: Date.now(),
         };
         // Generate the token for the first time -  sign the token with the payload
-        const token = jwt.sign(JSON.stringify(payload), 'HyperionDev', {
+        const token = jwt.sign(JSON.stringify(payload), process.env.JWT_SECRET, {
             algorithm: 'HS256',
         });
 
@@ -23,6 +23,7 @@ const searchItunes = async (req, res) => {
             const itunesResponse = await axios.get('https://itunes.apple.com/search?', {
                 params: { term: searchTerm, country: 'ZA', media: mediaType }, // Sending query parameters
             });
+            const token = jwt.sign({ id }, process.env.JWT_SECRET, { algorithm: 'HS256' });
             //return the result and the token in the response object
             res.json({ itunesResponse: itunesResponse.data, token: token });
         } catch (error) {

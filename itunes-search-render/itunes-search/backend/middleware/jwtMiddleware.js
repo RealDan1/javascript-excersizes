@@ -11,7 +11,7 @@ function jwtMiddleware(req, res, next) {
         const tokenExtract = jwtToken.split(' ')[1];
         try {
             // 3. Verify the token using the secret key
-            const payload = jwt.verify(tokenExtract, 'HyperionDev');
+            const payload = jwt.verify(tokenExtract, process.env.JWT_SECRET);
             // 4. Attach the payload to the request object
             req.payload = payload;
             // 5. Proceed to the protected route
