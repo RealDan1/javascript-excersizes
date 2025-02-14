@@ -11,19 +11,28 @@ function App() {
     },
   ]);
 
+  //function to add a new toDo
   const handleSubmit = (event) => {
     event.preventDefault();
     const value = event.target.toDoInput.value;
     setToDos([
       ...toDos,
       {
-        id: crypto.randomUUID,
+        id: crypto.randomUUID(),
         text: value,
         isComplete: false,
       },
     ]);
     //reset the form:
     event.target.reset();
+  };
+
+  const handleDelete = (id) => {
+    setToDos(
+      toDos.filter((item) => {
+        return item.id !== id;
+      })
+    );
   };
 
   return (
@@ -47,6 +56,7 @@ function App() {
                   {item.text}
                   {item.completed ? "is completed" : "is not completed"}
                 </p>
+                <button onClick={() => handleDelete(item.id)}>Delete</button>
               </li>
             ))
           : "Looks real empty here, add a To Do"}
