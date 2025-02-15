@@ -52,10 +52,10 @@ function App() {
         {toDos.length > 0
           ? toDos.map((item) => (
               <li id={item.id}>
-                <p>
+              
                   {item.text}
-                  {item.completed ? "is completed" : "is not completed"}
-                </p>
+                  {item.completed ? " is completed" : " is not completed"}
+                
                 <button onClick={() => handleDelete(item.id)}>Delete</button>
               </li>
             ))
