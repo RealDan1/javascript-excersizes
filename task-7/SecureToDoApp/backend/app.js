@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({ origin: '*' })); // Allow all origins (or replace with frontend URL later)
 
 app.use(bodyParser.json());
 
