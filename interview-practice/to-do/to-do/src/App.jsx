@@ -27,6 +27,7 @@ function App() {
     event.target.reset();
   };
 
+  //Delete function
   const handleDelete = (id) => {
     setToDos(
       toDos.filter((item) => {
@@ -35,6 +36,16 @@ function App() {
     );
   };
 
+  //select completed
+  const handleComplete = (item) => {
+    setToDos((prevTodos) => {
+      return prevTodos.map((todo) => {
+        return todo.id === item.id
+          ? { ...todo, isComplete: !item.isComplete }
+          : todo;
+      });
+    });
+  };
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -49,14 +60,18 @@ function App() {
         <button type="submit">Add To-Do</button>
       </form>
       <div className="toDos">
-        {toDos.length > 0
+        {toDos?.length > 0
           ? toDos.map((item) => (
-              <li id={item.id}>
-              
-                  {item.text}
-                  {item.completed ? " is completed" : " is not completed"}
-                
-                <button onClick={() => handleDelete(item.id)}>Delete</button>
+              <li id={item.id} key={item.id}>
+                <input
+                  type="checkbox"
+                  id={item.id}
+                  onClick={() => handleComplete(item)}
+                />
+                {item.text}
+                {item.completed ? " is completed" : " is not completed"}
+
+                <button onClick={() => handleDelete(id)}>Delete</button>
               </li>
             ))
           : "Looks real empty here, add a To Do"}
