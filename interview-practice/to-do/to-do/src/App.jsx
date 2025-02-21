@@ -1,8 +1,38 @@
 import "./App.css";
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+function EditInput({ setEditing, item, setToDos }) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setEditing(false);
+  };
+
+  //when the user types a value in - change the text field of the currently selected item
+  const handleInputChange = (e) => {
+    setToDos((prevTodos) => {
+      return prevTodos.map((toDo) =>
+        toDo.id === item.id ? { ...toDo, text: e.target.value } : toDo
+      );
+    });
+  };
+
+  return (
+    <>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          defaultValue={item?.text}
+          onChange={handleInputChange}
+        />
+        <button type="submit">submit</button>
+      </form>
+    </>
+  );
+}
 
 function App() {
+  const [editing, setEditing] = useState(false);
   const [toDos, setToDos] = useState([
     {
       id: crypto.randomUUID(),
@@ -46,6 +76,14 @@ function App() {
       });
     });
   };
+
+  // turn editing mode on:
+  const handleEdit = () => {
+    setEditing(true);
+  };
+
+  //if editing mode is on, show an input dialog next to the item
+  useEffect(() => {}, [editing]);
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -63,13 +101,25 @@ function App() {
         {toDos?.length > 0
           ? toDos.map((item) => (
               <li id={item.id} key={item.id}>
-                <input
-                  type="checkbox"
-                  id={item.id}
-                  className="checkbox"
-                  onClick={() => handleComplete(item)}
-                />
-                {item.text}
+                {editing === true ? (
+                  <EditInput
+                    setEditing={setEditing}
+                    item={item}
+                    setToDos={setToDos}
+                  />
+                ) : (
+                  <>
+                    <input
+                      type="checkbox"
+                      id={item.id}
+                      className="checkbox"
+                      onClick={() => handleComplete(item)}
+                    />
+                    {item.text}
+                    <button onClick={handleEdit}>Edit</button>
+                  </>
+                )}
+
                 <button onClick={() => handleDelete(item.id)}>Delete</button>
               </li>
             ))
