@@ -82,7 +82,7 @@ function App() {
     setEditing(true);
   };
 
-  //if editing mode is on, show an input dialog next to the item
+  //if editing mode is changed, reload the component
   useEffect(() => {}, [editing]);
   return (
     <>
