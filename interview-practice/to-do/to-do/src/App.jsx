@@ -66,12 +66,11 @@ function App() {
                 <input
                   type="checkbox"
                   id={item.id}
+                  className="checkbox"
                   onClick={() => handleComplete(item)}
                 />
                 {item.text}
-                {item.completed ? " is completed" : " is not completed"}
-
-                <button onClick={() => handleDelete(id)}>Delete</button>
+                <button onClick={() => handleDelete(item.id)}>Delete</button>
               </li>
             ))
           : "Looks real empty here, add a To Do"}
