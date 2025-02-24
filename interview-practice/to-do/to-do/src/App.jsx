@@ -33,6 +33,7 @@ function EditInput({ setEditing, item, setToDos }) {
 
 function App() {
   const [editing, setEditing] = useState(false);
+  const [editingItem, setEditingItem] = useState(false);
   const [toDos, setToDos] = useState([
     {
       id: crypto.randomUUID(),
@@ -78,8 +79,9 @@ function App() {
   };
 
   // turn editing mode on:
-  const handleEdit = () => {
+  const handleEdit = (id) => {
     setEditing(true);
+    setEditingItem(id);
   };
 
   //if editing mode is changed, reload the component
@@ -101,7 +103,7 @@ function App() {
         {toDos?.length > 0
           ? toDos.map((item) => (
               <li id={item.id} key={item.id}>
-                {editing === true ? (
+                {editing === true && item.id === editingItem ? (
                   <EditInput
                     setEditing={setEditing}
                     item={item}
@@ -116,7 +118,7 @@ function App() {
                       onClick={() => handleComplete(item)}
                     />
                     {item.text}
-                    <button onClick={handleEdit}>Edit</button>
+                    <button onClick={() => handleEdit(item.id)}>Edit</button>
                   </>
                 )}
 
