@@ -6,6 +6,7 @@ function EditInput({ setEditing, item, setToDos }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setEditing(false);
+    //e.target.reset?? 
   };
 
   //when the user types a value in - change the text field of the currently selected item
