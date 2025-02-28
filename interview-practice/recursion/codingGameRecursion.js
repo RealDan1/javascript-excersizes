@@ -16,3 +16,13 @@ function power(base, exponent) {
     return base * power(base, exponent - 1);
 }
 // console.log(power(2, 1));
+
+function factorial(n) {
+    if (n == 1) {
+        return 1;
+    }
+
+    return n * factorial(n - 1);
+}
+
+console.log(factorial(5));
