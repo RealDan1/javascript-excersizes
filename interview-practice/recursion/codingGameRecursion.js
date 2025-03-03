@@ -26,3 +26,24 @@ function factorial(n) {
 }
 
 console.log(factorial(5));
+
+//
+var allAreLessThanSeven = all([1, 2, 9], function (num) {
+    return num < 7;
+});
+
+console.log(allAreLessThanSeven); // false
+
+//Check all values in an array
+function all(array, callback) {
+    var copy = copy || array.slice(); // shallow copies array
+
+    if (copy.length === 0) return true;
+
+    if (callback(copy[0])) {
+        copy.shift(); // remove first element from array
+        return all(copy, callback);
+    } else {
+        return false;
+    }
+}
