@@ -25,18 +25,18 @@ function factorial(n) {
     return n * factorial(n - 1);
 }
 
-console.log(factorial(5));
+// console.log(factorial(5));
 
 //
 var allAreLessThanSeven = all([1, 2, 9], function (num) {
     return num < 7;
 });
 
-console.log(allAreLessThanSeven); // false
+// console.log(allAreLessThanSeven); // false
 
 //Check all values in an array
 function all(array, callback) {
-    var copy = copy || array.slice(); // shallow copies array
+    var copy = array.slice(); // shallow copies array
 
     if (copy.length === 0) return true;
 
@@ -47,3 +47,15 @@ function all(array, callback) {
         return false;
     }
 }
+
+//multiply array
+function productOfArray(arr) {
+    var copy = arr.slice();
+    if (copy.length === 0) {
+        return 1;
+    } else {
+        return (product = copy[0] * productOfArray(copy.slice(1))); //times the first item of the array by the result of the recursion on the array minus the first element
+    }
+}
+
+// console.log(productOfArray([1, 2, 3, 10]));
