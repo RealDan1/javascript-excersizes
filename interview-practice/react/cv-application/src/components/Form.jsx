@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Cv from './cv';
 export default function Form() {
   const [person, setPerson] = useState({});
-  const [input, setInput] = useState({});
+  const [input, setInput] = useState({ name: '' });
 
   const handleChange = (e) => {
     const { value, name } = e.target;
@@ -11,7 +11,7 @@ export default function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setPerson(input); //maybe change this to not mutate?
+    setPerson({ ...input }); //maybe change this to not mutate?
   };
 
   return (
@@ -19,8 +19,8 @@ export default function Form() {
       <Cv person={person}></Cv>
       <div id="form">
         <form onSubmit={handleSubmit}>
-          <input type="text" value={input.name} onChange={handleChange} />
-          <button onSubmit={handleSubmit}>Submit</button>
+          <input type="text" name="name" value={input.name} onChange={handleChange} />
+          <button type="submit">Submit</button>
         </form>
       </div>
     </>
