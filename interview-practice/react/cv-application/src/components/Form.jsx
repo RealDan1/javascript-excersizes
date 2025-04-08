@@ -115,6 +115,19 @@ export default function Form() {
               onChange={handleChange}
             />
             <br />
+            <label htmlFor="studyTitle" className="label">
+              Study title:
+            </label>
+            <input
+              id="studyTitle"
+              name="studyTitle"
+              className="input"
+              type="text"
+              defaultValue={input.education.studyTitle}
+              value={input.education.studyTitle}
+              onChange={handleChange}
+            />
+            <br />
             <button type="submit">Submit</button>
           </form>
         ) : (
