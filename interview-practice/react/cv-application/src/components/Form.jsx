@@ -49,6 +49,76 @@ export default function Form() {
           },
         };
       });
+    } else if (name === 'studytitle') {
+      setInput((prevInput) => {
+        return {
+          ...prevInput,
+          education: {
+            ...prevInput.education,
+            studyTitle: value,
+          },
+        };
+      });
+    } else if (name === 'studyDate') {
+      setInput((prevInput) => {
+        return {
+          ...prevInput,
+          education: {
+            ...prevInput.education,
+            studyDate: value,
+          },
+        };
+      });
+    } else if (name === 'companyName') {
+      setInput((prevInput) => {
+        return {
+          ...prevInput,
+          experience: {
+            ...prevInput.experience,
+            companyName: value,
+          },
+        };
+      });
+    } else if (name === 'positionTitle') {
+      setInput((prevInput) => {
+        return {
+          ...prevInput,
+          experience: {
+            ...prevInput.experience,
+            positionTitle: value,
+          },
+        };
+      });
+    } else if (name === 'responsibilities') {
+      setInput((prevInput) => {
+        return {
+          ...prevInput,
+          experience: {
+            ...prevInput.experience,
+            responisibilities: value,
+          },
+        };
+      });
+    } else if (name === 'dateFrom') {
+      setInput((prevInput) => {
+        return {
+          ...prevInput,
+          experience: {
+            ...prevInput.experience,
+            dateFrom: value,
+          },
+        };
+      });
+    } else if (name === 'dateUntil') {
+      setInput((prevInput) => {
+        return {
+          ...prevInput,
+          experience: {
+            ...prevInput.experience,
+            dateUntil: value,
+          },
+        };
+      });
     }
   };
 
@@ -128,6 +198,83 @@ export default function Form() {
               onChange={handleChange}
             />
             <br />
+            <label htmlFor="studyDate" className="label">
+              Study Date:
+            </label>
+            <input
+              id="studyDate"
+              name="studyDate"
+              className="input"
+              type="text"
+              defaultValue={input.education.studyDate}
+              value={input.education.studyDate}
+              onChange={handleChange}
+            />
+            <br />
+            <label htmlFor="companyName" className="label">
+              Company Name:
+            </label>
+            <input
+              id="companyName"
+              name="companyName"
+              className="input"
+              type="text"
+              defaultValue={input.experience.companyName}
+              value={input.experience.companyName}
+              onChange={handleChange}
+            />
+            <br />
+            <label htmlFor="positionTitle" className="label">
+              Position Title:
+            </label>
+            <input
+              id="positionTitle"
+              name="positionTitle"
+              className="input"
+              type="text"
+              defaultValue={input.experience.positionTitle}
+              value={input.experience.positionTitle}
+              onChange={handleChange}
+            />
+            <br />
+            <label htmlFor="responsibilities" className="label">
+              Responsibilities:
+            </label>
+            <input
+              id="responsibilities"
+              name="responsibilities"
+              className="input"
+              type="text"
+              defaultValue={input.experience.responsibilities}
+              value={input.experience.responsibilities}
+              onChange={handleChange}
+            />
+            <br />
+            <label htmlFor="dateFrom" className="label">
+              Date From:
+            </label>
+            <input
+              id="dateFrom"
+              name="dateFrom"
+              className="input"
+              type="text"
+              defaultValue={input.experience.dateFrom}
+              value={input.experience.dateFrom}
+              onChange={handleChange}
+            />
+            <br />
+            <label htmlFor="dateUntil" className="label">
+              Date Until:
+            </label>
+            <input
+              id="dateUntil"
+              name="dateUntil"
+              className="input"
+              type="text"
+              defaultValue={input.experience.dateUntil}
+              value={input.experience.dateUntil}
+              onChange={handleChange}
+            />
             <button type="submit">Submit</button>
           </form>
         ) : (
