@@ -49,7 +49,7 @@ export default function Form() {
           },
         };
       });
-    } else if (name === 'studytitle') {
+    } else if (name === 'studyTitle') {
       setInput((prevInput) => {
         return {
           ...prevInput,
@@ -95,7 +95,7 @@ export default function Form() {
           ...prevInput,
           experience: {
             ...prevInput.experience,
-            responisibilities: value,
+            responsibilities: value,
           },
         };
       });
@@ -133,6 +133,7 @@ export default function Form() {
       <div id="form">
         {editing ? (
           <form onSubmit={handleSubmit}>
+            <h1>Input CV details:</h1>
             <label htmlFor="generalName" className="label">
               Name:
             </label>
@@ -275,6 +276,7 @@ export default function Form() {
               value={input.experience.dateUntil}
               onChange={handleChange}
             />
+            <br />
             <button type="submit">Submit</button>
           </form>
         ) : (

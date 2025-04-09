@@ -9,7 +9,7 @@ export default function Cv({ cv }) {
       <p>Study Date: {cv?.education?.studyDate}</p>
       <p>Company Name: {cv?.experience?.companyName}</p>
       <p>Position Title: {cv?.experience?.positionTitle}</p>
-      <p>Responisibilities: {cv?.experience?.responisibilities}</p>
+      <p>Responsibilities: {cv?.experience?.responsibilities}</p>
       <p>Worked From: {cv?.experience?.dateFrom}</p>
       <p>Worked Until: {cv?.experience?.dateUntil}</p>
     </div>
